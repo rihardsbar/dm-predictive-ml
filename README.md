@@ -1,8 +1,8 @@
-#This is an masters course project for producing a predictive data mining model.
+#This is a masters course project for producing a predictive data mining model.
 
 ## Dependencies
-Python dependencies are given in requirements.txt <br />
-Use pip to install them globally, if there any issues, local virtual environments might be required to be created.
+Python dependencies are given in requirements.txt, <br />
+use pip to install them globally, if there any issues, local virtual environments might be required to be set up.
 
 ##Scripts
 
