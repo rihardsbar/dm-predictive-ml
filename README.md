@@ -10,7 +10,7 @@ Use pip to install them globally, if there any issues, local virtual environment
 #### Description
 Takes in a CSV file and produces Pearson correlation plot, based on [principal component analysis kernel](https://www.kaggle.com/arthurtok/d/deepmatrix/imdb-5000-movie-dataset/principal-component-analysis-with-kmeans-visuals)
 #### Usage
->> pearson_correlations.py [path/file.csv]
+>> pearson_correlation.py [path/file.csv]
 
 ## Datasets are not being uploaded to the repository
 Links for the datasets are available as follows- <br />
