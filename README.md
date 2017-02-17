@@ -12,6 +12,6 @@ Takes in a CSV file and produces Pearson correlation plot, based on [principal c
 #### Usage
 >> pearson_correlation.py [path/file.csv]
 
-## Datasets are not being uploaded to the repository
+## Datasets
 Links for the datasets are available as follows- <br />
   IMDB movie data set: https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset <br />
