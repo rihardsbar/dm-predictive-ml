@@ -15,4 +15,3 @@ Takes in a CSV file and produces Pearson correlation plot, based on [principal c
 ## Datasets are not being uploaded to the repository
 Links for the datasets are available as follows- <br />
   IMDB movie data set: https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset <br />
-  TalkingData mobile user data set: https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data <br />
