@@ -1,3 +1,4 @@
+# Original: https://github.com/sundeepblue/movie_rating_prediction
 library(ggplot2)
 library(VIM)
 library(mice)
@@ -16,6 +17,8 @@ movies = read.csv("../imdb_data/movie_metadata.csv")
 summary(movies)
 str(movies)
 colnames(movies)
+
+hist(movies$gross, breaks=c(100))
 
 # ===============================================================================================
 # Filter dataset
