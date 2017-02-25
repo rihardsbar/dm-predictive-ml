@@ -4,3 +4,6 @@
 .Rproj.user
 *.Rproj
 
+#Python-realted files
+*.ipynb_checkpoints
+
