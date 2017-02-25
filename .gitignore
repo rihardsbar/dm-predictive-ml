@@ -1,1 +1,11 @@
+#Mac Stuff
 .DS_store
+
+#R-related files
+.RData
+.Rhistory
+.Rproj.user
+*.Rproj
+
+#Python-realted files
+*.ipynb_checkpoints
