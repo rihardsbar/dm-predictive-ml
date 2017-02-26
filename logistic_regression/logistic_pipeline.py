@@ -18,7 +18,7 @@ from sklearn.preprocessing import PolynomialFeatures
 import seaborn as sns # More snazzy plotting library
 import itertools
 
-file_path = "/home/user/projects/data_mining/predictive_data_mining/logistic_regression/working_dataset.csv"
+file_path = "./working_dataset.csv"
 dta = pd.read_csv(file_path)
 #clean up data non numeric rows
 str_list = [] # empty list to contain columns with strings (words)
