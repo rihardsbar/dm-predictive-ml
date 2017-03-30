@@ -129,16 +129,17 @@ def run():
     ###############################################
     # Process a 5 degree pipeline with  PCA mle  #
     ###############################################
+
     #cannot go more than three as there are less samples than features eventually
     degrees=[1,2,3]
     n_components = ['mle']
     solvers =  ['newton-cg', 'lbfgs', 'liblinear', 'sag']
     class_weight = [None, "balanced"]
     Cs = np.logspace(-4, 4, 3)
-    run_grid_search_pca(x_data, y_target, "5 degrees, PCA with mle", degrees, n_components, solvers, class_weight, Cs)
+    run_grid_search_pca(x_data, y_target, "3 degrees, PCA with mle", degrees, n_components, solvers, class_weight, Cs)
 
     ##########################################
-    # Process a 5 degree pipeline with FA   #
+    # Process a 3 degree pipeline with FA   #
     ##########################################
     for deg in [1,2,3]:
         degrees=[deg]
