@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
+import random as randompy
 
 
 
@@ -68,11 +69,12 @@ class NeuralNetwork():
 
     # The neural network prints its weights
     def print_weights(self):
-        print "    Layer 1 (4 neurons, each with 3 inputs): "
-        print self.layer1.synaptic_weights
-        print "    Layer 2 (1 neuron, with 4 inputs):"
-        print self.layer2.synaptic_weights
-movie = pd.read_csv('/Users/ahmet/Documents/GitHub/movie_rating_prediction/movie_metadata_new.csv')
+        # print "    Layer 1 (4 neurons, each with 3 inputs): "
+        # print self.layer1.synaptic_weights
+        # print "    Layer 2 (1 neuron, with 4 inputs):"
+        # print self.layer2.synaptic_weights
+        pass
+movie = pd.read_csv('/Users/ahmet/Documents/GitHub/dm-predictive-ml/dataset/movie_metadata_budgets.csv')
 str_list = [] # empty list to contain columns with strings (words)
 for colname, colvalue in movie.iteritems():
     if type(colvalue[1]) == str:
@@ -85,28 +87,40 @@ movie_num = movie[num_list]
 movie_num = movie_num.fillna(value=0, axis=1)
 
 #normalise the dataframe
-movie_num_norm = movie_num / movie_num.max()
+movie_num_shuff = movie_num / movie_num.max()
 norm_coef = movie_num.max()
+
+#shuffle the list
+movie_num_norm = movie_num_shuff.reindex(np.random.permutation(movie_num_shuff.index))
 
 inputs = []
 outputs = []
 # print movie_num_norm.head()
 count = 0
-for amovie in movie_num_norm.itertuples():
-    if amovie.gross > 0.0 and amovie.budget > 0.0:
-        outputs.append(amovie.gross)
-        inputs.append([amovie.imdb_score, amovie.duration])
-    # else:
-    #     count += 1
+for amovie in movie_num_norm[:100].itertuples():
+    if float(amovie.duration) == 0.0 or float(amovie.production_budget) == 0.0 or float(amovie.worldwide_gross) == 0.0:
+        count += 1
+    else:
+        outputs.append(amovie.worldwide_gross)
+        inputs.append([amovie.duration, amovie.production_budget, amovie.imdb_score])
+
 print 'Incomplete sets: ', str(count)
 
 # inputs = [[0, 0, 1, 1], [0, 1, 1], [1, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1], [0, 0, 0]]
 # outputs = [[0, 1, 1, 1, 1, 0, 0]]
 
-inputs_train = inputs[:50]
-outputs_train = outputs[:50]
-inputs_test = inputs[60:70]
-outputs_test = outputs[60:70]
+inputs_train = []
+outputs_train = []
+inputs_test = []
+outputs_test = []
+
+for i in range(len(inputs)):
+    if randompy.random() < .8:
+        inputs_train.append(inputs[i])
+        outputs_train.append(outputs[i])
+    else:
+        inputs_test.append(inputs[i])
+        outputs_test.append(outputs[i])
 
 if __name__ == "__main__":
 
@@ -114,10 +128,10 @@ if __name__ == "__main__":
     random.seed(1)
 
     # Create layer 1 (4 neurons, each with 3 inputs)
-    layer1 = NeuronLayer(3, 2)
+    layer1 = NeuronLayer(4, len(inputs_test[0]))
 
     # Create layer 2 (a single neuron with 4 inputs)
-    layer2 = NeuronLayer(1, 3)
+    layer2 = NeuronLayer(1, 4)
     # Combine the layers to create a neural network
     neural_network = NeuralNetwork(layer1, layer2)
 
@@ -131,7 +145,7 @@ if __name__ == "__main__":
 
     # Train the neural network using the training set.
     # Do it 60,000 times and make small adjustments each time.
-    neural_network.train(training_set_inputs, training_set_outputs, 60000)
+    neural_network.train(training_set_inputs, training_set_outputs, 10000)
 
     print "Stage 2) New synaptic weights after training: "
     neural_network.print_weights()
@@ -144,9 +158,10 @@ if __name__ == "__main__":
     differences = []
     for index, item in enumerate(inputs_test):
         hidden, output = neural_network.think(array(item))
-        # print 'Prediction:', output*norm_coef.gross, ' Real: ', outputs_test[index]*norm_coef.gross, ' Diff:', (output - outputs_test[index])*norm_coef.gross
-        differences.append(abs((output - outputs_test[index])*norm_coef.gross))
+        param = norm_coef.worldwide_gross
+        print 'Prediction:', output*param, ' Real: ', outputs_test[index]*param, ' Diff:', (output - outputs_test[index])*param, abs(1)/output*param
+        differences.append(abs((output - outputs_test[index])*param)/outputs_test[index]*param)
     print sum(differences)/float(len(differences))
 
 plt.plot(graph_y)
-plt.show()
+# plt.show()
