@@ -18,7 +18,7 @@ from sklearn.preprocessing import PolynomialFeatures
 import seaborn as sns # More snazzy plotting library
 import itertools
 
-file_path = "./working_dataset.csv"
+file_path = "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
 dta = pd.read_csv(file_path)
 #clean up data non numeric rows
 str_list = [] # empty list to contain columns with strings (words)
