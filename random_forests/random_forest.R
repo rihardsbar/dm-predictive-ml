@@ -49,7 +49,7 @@ movies_usa %>% select(movie_title, year, budget, adj_budget, adj_gross)
 
 
 select_columns = c('imdb_score', 'num_user_for_reviews', 'num_critic_for_reviews', 'cast_total_facebook_likes',
-                   'actor_1_facebook_likes', 'actor_2_facebook_likes', 'actor_3_facebook_likes', 'num_voted_users', 'adj_budget', 'adj_gross')
+                   'actor_1_facebook_likes', 'actor_2_facebook_likes', 'actor_3_facebook_likes', 'num_voted_users', 'adj_budget')
 
 movies_usa <- movies_usa[,select_columns]
 
@@ -59,7 +59,7 @@ movies_usa <- movies_usa[,select_columns]
 #movies_usa <- transformed
 
 ##########Divide into training and testing data##########
-inTrain = createDataPartition (movies_usa$adj_gross, p=0.8, list= FALSE ) 
+inTrain = createDataPartition (movies_usa, p=0.8, list= FALSE ) 
 trainData = movies_usa[inTrain,] 
 testData = movies_usa[-inTrain,]
 
@@ -102,6 +102,7 @@ rmse <- sqrt(mean((testData$adj_gross - predictions)^2))
 print(rmse)
 
 r2 <- rSquared(testData$adj_gross, testData$adj_gross - predict(rf, testData))
+plot(testData$adj_gross ~ predict(rf, testData))
 
 # libary(tree)
 # ### A Single Tree based on all variables
