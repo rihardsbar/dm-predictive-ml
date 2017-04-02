@@ -1,0 +1,43 @@
+##############################
+Kelvin
+#-----Decission Trees-------------- 2
+from sklearn.tree import           DecisionTreeRegressor
+from sklearn.tree import           ExtraTreeRegressor
+-----Ensemble---------------------- 4
+from sklearn.ensemble import       BaggingRegressor
+from sklearn.ensemble import       ExtraTreesRegressor
+from sklearn.ensemble import       GradientBoostingRegressor
+from sklearn.ensemble import       RandomForestRegressor
+
+
+############################
+Ahmet 
+#----Neural Networks--------------- 1
+from sklearn.neural_network import MLPRegressor
+#-----Support Vector Machines------ 3
+from sklearn.svm import            SVR
+from sklearn.svm import            LinearSVR
+from sklearn.svm import            NuSVR
+-----Ensemble---------------------- 1
+from sklearn.ensemble import       AdaBoostRegressor
+
+#############################
+Su
+#----Generalized Linear models-----  6
+from sklearn.linear_model import   BayesianRidge
+from sklearn.linear_model import   ElasticNet
+from sklearn.linear_model import   HuberRegressor
+from sklearn.linear_model import   Lars
+from sklearn.linear_model import   Lasso
+from sklearn.linear_model import   LassoLars
+
+###########################
+Ronald
+#----Generalized Linear models-----  4
+from sklearn.linear_model import   LinearRegression
+from sklearn.linear_model import   PassiveAggressiveRegressor
+from sklearn.linear_model import   Ridge
+from sklearn.linear_model import   SGDRegressor
+#---Nearest Neighbors---- 2
+from sklearn.neighbors import      KNeighborsRegressor
+from sklearn.neighbors import      RadiusNeighborsRegressor
