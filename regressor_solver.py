@@ -73,9 +73,9 @@ from sklearn.kernel_ridge import     KernelRidge
 
 
 
-#file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
-file_path =  "../dataset/movie_metadata_cleaned_categ_num_only.csv"
-#file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
+#file_path =  "./dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
+file_path =  "./dataset/movie_metadata_cleaned_categ_num_only.csv"
+#file_path = "./dataset/movie_metadata_cleaned_no_vector_num_only.csv"
 
 dta = pd.read_csv(file_path)
 dta_clean = dta
