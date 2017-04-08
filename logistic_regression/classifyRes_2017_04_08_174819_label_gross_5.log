@@ -1,0 +1,10 @@
+#########################################
+###Starting all estimators for cl: label_gross_5
+#########################################
+####################################################################################
+
+####################################################################################
+***Starting [SVC] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{'model__kernel': ['poly', 'rbf', 'sigmoid'], 'model__coef0': [0.0, 0.5, 1.0], 'model__C': array([  1.00000000e-04,   1.00000000e+00,   1.00000000e+04]), 'model__degree': [2, 3, 5]}
+Fitting 4 folds for each of 81 candidates, totalling 324 fits

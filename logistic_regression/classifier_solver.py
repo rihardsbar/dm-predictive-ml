@@ -72,7 +72,7 @@ dta_clean = dta_clean.fillna(value=0, axis=1)
 dta_clean = dta_clean.dropna()
 dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
-##define helpers 
+##define helpers
 def get_powers_list(n_samples, n_features, n):
     base_arr = [{"pw":2},{"pw":3},{"pw":4}]
     max_pw = math.ceil(3320/n_features)
@@ -97,11 +97,11 @@ def get_components_list(n_features, lst):
     lst[0] = lst[0]-1
     lst_n = [n for n in lst if n < 3321]
     if len(lst_n) < len(lst):
-        lst_n = [3320] + lst_n 
+        lst_n = [3320] + lst_n
     return lst_n
 
 ##define new transformers
-def dummy(X):  
+def dummy(X):
     return X
 
 def poly(X, pw):
@@ -112,7 +112,7 @@ def poly(X, pw):
 
 def log(X):
     df_t = pd.DataFrame(X)
-    X_t = df_t.replace(0, 1/math.e) 
+    X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
 
@@ -147,14 +147,10 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-#reducers = [DummyTransformer, FactorAnalysis(), PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+#reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
 reducers = [DummyTransformer]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
-reducers_cfg[FactorAnalysis.__name__] = dict(
-        reducer__n_components = [],
-        reducer__svd_method = ['randomized']
-        )
 reducers_cfg[PCA.__name__] = dict(
         reducer__n_components = [],
         reducer__whiten = [True, False],
@@ -172,7 +168,7 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 ####### Models ##########
 #########################
-models = [AdaBoostClassifier()]
+models = [LinearSVC()]
 #models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
 models_cfg = {}
 models_cfg[AdaBoostClassifier.__name__] = dict(
@@ -184,7 +180,6 @@ models_cfg[BaggingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__bootstrap = [True, False],
     model__bootstrap_features = [True, False],
-    model__oob_score = [True, False]
 )
 models_cfg[ExtraTreesClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
@@ -215,7 +210,6 @@ models_cfg[LogisticRegression.__name__] = dict(
     model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
     model__C = np.logspace(-4, 4, 3),
     model__max_iter = [50, 100, 300],
-    model__penalty =['l1', 'l2']
 )
 models_cfg[RidgeClassifier.__name__] = dict(
     model__tol = [1e-4, 1e-3, 1e-2],
@@ -234,16 +228,15 @@ models_cfg[MultinomialNB.__name__] = dict(
 )
 models_cfg[KNeighborsClassifier.__name__] = dict(
     model__n_neighbors = [5, 10 , 20],
-    model__weights = ['uniform', 'distance'],
-    model__algorithm = ['ball_tree', 'kd_tree', 'brute', 'auto'],
+    model__algorithm = ['ball_tree', 'kd_tree', 'auto'],
     model__leaf_size = [15, 30, 50],
     model__p = [1, 2, 3]
 )
 models_cfg[RadiusNeighborsClassifier.__name__] = dict(
-    model__radius = [0.1, 0.5, 1.0, 3.0],
-    model__algorithm = ['ball_tree', 'kd_tree', 'brute', 'auto'],
-    model__leaf_size = [15, 30, 50],
-    model__p = [1, 2, 3]
+    model__radius = [0.1, 0.5, 1.0],
+    model__algorithm = ['ball_tree', 'kd_tree',  'auto'],
+    model__p = [1, 2, 3],
+    model__outlier_label = [6]
 )
 models_cfg[NearestCentroid.__name__] = dict(
     model__shrink_threshold = [None, 0.1, 0.4, 0.8]
@@ -252,25 +245,23 @@ models_cfg[MLPClassifier.__name__] = dict(
     model__hidden_layer_sizes = [10, 100, 500],
     model__activation = ['identity', 'logistic', 'tanh', 'relu'],
     model__solver = ['lbfgs', 'sgd', 'adam'],
-    model__max_iter = [200, 800],
+    model__max_iter = [500],
     model__learning_rate_init = [ 0.001,  0.01,  0.1]
 
 )
 models_cfg[SVC.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
-    model__kernel = ['linear', 'poly', 'rbf', 'sigmoid'],
+    model__kernel = ['rbf', 'sigmoid'],
     model__degree = [2,3,5],
     model__coef0 = [0.0, 0.5, 1.0]
 )
 models_cfg[LinearSVC.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
     model__loss = ['hinge', 'squared_hinge'],
-    model__penalty =['l1', 'l2'],
-    model__dual=[False]
 )
 models_cfg[NuSVC.__name__] = dict(
     model__nu = [0.3, 0.5, 1.0],
-    model__kernel = ['linear', 'poly', 'rbf', 'sigmoid'],
+    model__kernel = ['rbf', 'sigmoid'],
     model__degree = [2,3,5],
     model__coef0 = [0.0, 0.5, 1.0],
  )
@@ -288,17 +279,17 @@ models_cfg[ExtraTreeClassifier.__name__] =  dict(
 )
 
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
-    
+
     #create pipline and use GridSearch to find the best params for given pipeline
     name = type(model).__name__
     preprocessor_name = type(preprocessor).__name__ if (type(preprocessor).__name__ != "FunctionTransformer") else preprocessor.func.__name__
     transfomer_name =  type(transfomer).__name__ if (type( transfomer).__name__ != "FunctionTransformer") else  transfomer.func.__name__
     reducer_name = type(reducer).__name__ if (type(reducer).__name__ != "FunctionTransformer") else reducer.func.__name__
-    
+
     #Define and save pipe cfg
     pipeline_cfg = "| preprocessor:" + preprocessor_name +  " | transfomer: " + transfomer_name + " | reducer: " + reducer_name
     pipe = Pipeline(steps=[('preprocessor', preprocessor), ('transfomer', transfomer), ('reducer', reducer),('model', model)])
-    
+
     #create a dict with param grid
     param_grid = dict(models_cfg[name], **dict(reducers_cfg[reducer_name], **dict(transfomers_cfg[transfomer_name], **preprocessors_cfg[preprocessor_name])))
     #create estimator
@@ -326,7 +317,7 @@ def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, error
             errors_ind.append({"cfg": "Model["+ name +"] pipe: " + pipeline_cfg})
             errors.append({"Model["+ name +"] pipe: " + pipeline_cfg: {"error": err}})
             pass
-            
+
 def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind):
     # mix it, so that the sample order is randomized
     x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
@@ -335,7 +326,6 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
         ##run gridesearch with new amout of features, depending of preprocessor and hence pass the right amount of maximum components to the reducers
         if preprocessor.func.__name__ == LogarithmicTransformer.func.__name__ :
             n_components = get_components_list(n_features, [{"pw":2}, {"pw":1}])
-            reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
@@ -347,19 +337,17 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
                 pw_lst = pw_lst + [pw]
                 preprocessors_cfg[PolynomialTransformer.func.__name__]["preprocessor__kw_args"] = [pw]
                 n_components = get_components_list(n_features, pw_lst)
-                reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
                 reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
                 reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
                 reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
                 run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
         else:
             n_components = get_components_list(n_features, [{"pw":1}])
-            reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
             run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
-            
+
 ##run calssifiers for two 4 cases - 2 classes, 3 clasees, 4 classes, 5 clasess
 
 def label_gross_2 (gross):
@@ -414,7 +402,7 @@ def run_for_many(cl_n,label_fn):
     scores = [results[model]["score"] for model in results]
     print(sorted(scores))
 
-    
+
 #ignore warnigs
 
 #labels = [label_gross_2, label_gross_3, label_gross_4, label_gross_5]
