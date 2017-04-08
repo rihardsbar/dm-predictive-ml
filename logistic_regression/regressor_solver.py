@@ -159,13 +159,9 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-reducers = [DummyTransformer, FactorAnalysis(), PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
-reducers_cfg[FactorAnalysis.__name__] = dict(
-        reducer__n_components = [],
-        reducer__svd_method = ['randomized']
-        )
 reducers_cfg[PCA.__name__] = dict(
         reducer__n_components = [],
         reducer__whiten = [True, False],
@@ -238,7 +234,6 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
         ##run gridesearch with new amout of features, depending of preprocessor and hence pass the right amount of maximum components to the reducers
         if preprocessor.func.__name__ == LogarithmicTransformer.func.__name__ :
             n_components = get_components_list(n_features, [{"pw":2}, {"pw":1}])
-            reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
@@ -250,14 +245,12 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
                 pw_lst = pw_lst + [pw]
                 preprocessors_cfg[PolynomialTransformer.func.__name__]["preprocessor__kw_args"] = [pw]
                 n_components = get_components_list(n_features, pw_lst)
-                reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
                 reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
                 reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
                 reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
                 run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
         else:
             n_components = get_components_list(n_features, [{"pw":1}])
-            reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
