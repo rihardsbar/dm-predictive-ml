@@ -1,5 +1,8 @@
 #import all helpers
+import os
+import sys
 import warnings
+from datetime import datetime
 warnings.filterwarnings('ignore')
 import numpy as np
 import pandas as pd
@@ -169,7 +172,8 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 ####### Models ##########
 #########################
-models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
+models = [AdaBoostClassifier()]
+#models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
 models_cfg = {}
 models_cfg[AdaBoostClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
@@ -326,7 +330,7 @@ def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, error
 def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind):
     # mix it, so that the sample order is randomized
     x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
-    n_samples, n_features = X.shape
+    n_samples, n_features = x.shape
     for preprocessor, transfomer, reducer, model in product(preprocessors, transfomers, reducers, models):
         ##run gridesearch with new amout of features, depending of preprocessor and hence pass the right amount of maximum components to the reducers
         if preprocessor.func.__name__ == LogarithmicTransformer.func.__name__ :
@@ -383,7 +387,8 @@ def label_gross_5 (gross):
 def run_for_many(cl_n,label_fn):
     results = {}
     errors = []
-    errors_ind = []   
+    errors_ind = []
+    X = dta_clean.drop('worldwide_gross', axis=1)
     y = dta_clean.worldwide_gross.apply (lambda gross: label_fn (gross))
     print ("#########################################")
     print ("###Starting all estimators for cl: "+ str(cl_n))
@@ -414,8 +419,15 @@ def run_for_many(cl_n,label_fn):
 
 #labels = [label_gross_2, label_gross_3, label_gross_4, label_gross_5]
 labels = [label_gross_5]
-X = dta_clean.drop('worldwide_gross', axis=1)
+#save orig datetime and save orign stdout
+orig_stdout = sys.stdout
+time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
 for ind, cb in enumerate(labels):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        run_for_many(ind+2,cb)
+        trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
+        new_file = open(trg,"w")
+        sys.stdout = new_file
+        run_for_many(cb.__name__,cb)
+        #return stdout for some reason
+sys.stdout = orig_stdout
