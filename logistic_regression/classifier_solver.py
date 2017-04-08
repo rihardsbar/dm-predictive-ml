@@ -125,8 +125,7 @@ PolynomialTransformer = FunctionTransformer(poly)
 #########################
 ####Data Preprocessor ###
 #########################
-#preprocessors = [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
-preprocessors = [DummyTransformer]
+preprocessors = [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
@@ -136,8 +135,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 #########################
 ####  Data Transformer ##
 #########################
-#transfomers = [DummyTransformer, Normalizer(), StandardScaler()]
-transfomers = [DummyTransformer]
+transfomers = [DummyTransformer, Normalizer(), StandardScaler()]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -147,8 +145,7 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-#reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
-reducers = [DummyTransformer]
+reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -168,8 +165,7 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 ####### Models ##########
 #########################
-models = [NuSVC()]
-#models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
+models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
 models_cfg = {}
 models_cfg[AdaBoostClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
@@ -260,7 +256,7 @@ models_cfg[LinearSVC.__name__] = dict(
     model__loss = ['hinge', 'squared_hinge'],
 )
 models_cfg[NuSVC.__name__] = dict(
-    model__nu = [0.3, 0.5, 1.0],
+    model__nu = [0.1, 0.2],
     model__kernel = ['rbf', 'sigmoid'],
     model__degree = [2,3,5],
     model__coef0 = [0.0, 0.5, 1.0],
@@ -405,8 +401,7 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-#labels = [label_gross_2, label_gross_3, label_gross_4, label_gross_5]
-labels = [label_gross_5]
+labels = [label_gross_2, label_gross_3, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
