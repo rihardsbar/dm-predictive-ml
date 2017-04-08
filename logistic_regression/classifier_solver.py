@@ -180,43 +180,25 @@ models_cfg[BaggingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__bootstrap = [True, False],
     model__bootstrap_features = [True, False],
-    model__oob_score = [True, False],
-    model__warm_start = [True, False]
+    model__oob_score = [True, False]
 )
 models_cfg[ExtraTreesClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__criterion = ['gini', 'entropy'],
     model__max_features  = ["auto", None, "sqrt"],
-    model__bootstrap = [True, False],
-    model__oob_score = [True, False],
-    model__min_samples_split = [2, 0.1, 0.5],
-    model__min_samples_leaf = [1,  0.1, 0.5],
-    model__min_weight_fraction_leaf = [0.0 ,0.1, 0.5, 1.0],
-    model__max_leaf_nodes =  [None, 10, 50],
-    model__min_impurity_split = [1e-7, 1e-6, 1e-5]
+    model__min_samples_split = [2, 0.1, 0.5]
 )
 models_cfg[GradientBoostingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__max_features  = ["auto", None, "sqrt"],
     model__max_depth = [3, 5, 10],
-    model__max_leaf_nodes =  [None, 10, 50],
-    model__min_impurity_split = [1e-7, 1e-6, 1e-5],
-    model__subsample = [0.1, 0.5, 1.0],
-    model__min_samples_split = [2, 0.1, 0.5],
-    model__min_samples_leaf = [1,  0.1, 0.5],
-    model__min_weight_fraction_leaf = [0.0 ,0.1, 0.5, 1.0]
+    model__max_leaf_nodes =  [None, 10, 50]
 )
 models_cfg[RandomForestClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__criterion = ['gini', 'entropy'],
     model__max_features  = ["auto", None, "sqrt"],
-    model__max_depth = [None ,3, 5, 10],
-    model__min_samples_split = [2, 0.1, 0.5],
-    model__min_samples_leaf = [1,  0.1, 0.5],
-    model__min_weight_fraction_leaf = [0.0 ,0.1, 0.5, 1.0],
-    model__max_leaf_nodes =  [None, 10, 50],
-    model__bootstrap = [True, False],
-    model__oob_score = [True, False]
+    model__max_depth = [None ,3, 5, 10]
 )
 models_cfg[PassiveAggressiveClassifier.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
@@ -227,10 +209,7 @@ models_cfg[PassiveAggressiveClassifier.__name__] = dict(
 )
 models_cfg[LogisticRegression.__name__] = dict(
     model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
-    model__class_weight = [None, "balanced"],
     model__C = np.logspace(-4, 4, 3),
-    model__tol = [1e-4, 1e-3, 1e-2],
-    model__multi_class =  ['ovr', 'multinomial'],
     model__max_iter = [50, 100, 300],
     model__penalty =['l1', 'l2']
 )
@@ -243,25 +222,21 @@ models_cfg[RidgeClassifier.__name__] = dict(
 models_cfg[SGDClassifier.__name__] = dict(
     model__loss = ['hinge', 'log', 'modified_huber', 'squared_hinge', 'perceptron', 'squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'],
     model__penalty =[None,'l1', 'l2', 'elasticnet'],
-    model__alpha = np.reciprocal(np.logspace(-4, 4, 3)),
-    model__l1_ratio =[0.15, 0.4 , 0.8],
-    model__n_iter = [5, 10 , 20],
-    model__shuffle = [True, False]
+    model__l1_ratio =[0.15, 0.4 , 0.8]
 )
 models_cfg[GaussianNB.__name__] = {}
 models_cfg[MultinomialNB.__name__] = dict(
-    model__alpha = np.reciprocal(np.logspace(-4, 4, 3)),
+    model__alpha = np.reciprocal(np.logspace(-4, 4, 3))
 )
 models_cfg[KNeighborsClassifier.__name__] = dict(
     model__n_neighbors = [5, 10 , 20],
     model__weights = ['uniform', 'distance'],
     model__algorithm = ['ball_tree', 'kd_tree', 'brute', 'auto'],
     model__leaf_size = [15, 30, 50],
-    model__p = [1, 2, 3],
+    model__p = [1, 2, 3]
 )
 models_cfg[RadiusNeighborsClassifier.__name__] = dict(
     model__radius = [0.1, 0.5, 1.0, 3.0],
-    model__weights = ['uniform', 'distance'],
     model__algorithm = ['ball_tree', 'kd_tree', 'brute', 'auto'],
     model__leaf_size = [15, 30, 50],
     model__p = [1, 2, 3]
@@ -273,61 +248,39 @@ models_cfg[MLPClassifier.__name__] = dict(
     model__hidden_layer_sizes = [10, 100, 500],
     model__activation = ['identity', 'logistic', 'tanh', 'relu'],
     model__solver = ['lbfgs', 'sgd', 'adam'],
-    model__alpha = np.reciprocal(np.logspace(-4, 4, 3)),
-    model__learning_rate = ['constant', 'invscaling', 'adaptive'],
     model__max_iter = [200, 800],
-    model__tol = [1e-4, 1e-3, 1e-2],
-    model__learning_rate_init = [ 0.001,  0.01,  0.1],
-    model__power_t = [0.3, 0.5, 0.8],
-    model__momentum = [0.9, 0.5, 0.1],
-    model__validation_fraction = [0.1, 0.5, 0.8],
-    model__beta_1 = [0.9, 0.5, 0.1],
-    model__beta_2 = [0.999, 0.5, 0.1],
-    model__epsilon = [1e-8, 1e-7, 1e-6]
+    model__learning_rate_init = [ 0.001,  0.01,  0.1]
+
 )
 models_cfg[SVC.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
     model__kernel = ['linear', 'poly', 'rbf', 'sigmoid'],
     model__degree = [2,3,5],
-    model__coef0 = [0.0, 0.5, 1.0],
-    model__tol = [1e-4, 1e-3, 1e-2],
-    model__decision_function_shape = ['ovo', 'ovr', None]
+    model__coef0 = [0.0, 0.5, 1.0]
 )
 models_cfg[LinearSVC.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
     model__loss = ['hinge', 'squared_hinge'],
     model__penalty =['l1', 'l2'],
-    model__dual=[False],
-    model__tol = [1e-4, 1e-3, 1e-2],
-    model__multi_class = ['ovr', 'crammer_singer']
+    model__dual=[False]
 )
 models_cfg[NuSVC.__name__] = dict(
     model__nu = [0.3, 0.5, 1.0],
     model__kernel = ['linear', 'poly', 'rbf', 'sigmoid'],
     model__degree = [2,3,5],
     model__coef0 = [0.0, 0.5, 1.0],
-    model__tol = [1e-4, 1e-3, 1e-2],
-    model__decision_function_shape = ['ovo', 'ovr', None]
-)
+ )
 models_cfg[DecisionTreeClassifier.__name__] = dict(
     model__criterion = ['gini', 'entropy'],
     model__max_features  = ["auto", None, "sqrt"],
     model__max_depth = [None ,3, 5, 10],
-    model__min_samples_split = [2, 0.1, 0.5],
-    model__min_samples_leaf = [1,  0.1, 0.5],
-    model__min_weight_fraction_leaf = [0.0 ,0.1, 0.5, 1.0],
-    model__max_leaf_nodes =  [None, 10, 50],
-    model__min_impurity_split = [1e-7, 1e-6, 1e-5],
+    model__min_samples_split = [2, 0.1, 0.5]
 )
 models_cfg[ExtraTreeClassifier.__name__] =  dict(
     model__criterion = ['gini', 'entropy'],
     model__max_features  = ["auto", None, "sqrt"],
     model__max_depth = [None ,3, 5, 10],
-    model__min_samples_split = [2, 0.1, 0.5],
-    model__min_samples_leaf = [1,  0.1, 0.5],
-    model__min_weight_fraction_leaf = [0.0 ,0.1, 0.5, 1.0],
-    model__max_leaf_nodes =  [None, 10, 50],
-    model__min_impurity_split = [1e-7, 1e-6, 1e-5]
+    model__min_samples_split = [2, 0.1, 0.5]
 )
 
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
