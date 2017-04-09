@@ -21,7 +21,26 @@ What is produces:</br>
 ### Setting up the script
 * Put all your assigned models into the  `models = [Model1(), Model2(), Model3()]` list. Models list requires the object to be passed and no the class, hence class has be constructed via the call operator `()`. For now scipt contains only the linear regression instance  as `models = [LinearRegression()]`. 
 * For each of your models prepopulate the `models_cfg = {}` parameter grid that is passed into the GridSearchCV. Param grid is dictonary of parameters with a list literals of all values that GridSearchCV is going to go through. Each parameter name in the model param grid should star with `model__`. For now it is configured only for the linear regression to have one parameter `models_cfg[LinearRegression.__name__] = dict( model__fit_intercept = [True])`. Look into the *logistic_regression/classifier_solver.py* for some examples. Do not simply copy the parameters over, for most methods they will not simply map. To find what parameters have to tuned look into the [API doc](http://scikit-learn.org/stable/modules/classes.html). As rule of thumb don't try to tune more than 4 params with more than 3-4 variations each per model, as otherwise your simulation will take forever.
-* Provide the sets of samples that computations have to done for into the `tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2", "samples class2")]` list. It consists of tuples with your X and y data as well as the description of the sample for the logging purposes. One tuple represents data for a single, make sure you run your simulation for all the samples and then for samples divided into 3 classes. The ranges of division can be seen in the *label_gross_3* method in  *logistic_regression/classifier_solver.py*
+* Provide the sets of samples that computations have to done for into the `tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2", "samples class2")]` list. It consists of tuples with your X and y data as well as the description of the sample for the logging purposes. One tuple represents data for a single, make sure you run your simulation for all the samples and then for samples divided into 3 classes. The ranges of division can be seen in the *label_gross_3* method in  *logistic_regression/classifier_solver.py*. Classes can be devided as follows
+```python
+X = dta_clean.drop('worldwide_gross', axis=1)
+y = dta_clean['worldwide_gross']
+
+df_1 = dta_clean[dta_clean["worldwide_gross"] < 10000000]
+X_1 = df_1.drop('worldwide_gross', axis=1)
+y_1 = df_1['worldwide_gross']
+
+df_2 = dta_clean[dta_clean["worldwide_gross"] >= 10000000]
+df_2 = df_2[df_2["worldwide_gross"] < 300000000]
+X_2 = df_2.drop('worldwide_gross', axis=1)
+y_2 = df_2['worldwide_gross']
+
+df_3 = dta_clean[dta_clean["worldwide_gross"] >= 300000000]
+X_3 = df_3.drop('worldwide_gross', axis=1)
+y_3 = df_3['worldwide_gross']
+
+tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2", "samples class2"), (X_3,y_3", "samples class3")]
+```
 
 ### Running the script
 To run the script simply use the command below. Script will produce an indivudal log for each sample set with the timestamp of the time the script was started.
