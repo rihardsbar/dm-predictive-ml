@@ -2,10 +2,10 @@
 Based on https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset
 
 
-## Running the regressor_solver.py script
+## Running the regressor_solver.py script with [GridSearchCV](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
 ### Description 
 What it is: </br>
-<p>This script runs the GridSearchCV - http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html module in order to find the best possible pipeline for the model. Pipeline is consiting of the ||preprocesing||transformation||dimmension reduction||modelling|| steps. The first three steps have been preconfigured and can break if configuration is changed. You should configure the moddeling part for your models.</p></br>
+<p>This script runs the GridSearchCV  module in order to find the best possible pipeline for the model. Pipeline is consiting of the ||preprocesing||transformation||dimmension reduction||modelling|| steps. The first three steps have been preconfigured and can break if configuration is changed. You should configure the moddeling part for your models.</p></br>
 What is is not:</br>
         <p>Even though it has been tested to be reliable, it is not a production level script and it is quite likely you are going to run into some issues. Script handles most of the errors which can be occur due to misconfguration or wrong values and is going to print those out. However might be exceptions happening which it is not going to handle, hence it is a good idea to try to understand the full flow of how it works.</p></br>
 What is produces:</br>
