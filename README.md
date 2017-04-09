@@ -28,7 +28,7 @@ To run the script simply use the command below. Script will produce an indivudal
 > python3 regressor_solver.py
 
 ### Monitoring the health of the run
-Most likely the script is going to take 1-2 days to finish a run per one set of samples, so it might about take a week on total. Monitoring the health of the run can be simply done via the **htop** tool. GridSearchCV is configured to use all the CPUs on the VM, hence it should be shown in the CPU use as seen in the image. If your CPU is stalling it means simulation is not running. Moreover, Htop shows the state of the process: if it is running <strong><font color="green">R</font></strong> or stalling <strong><font color="gray">R</font></strong> and for how long. If a single solver sub-process has been running for an over hour and the log file has not been updated, it means your simulation is most likey stuck.
+Most likely the script is going to take 1-2 days to finish a run per one set of samples, so it might about take a week on total. Monitoring the health of the run can be simply done via the **htop** tool. GridSearchCV is configured to use all the CPUs on the VM, hence it should be shown in the CPU use as seen in the image. If your CPU is stalling it means simulation is not running. Moreover, Htop shows the state of the process: if it is running **R** or stalling **S** and for how long. If a single solver sub-process has been running for an over hour and the log file has not been updated, it means your simulation is most likey stuck.
 ![Htop Example](http://i.imgur.com/Dyiwgor.png)
 
 ### Strategy for checking the sanity of the script before running the full simulation
