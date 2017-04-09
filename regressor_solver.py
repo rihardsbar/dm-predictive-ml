@@ -1,5 +1,8 @@
 #import all helpers
+import os
+import sys
 import warnings
+from datetime import datetime
 warnings.filterwarnings('ignore')
 import numpy as np
 import pandas as pd
@@ -70,9 +73,9 @@ from sklearn.kernel_ridge import     KernelRidge
 
 
 
-#file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
-file_path =  "../dataset/movie_metadata_cleaned_categ_num_only.csv"
-#file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
+#file_path =  "./dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
+file_path =  "./dataset/movie_metadata_cleaned_categ_num_only.csv"
+#file_path = "./dataset/movie_metadata_cleaned_no_vector_num_only.csv"
 
 dta = pd.read_csv(file_path)
 dta_clean = dta
@@ -156,13 +159,9 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-reducers = [DummyTransformer, FactorAnalysis(), PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
-reducers_cfg[FactorAnalysis.__name__] = dict(
-        reducer__n_components = [],
-        reducer__svd_method = ['randomized']
-        )
 reducers_cfg[PCA.__name__] = dict(
         reducer__n_components = [],
         reducer__whiten = [True, False],
@@ -230,12 +229,11 @@ def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, error
 def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind):
     # mix it, so that the sample order is randomized
     x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
-    n_samples, n_features = X.shape
+    n_samples, n_features = x.shape
     for preprocessor, transfomer, reducer, model in product(preprocessors, transfomers, reducers, models):
         ##run gridesearch with new amout of features, depending of preprocessor and hence pass the right amount of maximum components to the reducers
         if preprocessor.func.__name__ == LogarithmicTransformer.func.__name__ :
             n_components = get_components_list(n_features, [{"pw":2}, {"pw":1}])
-            reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
@@ -247,28 +245,26 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
                 pw_lst = pw_lst + [pw]
                 preprocessors_cfg[PolynomialTransformer.func.__name__]["preprocessor__kw_args"] = [pw]
                 n_components = get_components_list(n_features, pw_lst)
-                reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
                 reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
                 reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
                 reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
                 run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
         else:
             n_components = get_components_list(n_features, [{"pw":1}])
-            reducers_cfg[FactorAnalysis.__name__]["reducer__n_components"] = n_components
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
             run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
 
 ##function for trigrering gridserach and priting results
-def run_for_many(X,y, cl_n):
+def run_for_many(x,y, cl_n):
     results = {}
     errors = []
     errors_ind = []
     print ("#########################################")
     print ("###Starting all estimators for cl: "+ str(cl_n))
     print ("#########################################")
-    run_solver(X,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind)
+    run_solver(x,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind)
     print ("#########################################")
     print ("###Finished all estimators for cl: "+ str(cl_n))
     print ("#########################################")
@@ -290,10 +286,22 @@ def run_for_many(X,y, cl_n):
     print(sorted(scores))
 
             
-##to run for multiple classes, wrap run_for_many into a loop and for each itteration separte y an X for each class and pass it to the function
+##to run for multiple classes of data, add the tuples of x and y  to the tuples array of data and decsription for the purposes logging. For now it is set to run for all the samples there are. For instance tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2", "samples class2")]
+#for each tupple extracted from the array a new log file is going to be generated, so that each run is in a different log file.
 y = dta_clean['worldwide_gross']
 X = dta_clean.drop('worldwide_gross', axis=1)
-#ignore warnigs
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore")
-    run_for_many(X,y, 1)
+tuples_of_data = [(X,y, "all samples")]
+#save orig datetime and save orign stdout
+orig_stdout = sys.stdout
+time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
+for ind, tupl in enumerate(tuples_of_data):
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        x_crr, y_crr, dsc = tupl
+        trg = "regressRes_" + time + "_case" + str(ind) + ".log"
+        new_file = open(trg,"w")
+        sys.stdout = new_file
+        run_for_many(x_crr, y_crr, dsc)
+        new_file.close()
+#reassign the org stdout for some reason
+sys.stdout = orig_stdout
