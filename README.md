@@ -39,7 +39,7 @@ df_3 = dta_clean[dta_clean["worldwide_gross"] >= 300000000]
 X_3 = df_3.drop('worldwide_gross', axis=1)
 y_3 = df_3['worldwide_gross']
 
-tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2, "samples class2"), (X_3,y_3", "samples class3")]
+tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2, "samples class2"), (X_3,y_3, "samples class3")]
 ```
 
 ### Running the script
