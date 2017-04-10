@@ -9,7 +9,7 @@ What it is: </br>
 What is is not:</br>
         <p>Even though it has been tested to be reliable, it is not a production level script and it is quite likely you are going to run into some issues. Script handles most of the errors which can be occur due to misconfguration or wrong values and is going to print those out. However might be exceptions happening which it is not going to handle, hence it is a good idea to try to understand the full flow of how it works.</p></br>
 What is produces:</br>
-        <p>It produces a log automatically for the each run of the script. The amount of runs are defined within tuples_of_data list as described below. The end of the log will contain all the errors caught during the run and best results for each model you configure. An example log can be seen in */logistic_regression/regressRes_2017_04_08_173536_case0.log*</p></br>
+        <p>It produces a log automatically for the each run of the script. The amount of runs are defined within tuples_of_data list as described below. The end of the log will contain all the errors caught during the run and best results for each model you configure.E xample logs for multiple runs can be seen in /logistic_regression/regressRes_2017*</p></br>
 
 ### Prerequisites 
 * Setup your VM and run the script there. Running script for a single set of samples for your list of models is probably going to take 1-2 days. If you run those locally you can easily break the run, hence you'll need to start all over again.
