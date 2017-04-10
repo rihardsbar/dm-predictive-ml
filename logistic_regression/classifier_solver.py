@@ -24,6 +24,7 @@ import seaborn as sns # More snazzy plotting library
 import itertools
 from itertools import  product
 import pprint
+from sklearn.ensemble import ExtraTreesRegressor
 
 ##impot classifieris
 #-----Ensemble---------------------
@@ -76,8 +77,9 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 def get_powers_list(n_samples, n_features, n):
     base_arr = [{"pw":2},{"pw":3},{"pw":4}]
     max_pw = math.ceil(3320/n_features)
-    if max_pw > 10: max_pw = 10
+    if max_pw > 7: max_pw = 7
     step = math.floor((max_pw-4) / n)
+    if step < 1 : step = 1
     extra_arr = [{"pw":power} for power in range(4 + step, max_pw, step)]
     if  n_samples/n_features < 2:
         res = [{"pw":1}]
@@ -135,7 +137,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 #########################
 ####  Data Transformer ##
 #########################
-transfomers = [DummyTransformer, Normalizer(), StandardScaler()]
+transfomers = [DummyTransformer, StandardScaler()]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -401,7 +403,7 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-labels = [label_gross_2, label_gross_3, label_gross_4, label_gross_5]
+labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")

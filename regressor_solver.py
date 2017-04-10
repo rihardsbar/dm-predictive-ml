@@ -90,8 +90,9 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 def get_powers_list(n_samples, n_features, n):
     base_arr = [{"pw":2},{"pw":3},{"pw":4}]
     max_pw = math.ceil(3320/n_features)
-    if max_pw > 10: max_pw = 10
+    if max_pw > 7: max_pw = 7
     step = math.floor((max_pw-4) / n)
+    if step < 1 : step = 1
     extra_arr = [{"pw":power} for power in range(4 + step, max_pw, step)]
     if  n_samples/n_features < 2:
         res = [{"pw":1}]
@@ -149,7 +150,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 #########################
 ####  Data Transformer ##
 #########################
-transfomers = [DummyTransformer, Normalizer(), StandardScaler()]
+transfomers = [DummyTransformer, StandardScaler()]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -288,9 +289,24 @@ def run_for_many(x,y, cl_n):
             
 ##to run for multiple classes of data, add the tuples of x and y  to the tuples array of data and decsription for the purposes logging. For now it is set to run for all the samples there are. For instance tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2", "samples class2")]
 #for each tupple extracted from the array a new log file is going to be generated, so that each run is in a different log file.
-y = dta_clean['worldwide_gross']
 X = dta_clean.drop('worldwide_gross', axis=1)
-tuples_of_data = [(X,y, "all samples")]
+y = dta_clean['worldwide_gross']
+
+df_1 = dta_clean[dta_clean["worldwide_gross"] < 10000000]
+X_1 = df_1.drop('worldwide_gross', axis=1)
+y_1 = df_1['worldwide_gross']
+
+df_2 = dta_clean[dta_clean["worldwide_gross"] >= 10000000]
+df_2 = df_2[df_2["worldwide_gross"] < 300000000]
+X_2 = df_2.drop('worldwide_gross', axis=1)
+y_2 = df_2['worldwide_gross']
+
+df_3 = dta_clean[dta_clean["worldwide_gross"] >= 300000000]
+X_3 = df_3.drop('worldwide_gross', axis=1)
+y_3 = df_3['worldwide_gross']
+
+tuples_of_data = [(X,y, "all_samples"), (X_1,y_1, "samples_class1") , (X_2,y_2, "samples_class2"), (X_3,y_3, "samples_class3")]
+
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
@@ -298,7 +314,7 @@ for ind, tupl in enumerate(tuples_of_data):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         x_crr, y_crr, dsc = tupl
-        trg = "regressRes_" + time + "_case" + str(ind) + ".log"
+        trg = "regressRes_" + time + "_" + dsc + ".log"
         new_file = open(trg,"w")
         sys.stdout = new_file
         run_for_many(x_crr, y_crr, dsc)
