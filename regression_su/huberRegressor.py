@@ -55,7 +55,7 @@ for fit_intercept in [True, False]:
         clf1 = hr(fit_intercept = fit_intercept, warm_start = warm_start)
         clf.fit(X_train, y_train)
         score_tra = clf.score(X_test, y_test)
-        # score_cv = cross_val_score(clf1, X_r, y_r, cv=5)
+        score_cv = cross_val_score(clf1, X_r, y_r, cv=5)
         if score_tra > max_score_tra:
             max_score_tra = score_tra
             para_tra =  clf.get_params

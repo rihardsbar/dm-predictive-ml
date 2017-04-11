@@ -25,57 +25,45 @@ import itertools
 from itertools import  product
 import pprint
 
-#import regressors
+##impot classifieris
 #-----Ensemble---------------------
-from sklearn.ensemble import       AdaBoostRegressor
-from sklearn.ensemble import       BaggingRegressor
-from sklearn.ensemble import       ExtraTreesRegressor
-from sklearn.ensemble import       GradientBoostingRegressor
-from sklearn.ensemble import       RandomForestRegressor
+from sklearn.ensemble import       AdaBoostClassifier
+from sklearn.ensemble import       BaggingClassifier
+from sklearn.ensemble import       ExtraTreesClassifier, ExtraTreesRegressor
+from sklearn.ensemble import       GradientBoostingClassifier
+from sklearn.ensemble import       RandomForestClassifier
 
 #----Generalized Linear models-----
-from sklearn.linear_model import   ARDRegression
-from sklearn.linear_model import   BayesianRidge
-from sklearn.linear_model import   ElasticNet
-from sklearn.linear_model import   HuberRegressor
-from sklearn.linear_model import   Lars
-from sklearn.linear_model import   Lasso
-from sklearn.linear_model import   LassoLars
-from sklearn.linear_model import   LinearRegression
-from sklearn.linear_model import   PassiveAggressiveRegressor
-from sklearn.linear_model import   Ridge
-from sklearn.linear_model import   SGDRegressor
-from sklearn.linear_model import   OrthogonalMatchingPursuit
-from sklearn.linear_model import   RANSACRegressor
-from sklearn.linear_model import   TheilSenRegressor
+from sklearn.linear_model import   PassiveAggressiveClassifier
+from sklearn.linear_model import   LogisticRegression
+from sklearn.linear_model import   RidgeClassifier
+from sklearn.linear_model import   SGDClassifier
 
-#---Nearest Neighbors----
-from sklearn.neighbors import      KNeighborsRegressor
-from sklearn.neighbors import      RadiusNeighborsRegressor
+#-----Naive Bayes ---all class-----
+from sklearn.naive_bayes import    GaussianNB
+from sklearn.naive_bayes import    MultinomialNB
+from sklearn.naive_bayes import    BernoulliNB
 
+#---Nearest Neighbors--------------
+from sklearn.neighbors import      KNeighborsClassifier
+from sklearn.neighbors import      RadiusNeighborsClassifier
+from sklearn.neighbors import      NearestCentroid
 
-#----Neural Networks--------------- 
-from sklearn.neural_network import MLPRegressor
+#----Neural Networks---------------
+from sklearn.neural_network import MLPClassifier
 
 #-----Support Vector Machines------
-from sklearn.svm import            SVR
-from sklearn.svm import            LinearSVR
-from sklearn.svm import            NuSVR
+from sklearn.svm import            SVC
+from sklearn.svm import            LinearSVC
+from sklearn.svm import            NuSVC
 
 #-----Decission Trees--------------
-from sklearn.tree import           DecisionTreeRegressor
-from sklearn.tree import           ExtraTreeRegressor
+from sklearn.tree import           DecisionTreeClassifier
+from sklearn.tree import           ExtraTreeClassifier
 
-#----extras
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.isotonic import         IsotonicRegression
-from sklearn.kernel_ridge import     KernelRidge
-
-
-
-#file_path =  "./dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
-file_path =  "./dataset/movie_metadata_cleaned_categ_num_only.csv"
-#file_path = "./dataset/movie_metadata_cleaned_no_vector_num_only.csv"
+#file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
+file_path =  "../dataset/movie_metadata_cleaned_categ_num_only.csv"
+#file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
 
 dta = pd.read_csv(file_path)
 dta_clean = dta
@@ -84,15 +72,12 @@ dta_clean = dta_clean.fillna(value=0, axis=1)
 dta_clean = dta_clean.dropna()
 dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
-#models = [AdaBoostRegressor,BaggingRegressor,ExtraTreesRegressor,GradientBoostingRegressor,RandomForestRegressor,BayesianRidge,ElasticNet,HuberRegressor,Lars,Lasso,LassoLars,LinearRegression,PassiveAggressiveRegressor,Ridge,SGDRegressor,OrthogonalMatchingPursuit,RANSACRegressor,TheilSenRegressor,KNeighborsRegressor,RadiusNeighborsRegressor,MLPRegressor,SVR,LinearSVR,NuSVR,DecisionTreeRegressor,ExtraTreeRegressor]
-
-##define helpers 
+##define helpers
 def get_powers_list(n_samples, n_features, n):
     base_arr = [{"pw":2},{"pw":3},{"pw":4}]
     max_pw = math.ceil(3320/n_features)
-    if max_pw > 7: max_pw = 7
+    if max_pw > 10: max_pw = 10
     step = math.floor((max_pw-4) / n)
-    if step < 1 : step = 1
     extra_arr = [{"pw":power} for power in range(4 + step, max_pw, step)]
     if  n_samples/n_features < 2:
         res = [{"pw":1}]
@@ -112,11 +97,11 @@ def get_components_list(n_features, lst):
     lst[0] = lst[0]-1
     lst_n = [n for n in lst if n < 3321]
     if len(lst_n) < len(lst):
-        lst_n = [3320] + lst_n 
+        lst_n = [3320] + lst_n
     return lst_n
 
 ##define new transformers
-def dummy(X):  
+def dummy(X):
     return X
 
 def poly(X, pw):
@@ -127,7 +112,7 @@ def poly(X, pw):
 
 def log(X):
     df_t = pd.DataFrame(X)
-    X_t = df_t.replace(0, 1/math.e) 
+    X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
 
@@ -140,7 +125,7 @@ PolynomialTransformer = FunctionTransformer(poly)
 #########################
 ####Data Preprocessor ###
 #########################
-preprocessors = [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
+preprocessors = [DummyTransformer]
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
@@ -150,7 +135,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 #########################
 ####  Data Transformer ##
 #########################
-transfomers = [DummyTransformer, StandardScaler()]
+transfomers = [DummyTransformer]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -160,7 +145,7 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+reducers = [DummyTransformer]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -180,25 +165,40 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 ####### Models ##########
 #########################
-models = [LinearRegression()]
+models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
 models_cfg = {}
-models_cfg[LinearRegression.__name__] = dict(
-    #model__normalize = [True,False],
-    model__fit_intercept = [True]
-)
-
+models_cfg[AdaBoostClassifier.__name__] = {}
+models_cfg[BaggingClassifier.__name__] = {}
+models_cfg[ExtraTreesClassifier.__name__] = {}
+models_cfg[GradientBoostingClassifier.__name__] = {}
+models_cfg[RandomForestClassifier.__name__] = {}
+models_cfg[PassiveAggressiveClassifier.__name__] = {}
+models_cfg[LogisticRegression.__name__] = {}
+models_cfg[RidgeClassifier.__name__] = {}
+models_cfg[SGDClassifier.__name__] = {}
+models_cfg[GaussianNB.__name__] = {}
+models_cfg[MultinomialNB.__name__] ={}
+models_cfg[KNeighborsClassifier.__name__] = {}
+models_cfg[RadiusNeighborsClassifier.__name__] = {}
+models_cfg[NearestCentroid.__name__] = {}
+models_cfg[MLPClassifier.__name__] = {}
+models_cfg[SVC.__name__] = {}
+models_cfg[LinearSVC.__name__] = {}
+models_cfg[NuSVC.__name__] = {}
+models_cfg[DecisionTreeClassifier.__name__] = {}
+models_cfg[ExtraTreeClassifier.__name__] =  {}
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
-    
+
     #create pipline and use GridSearch to find the best params for given pipeline
     name = type(model).__name__
     preprocessor_name = type(preprocessor).__name__ if (type(preprocessor).__name__ != "FunctionTransformer") else preprocessor.func.__name__
     transfomer_name =  type(transfomer).__name__ if (type( transfomer).__name__ != "FunctionTransformer") else  transfomer.func.__name__
     reducer_name = type(reducer).__name__ if (type(reducer).__name__ != "FunctionTransformer") else reducer.func.__name__
-    
+
     #Define and save pipe cfg
     pipeline_cfg = "| preprocessor:" + preprocessor_name +  " | transfomer: " + transfomer_name + " | reducer: " + reducer_name
     pipe = Pipeline(steps=[('preprocessor', preprocessor), ('transfomer', transfomer), ('reducer', reducer),('model', model)])
-    
+
     #create a dict with param grid
     param_grid = dict(models_cfg[name], **dict(reducers_cfg[reducer_name], **dict(transfomers_cfg[transfomer_name], **preprocessors_cfg[preprocessor_name])))
     #create estimator
@@ -226,7 +226,7 @@ def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, error
             errors_ind.append({"cfg": "Model["+ name +"] pipe: " + pipeline_cfg})
             errors.append({"Model["+ name +"] pipe: " + pipeline_cfg: {"error": err}})
             pass
-            
+
 def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind):
     # mix it, so that the sample order is randomized
     x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
@@ -257,15 +257,71 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
             run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
 
-##function for trigrering gridserach and priting results
-def run_for_many(x,y, cl_n):
+##run calssifiers for two 4 cases - 2 classes, 3 clasees, 4 classes, 5 clasess
+
+def label_gross_2v1 (gross):
+    if (gross < 100000000) : return 1
+    elif (gross >= 100000000) : return 2
+
+def label_gross_2v2 (gross):
+    if (gross < 200000000) : return 1
+    elif (gross >= 200000000) : return 2
+
+def label_gross_2v3 (gross):
+    if (gross < 300000000) : return 1
+    elif (gross >= 300000000) : return 2
+
+def label_gross_3v1 (gross):
+    if (gross < 10000000) : return 1
+    elif ((gross >= 10000000) & (gross < 100000000)) : return 2
+    elif (gross >= 100000000) : return 3
+
+def label_gross_3v2 (gross):
+    if (gross < 10000000) : return 1
+    elif ((gross >= 10000000) & (gross < 200000000)) : return 2
+    elif (gross >= 200000000) : return 3
+
+def label_gross_3v3 (gross):
+    if (gross < 10000000) : return 1
+    elif ((gross >= 10000000) & (gross < 300000000)) : return 2
+    elif (gross >= 300000000) : return 3
+
+def label_gross_4v1 (gross):
+    if (gross < 5000000) : return 1
+    elif ((gross >= 5000000) & (gross < 50000000)) : return 2
+    elif ((gross >= 50000000) & (gross < 200000000)) : return 3
+    elif (gross >= 200000000) : return 4
+
+def label_gross_4v2 (gross):
+    if (gross < 5000000) : return 1
+    elif ((gross >= 5000000) & (gross < 50000000)) : return 2
+    elif ((gross >= 50000000) & (gross < 350000000)) : return 3
+    elif (gross >= 350000000) : return 4
+
+def label_gross_5v1 (gross):
+    if (gross < 1000000) : return 1
+    elif ((gross >= 1000000) & (gross < 25000000)) : return 2
+    elif ((gross >= 25000000) & (gross < 100000000)) : return 3
+    elif ((gross >= 100000000) & (gross < 400000000)) : return 4
+    elif (gross >= 400000000) : return 5
+
+def label_gross_5v2 (gross):
+    if (gross < 1000000) : return 1
+    elif ((gross >= 1000000) & (gross < 25000000)) : return 2
+    elif ((gross >= 25000000) & (gross < 100000000)) : return 3
+    elif ((gross >= 100000000) & (gross < 200000000)) : return 4
+    elif (gross >= 200000000) : return 5
+
+def run_for_many(cl_n,label_fn):
     results = {}
     errors = []
     errors_ind = []
+    X = dta_clean.drop('worldwide_gross', axis=1)
+    y = dta_clean.worldwide_gross.apply (lambda gross: label_fn (gross))
     print ("#########################################")
     print ("###Starting all estimators for cl: "+ str(cl_n))
     print ("#########################################")
-    run_solver(x,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind)
+    run_solver(X,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind)
     print ("#########################################")
     print ("###Finished all estimators for cl: "+ str(cl_n))
     print ("#########################################")
@@ -286,38 +342,19 @@ def run_for_many(x,y, cl_n):
     scores = [results[model]["score"] for model in results]
     print(sorted(scores))
 
-            
-##to run for multiple classes of data, add the tuples of x and y  to the tuples array of data and decsription for the purposes logging. For now it is set to run for all the samples there are. For instance tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2", "samples class2")]
-#for each tupple extracted from the array a new log file is going to be generated, so that each run is in a different log file.
-X = dta_clean.drop('worldwide_gross', axis=1)
-y = dta_clean['worldwide_gross']
 
-df_1 = dta_clean[dta_clean["worldwide_gross"] < 10000000]
-X_1 = df_1.drop('worldwide_gross', axis=1)
-y_1 = df_1['worldwide_gross']
+#ignore warnigs
 
-df_2 = dta_clean[dta_clean["worldwide_gross"] >= 10000000]
-df_2 = df_2[df_2["worldwide_gross"] < 300000000]
-X_2 = df_2.drop('worldwide_gross', axis=1)
-y_2 = df_2['worldwide_gross']
-
-df_3 = dta_clean[dta_clean["worldwide_gross"] >= 300000000]
-X_3 = df_3.drop('worldwide_gross', axis=1)
-y_3 = df_3['worldwide_gross']
-
-tuples_of_data = [(X,y, "all_samples"), (X_1,y_1, "samples_class1") , (X_2,y_2, "samples_class2"), (X_3,y_3, "samples_class3")]
-
+labels = [label_gross_2v1, label_gross_2v2, label_gross_2v3, label_gross_3v1, label_gross_3v2, label_gross_3v3, label_gross_4v1, label_gross_4v2, label_gross_5v1, label_gross_5v2]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
-for ind, tupl in enumerate(tuples_of_data):
+for ind, cb in enumerate(labels):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        x_crr, y_crr, dsc = tupl
-        trg = "regressRes_" + time + "_" + dsc + ".log"
+        trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
         new_file = open(trg,"w")
         sys.stdout = new_file
-        run_for_many(x_crr, y_crr, dsc)
-        new_file.close()
-#reassign the org stdout for some reason
+        run_for_many(cb.__name__,cb)
+        #return stdout for some reason
 sys.stdout = orig_stdout
