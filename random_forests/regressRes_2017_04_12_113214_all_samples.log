@@ -1,0 +1,10 @@
+#########################################
+###Starting all estimators for cl: all_samples
+#########################################
+####################################################################################
+
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{'model__bootstrap': [True, False], 'model__n_estimators': [10, 20, 30, 40, 50], 'model__bootstrap_features': [True, False], 'model__warm_start': [True, False], 'model__max_samples': [0.5, 1.0], 'model__max_features': [0.5, 1.0]}
+Fitting 4 folds for each of 160 candidates, totalling 640 fits

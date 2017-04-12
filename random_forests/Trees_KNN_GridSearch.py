@@ -29,8 +29,8 @@ import pprint
 #-----Ensemble---------------------
 from sklearn.ensemble import BaggingRegressor as br
 from sklearn.ensemble import ExtraTreesRegressor as etsr
-from sklearn.ensemble import GradientBoostingRegressor gbr
-from sklearn.ensemble import RandomForestRegressor  rfr
+from sklearn.ensemble import GradientBoostingRegressor as gbr
+from sklearn.ensemble import RandomForestRegressor as rfr
 
 #---Nearest Neighbors----
 from sklearn.neighbors import KNeighborsRegressor as knr
@@ -132,8 +132,8 @@ PolynomialTransformer = FunctionTransformer(poly)
 #########################
 ####Data Preprocessor ###
 #########################
-#preprocessors = [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
-reprocessors = [DummyTransformer,]
+#preprocessors= [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
+preprocessors = [DummyTransformer,]
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
@@ -175,7 +175,7 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 ####### Models ##########
 #########################
-models = [br(), estr(), gbr(), rfr(), knr(), rnr(), dtr(), etr()]
+models = [br(), etsr(), gbr(), rfr(), knr(), rnr(), dtr(), etr()]
 
 models_cfg = {}
 
@@ -188,7 +188,7 @@ models_cfg[br.__name__] = dict(
     model__warm_start = [True, False] 
 )
 
-models_cfg[estr.__name__] = dict(
+models_cfg[etsr.__name__] = dict(
     model__n_estimators = [100, 200, 300, 400, 500],
     model__max_samples = [0.5, 1.0],
     model__max_features = ['auto', 'sqrt', 'log2'],
