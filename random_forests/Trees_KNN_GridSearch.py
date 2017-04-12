@@ -26,7 +26,7 @@ from itertools import  product
 import pprint
 
 #import regressors
-#-----Ensemble--------------------
+#-----Ensemble---------------------
 from sklearn.ensemble import BaggingRegressor as br
 from sklearn.ensemble import ExtraTreesRegressor as etsr
 from sklearn.ensemble import GradientBoostingRegressor gbr
@@ -36,7 +36,7 @@ from sklearn.ensemble import RandomForestRegressor  rfr
 from sklearn.neighbors import KNeighborsRegressor as knr
 from sklearn.neighbors import RadiusNeighborsRegressor as rnr
 
-#-----Decission Trees-------------
+#-----Decission Trees--------------
 from sklearn.tree import  DecisionTreeRegressor as dtr
 from sklearn.tree import  ExtraTreeRegressor as etr
 
