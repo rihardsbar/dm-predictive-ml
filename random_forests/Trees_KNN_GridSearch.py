@@ -214,7 +214,7 @@ models_cfg[rfr.__name__] = dict(
 
 models_cfg[knr.__name__] = dict(
     model__n_neighbors = [3, 4, 5, 6, 7, 8, 9, 10],
-    model__weights = ['uniform', 'distance', 'callable'],
+    model__weights = ['uniform', 'distance'],
     model__algorithm = ['auto', 'ball_tree', 'kd_tree', 'brute'],
     model__leaf_size= [10, 20, 30, 40, 50],
     model__p = [1, 2]
@@ -222,7 +222,7 @@ models_cfg[knr.__name__] = dict(
 
 models_cfg[rnr.__name__] = dict(
     model__radius = [1.0, 1.5, 2.0, 2.5, 3.0],
-    model__weights = ['uniform', 'distance', 'callable'],
+    model__weights = ['uniform', 'distance'],
     model__algorithm = ['auto', 'ball_tree', 'kd_tree', 'brute'],
     model__leaf_size= [10, 20, 30, 40, 50], 
     model__p = [1, 2]
@@ -235,12 +235,13 @@ models_cfg[dtr.__name__] = dict(
     model__presort = [True, False]
 )
 
-models_cfg[etr.__name__] = dict(
-    model__max_depth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    model__max_features = ['auto', 'sqrt', 'log2'],
-    model__min_samples_split = [2, 3, 4, 5, ],
-    min_samples_leaf=[1, 2, 3, 4, 5]
-)
+
+#models_cfg[etr.__name__] = dict(
+#    model__max_depth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+#    model__max_features = ['auto', 'sqrt', 'log2'],
+#    model__min_samples_split = [2, 3, 4, 5, ],
+#    min_samples_leaf=[1, 2, 3, 4, 5]
+#)
 
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
     
