@@ -190,7 +190,6 @@ models_cfg[br.__name__] = dict(
 
 models_cfg[etsr.__name__] = dict(
     model__n_estimators = [100, 200, 300, 400, 500],
-    model__max_samples = [0.5, 1.0],
     model__max_features = ['auto', 'sqrt', 'log2'],
     model__max_depth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     model__bootstrap= [True, False],
@@ -214,7 +213,7 @@ models_cfg[rfr.__name__] = dict(
 )
 
 models_cfg[knr.__name__] = dict(
-    model__n_neighbours = [3, 4, 5, 6, 7, 8, 9, 10],
+    model__n_neighbors = [3, 4, 5, 6, 7, 8, 9, 10],
     model__weights = ['uniform', 'distance', 'callable'],
     model__algorithm = ['auto', 'ball_tree', 'kd_tree', 'brute'],
     model__leaf_size= [10, 20, 30, 40, 50],
@@ -240,8 +239,7 @@ models_cfg[etr.__name__] = dict(
     model__max_depth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     model__max_features = ['auto', 'sqrt', 'log2'],
     model__min_samples_split = [2, 3, 4, 5, ],
-    model__bootstrap = [True, False],
-    model__warm_start = [True, False] 
+    min_samples_leaf=[1, 2, 3, 4, 5]
 )
 
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
