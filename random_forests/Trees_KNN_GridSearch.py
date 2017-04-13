@@ -133,8 +133,8 @@ PolynomialTransformer = FunctionTransformer(poly)
 #########################
 ####Data Preprocessor ###
 #########################
-#preprocessors= [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
-preprocessors = [DummyTransformer,]
+preprocessors= [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
+#preprocessors = [DummyTransformer,]
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
@@ -144,8 +144,8 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 #########################
 ####  Data Transformer ##
 #########################
-#transfomers = [DummyTransformer, StandardScaler()]
-transfomers = [DummyTransformer]
+transfomers = [DummyTransformer, StandardScaler()]
+#transfomers = [DummyTransformer]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -155,8 +155,8 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-#reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
-reducers = [DummyTransformer]
+reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+#reducers = [DummyTransformer]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
