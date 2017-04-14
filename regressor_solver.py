@@ -350,7 +350,7 @@ def run_for_many(x,y, cl_n):
     print ("#########################################")
     print ("###Starting all estimators for cl: "+ str(cl_n))
     print ("#########################################")
-    run_solver(X,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind, precomp_pipe)
+    run_solver(x,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind, precomp_pipe)
     print ("#########################################")
     print ("###Finished all estimators for cl: "+ str(cl_n))
     print ("#########################################")
@@ -374,8 +374,8 @@ def run_for_many(x,y, cl_n):
             
 ##to run for multiple classes of data, add the tuples of x and y  to the tuples array of data and decsription for the purposes logging. For now it is set to run for all the samples there are. For instance tuples_of_data = [(X,y, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2", "samples class2")]
 #for each tupple extracted from the array a new log file is going to be generated, so that each run is in a different log file.
-X = dta_clean.drop('worldwide_gross', axis=1)
-y = dta_clean['worldwide_gross']
+X_all = dta_clean.drop('worldwide_gross', axis=1)
+y_all = dta_clean['worldwide_gross']
 
 df_1 = dta_clean[dta_clean["worldwide_gross"] < 10000000]
 X_1 = df_1.drop('worldwide_gross', axis=1)
@@ -390,7 +390,7 @@ df_3 = dta_clean[dta_clean["worldwide_gross"] >= 300000000]
 X_3 = df_3.drop('worldwide_gross', axis=1)
 y_3 = df_3['worldwide_gross']
 
-tuples_of_data = [(X,y, "all_samples"), (X_1,y_1, "samples_class1") , (X_2,y_2, "samples_class2"), (X_3,y_3, "samples_class3")]
+tuples_of_data = [(X_all,y_all, "all_samples"), (X_1,y_1, "samples_class1") , (X_2,y_2, "samples_class2"), (X_3,y_3, "samples_class3")]
 
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
