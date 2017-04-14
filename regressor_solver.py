@@ -2,7 +2,7 @@ import os
 import sys
 import time
 import warnings
-from datetime import datetime
+import datetime
 import numpy as np
 import pandas as pd
 import math
@@ -319,8 +319,7 @@ def run_solver(x, y, models, models_cfg, results, errors, errors_ind, precomp_pi
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
             get_pipe_result(x, y, preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind)
 
-    print("Pre-computation of pre-processing models completed in {:0>8}".format(
-        datetime.timedelta(seconds=time.time()-ts)))
+    print("Pre-computation of pre-processing models completed in {}".format(datetime.timedelta(seconds=time.time()-ts)))
 
     # for each physically saved pickle run grid search for each model
     for filename in os.listdir("./tmp"):
