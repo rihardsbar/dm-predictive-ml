@@ -10,3 +10,7 @@
 #Python-realted files
 *.ipynb_checkpoints
 .idea
+dataset_
+
+#tempfiles
+tmp

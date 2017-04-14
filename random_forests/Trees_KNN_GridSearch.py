@@ -51,6 +51,7 @@ dta_clean = dta
 dta_clean = dta_clean.fillna(value=0, axis=1)
 dta_clean = dta_clean.dropna()
 dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
+#dta_clean = dta_clean.apply(lambda x: pd.to_numeric(x,errors='ignore')) 
 
 ##define helpers 
 def get_powers_list(n_samples, n_features, n):
@@ -132,8 +133,8 @@ PolynomialTransformer = FunctionTransformer(poly)
 #########################
 ####Data Preprocessor ###
 #########################
-#preprocessors= [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
-preprocessors = [DummyTransformer,]
+preprocessors= [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
+#preprocessors = [DummyTransformer,]
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
@@ -143,8 +144,8 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 #########################
 ####  Data Transformer ##
 #########################
-#transfomers = [DummyTransformer, StandardScaler()]
-transfomers = [DummyTransformer]
+transfomers = [DummyTransformer, StandardScaler()]
+#transfomers = [DummyTransformer]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -154,8 +155,8 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-#reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
-reducers = [DummyTransformer]
+reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+#reducers = [DummyTransformer]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -236,12 +237,12 @@ models_cfg[dtr.__name__] = dict(
 )
 
 
-#models_cfg[etr.__name__] = dict(
-#    model__max_depth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-#    model__max_features = ['auto', 'sqrt', 'log2'],
-#    model__min_samples_split = [2, 3, 4, 5, ],
-#    min_samples_leaf=[1, 2, 3, 4, 5]
-#)
+models_cfg[etr.__name__] = dict(
+    model__max_depth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    model__max_features = ['auto', 'sqrt', 'log2'],
+    model__min_samples_split = [2, 3, 4, 5, ],
+    #min_samples_leaf=[1, 2, 3, 4, 5]
+)
 
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
     
