@@ -242,7 +242,7 @@ def run_grid_search(x, y, model, cfg_dict, pipeline_cfg, results, errors, errors
     global itter_current
     itter_current += 1
     # check if itteration start is set to something different than 0 and then check if current itteration has been reached
-    if itter_start != 0 and itter_current != itter_start: return
+    if itter_start != 0 and itter_current < itter_start: return
     # create pipline and use GridSearch to find the best params for given pipeline
     name = type(model).__name__
 
