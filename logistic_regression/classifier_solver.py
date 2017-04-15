@@ -135,6 +135,7 @@ itter_current = 0
 ####Data Preprocessor ###
 #########################
 preprocessors = [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
+#preprocessors = [DummyTransformer]
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
@@ -145,6 +146,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 ####  Data Transformer ##
 #########################
 transfomers = [DummyTransformer, StandardScaler()]
+#transfomers = [DummyTransformer]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -155,6 +157,7 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ####Dim Reducer, Feat Sel.#
 ###########################
 reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+#reducers = [DummyTransformer]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -247,7 +250,7 @@ models_cfg[NearestCentroid.__name__] = dict(
 )
 models_cfg[MLPClassifier.__name__] = dict(
     model__hidden_layer_sizes = [100],
-    model__activation = ['identity', 'logistic', 'tanh', 'relu'],
+    model__activation = ['identity', 'logistic'],
     model__solver = ['lbfgs', 'sgd', 'adam'],
     model__max_iter = [500],
     model__learning_rate_init = [ 0.8, 0.01,  0.1]
@@ -281,6 +284,29 @@ models_cfg[ExtraTreeClassifier.__name__] =  dict(
     model__max_depth = [None ,3, 5, 10],
     model__min_samples_split = [2, 0.1, 0.5]
 )
+
+
+
+models_cfg[AdaBoostClassifier.__name__] = {}
+models_cfg[BaggingClassifier.__name__] = {}
+models_cfg[ExtraTreesClassifier.__name__] = {}
+models_cfg[GradientBoostingClassifier.__name__] = {}
+models_cfg[RandomForestClassifier.__name__] = {}
+models_cfg[PassiveAggressiveClassifier.__name__] = {}
+models_cfg[LogisticRegression.__name__] = {}
+models_cfg[RidgeClassifier.__name__] = {}
+models_cfg[SGDClassifier.__name__] = {}
+models_cfg[GaussianNB.__name__] = {}
+models_cfg[MultinomialNB.__name__] = {}
+models_cfg[KNeighborsClassifier.__name__] = {}
+models_cfg[RadiusNeighborsClassifier.__name__] = {}
+models_cfg[NearestCentroid.__name__] = {}
+models_cfg[MLPClassifier.__name__] = {}
+models_cfg[SVC.__name__] = {}
+models_cfg[LinearSVC.__name__] = {}
+models_cfg[NuSVC.__name__] = {}
+models_cfg[DecisionTreeClassifier.__name__] = {}
+models_cfg[ExtraTreeClassifier.__name__] = {}
 
 def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
     print ("Starting precomp pipline for "+ str(cfg_dict))
@@ -345,7 +371,7 @@ def run_grid_search(x,y, model, cfg_dict, pipeline_cfg, results, errors, errors_
     global itter_current
     itter_current += 1
     #check if itteration start is set to something different than 0 and then check if current itteration has been reached
-    if itter_start != 0 and itter_current != itter_start: return
+    if itter_start != 0 and itter_current < itter_start: return
     #create pipline and use GridSearch to find the best params for given pipeline
     name = type(model).__name__
 
@@ -486,7 +512,7 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-
+desc = "pipe_empty_models"
 labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
@@ -497,12 +523,13 @@ for ind, cb in enumerate(labels):
         #restart the current itterator for each run
         global itter_current
         itter_current = 0
-        trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
+        trg = "classifyRes_" + time + "_" + desc + "_" + cb.__name__ + ".log"
         new_file = open(trg,"w")
         sys.stdout = new_file
         #set the itterator run to start from
         global itter_start
-        itter_start = 0
+        if ind ==0 : itter_start = 6785
+        else :       itter_start = 0        
         run_for_many(cb.__name__,cb)
         #return stdout for some reason
 sys.stdout = orig_stdout
