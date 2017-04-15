@@ -20,7 +20,6 @@ from sklearn.preprocessing import Normalizer, StandardScaler
 from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.model_selection import GridSearchCV
 from sklearn.feature_selection import f_regression, mutual_info_regression
-import seaborn as sns # More snazzy plotting library
 import itertools
 from itertools import  product
 import pprint
@@ -157,7 +156,7 @@ reducers_cfg[RFE.__name__] = dict(
 ####### Models ##########
 #########################
 #models = [MLPRegressor(), SVR(), LinearSVR(), NuSVR(), AdaBoostRegressor(), IsotonicRegression(), GaussianProcessRegressor()]
-models = [MLPRegressor()]
+models = [NuSVR()]
 models_cfg = {}
 models_cfg[MLPRegressor.__name__] = dict(
     model__hidden_layer_sizes = [(50,), (200,), (500,)],
@@ -166,6 +165,26 @@ models_cfg[MLPRegressor.__name__] = dict(
     #model__learning_rate = ['constant', 'invscaling', 'adaptive'],
     model__max_iter = [200, 500],  
     model__shuffle = [True, False]  
+)
+models_cfg[SVR.__name__] = dict(
+    model__C = [0.8, 1.0],
+    model__kernel = ['rbf', 'sigmoid'],
+    model__shrinking = [True, False]
+)
+
+models_cfg[LinearSVR.__name__] = dict(
+    model__C = [0.8, 1.0],
+    model__loss = ['epsilon_insensitive', 'squared_epsilon_insensitive'],
+    model__epsilon = [0, 0.1],
+    model__fit_intercept = [True, False],
+    model__max_iter = [1000, 2000]
+)
+
+models_cfg[NuSVR.__name__] = dict(
+    model__C = [0.8, 1.0],
+    model__nu = [0.5, 0.8, 1.0],
+    model__kernel = ['rbf', 'sigmoid'],
+    model__shrinking = [True, False]
 )
 
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
