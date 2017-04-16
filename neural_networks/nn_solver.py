@@ -156,7 +156,7 @@ reducers_cfg[RFE.__name__] = dict(
 ####### Models ##########
 #########################
 #models = [MLPRegressor(), SVR(), LinearSVR(), NuSVR(), AdaBoostRegressor(), IsotonicRegression(), GaussianProcessRegressor()]
-models = [NuSVR()]
+models = [GaussianProcessRegressor()]
 models_cfg = {}
 models_cfg[MLPRegressor.__name__] = dict(
     model__hidden_layer_sizes = [(50,), (200,), (500,)],
@@ -186,6 +186,23 @@ models_cfg[NuSVR.__name__] = dict(
     model__kernel = ['rbf', 'sigmoid'],
     model__shrinking = [True, False]
 )
+
+models_cfg[AdaBoostRegressor.__name__] = dict(
+    model__n_estimators = [50, 100],
+    model__loss = ['linear', 'square', 'exponential'],
+    model__learning_rate = [1.0, 2.0]
+)
+
+models_cfg[IsotonicRegression.__name__] = dict(
+    model__increasing = [True, False, 'auto']
+)
+
+models_cfg[GaussianProcessRegressor.__name__] = dict(
+    model__normalize_y = [True, False],
+    model__copy_X_train = [True, False]
+)
+
+
 
 def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
     
