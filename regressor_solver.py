@@ -401,7 +401,7 @@ def simple_experiment():
     ### Start ###############
     #########################
     orig_stdout = sys.stdout #  save orig datetime and save orign stdout
-    time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
+    time = datetime.datetime.now().strftime("%Y_%m_%d_%H%M%S")
     for ind, tupl in enumerate(tuples_of_data):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
