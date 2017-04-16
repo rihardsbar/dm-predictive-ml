@@ -274,8 +274,7 @@ def run_grid_search(x, y, model, cfg_dict, pipeline_cfg, results, errors, errors
             results[name] = {"score": estimator.best_score_, "pipe": pipeline_cfg, "best_cfg": best_param}
     except (ValueError, MemoryError) as err:
         print("GREP_ME***Error caught for  [" + name + "] , pipeline: [" + pipeline_cfg + "] ")
-        errors_ind.append({"cfg": "Model[" + name + "] pipe: " + pipeline_cfg})
-        errors.append({"Model[" + name + "] pipe: " + pipeline_cfg: {"error": err}})
+        print(err)
         pass
 
 
@@ -344,14 +343,6 @@ def run_for_many(x, y, cl_n, models, models_cfg):
     print("###Finished all estimators for cl: " + str(cl_n))
     print("#########################################")
 
-    print("#########################################")
-    print("######Printing all errors for cl: " + str(cl_n))
-    print("#########################################")
-    print(errors)
-    print("#########################################")
-    print("######Printing errors summary for cl: " + str(cl_n))
-    print("#########################################")
-    print(errors_ind)
     print("#########################################")
     print("#######Printing results for cl: " + str(cl_n))
     print("#########################################")
