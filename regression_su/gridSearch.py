@@ -59,6 +59,14 @@ dta_clean = f.dropna()
 X_a = dta_clean.drop('worldwide_gross', axis=1)
 y_a = dta_clean['worldwide_gross']
 
+df_1_1 = dta_clean[dta_clean["worldwide_gross"] < 200000000]
+X_1_1 = df_1_1.drop('worldwide_gross', axis=1)
+y_1_1 = df_1_1['worldwide_gross']
+
+df_1_2 = dta_clean[dta_clean["worldwide_gross"] >= 200000000]
+X_1_2 = df_1_2.drop('worldwide_gross', axis=1)
+y_1_2 = df_1_2['worldwide_gross']
+
 df_1 = dta_clean[dta_clean["worldwide_gross"] < 10000000]
 X_1 = df_1.drop('worldwide_gross', axis=1)
 y_1 = df_1['worldwide_gross']
@@ -153,59 +161,103 @@ models = [br(), en(), ls(), lo(), ll()]
 
 models_cfg = {}
 
-models_cfg[br.__name__] = dict(
-	model__n_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-	model__compute_score = [True, False],
-	model__fit_intercept = [True, False],
-	model__normalize = [True, False],
-	model__copy_X = [True, False],
-	model__verbose = [True, False]
-	)
+def init(para = None):
 
-models_cfg[en.__name__] = dict(
-	model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-	model__precompute = [True, False, 'auto'],
-	model__fit_intercept = [True, False],
-	model__normalize = [True, False],
-	model__copy_X = [True, False],
-	model__warm_start = [True, False],
-	model__positive = [True, False],
-	model_selection = ['cyclic', 'random']
-	)
+    if para == 2:
 
-models_cfg[ls.__name__] = dict(
-	model__precompute = [True, False, 'auto'],
-	model__fit_intercept = [True, False],
-	model__normalize = [True, False],
-	model__copy_X = [True, False],
-	model__fit_path = [True, False],
-	model__positive = [True, False],
-	model_verbose = [True, False]
-	)
+        #########################
+        ####Data Preprocessor ###
+        #########################
 
-models_cfg[lo.__name__] = dict(
-	model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-	model__precompute = [True, False, 'auto'],
-	model__fit_intercept = [True, False],
-	model__normalize = [True, False],
-	model__copy_X = [True, False],
-	model__warm_start = [True, False],
-	model__positive = [True, False],
-	model_selection = ['cyclic', 'random']
-	)
+        preprocessors = [DummyTransformer]
+        preprocessors_cfg = {}
+        preprocessors_cfg[DummyTransformer.func.__name__] = {}
 
-models_cfg[ll.__name__] = dict(
-	model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-	model__precompute = [True, False, 'auto'],
-	model__fit_intercept = [True, False],
-	model__normalize = [True, False],
-	model__copy_X = [True, False],
-	model__fit_path = [True, False],
-	model__positive = [True, False],
-	model_verbose = [True, False]
-	)
-# models_cfg[hr.__name__] = dict(
-# 	)
+
+        #########################
+        ####  Data Transformer ##
+        #########################
+        transfomers = [DummyTransformer]
+        transfomers_cfg = {}
+        transfomers_cfg[DummyTransformer.func.__name__] = {}
+
+        ###########################
+        ####Dim Reducer, Feat Sel.#
+        ###########################
+        reducers = [DummyTransformer]
+        reducers_cfg = {}
+        reducers_cfg[DummyTransformer.func.__name__] = {}
+
+        models_cfg[br.__name__] = dict(
+        	# model__n_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+        	model__compute_score = [True, False],
+        	# model__fit_intercept = [True, False],
+        	model__normalize = [True, False],
+        	# model__copy_X = [True, False],
+        	# model__verbose = [True, False]
+        	)
+
+        models_cfg[en.__name__] = dict(
+        	# model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+        	model__precompute = [True, False, 'auto'],
+        	# model__fit_intercept = [True, False],
+        	model__normalize = [True, False],
+        	# model__copy_X = [True, False],
+        	model__warm_start = [True, False],
+        	model__positive = [True, False],
+        	model_selection = ['cyclic', 'random']
+        	)
+
+        models_cfg[ls.__name__] = dict(
+        	model__precompute = [True, False, 'auto'],
+        	# model__fit_intercept = [True, False],
+        	model__normalize = [True, False],
+        	# model__copy_X = [True, False],
+        	model__fit_path = [True, False],
+        	model__positive = [True, False],
+        	# model_verbose = [True, False]
+        	)
+
+        models_cfg[lo.__name__] = dict(
+        	# model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+        	model__precompute = [True, False, 'auto'],
+        	# model__fit_intercept = [True, False],
+        	model__normalize = [True, False],
+        	# model__copy_X = [True, False],
+        	model__warm_start = [True, False],
+        	model__positive = [True, False],
+        	model_selection = ['cyclic', 'random']
+        	)
+
+        models_cfg[ll.__name__] = dict(
+        	# model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+        	model__precompute = [True, False, 'auto'],
+        	# model__fit_intercept = [True, False],
+        	model__normalize = [True, False],
+        	# model__copy_X = [True, False],
+        	model__fit_path = [True, False],
+        	model__positive = [True, False],
+        	# model_verbose = [True, False]
+        	)
+        # models_cfg[hr.__name__] = dict(
+        # 	)
+    else:
+        models_cfg[br.__name__] = dict(
+            )
+
+        models_cfg[en.__name__] = dict(
+            )
+
+        models_cfg[ls.__name__] = dict(
+            )
+
+        models_cfg[lo.__name__] = dict(
+            )
+
+        models_cfg[ll.__name__] = dict(
+            )
+        # models_cfg[hr.__name__] = dict(
+        #   )
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
@@ -346,21 +398,27 @@ def run_for_many(X, y, sam):
 #ignore warnigs
 
 
-tuples_of_data = [(X_a,y_a, "all samples"), (X_1,y_1, "samples class1") , (X_2,y_2, "samples class2"), (X_3,y_3, "samples class3")]
+tuples_of_data = [(X_a,y_a, "all_samples"), 
+(X_1_1,y_1_1, "samples1_class1"), (X_1_2,y_1_2, "samples1_class2"),
+(X_1,y_1, "samples2_class1") , (X_2,y_2, "samples2_class2"), (X_3,y_3, "samples2_class3")]
 # labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
 
 # for ind, cb in enumerate(labels):
-for item in tuples_of_data:
-	with warnings.catch_warnings():
-	    warnings.simplefilter("ignore")
-	    # trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
-	    trg = "classifyRes_" + time + "_" + item[2] + ".log"
-	    new_file = open(trg,"w")
-	    sys.stdout = new_file
-	    run_for_many(item[0], item[1], item[2])
-	    #return stdout for some reason
+for x in xrange(1,3):
+    
+    init(2)
+
+    for item in tuples_of_data:
+    	with warnings.catch_warnings():
+    	    warnings.simplefilter("ignore")
+    	    # trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
+    	    trg = "classifyRes_" + time + "_" + item[2] + ".log"
+    	    new_file = open(trg,"w")
+    	    sys.stdout = new_file
+    	    run_for_many(item[0], item[1], item[2])
+    	    #return stdout for some reason
 sys.stdout = orig_stdout
 
