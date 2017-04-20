@@ -99,7 +99,7 @@ def get_powers_list(n_samples, n_features, n):
     return res
 
 def get_components_list(n_features, lst):
-    lst = lst + [{"pw": 0.1},{"pw": 0.4},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.3},{"pw": 0.6},{"pw": 0.9}]
+    lst = lst + [{"pw": 0.1},{"pw": 0.4},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.6},{"pw": 0.9}]
     lst = sorted(list(map(lambda x: math.floor(x["pw"]*n_features), lst)) + [1, 3, 5], reverse=True)
     lst[0] = lst[0]-1
     lst_n = [n for n in lst if n < 3321]
@@ -156,26 +156,25 @@ reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[RFE.__name__] = dict(
         reducer__n_features_to_select = [],
-        reducer__step = [0.1, 0.4, 0.8]
+        reducer__step = [0.1, 0.5]
         )
 #########################
 ####### Models ##########
 #########################
 models = [BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
 models_cfg = {}
+'''
 models_cfg[BaggingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__bootstrap = [True, False],
     model__bootstrap_features = [True, False],
-    model__oob_score = [True, False],
-    model__warm_start = [True, False]
 )
 models_cfg[ExtraTreesClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__criterion = ['gini', 'entropy'],
     model__max_features  = ["auto", None, "sqrt"],
     model__bootstrap = [True, False],
-    model__oob_score = [True, False],
+    model__oob_scorS
     model__min_samples_split = [2, 0.1, 0.5],
     model__min_samples_leaf = [1,  0.1, 0.5],
     model__min_weight_fraction_leaf = [0.0 ,0.1, 0.5],
@@ -214,7 +213,36 @@ models_cfg[LogisticRegression.__name__] = dict(
     model__max_iter = [50, 100, 300],
     model__penalty =['l1', 'l2']
 )
+'''
 
+models_cfg[BaggingClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__bootstrap = [True, False],
+    model__bootstrap_features = [True, False],
+)
+models_cfg[ExtraTreesClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__criterion = ['gini', 'entropy'],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__min_samples_split = [2, 0.1, 0.5]
+)
+models_cfg[GradientBoostingClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__max_depth = [3, 5, 10],
+    model__max_leaf_nodes =  [None, 10, 50]
+)
+models_cfg[RandomForestClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__criterion = ['gini', 'entropy'],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__max_depth = [None ,3, 5, 10]
+)
+models_cfg[LogisticRegression.__name__] = dict(
+    model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
+    model__C = np.logspace(-4, 4, 3),
+    model__max_iter = [50, 100, 300],
+)
 
 def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
     print ("Starting precomp pipline for "+ str(cfg_dict))
