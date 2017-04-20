@@ -238,7 +238,7 @@ def get_pipe_result(x, y, preprocessor, transfomer, reducer, precomp_pipe, error
         p.join()
 
 
-def run_grid_search(x, y, model, cfg_dict, pipeline_cfg, results, errors, errors_ind):
+def run_grid_search(x, y, model, model_cfg, cfg_dict, pipeline_cfg, results, errors, errors_ind):
     global itter_current
     itter_current += 1
     # check if itteration start is set to something different than 0 and then check if current itteration has been reached
@@ -250,7 +250,7 @@ def run_grid_search(x, y, model, cfg_dict, pipeline_cfg, results, errors, errors
     pipe = Pipeline(steps=[('model', model)])
 
     # create a dict with param grid
-    param_grid = cfg_dict[name]
+    param_grid = model_cfg[name]
     # create estimator
     cv = 4
     print('####################################################################################')
@@ -325,7 +325,7 @@ def run_solver(x, y, models, models_cfg, results, errors, errors_ind, precomp_pi
         pipe_dict = pickle.loads(open("./tmp/" + filename, 'rb').read())
         # for model in models:
         for model in models:
-            run_grid_search(pipe_dict['precomp_transform'], y, model, models_cfg, pipe_dict['pipeline_cfg'],
+            run_grid_search(pipe_dict['precomp_transform'], y, model, models_cfg, pipe_dict['cfg_dict'], pipe_dict['pipeline_cfg'],
                             results, errors, errors_ind)
 
 
