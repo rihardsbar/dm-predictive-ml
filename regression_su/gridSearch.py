@@ -56,6 +56,64 @@ from sklearn.ensemble import ExtraTreesRegressor
 f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
 dta_clean = f.dropna()
 
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O
+# Input data files are available in the "../input/" directory.
+from subprocess import check_output
+input_folder = "../../moviedata"
+# print(check_output(["ls", input_folder]).decode("utf8"))
+
+import os
+import pandas as pd
+from pandas import DataFrame,Series
+from sklearn import tree
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.linear_model import BayesianRidge as br
+from sklearn.linear_model import ElasticNet as en
+from sklearn.linear_model import Lars as ls
+from sklearn.linear_model import Lasso as lo
+from sklearn.linear_model import LassoLars as ll
+from sklearn.linear_model import HuberRegressor as hr
+
+
+from sklearn.model_selection import cross_val_score
+from sklearn.cross_validation import train_test_split
+from sklearn import preprocessing
+from sklearn.model_selection import GridSearchCV
+
+from sklearn.preprocessing import FunctionTransformer, PolynomialFeatures
+from sklearn.preprocessing import Normalizer, StandardScaler
+from sklearn.decomposition import FactorAnalysis, PCA
+from sklearn.feature_selection import GenericUnivariateSelect, RFE
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.feature_selection import f_regression, mutual_info_regression
+
+from itertools import  product
+import sys
+import warnings
+from datetime import datetime
+warnings.filterwarnings('ignore')
+from sklearn.pipeline import Pipeline, make_pipeline
+
+import math
+# import statsmodels.api as sm
+# from patsy import dmatrices
+from sklearn import metrics
+
+# import seaborn as sns # More snazzy plotting library
+import itertools
+from itertools import  product
+import pprint
+from sklearn.ensemble import ExtraTreesRegressor
+
+
+# f = pd.read_csv(input_folder+"/movie_metadata.csv")
+f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
+dta_clean = f.dropna()
+
 X_a = dta_clean.drop('worldwide_gross', axis=1)
 y_a = dta_clean['worldwide_gross']
 
@@ -189,58 +247,58 @@ def init(para = None):
         reducers_cfg[DummyTransformer.func.__name__] = {}
 
         models_cfg[br.__name__] = dict(
-        	# model__n_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-        	model__compute_score = [True, False],
-        	# model__fit_intercept = [True, False],
-        	model__normalize = [True, False],
-        	# model__copy_X = [True, False],
-        	# model__verbose = [True, False]
-        	)
+            # model__n_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+            model__compute_score = [True, False],
+            # model__fit_intercept = [True, False],
+            model__normalize = [True, False],
+            # model__copy_X = [True, False],
+            # model__verbose = [True, False]
+            )
 
         models_cfg[en.__name__] = dict(
-        	# model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-        	model__precompute = [True, False, 'auto'],
-        	# model__fit_intercept = [True, False],
-        	model__normalize = [True, False],
-        	# model__copy_X = [True, False],
-        	model__warm_start = [True, False],
-        	model__positive = [True, False],
-        	model_selection = ['cyclic', 'random']
-        	)
+            # model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+            model__precompute = [True, False, 'auto'],
+            # model__fit_intercept = [True, False],
+            model__normalize = [True, False],
+            # model__copy_X = [True, False],
+            model__warm_start = [True, False],
+            model__positive = [True, False],
+            model_selection = ['cyclic', 'random']
+            )
 
         models_cfg[ls.__name__] = dict(
-        	model__precompute = [True, False, 'auto'],
-        	# model__fit_intercept = [True, False],
-        	model__normalize = [True, False],
-        	# model__copy_X = [True, False],
-        	model__fit_path = [True, False],
-        	model__positive = [True, False],
-        	# model_verbose = [True, False]
-        	)
+            model__precompute = [True, False, 'auto'],
+            # model__fit_intercept = [True, False],
+            model__normalize = [True, False],
+            # model__copy_X = [True, False],
+            model__fit_path = [True, False],
+            model__positive = [True, False],
+            # model_verbose = [True, False]
+            )
 
         models_cfg[lo.__name__] = dict(
-        	# model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-        	model__precompute = [True, False, 'auto'],
-        	# model__fit_intercept = [True, False],
-        	model__normalize = [True, False],
-        	# model__copy_X = [True, False],
-        	model__warm_start = [True, False],
-        	model__positive = [True, False],
-        	model_selection = ['cyclic', 'random']
-        	)
+            # model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+            model__precompute = [True, False, 'auto'],
+            # model__fit_intercept = [True, False],
+            model__normalize = [True, False],
+            # model__copy_X = [True, False],
+            model__warm_start = [True, False],
+            model__positive = [True, False],
+            model_selection = ['cyclic', 'random']
+            )
 
         models_cfg[ll.__name__] = dict(
-        	# model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-        	model__precompute = [True, False, 'auto'],
-        	# model__fit_intercept = [True, False],
-        	model__normalize = [True, False],
-        	# model__copy_X = [True, False],
-        	model__fit_path = [True, False],
-        	model__positive = [True, False],
-        	# model_verbose = [True, False]
-        	)
+            # model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+            model__precompute = [True, False, 'auto'],
+            # model__fit_intercept = [True, False],
+            model__normalize = [True, False],
+            # model__copy_X = [True, False],
+            model__fit_path = [True, False],
+            model__positive = [True, False],
+            # model_verbose = [True, False]
+            )
         # models_cfg[hr.__name__] = dict(
-        # 	)
+        #   )
     else:
         models_cfg[br.__name__] = dict(
             )
@@ -408,18 +466,20 @@ time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
 
 
 # for ind, cb in enumerate(labels):
-for x in xrange(1,3):
+for x in range(1,3):
     
     init(2)
 
     for item in tuples_of_data:
-    	with warnings.catch_warnings():
-    	    warnings.simplefilter("ignore")
-    	    # trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
-    	    trg = "classifyRes_" + time + "_" + item[2] + ".log"
-    	    new_file = open(trg,"w")
-    	    sys.stdout = new_file
-    	    run_for_many(item[0], item[1], item[2])
-    	    #return stdout for some reason
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            # trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
+            trg = "classifyRes_" + time + "_" + item[2] + str(x) + ".log"
+            new_file = open(trg,"w")
+            sys.stdout = new_file
+            run_for_many(item[0], item[1], item[2])
+            #return stdout for some reason
 sys.stdout = orig_stdout
+
+
 
