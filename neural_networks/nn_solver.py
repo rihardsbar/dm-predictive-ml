@@ -17,6 +17,7 @@ from itertools import product
 from multiprocessing import Process, Value, Array
 import pickle
 import shutil
+from sklearn.model_selection import train_test_split
 
 #import regressors
 #----Ensemble and Generalise Lin. Models---------------
@@ -210,7 +211,7 @@ def get_pipe_result(x, y, preprocessor, transfomer, reducer, precomp_pipe, error
         p.join()
 
 
-def run_grid_search(x, y, model, cfg_dict, pipeline_cfg, results, errors, errors_ind):
+def run_grid_search(x, y, model, model_cfg, cfg_dict, pipeline_cfg, results, errors, errors_ind):
     global itter_current
     itter_current += 1
     # check if itteration start is set to something different than 0 and then check if current itteration has been reached
@@ -222,7 +223,7 @@ def run_grid_search(x, y, model, cfg_dict, pipeline_cfg, results, errors, errors
     pipe = Pipeline(steps=[('model', model)])
 
     # create a dict with param grid
-    param_grid = cfg_dict[name]
+    param_grid = model_cfg[name]
     # create estimator
     cv = 4
     print('####################################################################################')
@@ -254,6 +255,7 @@ def run_grid_search(x, y, model, cfg_dict, pipeline_cfg, results, errors, errors
 def run_solver(x, y, models, models_cfg, results, errors, errors_ind, precomp_pipe):
     n_samples, n_features = x.shape
 
+    x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
     # Make a dir for preprocessor temp files
     try:
         os.mkdir("./tmp")
@@ -295,9 +297,8 @@ def run_solver(x, y, models, models_cfg, results, errors, errors_ind, precomp_pi
     # for each physically saved pickle run grid search for each model
     for filename in os.listdir("./tmp"):
         pipe_dict = pickle.loads(open("./tmp/" + filename, 'rb').read())
-        # for model in models:
         for model in models:
-            run_grid_search(pipe_dict['precomp_transform'], y, model, models_cfg, pipe_dict['pipeline_cfg'],
+            run_grid_search(pipe_dict['precomp_transform'], y, model, models_cfg, pipe_dict['cfg_dict'], pipe_dict['pipeline_cfg'],
                             results, errors, errors_ind)
 
 

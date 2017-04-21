@@ -17,7 +17,7 @@ from itertools import product
 from multiprocessing import Process, Value, Array
 import pickle
 import shutil
-
+from sklearn.model_selection import train_test_split
 
 # -----Ensemble---------------------
 from sklearn.ensemble import AdaBoostRegressor
@@ -281,7 +281,8 @@ def run_grid_search(x, y, model, model_cfg, cfg_dict, pipeline_cfg, results, err
 # def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind, precomp_pipe):
 def run_solver(x, y, models, models_cfg, results, errors, errors_ind, precomp_pipe):
     n_samples, n_features = x.shape
-
+    # simply schuffle the data so that cross validation gets random samples
+    x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
     # Make a dir for preprocessor temp files
     try:
         os.mkdir("./tmp")
@@ -328,7 +329,6 @@ def run_solver(x, y, models, models_cfg, results, errors, errors_ind, precomp_pi
             run_grid_search(pipe_dict['precomp_transform'], y, model, models_cfg, pipe_dict['cfg_dict'], pipe_dict['pipeline_cfg'],
                             results, errors, errors_ind)
 
-
 ## Function for trigrering gridserach and priting results
 def run_for_many(x, y, cl_n, models, models_cfg):
     results = {}
@@ -356,7 +356,7 @@ def run_for_many(x, y, cl_n, models, models_cfg):
 def simple_experiment():
     # file_path =  "./dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
     # file_path = "./dataset/movie_metadata_cleaned_no_vector_num_only.csv"
-    file_path = "./dataset_/movie_metadata_cleaned_categ_num_only.csv"
+    file_path = "./dataset/movie_metadata_cleaned_categ_num_only.csv"
 
     # Read data
     dta = pd.read_csv(file_path)
