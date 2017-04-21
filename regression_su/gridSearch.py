@@ -215,12 +215,13 @@ reducers_cfg[RFE.__name__] = dict(
 ####### Models ##########
 #########################
 
-models = [br(), en(), ls(), lo(), ll()]
+# models = [br(), en(), ls(), lo(), ll()]
+models = [br(), en(), ll()]
 
 models_cfg = {}
 
 def init(para = None):
-
+    # print (para);
     if para == 2:
 
         #########################
@@ -259,39 +260,39 @@ def init(para = None):
             # model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
             model__precompute = [True, False, 'auto'],
             # model__fit_intercept = [True, False],
-            model__normalize = [True, False],
+            # model__normalize = [True, False],
             # model__copy_X = [True, False],
-            model__warm_start = [True, False],
+            # model__warm_start = [True, False],
             model__positive = [True, False],
             model_selection = ['cyclic', 'random']
             )
 
-        models_cfg[ls.__name__] = dict(
-            model__precompute = [True, False, 'auto'],
-            # model__fit_intercept = [True, False],
-            model__normalize = [True, False],
-            # model__copy_X = [True, False],
-            model__fit_path = [True, False],
-            model__positive = [True, False],
-            # model_verbose = [True, False]
-            )
+        # models_cfg[ls.__name__] = dict(
+        #     model__precompute = [True, False, 'auto'],
+        #     # model__fit_intercept = [True, False],
+        #     # model__normalize = [True, False],
+        #     # model__copy_X = [True, False],
+        #     model__fit_path = [True, False],
+        #     model__positive = [True, False],
+        #     # model_verbose = [True, False]
+        #     )
 
-        models_cfg[lo.__name__] = dict(
-            # model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
-            model__precompute = [True, False, 'auto'],
-            # model__fit_intercept = [True, False],
-            model__normalize = [True, False],
-            # model__copy_X = [True, False],
-            model__warm_start = [True, False],
-            model__positive = [True, False],
-            model_selection = ['cyclic', 'random']
-            )
+        # models_cfg[lo.__name__] = dict(
+        #     # model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
+        #     model__precompute = [True, False, 'auto'],
+        #     # model__fit_intercept = [True, False],
+        #     # model__normalize = [True, False],
+        #     # model__copy_X = [True, False],
+        #     model__warm_start = [True, False],
+        #     model__positive = [True, False],
+        #     model_selection = ['cyclic', 'random']
+        #     )
 
         models_cfg[ll.__name__] = dict(
             # model__max_iter = [10, 50, 100, 150, 200, 250, 300, 350],
             model__precompute = [True, False, 'auto'],
             # model__fit_intercept = [True, False],
-            model__normalize = [True, False],
+            # model__normalize = [True, False],
             # model__copy_X = [True, False],
             model__fit_path = [True, False],
             model__positive = [True, False],
@@ -306,11 +307,11 @@ def init(para = None):
         models_cfg[en.__name__] = dict(
             )
 
-        models_cfg[ls.__name__] = dict(
-            )
+        # models_cfg[ls.__name__] = dict(
+        #     )
 
-        models_cfg[lo.__name__] = dict(
-            )
+        # models_cfg[lo.__name__] = dict(
+        #     )
 
         models_cfg[ll.__name__] = dict(
             )
@@ -462,21 +463,22 @@ tuples_of_data = [(X_a,y_a, "all_samples"),
 # labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
-time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
-
 
 # for ind, cb in enumerate(labels):
 for x in range(1,3):
-    
-    init(2)
 
     for item in tuples_of_data:
+        
         with warnings.catch_warnings():
+            time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
             warnings.simplefilter("ignore")
             # trg = "classifyRes_" + time + "_" + cb.__name__ + ".log"
-            trg = "classifyRes_" + time + "_" + item[2] + str(x) + ".log"
+            trg = "classifyRes_" + time + "_" + item[2] + '_' + str(x) + ".log"
             new_file = open(trg,"w")
             sys.stdout = new_file
+            init(x)
+            # print (trg + str(x))
+            # break
             run_for_many(item[0], item[1], item[2])
             #return stdout for some reason
 sys.stdout = orig_stdout
