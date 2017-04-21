@@ -109,6 +109,11 @@ from itertools import  product
 import pprint
 from sklearn.ensemble import ExtraTreesRegressor
 
+from multiprocessing import Process, Value, Array
+from asyncio import Queue
+from threading import Thread
+import pickle
+import shutil
 
 # f = pd.read_csv(input_folder+"/movie_metadata.csv")
 f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
@@ -162,6 +167,9 @@ def log(X):
     X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
+###define a global itteration var###########
+itter_start   = 0
+itter_current = 0
 
 DummyTransformer = FunctionTransformer(dummy)
 LogarithmicTransformer = FunctionTransformer(log)
@@ -199,7 +207,7 @@ reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
         reducer__n_components = [],
-        reducer__whiten = [True, False],
+        # reducer__whiten = [True, False],
         reducer__svd_solver = ['auto']
         )
 reducers_cfg[GenericUnivariateSelect.__name__] = dict(
@@ -347,24 +355,23 @@ def get_components_list(n_features, lst):
         lst_n = [3320] + lst_n
     return lst_n
 
-def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind):
-
+def run_grid_search(x,y, model, cfg_dict, pipeline_cfg, results, errors, errors_ind):
+    global itter_current
+    itter_current += 1
+    #check if itteration start is set to something different than 0 and then check if current itteration has been reached
+    if itter_start != 0 and itter_current < itter_start: return
     #create pipline and use GridSearch to find the best params for given pipeline
     name = type(model).__name__
-    preprocessor_name = type(preprocessor).__name__ if (type(preprocessor).__name__ != "FunctionTransformer") else preprocessor.func.__name__
-    transfomer_name =  type(transfomer).__name__ if (type( transfomer).__name__ != "FunctionTransformer") else  transfomer.func.__name__
-    reducer_name = type(reducer).__name__ if (type(reducer).__name__ != "FunctionTransformer") else reducer.func.__name__
 
     #Define and save pipe cfg
-    pipeline_cfg = "| preprocessor:" + preprocessor_name +  " | transfomer: " + transfomer_name + " | reducer: " + reducer_name
-    pipe = Pipeline(steps=[('preprocessor', preprocessor), ('transfomer', transfomer), ('reducer', reducer),('model', model)])
+    pipe = Pipeline(steps=[('model', model)])
 
     #create a dict with param grid
-    param_grid = dict(models_cfg[name], **dict(reducers_cfg[reducer_name], **dict(transfomers_cfg[transfomer_name], **preprocessors_cfg[preprocessor_name])))
+    param_grid = models_cfg[name]
     #create estimator
     cv = 4
     print('####################################################################################')
-    print()
+    print('################# Runing the itteration %d  of the GridSearchCV ####################' %(itter_current))
     print('####################################################################################')
     print ("***Starting ["  + name + "] estimator run, pipeline: "+ pipeline_cfg+" ")
     print("##param_grid##")
@@ -374,32 +381,101 @@ def run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, error
     try:
             estimator.fit(x, y)
             print ("GREP_ME***Results of ["  + name + "] estimatorrun are")
-            print (estimator.cv_results_)
+            print (estimator.cv_results_)            
             print ("GREP_ME***Best params of ["  + name + "] estimator,pipeline:"+ pipeline_cfg+"  run are")
-            print (estimator.best_params_)
+            best_param = dict(estimator.best_params_, **cfg_dict)
+            print (best_param)
             print ("GREP_ME***Best score of ["  + name + "] estimator, pipeline:"+ pipeline_cfg+" run are")
             print (estimator.best_score_)
             if (name not in results) or (estimator.best_score_ > results[name]["score"]):
-                results[name] = {"score": estimator.best_score_, "pipe":pipeline_cfg, "best_cfg": estimator.best_params_}
+                results[name] = {"score": estimator.best_score_, "pipe":pipeline_cfg, "best_cfg": best_param}
     except (ValueError, MemoryError) as err:
             print ("GREP_ME***Error caught for  ["  + name + "] , pipeline: ["+ pipeline_cfg+"] ")
-            errors_ind.append({"cfg": "Model["+ name +"] pipe: " + pipeline_cfg})
-            errors.append({"Model["+ name +"] pipe: " + pipeline_cfg: {"error": err}})
+            print(err)
             pass
 
+def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
+    print ("Starting precomp pipline for "+ str(cfg_dict))
+    #run the pipe, except eceptions, save errors
+    try:
+            #precomp_pipe.put_nowait({"pipeline_cfg": pipeline_cfg, "cfg_dict": cfg_dict,"precomp_transform": pipe.set_params(**cfg_dict).fit_transform(x,y)})
+            dump_dict = {"pipeline_cfg": pipeline_cfg, "cfg_dict": cfg_dict,"precomp_transform": pipe.set_params(**cfg_dict).fit_transform(x,y)}
+            tmp_trg = "./tmp/" + str(itter_current) + "_" + str(ind)
+            with open(tmp_trg, 'wb') as handle:
+                  pickle.dump(dump_dict, handle)
+            print ("Finished precomp pipline for "+ str(cfg_dict))
+            
 
-def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind):
+    except (ValueError, MemoryError) as err:
+            print ("GREP_ME***Error caught for  precomp pipeline: ["+ pipeline_cfg+"] ")
+            errors_ind.append({"cfg": pipeline_cfg})
+            errors.append({"Precomp pipe: " + pipeline_cfg: {"error": err}})
+            pass
+
+def get_pipe_result(x, y, preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind):
+    global itter_current
+    itter_current += 1
+    #create pipline for the preprocessing
+    preprocessor_name = type(preprocessor).__name__ if (type(preprocessor).__name__ != "FunctionTransformer") else preprocessor.func.__name__
+    transfomer_name =  type(transfomer).__name__ if (type( transfomer).__name__ != "FunctionTransformer") else  transfomer.func.__name__
+    reducer_name = type(reducer).__name__ if (type(reducer).__name__ != "FunctionTransformer") else reducer.func.__name__
+    
+    print('####################################################################################')
+    print('################# Runing the itteration %d  of pipeline precomp      ###############' %(itter_current))
+    print('####################################################################################')
+    
+    #Define and save pipe cfg
+    pipeline_cfg = "| preprocessor:" + preprocessor_name +  " | transfomer: " + transfomer_name + " | reducer: " + reducer_name
+    pipe = Pipeline(steps=[('preprocessor', preprocessor), ('transfomer', transfomer), ('reducer', reducer)])
+    print(pipeline_cfg)
+    
+    #itterate over each cfg variation and precompute the result
+    param_grid = dict(dict(preprocessors_cfg[preprocessor_name], **dict(transfomers_cfg[transfomer_name], **reducers_cfg[reducer_name])))
+    print(param_grid)
+    processes = []
+    local_ind = 0
+    for _terms  in list(product(*[preprocessors_cfg[preprocessor_name][it] for it in preprocessors_cfg[preprocessor_name]])):
+        cfg_dict = dict((term, _terms[ind]) for ind, term in enumerate(tuple(it for it in preprocessors_cfg[preprocessor_name])))
+    
+        for _terms  in list(product(*[transfomers_cfg[transfomer_name][it] for it in transfomers_cfg[transfomer_name]])):
+            cfg_dict.update(dict((term, _terms[ind]) for ind, term in enumerate(tuple(it for it in transfomers_cfg[transfomer_name]))))
+                
+            for _terms  in list(product(*[reducers_cfg[reducer_name][it] for it in reducers_cfg[reducer_name]])):
+                cfg_dict.update(dict((term, _terms[ind]) for ind, term in enumerate(tuple(it for it in reducers_cfg[reducer_name]))))
+                #launch in a parraler manner a pipe dict
+                #launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, local_ind)
+                local_ind += 1
+                final_cfg = cfg_dict
+                p = Process(target=launch_pipe_instance, args=(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, local_ind))
+                p.start()
+                processes.append(p)
+
+    for p in processes: p.join()
+
+# def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind):
+def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind, precomp_pipe):
     # mix it, so that the sample order is randomized
     x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
     n_samples, n_features = x.shape
-    for preprocessor, transfomer, reducer, model in product(preprocessors, transfomers, reducers, models):
+
+    #make a dir for preprocessor temp files
+    try:
+        os.mkdir("./tmp")
+    except FileExistsError:
+        #rm temp dir and make new one
+        shutil.rmtree("./tmp")
+        os.mkdir("./tmp")
+
+    # for preprocessor, transfomer, reducer, model in product(preprocessors, transfomers, reducers, models):
+    for preprocessor, transfomer, reducer in product(preprocessors, transfomers, reducers):
         ##run gridesearch with new amout of features, depending of preprocessor and hence pass the right amount of maximum components to the reducers
         if preprocessor.func.__name__ == LogarithmicTransformer.func.__name__ :
             n_components = get_components_list(n_features, [{"pw":2}, {"pw":1}])
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
-            run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
+            # run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
+            get_pipe_result(x, y,preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind)
         elif preprocessor.func.__name__ == PolynomialTransformer.func.__name__:
             kw_arg_powers = get_powers_list(n_samples, n_features, 3)
             pw_lst = []
@@ -410,25 +486,35 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
                 reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
                 reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
                 reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
-                run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
+                # run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
+                get_pipe_result(x, y,preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind)
         else:
             n_components = get_components_list(n_features, [{"pw":1}])
             reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
             reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
-            run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
+            # run_grid_search(x,y,preprocessor, transfomer, reducer, model, results, errors, errors_ind)
+            get_pipe_result(x, y,preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind)
+
+    #for each physically saved pickle run grid search for each model
+    for filename in os.listdir("./tmp"):
+        pipe_dict = pickle.loads(open("./tmp/" + filename, 'rb').read())
+        for model in models: 
+            run_grid_search( pipe_dict['precomp_transform'],y, model,  pipe_dict['cfg_dict'],  pipe_dict['pipeline_cfg'], results, errors, errors_ind)
 
 # def run_for_many(cl_n,label_fn):
 def run_for_many(X, y, sam):
     results = {}
     errors = []
     errors_ind = []
+    precomp_pipe = []
 
     print ("#########################################")
     # print ("###Starting all estimators for cl: "+ str(cl_n))
     print ("###Starting all estimators for cl: " + sam)
     print ("#########################################")
-    run_solver(X,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind)
+    # run_solver(X,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind)
+    run_solver(X,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind, precomp_pipe)
     print ("#########################################")
     # print ("###Finished all estimators for cl: "+ str(cl_n))
     print ("###Finished all estimators for cl: " + sam)
