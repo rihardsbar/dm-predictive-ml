@@ -67,8 +67,10 @@ from sklearn.tree import           DecisionTreeClassifier
 from sklearn.tree import           ExtraTreeClassifier
 
 #file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
-file_path =  "../dataset/movie_metadata_cleaned_categ_num_only.csv"
+#file_path =  "../dataset/movie_metadata_cleaned_categ_num_only.csv"
 #file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
+file_path =  "../dataset/movie_metadata_cleaned_cat-name_vector_no_imbd.csv"
+#file_path =  "../dataset/movie_metadata_cleaned_cat_vector_no_imbd.csv"
 
 dta = pd.read_csv(file_path)
 dta_clean = dta
@@ -135,7 +137,8 @@ itter_current = 0
 #########################
 ####Data Preprocessor ###
 #########################
-preprocessors = [PolynomialTransformer]
+preprocessors = [DummyTransformer]
+#preprocessors = [PolynomialTransformer]
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
@@ -144,14 +147,16 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 #########################
 ####  Data Transformer ##
 #########################
-transfomers = [StandardScaler()]
+transfomers = [DummyTransformer]
+#transfomers = [StandardScaler()]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-reducers = [RFE(ExtraTreesRegressor())]
+reducers = [DummyTransformer]
+#reducers = [RFE(ExtraTreesRegressor())]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[RFE.__name__] = dict(
@@ -161,7 +166,8 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 ####### Models ##########
 #########################
-models = [BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
+#models = [BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
+models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
 models_cfg = {}
 '''
 models_cfg[BaggingClassifier.__name__] = dict(
@@ -215,6 +221,7 @@ models_cfg[LogisticRegression.__name__] = dict(
 )
 '''
 
+'''
 models_cfg[BaggingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__bootstrap = [True, False],
@@ -243,6 +250,139 @@ models_cfg[LogisticRegression.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
     model__max_iter = [50, 100, 300],
 )
+'''
+
+'''
+models_cfg[AdaBoostClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__learning_rate = [0.1, 0.5,1.0],
+    model__algorithm = ['SAMME', 'SAMME.R']
+    )
+models_cfg[BaggingClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__bootstrap = [True, False],
+    model__bootstrap_features = [True, False],
+)
+models_cfg[ExtraTreesClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__criterion = ['gini', 'entropy'],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__min_samples_split = [2, 0.1, 0.5]
+)
+models_cfg[GradientBoostingClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__max_depth = [3, 5, 10],
+    model__max_leaf_nodes =  [None, 10, 50]
+)
+models_cfg[RandomForestClassifier.__name__] = dict(
+    model__n_estimators = [10, 50, 100, 130],
+    model__criterion = ['gini', 'entropy'],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__max_depth = [None ,3, 5, 10]
+)
+models_cfg[PassiveAggressiveClassifier.__name__] = dict(
+    model__C = np.logspace(-4, 4, 3),
+    model__fit_intercept = [True],
+    model__n_iter = [5, 10 , 20],
+    model__shuffle = [True, False],
+    model__loss = ['hinge', 'squared_hinge']
+)
+models_cfg[LogisticRegression.__name__] = dict(
+    model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
+    model__C = np.logspace(-4, 4, 3),
+    model__max_iter = [50, 100, 300],
+)
+models_cfg[RidgeClassifier.__name__] = dict(
+    model__tol = [1e-4, 1e-3, 1e-2],
+    model__solver = ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag'],
+    model__fit_intercept = [True],
+    model__alpha = np.reciprocal(np.logspace(-4, 4, 3))
+)
+models_cfg[SGDClassifier.__name__] = dict(
+    model__loss = ['hinge', 'log', 'modified_huber', 'squared_hinge', 'perceptron', 'squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'],
+    model__penalty =[None,'l1', 'l2', 'elasticnet'],
+    model__l1_ratio =[0.15, 0.4 , 0.8]
+)
+models_cfg[GaussianNB.__name__] = {}
+models_cfg[MultinomialNB.__name__] = dict(
+    model__alpha = np.reciprocal(np.logspace(-4, 4, 3))
+)
+models_cfg[KNeighborsClassifier.__name__] = dict(
+    model__n_neighbors = [5, 10 , 20],
+    model__algorithm = ['ball_tree', 'kd_tree', 'auto'],
+    model__leaf_size = [15, 30, 50],
+    model__p = [1, 2, 3]
+)
+models_cfg[RadiusNeighborsClassifier.__name__] = dict(
+    model__radius = [0.1, 0.5, 1.0],
+    model__algorithm = ['ball_tree', 'kd_tree',  'auto'],
+    model__p = [1, 2, 3],
+    model__outlier_label = [6]
+)
+models_cfg[NearestCentroid.__name__] = dict(
+    model__shrink_threshold = [None, 0.1, 0.4, 0.8]
+)
+models_cfg[MLPClassifier.__name__] = dict(
+    model__hidden_layer_sizes = [100],
+    model__activation = ['identity', 'logistic'],
+    model__solver = ['lbfgs', 'sgd', 'adam'],
+    model__max_iter = [500],
+    model__learning_rate_init = [ 0.8, 0.01,  0.1]
+
+)
+models_cfg[SVC.__name__] = dict(
+    model__C = np.logspace(-4, 4, 3),
+    model__kernel = ['rbf', 'sigmoid'],
+    model__degree = [2,3,5],
+    model__coef0 = [0.0, 0.5, 1.0]
+)
+models_cfg[LinearSVC.__name__] = dict(
+    model__C = np.logspace(-4, 4, 3),
+    model__loss = ['hinge', 'squared_hinge'],
+)
+models_cfg[NuSVC.__name__] = dict(
+    model__nu = [0.1, 0.2],
+    model__kernel = ['rbf', 'sigmoid'],
+    model__degree = [2,3,5],
+    model__coef0 = [0.0, 0.5, 1.0],
+ )
+models_cfg[DecisionTreeClassifier.__name__] = dict(
+    model__criterion = ['gini', 'entropy'],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__max_depth = [None ,3, 5, 10],
+    model__min_samples_split = [2, 0.1, 0.5]
+)
+models_cfg[ExtraTreeClassifier.__name__] =  dict(
+    model__criterion = ['gini', 'entropy'],
+    model__max_features  = ["auto", None, "sqrt"],
+    model__max_depth = [None ,3, 5, 10],
+    model__min_samples_split = [2, 0.1, 0.5]
+)
+'''
+
+
+models_cfg[AdaBoostClassifier.__name__] = {}
+models_cfg[BaggingClassifier.__name__] = {}
+models_cfg[ExtraTreesClassifier.__name__] = {}
+models_cfg[GradientBoostingClassifier.__name__] = {}
+models_cfg[RandomForestClassifier.__name__] = {}
+models_cfg[PassiveAggressiveClassifier.__name__] = {}
+models_cfg[LogisticRegression.__name__] = {}
+models_cfg[RidgeClassifier.__name__] = {}
+models_cfg[SGDClassifier.__name__] = {}
+models_cfg[GaussianNB.__name__] = {}
+models_cfg[MultinomialNB.__name__] = {}
+models_cfg[KNeighborsClassifier.__name__] = {}
+models_cfg[RadiusNeighborsClassifier.__name__] = {}
+models_cfg[NearestCentroid.__name__] = {}
+models_cfg[MLPClassifier.__name__] = {}
+models_cfg[SVC.__name__] = {}
+models_cfg[LinearSVC.__name__] = {}
+models_cfg[NuSVC.__name__] = {}
+models_cfg[DecisionTreeClassifier.__name__] = {}
+models_cfg[ExtraTreeClassifier.__name__] = {}
+
 
 def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
     print ("Starting precomp pipline for "+ str(cfg_dict))
@@ -440,7 +580,7 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-desc = "narrowed_down"
+desc = "names_no_imbd_no_pipe_no_params"
 labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
