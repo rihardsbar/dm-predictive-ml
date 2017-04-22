@@ -17,7 +17,7 @@ args = parser.parse_args()
 results_all = []
 with open(args.file) as f:
     for line in f:
-        if "Best param" in line and "print (" not Line in and "print(" not in line:
+      	if "Best param" in line and "print (" not in line and "print(" not in line:
             try:
                 pipeline = line
                 cfg = next(f)
