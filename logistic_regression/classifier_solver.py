@@ -69,7 +69,7 @@ from sklearn.tree import           ExtraTreeClassifier
 #file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
 #file_path =  "../dataset/movie_metadata_cleaned_categ_num_only.csv"
 #file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
-file_path =  "../dataset/movie_metadata_cleaned_cat-name_vector_no_imbd.csv"
+file_path =  "../dataset/no_imdb_names-count_cat-tf_184f.csv"
 #file_path =  "../dataset/movie_metadata_cleaned_cat_vector_no_imbd.csv"
 
 dta = pd.read_csv(file_path)

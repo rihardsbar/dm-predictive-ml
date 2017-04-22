@@ -430,7 +430,7 @@ def simple_experiment(file_path):
     #########################
     models_class = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
     
-    models_reg = [AdaBoostRegressor(),BaggingRegressor(),ExtraTreesRegressor(),GradientBoostingRegressor(),RandomForestRegressor(),ElasticNet(),HuberRegressor(),Lars(),Lasso(),LassoLars(),LinearRegression(),PassiveAggressiveRegressor(),Ridge(),SGDRegressor(),OrthogonalMatchingPursuit(),RANSACRegressor(),KNeighborsRegressor(),RadiusNeighborsRegressor(),MLPRegressor(),SVR(),LinearSVR(),NuSVR(),DecisionTreeRegressor(),ExtraTreeRegressor()]
+    models_reg = [AdaBoostRegressor(),BaggingRegressor(),ExtraTreesRegressor(),GradientBoostingRegressor(),RandomForestRegressor(),ElasticNet(),HuberRegressor(),Lasso(),LassoLars(),LinearRegression(),PassiveAggressiveRegressor(),Ridge(),SGDRegressor(),OrthogonalMatchingPursuit(),RANSACRegressor(),KNeighborsRegressor(),RadiusNeighborsRegressor(),MLPRegressor(),SVR(),LinearSVR(),NuSVR(),DecisionTreeRegressor(),ExtraTreeRegressor()]
     
     models_cfg = {}
     
@@ -501,7 +501,7 @@ def simple_experiment(file_path):
             global itter_current
             itter_current = 0
             x_crr, y_crr, dsc = tupl
-            trg = "regressRes_" + time + "_" + dsc + ".log"
+            trg = "regressRes_" +  dsc +  "_" + time +".log"
             new_file = open(trg, "w")
             sys.stdout = new_file
             # set the itterator run to start from
@@ -512,7 +512,7 @@ def simple_experiment(file_path):
             
     
     desc = "quickClass" + file_path.replace('.','').replace('/','').replace('dataset','').replace('csv','')
-    labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
+    labels = [label_gross_3, label_gross_2]
     #save orig datetime and save orign stdout
     orig_stdout = sys.stdout
     time = datetime.datetime.now().strftime("%Y_%m_%d_%H%M%S")
@@ -522,7 +522,7 @@ def simple_experiment(file_path):
             #restart the current itterator for each run
             global itter_current
             itter_current = 0
-            trg = "classifyRes_" + time + "_" + desc + "_" + cb.__name__ + ".log"
+            trg = "classifyRes_" + desc + "_" + cb.__name__ +  "_" + time + ".log"
             new_file = open(trg,"w")
             sys.stdout = new_file
             #set the itterator run to start from
@@ -540,10 +540,14 @@ def simple_experiment(file_path):
 
 if __name__ == "__main__":
     files = [
-        "./dataset/movie_metadata_cleaned_tfidf_num_only_min.csv",
-        "./dataset/movie_metadata_cleaned_categ_num_only.csv",
-        "./dataset/movie_metadata_cleaned_no_vector_num_only.csv",
-        "./dataset/movie_metadata_cleaned_cat-name_vector_no_imbd.csv",
-        "./dataset/movie_metadata_cleaned_cat_vector_no_imbd.csv"
+        './dataset/test_names-count_cat-count.csv',
+        './dataset/test_names-count_cat-td.csv',
+        './dataset/test_names-count_cat-tdidf.csv',
+        './dataset/test_names-td_cat-count.csv',
+        './dataset/test_names-td_cat-td.csv',
+        './dataset/test_names-td_cat-tdidf.csv',
+        './dataset/test_names-tdidf_cat-count.csv',
+        './dataset/test_names-tdidf_cat-td.csv',
+        './dataset/test_names-tdidf_cat-tdidf.csv'
     ]
     for file in files: simple_experiment(file)
