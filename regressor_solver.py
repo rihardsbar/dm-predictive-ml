@@ -109,7 +109,7 @@ PolynomialTransformer = FunctionTransformer(poly)
 #################################
 ### Default Data Preprocessor ###
 #################################
-preprocessors = [DummyTransformer, LogarithmicTransformer, PolynomialTransformer]
+preprocessors = [LogarithmicTransformer, PolynomialTransformer]
 preprocessors_cfg = dict()
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
