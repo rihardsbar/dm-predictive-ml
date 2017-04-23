@@ -66,11 +66,9 @@ from sklearn.svm import            NuSVC
 from sklearn.tree import           DecisionTreeClassifier
 from sklearn.tree import           ExtraTreeClassifier
 
-#file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
-#file_path =  "../dataset/movie_metadata_cleaned_categ_num_only.csv"
-#file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
+
 file_path =  "../dataset/no_imdb_names-count_cat-tf_184f.csv"
-#file_path =  "../dataset/movie_metadata_cleaned_cat_vector_no_imbd.csv"
+
 
 dta = pd.read_csv(file_path)
 dta_clean = dta
@@ -81,46 +79,30 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
-    base_arr = [{"pw":2},{"pw":3},{"pw":4}]
-    max_pw = math.ceil(3320/n_features)
-    if max_pw > 7: max_pw = 7
-    step = math.floor((max_pw-4) / n)
-    if step < 1 : step = 1
-    extra_arr = [{"pw":power} for power in range(4 + step, max_pw, step)]
-    if  n_samples/n_features < 2:
-        res = [{"pw":1}]
-    elif max_pw - 1 == 2:
-        res = [{"pw":2}]
-    elif max_pw - 1 == 3:
-        res = [{"pw":2}, {"pw":3}]
-    elif max_pw - 1 == 4:
-        res = [{"pw":2},{"pw":3},{"pw":4}]
-    else :
-        res = base_arr + extra_arr
-    res = [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
-    return res
+    return [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
 
 def get_components_list(n_features, lst):
-    lst = lst + [{"pw": 0.1},{"pw": 0.4},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.6},{"pw": 0.9}]
-    lst = sorted(list(map(lambda x: math.floor(x["pw"]*n_features), lst)) + [1, 3, 5], reverse=True)
-    lst[0] = lst[0]-1
-    lst_n = [n for n in lst if n < 3321]
-    if len(lst_n) < len(lst):
-        lst_n = [3320] + lst_n
-    return lst_n
+    max_pw = max(lst, key=lambda x: x["pw"])["pw"]
+    current_feat = 10*max_pw + n_features - 10
+    lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
+    lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)) + [1, 3, 5], reverse=True)
+    return lst
+
 
 ##define new transformers
 def dummy(X):
     return X
 
 def poly(X, pw):
-    res = X
+    vector = X[:,10:]
+    res    = X[:,:10]
+    X      = X[:,:10]
     for power in range(2,pw + 1):
         res = np.concatenate((res, np.power(X, power)), axis=1)
-    return res
+    return np.concatenate((res, vector), axis=1)
 
 def log(X):
-    df_t = pd.DataFrame(X)
+    df_t = pd.DataFrame(X[:,:10])
     X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
@@ -137,37 +119,39 @@ itter_current = 0
 #########################
 ####Data Preprocessor ###
 #########################
-preprocessors = [DummyTransformer]
-#preprocessors = [PolynomialTransformer]
+preprocessors = [LogarithmicTransformer, PolynomialTransformer]
+#preprocessors = []
 preprocessors_cfg = {}
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
+preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
 preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
         preprocessor__kw_args = []
         )
 #########################
 ####  Data Transformer ##
 #########################
-transfomers = [DummyTransformer]
-#transfomers = [StandardScaler()]
+#transfomers = [DummyTransformer]
+transfomers = [DummyTransformer, StandardScaler()]
 transfomers_cfg = {}
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[StandardScaler.__name__] = {}
 ###########################
 ####Dim Reducer, Feat Sel.#
 ###########################
-reducers = [DummyTransformer]
-#reducers = [RFE(ExtraTreesRegressor())]
+#reducers = [DummyTransformer]
+reducers = [DummyTransformer, RFE(ExtraTreesRegressor())]
 reducers_cfg = {}
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[RFE.__name__] = dict(
         reducer__n_features_to_select = [],
-        reducer__step = [0.1, 0.5]
+        reducer__step = [0.1]
         )
 #########################
 ####### Models ##########
 #########################
 #models = [BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
-models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
+#models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
+models = [GradientBoostingClassifier()]
 models_cfg = {}
 '''
 models_cfg[BaggingClassifier.__name__] = dict(
@@ -399,7 +383,7 @@ def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors
     except (ValueError, MemoryError) as err:
             print ("GREP_ME***Error caught for  precomp pipeline: ["+ pipeline_cfg+"] ")
             errors_ind.append({"cfg": pipeline_cfg})
-            errors.append({"Precomp pipe: " + pipeline_cfg: {"error": err}})
+            print(err)
             pass
 
 def get_pipe_result(x, y, preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind):
@@ -580,8 +564,9 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-desc = "names_no_imbd_no_pipe_no_params"
-labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
+desc = "no_imdb_sanity"
+#labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
+labels = [label_gross_3]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
