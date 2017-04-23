@@ -11,6 +11,7 @@
 *.ipynb_checkpoints
 .idea
 dataset_
+__pycache__
 
 #tempfiles
 tmp
