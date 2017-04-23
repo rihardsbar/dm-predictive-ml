@@ -16,7 +16,7 @@ sys.path.insert(0, parentdir)
 import regressor_solver
 
 
-input_file = "../dataset_/movie_metadata_cleaned_categ_num_only.csv"
+input_file = "../dataset_/no_imdb_names-count_cat-tf_184f.csv"
 dta = pd.read_csv(input_file)
 
 dta_clean = dta
@@ -72,7 +72,8 @@ models_cfg[Ridge.__name__] = dict(
 
 models_cfg[KernelRidge.__name__] = dict(
     model__alpha= [1e0, 0.1, 1e-2, 1e-3],
-    model__gamma= np.logspace(-2, 2, 5).ravel()
+    #model__gamma= np.logspace(-2, 2, 5).ravel()
+    model__gamma = [ x for x in np.logspace(-2, 2, 5) ]
 )
 
 # tuples_of_data = [(X_a,y_a, "all_samples"), (X_1,y_1, "samples_class1") , (X_2,y_2, "samples_class2"), (X_3,y_3, "samples_class3")]
