@@ -44,21 +44,21 @@ itter_start = 0
 itter_current = 0
 
 
-## Define new transformers
+##define new transformers
 def dummy(X):
     return X
 
-
 def poly(X, pw):
-    res = X
-    for power in range(2, pw + 1):
+    vector = X[:,10:]
+    res    = X[:,:10]
+    X      = X[:,:10]
+    for power in range(2,pw + 1):
         res = np.concatenate((res, np.power(X, power)), axis=1)
-    return res
-
+    return np.concatenate((res, vector), axis=1)
 
 def log(X):
-    df_t = pd.DataFrame(X)
-    X_t = df_t.replace(0, 1 / math.e)
+    df_t = pd.DataFrame(X[:,:10])
+    X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
 
@@ -80,7 +80,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 ################################
 #### Default Data Transformer ##
 ################################
-transfomers = [StandardScaler()]
+transfomers = [DummyTransformer, StandardScaler()]
 transfomers_cfg = dict()
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -91,7 +91,7 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ####################################
 ### Default Dim Reducer, Feat Sel. #
 ####################################
-reducers = [PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+reducers = [DummyTransformer, RFE(ExtraTreesRegressor())]
 reducers_cfg = dict()
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -111,34 +111,16 @@ reducers_cfg[RFE.__name__] = dict(
 ##################################################
 ### Functions
 ##################################################
+##define helpers
 def get_powers_list(n_samples, n_features, n):
-    base_arr = [{"pw": 2}, {"pw": 3}, {"pw": 4}]
-    max_pw = math.ceil(3320 / n_features)
-    if max_pw > 7: max_pw = 7
-    step = math.floor((max_pw - 4) / n)
-    if step < 1: step = 1
-    extra_arr = [{"pw": power} for power in range(4 + step, max_pw, step)]
-    if n_samples / n_features < 2:
-        res = [{"pw": 1}]
-    elif max_pw - 1 == 2:
-        res = [{"pw": 2}]
-    elif max_pw - 1 == 3:
-        res = [{"pw": 2}, {"pw": 3}]
-    elif max_pw - 1 == 4:
-        res = [{"pw": 2}, {"pw": 3}, {"pw": 4}]
-    else:
-        res = base_arr + extra_arr
-    return res
-
+    return [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
 
 def get_components_list(n_features, lst):
-    lst = lst + [{"pw": 0.1}, {"pw": 0.4}, {"pw": 0.5}, {"pw": 0.8}]
-    lst = sorted(list(map(lambda x: math.floor(x["pw"] * n_features), lst)) + [1, 3, 5], reverse=True)
-    lst[0] = lst[0] - 1
-    lst_n = [n for n in lst if n < 3321]
-    if len(lst_n) < len(lst):
-        lst_n = [3320] + lst_n
-    return lst_n
+    max_pw = max(lst, key=lambda x: x["pw"])["pw"]
+    current_feat = 10*max_pw + n_features - 10
+    lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
+    lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)) + [1, 3, 5], reverse=True)
+    return lst
 
 
 def launch_pipe_instance(x, y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
@@ -329,7 +311,8 @@ def run_for_many(x, y, cl_n, models, models_cfg):
 def simple_experiment():
     # file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
     # file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
-    file_path = "../dataset/movie_metadata_cleaned_categ_num_only.csv"
+    # file_path = "../dataset/movie_metadata_cleaned_categ_num_only.csv"
+    file_path = "../dataset/no_imdb_names-count_cat-tf_184f.csv"
 
     # Read data
     dta = pd.read_csv(file_path)
