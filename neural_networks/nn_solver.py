@@ -80,7 +80,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 ################################
 #### Default Data Transformer ##
 ################################
-transfomers = [DummyTransformer, StandardScaler()]
+transfomers = [DummyTransformer, Normalizer(), StandardScaler()]
 transfomers_cfg = dict()
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -91,7 +91,7 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ####################################
 ### Default Dim Reducer, Feat Sel. #
 ####################################
-reducers = [DummyTransformer, RFE(ExtraTreesRegressor())]
+reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
 reducers_cfg = dict()
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -327,6 +327,18 @@ def simple_experiment():
     X_all = dta_clean.drop('worldwide_gross', axis=1)
     y_all = dta_clean['worldwide_gross']
 
+
+    #two classes
+    df_1_1 = dta_clean[dta_clean["worldwide_gross"] < 200000000]
+    X_1_1 = df_1_1.drop('worldwide_gross', axis=1)
+    y_1_1 = df_1_1['worldwide_gross']
+    
+    df_1_2 = dta_clean[dta_clean["worldwide_gross"] >= 200000000]
+    X_1_2 = df_1_2.drop('worldwide_gross', axis=1)
+    y_1_2 = df_1_2['worldwide_gross']
+
+
+    #three classes
     df_1 = dta_clean[dta_clean["worldwide_gross"] < 10000000]
     X_1 = df_1.drop('worldwide_gross', axis=1)
     y_1 = df_1['worldwide_gross']
@@ -340,13 +352,14 @@ def simple_experiment():
     X_3 = df_3.drop('worldwide_gross', axis=1)
     y_3 = df_3['worldwide_gross']
 
-    tuples_of_data = [(X_all, y_all, "all_samples"), (X_1, y_1, "samples_class1"), (X_2, y_2, "samples_class2"),
-                      (X_3, y_3, "samples_class3")]
+    tuples_of_data = [(X_all, y_all, "all_samples"), 
+        (X_1_1,y_1_1, "samples2_class1"), (X_1_2,y_1_2, "samples2_class2"), 
+        (X_1, y_1, "samples3_class1"), (X_2, y_2, "samples3_class2"), (X_3, y_3, "samples3_class3")]
 
     #########################
     ####### Models ##########
     #########################
-    models = [MLPRegressor(), SVR(), LinearSVR(), NuSVR(), AdaBoostRegressor(), IsotonicRegression(), GaussianProcessRegressor()]
+    models = [MLPRegressor(), AdaBoostRegressor(), IsotonicRegression(), GaussianProcessRegressor()] #SVR(), LinearSVR(), NuSVR()
     models_cfg = dict()
     models_cfg[MLPRegressor.__name__] = dict(
         model__hidden_layer_sizes = [(50,), (200,), (500,)],
@@ -368,7 +381,7 @@ def simple_experiment():
         model__loss = ['epsilon_insensitive', 'squared_epsilon_insensitive'],
         model__epsilon = [0, 0.1],
         model__fit_intercept = [True, False],
-        model__max_iter = [1000, 2000]
+        #model__max_iter = [1000, 2000]
     )
 
     models_cfg[NuSVR.__name__] = dict(
@@ -381,7 +394,7 @@ def simple_experiment():
     models_cfg[AdaBoostRegressor.__name__] = dict(
         model__n_estimators = [50, 100],
         model__loss = ['linear', 'square', 'exponential'],
-        model__learning_rate = [1.0, 2.0]
+        #model__learning_rate = [1.0, 2.0]
     )
 
     models_cfg[IsotonicRegression.__name__] = dict(
