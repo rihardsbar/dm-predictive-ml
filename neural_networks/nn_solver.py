@@ -44,21 +44,21 @@ itter_start = 0
 itter_current = 0
 
 
-## Define new transformers
+##define new transformers
 def dummy(X):
     return X
 
-
 def poly(X, pw):
-    res = X
-    for power in range(2, pw + 1):
+    vector = X[:,10:]
+    res    = X[:,:10]
+    X      = X[:,:10]
+    for power in range(2,pw + 1):
         res = np.concatenate((res, np.power(X, power)), axis=1)
-    return res
-
+    return np.concatenate((res, vector), axis=1)
 
 def log(X):
-    df_t = pd.DataFrame(X)
-    X_t = df_t.replace(0, 1 / math.e)
+    df_t = pd.DataFrame(X[:,:10])
+    X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
 
@@ -80,7 +80,7 @@ preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
 ################################
 #### Default Data Transformer ##
 ################################
-transfomers = [StandardScaler()]
+transfomers = [DummyTransformer, Normalizer(), StandardScaler()]
 transfomers_cfg = dict()
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -91,7 +91,7 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ####################################
 ### Default Dim Reducer, Feat Sel. #
 ####################################
-reducers = [PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
 reducers_cfg = dict()
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -111,34 +111,16 @@ reducers_cfg[RFE.__name__] = dict(
 ##################################################
 ### Functions
 ##################################################
+##define helpers
 def get_powers_list(n_samples, n_features, n):
-    base_arr = [{"pw": 2}, {"pw": 3}, {"pw": 4}]
-    max_pw = math.ceil(3320 / n_features)
-    if max_pw > 7: max_pw = 7
-    step = math.floor((max_pw - 4) / n)
-    if step < 1: step = 1
-    extra_arr = [{"pw": power} for power in range(4 + step, max_pw, step)]
-    if n_samples / n_features < 2:
-        res = [{"pw": 1}]
-    elif max_pw - 1 == 2:
-        res = [{"pw": 2}]
-    elif max_pw - 1 == 3:
-        res = [{"pw": 2}, {"pw": 3}]
-    elif max_pw - 1 == 4:
-        res = [{"pw": 2}, {"pw": 3}, {"pw": 4}]
-    else:
-        res = base_arr + extra_arr
-    return res
-
+    return [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
 
 def get_components_list(n_features, lst):
-    lst = lst + [{"pw": 0.1}, {"pw": 0.4}, {"pw": 0.5}, {"pw": 0.8}]
-    lst = sorted(list(map(lambda x: math.floor(x["pw"] * n_features), lst)) + [1, 3, 5], reverse=True)
-    lst[0] = lst[0] - 1
-    lst_n = [n for n in lst if n < 3321]
-    if len(lst_n) < len(lst):
-        lst_n = [3320] + lst_n
-    return lst_n
+    max_pw = max(lst, key=lambda x: x["pw"])["pw"]
+    current_feat = 10*max_pw + n_features - 10
+    lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
+    lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)) + [1, 3, 5], reverse=True)
+    return lst
 
 
 def launch_pipe_instance(x, y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
@@ -329,7 +311,8 @@ def run_for_many(x, y, cl_n, models, models_cfg):
 def simple_experiment():
     # file_path =  "../dataset/movie_metadata_cleaned_tfidf_num_only_min.csv"
     # file_path = "../dataset/movie_metadata_cleaned_no_vector_num_only.csv"
-    file_path = "../dataset/movie_metadata_cleaned_categ_num_only.csv"
+    # file_path = "../dataset/movie_metadata_cleaned_categ_num_only.csv"
+    file_path = "../dataset/no_imdb_names-count_cat-tf_184f.csv"
 
     # Read data
     dta = pd.read_csv(file_path)
@@ -344,6 +327,18 @@ def simple_experiment():
     X_all = dta_clean.drop('worldwide_gross', axis=1)
     y_all = dta_clean['worldwide_gross']
 
+
+    #two classes
+    df_1_1 = dta_clean[dta_clean["worldwide_gross"] < 200000000]
+    X_1_1 = df_1_1.drop('worldwide_gross', axis=1)
+    y_1_1 = df_1_1['worldwide_gross']
+    
+    df_1_2 = dta_clean[dta_clean["worldwide_gross"] >= 200000000]
+    X_1_2 = df_1_2.drop('worldwide_gross', axis=1)
+    y_1_2 = df_1_2['worldwide_gross']
+
+
+    #three classes
     df_1 = dta_clean[dta_clean["worldwide_gross"] < 10000000]
     X_1 = df_1.drop('worldwide_gross', axis=1)
     y_1 = df_1['worldwide_gross']
@@ -357,13 +352,14 @@ def simple_experiment():
     X_3 = df_3.drop('worldwide_gross', axis=1)
     y_3 = df_3['worldwide_gross']
 
-    tuples_of_data = [(X_all, y_all, "all_samples"), (X_1, y_1, "samples_class1"), (X_2, y_2, "samples_class2"),
-                      (X_3, y_3, "samples_class3")]
+    tuples_of_data = [(X_all, y_all, "all_samples"), 
+        (X_1_1,y_1_1, "samples2_class1"), (X_1_2,y_1_2, "samples2_class2"), 
+        (X_1, y_1, "samples3_class1"), (X_2, y_2, "samples3_class2"), (X_3, y_3, "samples3_class3")]
 
     #########################
     ####### Models ##########
     #########################
-    models = [MLPRegressor(), SVR(), LinearSVR(), NuSVR(), AdaBoostRegressor(), IsotonicRegression(), GaussianProcessRegressor()]
+    models = [MLPRegressor(), AdaBoostRegressor(), IsotonicRegression(), GaussianProcessRegressor()] #SVR(), LinearSVR(), NuSVR()
     models_cfg = dict()
     models_cfg[MLPRegressor.__name__] = dict(
         model__hidden_layer_sizes = [(50,), (200,), (500,)],
@@ -385,7 +381,7 @@ def simple_experiment():
         model__loss = ['epsilon_insensitive', 'squared_epsilon_insensitive'],
         model__epsilon = [0, 0.1],
         model__fit_intercept = [True, False],
-        model__max_iter = [1000, 2000]
+        #model__max_iter = [1000, 2000]
     )
 
     models_cfg[NuSVR.__name__] = dict(
@@ -398,7 +394,7 @@ def simple_experiment():
     models_cfg[AdaBoostRegressor.__name__] = dict(
         model__n_estimators = [50, 100],
         model__loss = ['linear', 'square', 'exponential'],
-        model__learning_rate = [1.0, 2.0]
+        #model__learning_rate = [1.0, 2.0]
     )
 
     models_cfg[IsotonicRegression.__name__] = dict(

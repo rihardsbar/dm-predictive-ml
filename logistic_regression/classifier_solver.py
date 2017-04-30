@@ -79,11 +79,12 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
-    return [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
+    return [{"pw":1},{"pw":2},{"pw":3}]
 
-def get_components_list(n_features, lst):
+def get_components_list(n_features, lst, log_poly = False):
     max_pw = max(lst, key=lambda x: x["pw"])["pw"]
     current_feat = 10*max_pw + n_features - 10
+    if log_poly: current_feat = 10*max_pw + n_features
     lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
     lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)) + [1, 3, 5], reverse=True)
     return lst
@@ -106,53 +107,90 @@ def log(X):
     X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
+def log_poly(X, pw):
+    #do log
+    df_t = pd.DataFrame(X[:,:10])
+    X_t = df_t.replace(0, 1/math.e)
+    log_res = np.log(X_t)
+    
+    #do poly
+    vector = X[:,10:]
+    res    = X[:,:10]
+    X      = X[:,:10]
+    for power in range(2,pw + 1):
+        res = np.concatenate((res, np.power(X, power)), axis=1)
+    res_poly_log = np.concatenate((res, log_res), axis=1)
+    
+    #return conat results
+    return np.concatenate((res_poly_log, vector), axis=1)
+
 
 DummyTransformer = FunctionTransformer(dummy)
 LogarithmicTransformer = FunctionTransformer(log)
 PolynomialTransformer = FunctionTransformer(poly)
+LogPolynomialTransformer = FunctionTransformer(log_poly)
 
 ###define a global itteration var###########
 itter_start   = 0
 itter_current = 0
 ###define new config###########
 
-#########################
-####Data Preprocessor ###
-#########################
-preprocessors = [LogarithmicTransformer, PolynomialTransformer]
-#preprocessors = []
-preprocessors_cfg = {}
+################################
+### Default Data Preprocessor ###
+#################################
+#preprocessors = [LogPolynomialTransformer, LogarithmicTransformer, PolynomialTransformer]
+preprocessors = [LogPolynomialTransformer]
+preprocessors_cfg = dict()
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
 preprocessors_cfg[PolynomialTransformer.func.__name__] = dict(
-        preprocessor__kw_args = []
-        )
-#########################
-####  Data Transformer ##
-#########################
-#transfomers = [DummyTransformer]
-transfomers = [DummyTransformer, StandardScaler()]
-transfomers_cfg = {}
+    preprocessor__kw_args=[]
+)
+preprocessors_cfg[LogPolynomialTransformer.func.__name__] = dict(
+    preprocessor__kw_args=[]
+)
+################################
+#### Default Data Transformer ##
+################################
+#transfomers = [DummyTransformer, StandardScaler()]
+transfomers = [StandardScaler()]
+transfomers_cfg = dict()
 transfomers_cfg[DummyTransformer.func.__name__] = {}
+transfomers_cfg[Normalizer.__name__] = dict(
+    transfomer__norm=['l1', 'l2', 'max']
+)
 transfomers_cfg[StandardScaler.__name__] = {}
-###########################
-####Dim Reducer, Feat Sel.#
-###########################
-#reducers = [DummyTransformer]
-reducers = [DummyTransformer, RFE(ExtraTreesRegressor())]
-reducers_cfg = {}
+
+####################################
+### Default Dim Reducer, Feat Sel. #
+####################################
+#reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
+reducers= [RFE(ExtraTreesRegressor())]
+reducers_cfg = dict()
 reducers_cfg[DummyTransformer.func.__name__] = {}
+reducers_cfg[PCA.__name__] = dict(
+    reducer__n_components=[],
+    reducer__svd_solver=['auto']
+)
+reducers_cfg[GenericUnivariateSelect.__name__] = dict(
+    reducer__score_func=[f_regression],
+    reducer__mode=['k_best'],
+    reducer__param=[]
+)
 reducers_cfg[RFE.__name__] = dict(
-        reducer__n_features_to_select = [],
-        reducer__step = [0.1]
-        )
+    reducer__n_features_to_select=[],
+    reducer__step=[0.1]
+)
+
 #########################
 ####### Models ##########
 #########################
-#models = [BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
+models = [LinearSVC(),MLPClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
 #models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
-models = [GradientBoostingClassifier()]
+#models = [LogisticRegression()]
 models_cfg = {}
+
+#full params - dont work
 '''
 models_cfg[BaggingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
@@ -205,17 +243,18 @@ models_cfg[LogisticRegression.__name__] = dict(
 )
 '''
 
-'''
-models_cfg[BaggingClassifier.__name__] = dict(
-    model__n_estimators = [10, 50, 100, 130],
-    model__bootstrap = [True, False],
-    model__bootstrap_features = [True, False],
+#feasible params for running 5 models with pipeline 
+models_cfg[MLPClassifier.__name__] = dict(
+    model__hidden_layer_sizes = [100],
+    model__activation = ['identity', 'logistic', 'tanh', 'relu'],
+    model__solver = ['lbfgs', 'sgd', 'adam'],
+    model__max_iter = [400],
+    model__learning_rate_init = [ 0.8, 0.01,  0.1]
+
 )
-models_cfg[ExtraTreesClassifier.__name__] = dict(
-    model__n_estimators = [10, 50, 100, 130],
-    model__criterion = ['gini', 'entropy'],
-    model__max_features  = ["auto", None, "sqrt"],
-    model__min_samples_split = [2, 0.1, 0.5]
+models_cfg[LinearSVC.__name__] = dict(
+    model__C = np.logspace(-4, 4, 3),
+    model__loss = ['hinge', 'squared_hinge']
 )
 models_cfg[GradientBoostingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
@@ -232,10 +271,11 @@ models_cfg[RandomForestClassifier.__name__] = dict(
 models_cfg[LogisticRegression.__name__] = dict(
     model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
     model__C = np.logspace(-4, 4, 3),
-    model__max_iter = [50, 100, 300],
+    model__max_iter = [50, 100, 300]
 )
-'''
 
+
+#params for running with no pipeline
 '''
 models_cfg[AdaBoostClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
@@ -245,28 +285,24 @@ models_cfg[AdaBoostClassifier.__name__] = dict(
 models_cfg[BaggingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__bootstrap = [True, False],
-    model__bootstrap_features = [True, False],
+    model__bootstrap_features = [True, False]
 )
 models_cfg[ExtraTreesClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__criterion = ['gini', 'entropy'],
-    model__max_features  = ["auto", None, "sqrt"],
-    model__min_samples_split = [2, 0.1, 0.5]
+    model__max_features  = ["auto", None, "sqrt"]
 )
 models_cfg[GradientBoostingClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__max_features  = ["auto", None, "sqrt"],
-    model__max_depth = [3, 5, 10],
-    model__max_leaf_nodes =  [None, 10, 50]
+    model__max_depth = [3, 5, 10]
 )
 models_cfg[RandomForestClassifier.__name__] = dict(
     model__n_estimators = [10, 50, 100, 130],
     model__criterion = ['gini', 'entropy'],
-    model__max_features  = ["auto", None, "sqrt"],
-    model__max_depth = [None ,3, 5, 10]
+    model__max_features  = ["auto", None, "sqrt"]
 )
 models_cfg[PassiveAggressiveClassifier.__name__] = dict(
-    model__C = np.logspace(-4, 4, 3),
     model__fit_intercept = [True],
     model__n_iter = [5, 10 , 20],
     model__shuffle = [True, False],
@@ -275,17 +311,15 @@ models_cfg[PassiveAggressiveClassifier.__name__] = dict(
 models_cfg[LogisticRegression.__name__] = dict(
     model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
     model__C = np.logspace(-4, 4, 3),
-    model__max_iter = [50, 100, 300],
+    model__max_iter = [50, 100, 300]
 )
 models_cfg[RidgeClassifier.__name__] = dict(
     model__tol = [1e-4, 1e-3, 1e-2],
     model__solver = ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag'],
-    model__fit_intercept = [True],
-    model__alpha = np.reciprocal(np.logspace(-4, 4, 3))
+    model__fit_intercept = [True]
 )
 models_cfg[SGDClassifier.__name__] = dict(
     model__loss = ['hinge', 'log', 'modified_huber', 'squared_hinge', 'perceptron', 'squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'],
-    model__penalty =[None,'l1', 'l2', 'elasticnet'],
     model__l1_ratio =[0.15, 0.4 , 0.8]
 )
 models_cfg[GaussianNB.__name__] = {}
@@ -295,8 +329,7 @@ models_cfg[MultinomialNB.__name__] = dict(
 models_cfg[KNeighborsClassifier.__name__] = dict(
     model__n_neighbors = [5, 10 , 20],
     model__algorithm = ['ball_tree', 'kd_tree', 'auto'],
-    model__leaf_size = [15, 30, 50],
-    model__p = [1, 2, 3]
+    model__leaf_size = [15, 30, 50]
 )
 models_cfg[RadiusNeighborsClassifier.__name__] = dict(
     model__radius = [0.1, 0.5, 1.0],
@@ -309,43 +342,39 @@ models_cfg[NearestCentroid.__name__] = dict(
 )
 models_cfg[MLPClassifier.__name__] = dict(
     model__hidden_layer_sizes = [100],
-    model__activation = ['identity', 'logistic'],
+    model__activation = ['identity', 'logistic', 'tanh', 'relu'],
     model__solver = ['lbfgs', 'sgd', 'adam'],
-    model__max_iter = [500],
-    model__learning_rate_init = [ 0.8, 0.01,  0.1]
+    model__max_iter = [500]
+    #model__learning_rate_init = [ 0.8, 0.01,  0.1]
 
 )
 models_cfg[SVC.__name__] = dict(
-    model__C = np.logspace(-4, 4, 3),
     model__kernel = ['rbf', 'sigmoid'],
     model__degree = [2,3,5],
     model__coef0 = [0.0, 0.5, 1.0]
 )
 models_cfg[LinearSVC.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
-    model__loss = ['hinge', 'squared_hinge'],
+    model__loss = ['hinge', 'squared_hinge']
 )
 models_cfg[NuSVC.__name__] = dict(
     model__nu = [0.1, 0.2],
     model__kernel = ['rbf', 'sigmoid'],
-    model__degree = [2,3,5],
-    model__coef0 = [0.0, 0.5, 1.0],
+    model__degree = [2,3,5]
  )
 models_cfg[DecisionTreeClassifier.__name__] = dict(
     model__criterion = ['gini', 'entropy'],
     model__max_features  = ["auto", None, "sqrt"],
-    model__max_depth = [None ,3, 5, 10],
     model__min_samples_split = [2, 0.1, 0.5]
 )
 models_cfg[ExtraTreeClassifier.__name__] =  dict(
     model__criterion = ['gini', 'entropy'],
     model__max_features  = ["auto", None, "sqrt"],
-    model__max_depth = [None ,3, 5, 10],
     model__min_samples_split = [2, 0.1, 0.5]
 )
 '''
 
-
+'''
 models_cfg[AdaBoostClassifier.__name__] = {}
 models_cfg[BaggingClassifier.__name__] = {}
 models_cfg[ExtraTreesClassifier.__name__] = {}
@@ -366,7 +395,7 @@ models_cfg[LinearSVC.__name__] = {}
 models_cfg[NuSVC.__name__] = {}
 models_cfg[DecisionTreeClassifier.__name__] = {}
 models_cfg[ExtraTreeClassifier.__name__] = {}
-
+'''
 
 def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
     print ("Starting precomp pipline for "+ str(cfg_dict))
@@ -485,25 +514,33 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
        ##run gridesearch with new amout of features, depending of preprocessor and hence pass the right amount of maximum components to the reducers 
         if preprocessor.func.__name__ == LogarithmicTransformer.func.__name__ :
             n_components = get_components_list(n_features, [{"pw":2}, {"pw":1}])
-            #reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
-            #reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
+            reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
+            reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
             get_pipe_result(x, y,preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind)
-        elif preprocessor.func.__name__ == PolynomialTransformer.func.__name__:
+        elif preprocessor.func.__name__ == PolynomialTransformer.func.__name__ or preprocessor.func.__name__ == LogPolynomialTransformer.func.__name__:
+            LogPol = False
+            if preprocessor.func.__name__ == LogPolynomialTransformer.func.__name__: LogPol = True
             kw_arg_powers = get_powers_list(n_samples, n_features, 3)
             pw_lst = []
             for pw in kw_arg_powers:
                 pw_lst = pw_lst + [pw]
-                preprocessors_cfg[PolynomialTransformer.func.__name__]["preprocessor__kw_args"] = [pw]
-                n_components = get_components_list(n_features, pw_lst)
-                #reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
-                #reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
+                preprocessors_cfg[preprocessor.func.__name__]["preprocessor__kw_args"] = [pw]
+                n_components = get_components_list(n_features, pw_lst, LogPol)
+                print()
+                print("LogPol " + str(LogPol))
+                print("n_components")
+                print(n_components)
+                print("pw_lst")
+                print(pw_lst)
+                reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
+                reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
                 reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
                 get_pipe_result(x, y,preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind)
         else:
             n_components = get_components_list(n_features, [{"pw":1}])
-            #reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
-            #reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
+            reducers_cfg[PCA.__name__]["reducer__n_components"] = n_components
+            reducers_cfg[GenericUnivariateSelect.__name__]["reducer__param"] = n_components
             reducers_cfg[RFE.__name__]["reducer__n_features_to_select"] = n_components
             get_pipe_result(x, y,preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind)
       
@@ -564,9 +601,9 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-desc = "no_imdb_sanity"
-#labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
-labels = [label_gross_3]
+desc = "no_imdb_narrowed_down"
+labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
+#labels = [label_gross_3]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
