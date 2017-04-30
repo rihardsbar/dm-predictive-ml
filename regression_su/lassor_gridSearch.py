@@ -53,7 +53,7 @@ from sklearn.ensemble import ExtraTreesRegressor
 
 
 # f = pd.read_csv(input_folder+"/movie_metadata.csv")
-f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
+f = pd.read_csv(input_folder+"/no_imdb_names-count_cat-tf_184f.csv")
 dta_clean = f.dropna()
 
 import numpy as np # linear algebra
@@ -116,7 +116,7 @@ import pickle
 import shutil
 
 # f = pd.read_csv(input_folder+"/movie_metadata.csv")
-f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
+# f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
 dta_clean = f.dropna()
 
 X_a = dta_clean.drop('worldwide_gross', axis=1)
