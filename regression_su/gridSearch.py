@@ -9,9 +9,9 @@ import os
 import pandas as pd
 from pandas import DataFrame,Series
 from sklearn import tree
-import matplotlib
+# import matplotlib
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from sklearn.linear_model import BayesianRidge as br
 from sklearn.linear_model import ElasticNet as en
@@ -53,8 +53,8 @@ from sklearn.ensemble import ExtraTreesRegressor
 
 
 # f = pd.read_csv(input_folder+"/movie_metadata.csv")
-f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
-dta_clean = f.dropna()
+# f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
+# dta_clean = f.dropna()
 
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O
@@ -67,9 +67,9 @@ import os
 import pandas as pd
 from pandas import DataFrame,Series
 from sklearn import tree
-import matplotlib
+# import matplotlib
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from sklearn.linear_model import BayesianRidge as br
 from sklearn.linear_model import ElasticNet as en
@@ -118,6 +118,7 @@ import shutil
 f = pd.read_csv(input_folder+"/no_imdb_names-count_cat-tf_184f.csv")
 # f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
 dta_clean = f.dropna()
+dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 X_a = dta_clean.drop('worldwide_gross', axis=1)
 y_a = dta_clean['worldwide_gross']
@@ -528,18 +529,19 @@ def run_for_many(X, y, sam):
 #ignore warnigs
 
 
-# tuples_of_data = [(X_a,y_a, "all_samples"), 
-# (X_1_1,y_1_1, "samples1_class1"), (X_1_2,y_1_2, "samples1_class2"),
+tuples_of_data = [(X_a,y_a, "all_samples"), 
+(X_1_1,y_1_1, "samples1_class1"), (X_1_2,y_1_2, "samples1_class2"),
+(X_1,y_1, "samples2_class1") , (X_2,y_2, "samples2_class2"), (X_3,y_3, "samples2_class3")]
+
+# tuples_of_data = [(X_1_1,y_1_1, "samples1_class1"), (X_1_2,y_1_2, "samples1_class2"),
 # (X_1,y_1, "samples2_class1") , (X_2,y_2, "samples2_class2"), (X_3,y_3, "samples2_class3")]
 
-tuples_of_data = [(X_1_1,y_1_1, "samples1_class1"), (X_1_2,y_1_2, "samples1_class2"),
-(X_1,y_1, "samples2_class1") , (X_2,y_2, "samples2_class2"), (X_3,y_3, "samples2_class3")]
 # labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 
 # for ind, cb in enumerate(labels):
-for x in range(2,3):
+for x in range(1,3):
 
     for item in tuples_of_data:
         
