@@ -118,6 +118,7 @@ import shutil
 # f = pd.read_csv(input_folder+"/movie_metadata.csv")
 # f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
 dta_clean = f.dropna()
+dta_clean = dta.dta_clean('Unnamed: 0', axis=1)
 
 X_a = dta_clean.drop('worldwide_gross', axis=1)
 y_a = dta_clean['worldwide_gross']
