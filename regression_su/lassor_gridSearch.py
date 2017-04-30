@@ -9,9 +9,9 @@ import os
 import pandas as pd
 from pandas import DataFrame,Series
 from sklearn import tree
-import matplotlib
+# import matplotlib
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from sklearn.linear_model import BayesianRidge as br
 from sklearn.linear_model import ElasticNet as en
@@ -67,9 +67,9 @@ import os
 import pandas as pd
 from pandas import DataFrame,Series
 from sklearn import tree
-import matplotlib
+# import matplotlib
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from sklearn.linear_model import BayesianRidge as br
 from sklearn.linear_model import ElasticNet as en
@@ -237,7 +237,7 @@ reducers_cfg[RFE.__name__] = {}
 
 # models = [br(), en(), ls(), lo(), ll()]
 #models = [br(), en(), ll()]
-models = [ll()]
+models = [ls()]
 
 models_cfg = {}
 
@@ -328,14 +328,14 @@ def init(para = None):
         # models_cfg[en.__name__] = dict(
         #     )
 
-        # models_cfg[ls.__name__] = dict(
-        #     )
+        models_cfg[ls.__name__] = dict(
+            )
 
         # models_cfg[lo.__name__] = dict(
         #     )
 
-        models_cfg[ll.__name__] = dict(
-            )
+        # models_cfg[ll.__name__] = dict(
+        #     )
         # models_cfg[hr.__name__] = dict(
         #   )
 
