@@ -9,9 +9,9 @@ import os
 import pandas as pd
 from pandas import DataFrame,Series
 from sklearn import tree
-import matplotlib
+# import matplotlib
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from sklearn.linear_model import BayesianRidge as br
 from sklearn.linear_model import ElasticNet as en
@@ -53,8 +53,8 @@ from sklearn.ensemble import ExtraTreesRegressor
 
 
 # f = pd.read_csv(input_folder+"/movie_metadata.csv")
-f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
-dta_clean = f.dropna()
+# f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
+# dta_clean = f.dropna()
 
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O
@@ -67,9 +67,9 @@ import os
 import pandas as pd
 from pandas import DataFrame,Series
 from sklearn import tree
-import matplotlib
+# import matplotlib
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 from sklearn.linear_model import BayesianRidge as br
 from sklearn.linear_model import ElasticNet as en
@@ -115,9 +115,10 @@ from threading import Thread
 import pickle
 import shutil
 
-# f = pd.read_csv(input_folder+"/movie_metadata.csv")
-f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
+f = pd.read_csv(input_folder+"/no_imdb_names-count_cat-tf_184f.csv")
+# f = pd.read_csv(input_folder+"/movie_metadata_cleaned_categ_num_only.csv")
 dta_clean = f.dropna()
+dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 X_a = dta_clean.drop('worldwide_gross', axis=1)
 y_a = dta_clean['worldwide_gross']
@@ -152,18 +153,32 @@ X_2, X_d, y_2, y_d = train_test_split(X_2, y_2, test_size=0, random_state=0)
 #shuffle the whole dataset
 X_3, X_d, y_3, y_d = train_test_split(X_3, y_3, test_size=0, random_state=0)
 
+
+##define helpers
+def get_powers_list(n_samples, n_features, n):
+    return [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
+
+def get_components_list(n_features, lst):
+    max_pw = max(lst, key=lambda x: x["pw"])["pw"]
+    current_feat = 10*max_pw + n_features - 10
+    lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
+    lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)) + [1, 3, 5], reverse=True)
+    return lst
+
 ##define new transformers
 def dummy(X):
     return X
 
 def poly(X, pw):
-    res = X
+    vector = X[:,10:]
+    res    = X[:,:10]
+    X      = X[:,:10]
     for power in range(2,pw + 1):
         res = np.concatenate((res, np.power(X, power)), axis=1)
-    return res
+    return np.concatenate((res, vector), axis=1)
 
 def log(X):
-    df_t = pd.DataFrame(X)
+    df_t = pd.DataFrame(X[:,:10])
     X_t = df_t.replace(0, 1/math.e)
     return np.concatenate((X, np.log(X_t)), axis=1)
 
@@ -326,34 +341,6 @@ def init(para = None):
         # models_cfg[hr.__name__] = dict(
         #   )
 
-##define helpers
-def get_powers_list(n_samples, n_features, n):
-    base_arr = [{"pw":2},{"pw":3},{"pw":4}]
-    max_pw = math.ceil(3320/n_features)
-    if max_pw > 7: max_pw = 7
-    step = math.floor((max_pw-4) / n)
-    if step < 1 : step = 1
-    extra_arr = [{"pw":power} for power in range(4 + step, max_pw, step)]
-    if  n_samples/n_features < 2:
-        res = [{"pw":1}]
-    elif max_pw - 1 == 2:
-        res = [{"pw":2}]
-    elif max_pw - 1 == 3:
-        res = [{"pw":2}, {"pw":3}]
-    elif max_pw - 1 == 4:
-        res = [{"pw":2},{"pw":3},{"pw":4}]
-    else :
-        res = base_arr + extra_arr
-    return res
-
-def get_components_list(n_features, lst):
-    lst = lst + [{"pw": 0.1},{"pw": 0.4},{"pw": 0.5},{"pw": 0.8}]
-    lst = sorted(list(map(lambda x: math.floor(x["pw"]*n_features), lst)) + [1, 3, 5], reverse=True)
-    lst[0] = lst[0]-1
-    lst_n = [n for n in lst if n < 3321]
-    if len(lst_n) < len(lst):
-        lst_n = [3320] + lst_n
-    return lst_n
 
 def run_grid_search(x,y, model, cfg_dict, pipeline_cfg, results, errors, errors_ind):
     global itter_current
@@ -394,23 +381,22 @@ def run_grid_search(x,y, model, cfg_dict, pipeline_cfg, results, errors, errors_
             print(err)
             pass
 
-def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
-    print ("Starting precomp pipline for "+ str(cfg_dict))
-    #run the pipe, except eceptions, save errors
+def launch_pipe_instance(x, y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
+    print("Starting precomp pipline for " + str(cfg_dict))
+    # run the pipe, except exceptions, save errors
     try:
-            #precomp_pipe.put_nowait({"pipeline_cfg": pipeline_cfg, "cfg_dict": cfg_dict,"precomp_transform": pipe.set_params(**cfg_dict).fit_transform(x,y)})
-            dump_dict = {"pipeline_cfg": pipeline_cfg, "cfg_dict": cfg_dict,"precomp_transform": pipe.set_params(**cfg_dict).fit_transform(x,y)}
-            tmp_trg = "./tmp/" + str(itter_current) + "_" + str(ind)
-            with open(tmp_trg, 'wb') as handle:
-                  pickle.dump(dump_dict, handle)
-            print ("Finished precomp pipline for "+ str(cfg_dict))
-            
+        # precomp_pipe.put_nowait({"pipeline_cfg": pipeline_cfg, "cfg_dict": cfg_dict,"precomp_transform": pipe.set_params(**cfg_dict).fit_transform(x,y)})
+        dump_dict = {"pipeline_cfg": pipeline_cfg, "cfg_dict": cfg_dict,
+                     "precomp_transform": pipe.set_params(**cfg_dict).fit_transform(x, y)}
+        tmp_trg = "./tmp/" + str(itter_current) + "_" + str(ind)
+        with open(tmp_trg, 'wb') as handle:
+            pickle.dump(dump_dict, handle)
+        print("Finished precomp pipline for " + str(cfg_dict))
 
     except (ValueError, MemoryError) as err:
-            print ("GREP_ME***Error caught for  precomp pipeline: ["+ pipeline_cfg+"] ")
-            errors_ind.append({"cfg": pipeline_cfg})
-            errors.append({"Precomp pipe: " + pipeline_cfg: {"error": err}})
-            pass
+        print("GREP_ME***Error caught for  precomp pipeline: [" + pipeline_cfg + "] ")
+        print(err)
+        pass
 
 def get_pipe_result(x, y, preprocessor, transfomer, reducer, precomp_pipe, errors, errors_ind):
     global itter_current
@@ -546,6 +532,10 @@ def run_for_many(X, y, sam):
 tuples_of_data = [(X_a,y_a, "all_samples"), 
 (X_1_1,y_1_1, "samples1_class1"), (X_1_2,y_1_2, "samples1_class2"),
 (X_1,y_1, "samples2_class1") , (X_2,y_2, "samples2_class2"), (X_3,y_3, "samples2_class3")]
+
+# tuples_of_data = [(X_1_1,y_1_1, "samples1_class1"), (X_1_2,y_1_2, "samples1_class2"),
+# (X_1,y_1, "samples2_class1") , (X_2,y_2, "samples2_class2"), (X_3,y_3, "samples2_class3")]
+
 # labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout

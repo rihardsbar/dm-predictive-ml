@@ -1,35 +1,24 @@
-#import all helpers
 import os
 import sys
+import time
 import warnings
 from datetime import datetime
-warnings.filterwarnings('ignore')
 import numpy as np
 import pandas as pd
 import math
-import statsmodels.api as sm
-from patsy import dmatrices
-from sklearn import preprocessing
-from sklearn.cross_validation import train_test_split, cross_val_score
 from sklearn.preprocessing import FunctionTransformer, PolynomialFeatures
 from sklearn.decomposition import FactorAnalysis, PCA
 from sklearn.feature_selection import GenericUnivariateSelect, RFE
-from sklearn import metrics
-from sklearn import linear_model, decomposition, datasets
 from sklearn.preprocessing import Normalizer, StandardScaler
 from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.model_selection import GridSearchCV
 from sklearn.feature_selection import f_regression, mutual_info_regression
-import seaborn as sns # More snazzy plotting library
-import itertools
-from itertools import  product
-import pprint
-from sklearn.ensemble import ExtraTreesRegressor
+from itertools import product
 from multiprocessing import Process, Value, Array
-from asyncio import Queue
-from threading import Thread
 import pickle
 import shutil
+from sklearn.model_selection import train_test_split
+
 ##impot classifieris
 #-----Ensemble---------------------
 from sklearn.ensemble import       AdaBoostClassifier
@@ -66,8 +55,86 @@ from sklearn.svm import            NuSVC
 from sklearn.tree import           DecisionTreeClassifier
 from sklearn.tree import           ExtraTreeClassifier
 
+# -----Ensemble---------------------
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import BaggingRegressor
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor
 
-file_path =  "../dataset/no_imdb_names-count_cat-tf_184f.csv"
+# ----Generalized Linear models-----
+from sklearn.linear_model import ARDRegression
+from sklearn.linear_model import BayesianRidge
+from sklearn.linear_model import ElasticNet
+from sklearn.linear_model import HuberRegressor
+from sklearn.linear_model import Lars
+from sklearn.linear_model import Lasso
+from sklearn.linear_model import LassoLars
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import PassiveAggressiveRegressor
+from sklearn.linear_model import Ridge
+from sklearn.linear_model import SGDRegressor
+from sklearn.linear_model import OrthogonalMatchingPursuit
+from sklearn.linear_model import RANSACRegressor
+from sklearn.linear_model import TheilSenRegressor
+
+# ---Nearest Neighbors----
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.neighbors import RadiusNeighborsRegressor
+
+# ----Neural Networks---------------
+from sklearn.neural_network import MLPRegressor
+
+# -----Support Vector Machines------
+from sklearn.svm import SVR
+from sklearn.svm import LinearSVR
+from sklearn.svm import NuSVR
+
+# -----Decission Trees--------------
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.tree import ExtraTreeRegressor
+
+# ----extras
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.isotonic import IsotonicRegression
+from sklearn.kernel_ridge import KernelRidge
+
+from sklearn.base import BaseEstimator, TransformerMixin
+
+class ClassifierTransformer(BaseEstimator, TransformerMixin):
+    
+    def __init__(self, label_func):
+        self.x_trans = 0
+        self.y_cl = 0
+        self.label_func = label_func
+        self.model =  GradientBoostingClassifier(n_estimators = 1000,
+                      learning_rate = 0.01,
+                      max_depth =  10,
+                      min_samples_leaf = 5,
+                      max_features = 0.01,
+                      max_leaf_nodes =  None)
+
+    def fit(self, X, y):
+        print("fitting classifier")
+        print("x len is:", end = " ")
+        print(len(X), end = " ")
+        print("y len is:", end = " ")
+        print(len(y))
+        self.y_cl = y.map(self.label_func)
+        self.model.fit(X,self.y_cl)
+        print("finished")
+        return self
+
+    def transform(self, X):
+        print("transforming classifier")
+        print("x len is:", end = " ")
+        print(len(X))
+        self.x_trans = pd.concat([pd.DataFrame(self.model.predict(X)), pd.DataFrame(X)], axis=1)
+        print("finished")
+        return self.x_trans
+
+
+file_path =  "../dataset/no_imdb_names-count_cat-tf_184f_train.csv"
 
 
 dta = pd.read_csv(file_path)
@@ -79,14 +146,15 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
-    return [{"pw":1}]
+    return [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
 
 def get_components_list(n_features, lst, log_poly = False):
     max_pw = max(lst, key=lambda x: x["pw"])["pw"]
     current_feat = 10*max_pw + n_features - 10
     if log_poly: current_feat = 10*max_pw + n_features
     #lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
-    lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
+    #lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
+    lst = [{"pw": 0.3}, {"pw": 0.6}, {"pw": 1}]
     lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)), reverse=True)
     return lst
 
@@ -125,11 +193,27 @@ def log_poly(X, pw):
     #return conat results
     return np.concatenate((res_poly_log, vector), axis=1)
 
+def classify(X, classifier):
+            x_pre = pipe_dict['precomp_transform']
+            X_cl_train, X_cl_test, y_cl_train, y_cl_test = train_test_split(x_pre, y, test_size=0.25)
+            gardient_class = GradientBoostingClassifier(n_estimators = 1000,
+                      learning_rate = 0.01,
+                      max_depth =  10,
+                      min_samples_leaf = 5,
+                      max_features = 0.01,
+                      max_leaf_nodes =  None)
+            gardient_class.fit(X_cl_train, y_cl_train)
+
+            x_pre = pd.concat([pd.DataFrame(gardient_class.predict(x_pre)), pd.DataFrame(x_pre)], axis=1)
+            y_gross = dta_clean['worldwide_gross']
+            x_fin, _X_dummy, y_fin, _y_dummy = train_test_split(x_pre, y_gross, test_size=0)
 
 DummyTransformer = FunctionTransformer(dummy)
 LogarithmicTransformer = FunctionTransformer(log)
 PolynomialTransformer = FunctionTransformer(poly)
 LogPolynomialTransformer = FunctionTransformer(log_poly)
+ClassifierlTransformer = FunctionTransformer(classify)
+
 
 ###define a global itteration var###########
 itter_start   = 0
@@ -191,7 +275,11 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 #models = [LinearSVC(),MLPClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
 #models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
-models = [GradientBoostingClassifier()]
+#models_reg = [AdaBoostRegressor(),BaggingRegressor(),ExtraTreesRegressor(),GradientBoostingRegressor(),RandomForestRegressor(),ElasticNet(),HuberRegressor(),Lasso(),LassoLars(),LinearRegression(),PassiveAggressiveRegressor(),Ridge(),SGDRegressor(),OrthogonalMatchingPursuit(),RANSACRegressor(),KNeighborsRegressor(),RadiusNeighborsRegressor(),MLPRegressor(),SVR(),LinearSVR(),NuSVR(),DecisionTreeRegressor(),ExtraTreeRegressor()]
+models_reg = [BaggingRegressor(),ExtraTreesRegressor(),GradientBoostingRegressor()]
+    
+models_class = [GradientBoostingClassifier()]
+models_class_cfg = {}
 models_cfg = {}
 
 #full params - dont work
@@ -281,13 +369,13 @@ models_cfg[LogisticRegression.__name__] = dict(
 '''
 
 ##gradient tuning
-models_cfg[GradientBoostingClassifier.__name__] = dict(
-              model__n_estimators = [1000, 1500],
-              model__learning_rate = [0.01, 0.001],
-              model__max_depth =  [10, 15, 20],
-              model__min_samples_leaf = [2 ,3, 5],
-              model__max_features = [0.1, 0.01],
-              model__max_leaf_nodes =  [None, 10, 20]
+models_class_cfg[GradientBoostingClassifier.__name__] = dict(
+              model__n_estimators = [1000],
+              model__learning_rate = [0.01],
+              model__max_depth =  [10],
+              model__min_samples_leaf = [5],
+              model__max_features = [0.01],
+              model__max_leaf_nodes =  [None]
 )
 
 
@@ -413,6 +501,34 @@ models_cfg[DecisionTreeClassifier.__name__] = {}
 models_cfg[ExtraTreeClassifier.__name__] = {}
 '''
 
+models_cfg[AdaBoostRegressor.__name__] = {}
+models_cfg[BaggingRegressor.__name__] = {}
+models_cfg[ExtraTreesRegressor.__name__] = {}
+models_cfg[GradientBoostingRegressor.__name__] = {}
+models_cfg[RandomForestRegressor.__name__] = {}
+models_cfg[BayesianRidge.__name__] = {}
+models_cfg[ElasticNet.__name__] = {}
+models_cfg[HuberRegressor.__name__] = {}
+models_cfg[Lars.__name__] = {}
+models_cfg[Lasso.__name__] = {}
+models_cfg[LassoLars.__name__] = {}
+models_cfg[LinearRegression.__name__] = {}
+models_cfg[PassiveAggressiveRegressor.__name__] = {}
+models_cfg[Ridge.__name__] = {}
+models_cfg[SGDRegressor.__name__] = {}
+models_cfg[OrthogonalMatchingPursuit.__name__] = {}
+models_cfg[RANSACRegressor.__name__] = {}
+models_cfg[TheilSenRegressor.__name__] = {}
+models_cfg[KNeighborsRegressor.__name__] = {}
+models_cfg[RadiusNeighborsRegressor.__name__] = {}
+models_cfg[MLPRegressor.__name__] = {}
+models_cfg[SVR.__name__] = {}
+models_cfg[LinearSVR.__name__] = {}
+models_cfg[NuSVR.__name__] = {}
+models_cfg[DecisionTreeRegressor.__name__] = {}
+models_cfg[ExtraTreeRegressor.__name__] = {}
+
+
 def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, ind):
     print ("Starting precomp pipline for "+ str(cfg_dict))
     #run the pipe, except eceptions, save errors
@@ -472,21 +588,23 @@ def get_pipe_result(x, y, preprocessor, transfomer, reducer, precomp_pipe, error
     for p in processes: p.join()
                 
 
-def run_grid_search(x,y, model, cfg_dict, pipeline_cfg, results, errors, errors_ind):
+def run_grid_search(x,y, model_class, model_reg, cfg_dict, pipeline_cfg, results, errors, errors_ind, label_fn):
     global itter_current
     itter_current += 1
     #check if itteration start is set to something different than 0 and then check if current itteration has been reached
     if itter_start != 0 and itter_current < itter_start: return
     #create pipline and use GridSearch to find the best params for given pipeline
-    name = type(model).__name__
-
+    name = type(model_reg).__name__
+    name_class = type(model_reg).__name__
+    
     #Define and save pipe cfg
-    pipe = Pipeline(steps=[('model', model)])
+    #pipe = Pipeline(steps=[('Classifier', ClassifierTransformer(label_fn)) ,('model', model_reg)])
+    pipe = Pipeline(steps=[('model', model_reg)])
 
     #create a dict with param grid
     param_grid = models_cfg[name]
     #create estimator
-    cv = 4
+    cv = 5
     print('####################################################################################')
     print('################# Runing the itteration %d  of the GridSearchCV ####################' %(itter_current))
     print('####################################################################################')
@@ -511,9 +629,9 @@ def run_grid_search(x,y, model, cfg_dict, pipeline_cfg, results, errors, errors_
             print(err)
             pass
 
-def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors, errors_ind, precomp_pipe):
+def run_solver(x,y,preprocessors, transfomers, reducers, models_class, models_reg, results, errors, errors_ind, precomp_pipe, label_fn):
     # mix it, so that the sample order is randomized
-    x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
+    #x, _X_dummy, y, _y_dummy = train_test_split(x, y, test_size=0)
     n_samples, n_features = x.shape   
        
     #make a dir for preprocessor temp files
@@ -564,8 +682,26 @@ def run_solver(x,y,preprocessors, transfomers, reducers, models, results, errors
     #for each physically saved pickle run grid search for each model
     for filename in os.listdir("./tmp"):
         pipe_dict = pickle.loads(open("./tmp/" + filename, 'rb').read())
-        for model in models: 
-            run_grid_search( pipe_dict['precomp_transform'],y, model,  pipe_dict['cfg_dict'],  pipe_dict['pipeline_cfg'], results, errors, errors_ind)
+        for model_class in models_class: 
+            #clasifiy train and predict data with 75% - can be misleading, but ok for finding quick estimate of it percorms
+            print("Preclassifying results")
+            x_pre = pipe_dict['precomp_transform']
+            X_cl_train, X_cl_test, y_cl_train, y_cl_test = train_test_split(x_pre, y, test_size=0.20)
+            gardient_class = GradientBoostingClassifier(n_estimators = 1000,
+                      learning_rate = 0.01,
+                      max_depth =  10,
+                      min_samples_leaf = 5,
+                      max_features = 0.01,
+                      max_leaf_nodes =  None)
+            gardient_class.fit(X_cl_train, y_cl_train)
+            print("Classify score is :" + str(gardient_class.score(x_pre,y)))
+            x_pre = pd.concat([pd.DataFrame(gardient_class.predict(x_pre)), pd.DataFrame(x_pre)], axis=1)
+            y_gross = dta_clean['worldwide_gross']
+            x_fin, _X_dummy, y_fin, _y_dummy = train_test_split(x_pre, y_gross, test_size=0)  
+            for model_reg in models_reg: 
+                 run_grid_search(x_fin, y_fin, model_class, model_reg,  pipe_dict['cfg_dict'],  pipe_dict['pipeline_cfg'], results, errors, errors_ind, label_fn)
+
+                #run_grid_search(pipe_dict['precomp_transform'], dta_clean['worldwide_gross'], model_class, model_reg,  pipe_dict['cfg_dict'],  pipe_dict['pipeline_cfg'], results, errors, errors_ind, label_fn)
 
 ##run calssifiers for two 4 cases - 2 classes, 3 clasees, 4 classes, 5 clasess
 
@@ -590,6 +726,33 @@ def label_gross_5 (gross):
     elif ((gross >= 25000000) & (gross < 100000000)) : return 3
     elif ((gross >= 100000000) & (gross < 400000000)) : return 4
     elif (gross >= 400000000) : return 5
+    
+def label_gross_6 (gross):
+    if (gross < 1000000) : return 1
+    elif ((gross >= 1000000) & (gross < 25000000)) : return 2
+    elif ((gross >= 25000000) & (gross < 50000000)) : return 3
+    elif ((gross >= 50000000) & (gross < 150000000)) : return 4
+    elif ((gross >= 150000000) & (gross < 450000000)) : return 5
+    elif (gross >= 450000000) : return 6
+
+def label_gross_7 (gross):
+    if (gross < 500000) : return 1
+    elif ((gross >= 500000) & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000) & (gross < 50000000)) : return 3
+    elif ((gross >= 50000000) & (gross < 150000000)) : return 4
+    elif ((gross >= 150000000) & (gross < 200000000)) : return 5
+    elif ((gross >= 200000000) & (gross < 500000000)) : return 6
+    elif (gross >= 500000000) : return 7
+    
+def label_gross_8 (gross):
+    if (gross < 500000) : return 1
+    elif ((gross >= 500000) & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000) & (gross < 20000000)) : return 3
+    elif ((gross >= 20000000) & (gross < 50000000)) : return 4
+    elif ((gross >= 50000000) & (gross < 100000000)) : return 5
+    elif ((gross >= 100000000) & (gross < 250000000)) : return 6
+    elif ((gross >= 250000000) & (gross < 550000000)) : return 7
+    elif (gross >= 550000000) : return 8
 
 def run_for_many(cl_n,label_fn):
     results = {}
@@ -598,10 +761,11 @@ def run_for_many(cl_n,label_fn):
     errors_ind = []
     X = dta_clean.drop('worldwide_gross', axis=1)
     y = dta_clean.worldwide_gross.apply (lambda gross: label_fn (gross))
+    #y = dta_clean['worldwide_gross']
     print ("#########################################")
     print ("###Starting all estimators for cl: "+ str(cl_n))
     print ("#########################################")
-    run_solver(X,y, preprocessors, transfomers, reducers, models, results, errors, errors_ind, precomp_pipe)
+    run_solver(X,y, preprocessors, transfomers, reducers, models_class, models_reg, results, errors, errors_ind, precomp_pipe, label_fn)
     print ("#########################################")
     print ("###Finished all estimators for cl: "+ str(cl_n))
     print ("#########################################")
@@ -617,8 +781,10 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-desc = "no_imdb_gradient_boost_narrowed"
-labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
+desc = "no_imdb_gradient_boost_class_with_regression"
+
+
+labels = [label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
 #labels = [label_gross_3]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
