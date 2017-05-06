@@ -595,7 +595,7 @@ def run_grid_search(x,y, model_class, model_reg, cfg_dict, pipeline_cfg, results
     if itter_start != 0 and itter_current < itter_start: return
     #create pipline and use GridSearch to find the best params for given pipeline
     name = type(model_reg).__name__
-    name_class = type(model_reg).__name__
+    name_class = type(model_class).__name__
     
     #Define and save pipe cfg
     #pipe = Pipeline(steps=[('Classifier', ClassifierTransformer(label_fn)) ,('model', model_reg)])
@@ -754,6 +754,29 @@ def label_gross_8 (gross):
     elif ((gross >= 250000000) & (gross < 550000000)) : return 7
     elif (gross >= 550000000) : return 8
 
+def label_gross_9 (gross):
+    if (gross < 500000) : return 1
+    elif ((gross >= 500000) & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000) & (gross < 20000000)) : return 3
+    elif ((gross >= 20000000) & (gross < 50000000)) : return 4
+    elif ((gross >= 50000000) & (gross < 70000000)) : return 5
+    elif ((gross >= 70000000) & (gross < 125000000)) : return 6
+    elif ((gross >= 125000000) & (gross < 250000000)) : return 7
+    elif ((gross >= 250000000) & (gross < 550000000)) : return 8
+    elif (gross >= 550000000) : return 9
+    
+def label_gross_10 (gross):
+    if    (gross  < 500000) : return 1
+    elif ((gross >= 500000)    & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000)   & (gross < 20000000)) : return 3
+    elif ((gross >= 20000000)  & (gross < 50000000)) : return 4
+    elif ((gross >= 50000000)  & (gross < 70000000)) : return 5
+    elif ((gross >= 70000000)  & (gross < 125000000)) : return 6
+    elif ((gross >= 125000000) & (gross < 250000000)) : return 7
+    elif ((gross >= 250000000) & (gross < 400000000)) : return 8
+    elif ((gross >= 400000000) & (gross < 600000000)) : return 9
+    elif  (gross >= 600000000) : return 10
+
 def run_for_many(cl_n,label_fn):
     results = {}
     precomp_pipe = []
@@ -784,7 +807,7 @@ def run_for_many(cl_n,label_fn):
 desc = "no_imdb_gradient_boost_class_with_regression"
 
 
-labels = [label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
+labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
 #labels = [label_gross_3]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
