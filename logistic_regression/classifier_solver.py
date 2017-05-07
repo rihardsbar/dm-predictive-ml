@@ -79,14 +79,15 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
-    return [{"pw":1},{"pw":2},{"pw":3}]
+    return [{"pw":1}]
 
 def get_components_list(n_features, lst, log_poly = False):
     max_pw = max(lst, key=lambda x: x["pw"])["pw"]
     current_feat = 10*max_pw + n_features - 10
     if log_poly: current_feat = 10*max_pw + n_features
-    lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
-    lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)) + [1, 3, 5], reverse=True)
+    #lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
+    lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
+    lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)), reverse=True)
     return lst
 
 
@@ -140,6 +141,7 @@ itter_current = 0
 #################################
 #preprocessors = [LogPolynomialTransformer, LogarithmicTransformer, PolynomialTransformer]
 preprocessors = [LogPolynomialTransformer]
+#preprocessors = [DummyTransformer]
 preprocessors_cfg = dict()
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
 preprocessors_cfg[LogarithmicTransformer.func.__name__] = {}
@@ -154,6 +156,7 @@ preprocessors_cfg[LogPolynomialTransformer.func.__name__] = dict(
 ################################
 #transfomers = [DummyTransformer, StandardScaler()]
 transfomers = [StandardScaler()]
+#transfomers = [DummyTransformer]
 transfomers_cfg = dict()
 transfomers_cfg[DummyTransformer.func.__name__] = {}
 transfomers_cfg[Normalizer.__name__] = dict(
@@ -166,6 +169,7 @@ transfomers_cfg[StandardScaler.__name__] = {}
 ####################################
 #reducers = [DummyTransformer, PCA(), GenericUnivariateSelect(), RFE(ExtraTreesRegressor())]
 reducers= [RFE(ExtraTreesRegressor())]
+#reducers = [DummyTransformer]
 reducers_cfg = dict()
 reducers_cfg[DummyTransformer.func.__name__] = {}
 reducers_cfg[PCA.__name__] = dict(
@@ -185,9 +189,9 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 ####### Models ##########
 #########################
-models = [LinearSVC(),MLPClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
+#models = [LinearSVC(),MLPClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
 #models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
-#models = [LogisticRegression()]
+models = [GradientBoostingClassifier()]
 models_cfg = {}
 
 #full params - dont work
@@ -244,6 +248,7 @@ models_cfg[LogisticRegression.__name__] = dict(
 '''
 
 #feasible params for running 5 models with pipeline 
+'''
 models_cfg[MLPClassifier.__name__] = dict(
     model__hidden_layer_sizes = [100],
     model__activation = ['identity', 'logistic', 'tanh', 'relu'],
@@ -272,6 +277,17 @@ models_cfg[LogisticRegression.__name__] = dict(
     model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
     model__C = np.logspace(-4, 4, 3),
     model__max_iter = [50, 100, 300]
+)
+'''
+
+##gradient tuning
+models_cfg[GradientBoostingClassifier.__name__] = dict(
+              model__n_estimators = [1000, 1500],
+              model__learning_rate = [0.01, 0.001],
+              model__max_depth =  [10, 15, 20],
+              model__min_samples_leaf = [2 ,3, 5],
+              model__max_features = [0.1, 0.01],
+              model__max_leaf_nodes =  [None, 10, 20]
 )
 
 
@@ -601,7 +617,7 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-desc = "no_imdb_narrowed_down"
+desc = "no_imdb_gradient_boost_narrowed"
 labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
 #labels = [label_gross_3]
 #save orig datetime and save orign stdout
