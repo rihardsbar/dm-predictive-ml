@@ -206,7 +206,8 @@ def get_components_list(n_features, lst, log_poly = False):
     if log_poly: current_feat = 10*max_pw + n_features
     #lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
     #lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
-    lst = [{"pw": 0.3}, {"pw": 0.6}, {"pw": 1}]
+    #lst = [{"pw": 0.3}, {"pw": 0.6}, {"pw": 1}]
+    lst = [{"pw": 0.3}, {"pw": 0.6}]
     lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)), reverse=True)
     return lst
 
