@@ -11,8 +11,8 @@ import numpy
 parser = ArgumentParser()
 parser.add_argument("file", help="input log file for sorting results", metavar="FILE")
 parser.add_argument("mode", help="Output mode: all, model, transformer, reducer, preprocessor ", metavar="MODE")
-parser.add_argument("score", help="Score: class_train_sc,class_valid_sc,class_test_sc,reg_train_sc,reg_valid_sc,reg_test_sc,reg_cl_train_sc,reg_cl_valid_sc,reg_cl_test_sc", metavar="score")
-
+#parser.add_argument("score", help="Score: class_train_sc,class_valid_sc,class_test_sc,reg_train_sc,reg_valid_sc,reg_test_sc,reg_cl_train_sc,reg_cl_valid_sc,reg_cl_test_sc", metavar="score")
+parser.add_argument("score", help="Score: class_train_sc,class_test_sc,reg_cl_train_sc,reg_cl_valid_sc,reg_cl_test_sc", metavar="score")
 args = parser.parse_args()
 results_all = []
 with open(args.file) as f:
@@ -26,8 +26,8 @@ with open(args.file) as f:
                 class_cfg = next(f)
                 _ = next(f)
                 class_train_sc = next(f)
-                _ = next(f)
-                class_valid_sc = next(f)
+                #_ = next(f)
+                #class_valid_sc = next(f)
                 _ = next(f)
                 class_test_sc = next(f)
                 class_model = re.search(r'(?:\[)(.*)(?:\])', class_pipeline).group(1)
@@ -45,12 +45,12 @@ with open(args.file) as f:
                 reg_pipeline_cfg = next(f)
                 _ = next(f)
                 reg_cfg = next(f)
-                _ = next(f)
-                reg_train_sc = next(f)
-                _ = next(f)
-                reg_valid_sc = next(f)
-                _ = next(f)
-                reg_test_sc = next(f)
+                #_ = next(f)
+                #reg_train_sc = next(f)
+                #_ = next(f)
+                #reg_valid_sc = next(f)
+                #_ = next(f)
+                #reg_test_sc = next(f)
                 reg_model = re.search(r'(?:\[)(.*)(?:\])', reg_pipeline).group(1)
                 reg_preprocessor = re.search(r'(?:preprocessor\:)(.*? |)', reg_pipeline).group(1)
                 reg_transfomer = re.search(r'(?:transfomer\: )(.*? |)', reg_pipeline).group(1)
@@ -71,7 +71,8 @@ with open(args.file) as f:
                 
                 results_all.append({
                         "class_train_sc":	float(class_train_sc),
-                        "class_valid_sc":	float(class_valid_sc),
+                        #"class_valid_sc":	float(class_valid_sc),
+                        "class_valid_sc":	'n.nnnnnnnnnnn',
                         "class_test_sc":	float(class_test_sc),
                         "class_model":	class_model,
                         "class_preprocessor":	class_preprocessor,
@@ -82,9 +83,12 @@ with open(args.file) as f:
                         "class_transfomer_cfg":	class_transfomer_cfg,
                         "class_reducer_cfg":	class_reducer_cfg,
                     
-                        "reg_train_sc":	float(reg_train_sc),
-                        "reg_valid_sc":	float(reg_valid_sc),
-                        "reg_test_sc":	float(reg_test_sc),
+                        #"reg_train_sc":	float(reg_train_sc),
+                        #"reg_valid_sc":	float(reg_valid_sc),
+                        #"reg_test_sc":	float(reg_test_sc),
+                        "reg_train_sc":	'n.nnnnnnnnnnn',
+                        "reg_valid_sc":	'n.nnnnnnnnnnn',
+                        "reg_test_sc": 'n.nnnnnnnnnnn',
                         "reg_model":	reg_model,
                         "reg_preprocessor":	reg_preprocessor,
                         "reg_transfomer":	reg_transfomer,
@@ -121,6 +125,10 @@ def print_results(itt):
         str_class = str(item['class_train_sc']) + " " + str(item['class_valid_sc']) + " " + str(item['class_test_sc']) +  " (" + item['class_model'] + "):" + str(item['class_model_cfg']) + " | " + item['class_preprocessor'] + ": " + str(item['class_preprocessor_cfg']) + " " + item['class_transfomer'] + ": " + str(item['class_transfomer_cfg']) + " " + item['class_reducer'] + ": " + str(item['class_reducer_cfg'])
         
         str_reg = str(item['reg_train_sc']) + " " + str(item['reg_valid_sc']) + " " + str(item['reg_test_sc']) +  " (" + item['reg_model'] + "):" + str(item['reg_model_cfg']) + " | " + item['reg_preprocessor'] + ": " + str(item['reg_preprocessor_cfg']) + " " + item['reg_transfomer'] + ": " + str(item['reg_transfomer_cfg']) + " " + item['reg_reducer'] + ": " + str(item['reg_reducer_cfg'])
+        
+        #str_class = str(item['class_train_sc']) + " " + str(item['class_test_sc']) +  " (" + item['class_model'] + "):" + str(item['class_model_cfg']) + " | " + item['class_preprocessor'] + ": " + str(item['class_preprocessor_cfg']) + " " + item['class_transfomer'] + ": " + str(item['class_transfomer_cfg']) + " " + item['class_reducer'] + ": " + str(item['class_reducer_cfg'])
+        
+        #str_reg = " (" + item['reg_model'] + "):" + str(item['reg_model_cfg']) + " | " + item['reg_preprocessor'] + ": " + str(item['reg_preprocessor_cfg']) + " " + item['reg_transfomer'] + ": " + str(item['reg_transfomer_cfg']) + " " + item['reg_reducer'] + ": " + str(item['reg_reducer_cfg'])
         
         str_reg_cl = str(item['reg_cl_train_sc']) + " " + str(item['reg_cl_valid_sc']) + " " + str(item['reg_cl_test_sc'])
         
@@ -163,4 +171,4 @@ if args.mode != "all":
         
 else:
     print_results(_sorted_all)
-    #print(results_all)
+    print("Total results found: " + str(len(_sorted_all)))

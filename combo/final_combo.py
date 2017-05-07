@@ -261,7 +261,7 @@ itter_current = 0
 ### Default Data Preprocessor ###
 #################################
 #preprocessors = [LogPolynomialTransformer, LogarithmicTransformer, PolynomialTransformer]
-preprocessors = [DummyTransformer, LogPolynomialTransformer]
+preprocessors = [LogPolynomialTransformer]
 #preprocessors = [DummyTransformer]
 preprocessors_cfg = dict()
 preprocessors_cfg[DummyTransformer.func.__name__] = {}
@@ -340,15 +340,15 @@ models_reg_cfg[GradientBoostingRegressor.__name__] = dict(
               model__max_features = [0.01, 0.1],
               model__max_leaf_nodes =  [None, 5]
 )
-
 '''
+
 models_class_cfg[GradientBoostingClassifier.__name__] = dict(
-              model__n_estimators = [200, 500, 1000],
-              model__max_leaf_nodes =  [None, 5]
+              model__n_estimators = [200, 1000],
+              model__max_leaf_nodes =  [5]
 )
 
 models_reg_cfg[GradientBoostingRegressor.__name__] = dict(
-              model__learning_rate = [0.01, 0.1],
+              model__learning_rate = [0.01],
               model__max_depth =  [5, 10]
 )
 '''
@@ -414,50 +414,67 @@ def get_pipe_result(x, y,preprocessor, transfomer, reducer, errors_ind, model_di
 
     for p in processes: p.join()
 
-        
-def run_grid_search(x,y, model_class, model_reg, cfg_dict, pipeline_cfg, results, errors, errors_ind, label_fn):
-    global itter_current
-    itter_current += 1
-    #check if itteration start is set to something different than 0 and then check if current itteration has been reached
-    if itter_start != 0 and itter_current < itter_start: return
-    #create pipline and use GridSearch to find the best params for given pipeline
-    name = type(model_reg).__name__
+def run_class_precomp_instanace(x_train_cl, y_train_cl, x_test_cl, y_test_cl, model_class, mod_dict_class, cfg_dict_class, pipeline_cfg_class, ind):
     name_class = type(model_class).__name__
-    
-    #Define and save pipe cfg
-    #pipe = Pipeline(steps=[('Classifier', ClassifierTransformer(label_fn)) ,('model', model_reg)])
-    pipe = Pipeline(steps=[('model', model_reg)])
-
-    #create a dict with param grid
-    param_grid = models_cfg[name]
-    #create estimator
-    cv = 5
-    print('####################################################################################')
-    print('################# Runing the itteration %d  of the GridSearchCV ####################' %(itter_current))
-    print('####################################################################################')
-    print ("***Starting ["  + name + "] estimator run, pipeline: "+ pipeline_cfg+" ")
-    print("##param_grid##")
-    print(param_grid)
-    estimator = GridSearchCV(pipe,param_grid,verbose=2, cv=cv, n_jobs=-1)
-    #run the esmimator, except eceptions, sape errors
+    print("")
+    print ("Starting precomp class for "+ str(name_class))
+        
     try:
-            estimator.fit(x, y)
-            print ("GREP_ME***Results of ["  + name + "] estimatorrun are")
-            print (estimator.cv_results_)            
-            print ("GREP_ME***Best params of ["  + name + "] estimator,pipeline:"+ pipeline_cfg+"  run are")
-            best_param = dict(estimator.best_params_, **cfg_dict)
-            print (best_param)
-            print ("GREP_ME***Best score of ["  + name + "] estimator, pipeline:"+ pipeline_cfg+" run are")
-            print (estimator.best_score_)
-            if (name not in results) or (estimator.best_score_ > results[name]["score"]):
-                results[name] = {"score": estimator.best_score_, "pipe":pipeline_cfg, "best_cfg": best_param}
+        print ("Precomp class ["  + name_class + "] estimator,pipeline:"+ pipeline_cfg_class+"  params:")
+        print(cfg_dict_class)
+        print ("Precomp class ["  + name_class + "] estimator, model params:")
+        print(mod_dict_class)
+        pipe_class = Pipeline(steps=[('model', model_class)])
+        pipe_class.set_params(**mod_dict_class).fit(x_train_cl, y_train_cl)
+        train_score = pipe_class.score(x_train_cl,y_train_cl)
+        test_score = pipe_class.score(x_test_cl,y_test_cl)
+        print("Classify train score is: ")
+        print(train_score)
+        print("Classify test  score is: ")
+        print(test_score)
+        dump_dict = {"name_class":name_class, "mod_dict_class": mod_dict_class,"pipeline_cfg_class": pipeline_cfg_class, "cfg_dict_class": cfg_dict_class, "x_train_cl_res": pipe_class.predict(x_train_cl), "x_test_cl_res": pipe_class.predict(x_test_cl), "class_train_score": train_score, "class_test_score": test_score}
+        tmp_trg = "./tmp_class_res/" + str(itter_current) + "_" + str(ind)
+        with open(tmp_trg, 'wb') as handle:
+            pickle.dump(dump_dict, handle)
+            print ("Finished precomp class for "+ str(name_class))
+            
     except (ValueError, MemoryError) as err:
-            print ("GREP_ME***Error caught for  ["  + name + "] , pipeline: ["+ pipeline_cfg+"] ")
+            print ("GREP_ME***Error caught for  precomp class: ("+ name_class+") ")
             print(err)
             pass
-        
-def run_model_search_instance(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x_test_cl, x_test_reg, y_test_cl, y_test_reg, model_class, model_reg, mod_dict_class, cfg_dict_class,  pipeline_cfg_class, mod_dict_reg, cfg_dict_reg, pipeline_cfg_reg, results, new_file):
+    sys.stdout.flush()
+    
+def pre_class_precomp(x_train_cl, y_train_cl, x_test_cl, y_test_cl, model_class, cfg_dict_class, pipeline_cfg_class):       
+    global itter_current
+    itter_current += 1
+    #create pipline for the preprocessing
     name_class = type(model_class).__name__
+    
+    print('####################################################################################')
+    print('################# Runing the itteration %d  of class precomp     ###############' %(itter_current))
+    print('####################################################################################')
+
+    #pool = Pool(processes=9,maxtasksperchild=1)
+    #itterate over each cfg variation and compute the result
+    param_grid = dict(models_class_cfg[name_class])
+    print(param_grid)
+    processes_args = []
+    local_ind = 0
+    for _terms  in list(product(*[models_class_cfg[name_class][it] for it in models_class_cfg[name_class]])):
+        local_ind = local_ind + 1
+        mod_dict_class = dict((term, _terms[ind]) for ind, term in enumerate(tuple(it for it in models_class_cfg[name_class])))     
+        processes_args.append((x_train_cl, y_train_cl, x_test_cl, y_test_cl, model_class, mod_dict_class, cfg_dict_class, pipeline_cfg_class,local_ind))
+        
+    Parallel(n_jobs=-1, verbose=1)(delayed(run_class_precomp_instanace)(*p_args) for p_args in processes_args)
+    
+    
+def run_class_precomp(x_train_cl, y_train_cl, x_test_cl, y_test_cl, models_class, cfg_dict_class, pipeline_cfg_class):
+        for model_class in models_class:
+            pre_class_precomp(x_train_cl, y_train_cl, x_test_cl, y_test_cl, model_class, cfg_dict_class, pipeline_cfg_class)
+            
+
+def run_model_search_instance(x_train_reg, y_train_reg, x_test_reg, y_test_reg, model_reg, mod_dict_reg, cfg_dict_reg, pipeline_cfg_reg, res_dict_class, results):
+    name_class = res_dict_class['name_class']
     name_reg = type(model_reg).__name__
     print("")
     print("Running model search")
@@ -466,29 +483,26 @@ def run_model_search_instance(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x
 
         print("GREP_ME***printing model search instance results")
 
-        print ("Classify ["  + name_class + "] estimator,pipeline:"+ pipeline_cfg_class+"  params:")
-        print(cfg_dict_class)
+        print ("Classify ["  + name_class + "] estimator,pipeline:"+ res_dict_class['pipeline_cfg_class']+"  params:")
+        print(res_dict_class['cfg_dict_class'])
         print ("Classify ["  + name_class + "] estimator, model params:")
-        print(mod_dict_class)
-        pipe_class = Pipeline(steps=[('model', model_class)])
-        pipe_class.set_params(**mod_dict_class).fit(x_train_cl, y_train_cl)
-        pipe_class_cv = Pipeline(steps=[('model', model_class)]).set_params(**mod_dict_class)
+        print(res_dict_class['mod_dict_class'])
         print("Classify train score is: ")
-        print(pipe_class.score(x_train_cl,y_train_cl))
-        print("Classify valid score is: ")
-        print(cross_val_score(pipe_class_cv, x_train_cl,y_train_cl).mean())
+        print(res_dict_class['class_train_score'])
         print("Classify test  score is: ")
-        print(pipe_class.score(x_test_cl,y_test_cl))
+        print(res_dict_class['class_test_score'])
 
         #populate x_train and x_test with class data
-        x_train_reg_cl = pd.concat([pd.DataFrame(pipe_class.predict(x_train_cl)), pd.DataFrame(x_train_reg)], axis=1)
-        x_test_reg_cl = pd.concat([pd.DataFrame(pipe_class.predict(x_test_cl)), pd.DataFrame(x_test_reg)], axis=1)
-
+        x_train_reg_cl = pd.concat([pd.DataFrame(res_dict_class['x_train_cl_res']), pd.DataFrame(x_train_reg)], axis=1)
+        x_test_reg_cl  = pd.concat([pd.DataFrame(res_dict_class['x_test_cl_res']), pd.DataFrame(x_test_reg)], axis=1)
+        
+   
         #train the regressor no classes
         print ("Regressor no cl ["  + name_reg + "] estimator,pipeline:"+ pipeline_cfg_reg+"  params:")
         print(cfg_dict_reg)
         print ("Regressor no cl ["  + name_reg + "] estimator, model params:")
         print(mod_dict_reg)
+        '''
         pipe_reg = Pipeline(steps=[('model', model_reg)])
         pipe_reg.set_params(**mod_dict_reg).fit(x_train_reg, y_train_reg)
         pipe_reg_cv = Pipeline(steps=[('model', model_reg)]).set_params(**mod_dict_reg)
@@ -498,7 +512,7 @@ def run_model_search_instance(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x
         print(cross_val_score(pipe_reg_cv, x_train_reg,y_train_reg).mean())
         print("Regressor no cl test  score is: ")
         print(pipe_reg.score(x_test_reg,y_test_reg))
-
+        '''
 
         #train the regressor with classes
         print ("Regressor with cl ["  + name_reg + "] estimator,pipeline given before")
@@ -521,45 +535,33 @@ def run_model_search_instance(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x
     
     sys.stdout.flush()
 
-def pre_run_model_search(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x_test_cl, x_test_reg, y_test_cl, y_test_reg, model_class, model_reg,  cfg_dict_class,  pipeline_cfg_class, cfg_dict_reg, pipeline_cfg_reg, results, new_file):
+def pre_run_model_search(x_train_reg, y_train_reg, x_test_reg, y_test_reg, model_reg, cfg_dict_reg, pipeline_cfg_reg, res_dict_class, results):
     global itter_current
     itter_current += 1
     #create pipline for the preprocessing
-    name_class = type(model_class).__name__
     name_reg = type(model_reg).__name__
     
     print('####################################################################################')
     print('################# Runing the itteration %d  of model search      ###############' %(itter_current))
     print('####################################################################################')
 
-    #pool = Pool(processes=9,maxtasksperchild=1)
     #itterate over each cfg variation and compute the result
-    param_grid = dict(models_class_cfg[name_class], **dict(models_reg_cfg[name_reg]))
+    param_grid = dict(models_reg_cfg[name_reg])
     print(param_grid)
     processes = []
     processes_args = []
-    local_ind = 0
-    for _terms  in list(product(*[models_class_cfg[name_class][it] for it in models_class_cfg[name_class]])):
-        mod_dict_class = dict((term, _terms[ind]) for ind, term in enumerate(tuple(it for it in models_class_cfg[name_class])))
-    
-        for _terms  in list(product(*[models_reg_cfg[name_reg][it] for it in models_reg_cfg[name_reg]])):
-                mod_dict_reg = dict((term, _terms[ind]) for ind, term in enumerate(tuple(it for it in models_reg_cfg[name_reg])))
-                #launch in a parraler manner a pipe dict
-                #launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, precomp_pipe, errors, errors_ind, local_ind)
-                local_ind += 1
-                #p = Process(target=run_model_search_instance, args=(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x_test_cl, x_test_reg, y_test_cl, y_test_reg, model_class, model_reg, mod_dict_class, cfg_dict_class,  pipeline_cfg_class, mod_dict_reg, cfg_dict_reg, pipeline_cfg_reg, results))
-                #processes.append(p)
-                processes_args.append((x_train_cl, x_train_reg, y_train_cl,y_train_reg, x_test_cl, x_test_reg, y_test_cl, y_test_reg, model_class, model_reg, mod_dict_class, cfg_dict_class,  pipeline_cfg_class, mod_dict_reg, cfg_dict_reg, pipeline_cfg_reg, results, new_file))
-                #pool.apply_async(run_model_search_instance,(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x_test_cl, x_test_reg, y_test_cl, y_test_reg, model_class, model_reg, mod_dict_class, cfg_dict_class,  pipeline_cfg_class, mod_dict_reg, cfg_dict_reg, pipeline_cfg_reg, results))
+    local_ind = 0       
+    for _terms  in list(product(*[models_reg_cfg[name_reg][it] for it in models_reg_cfg[name_reg]])):
+            local_ind += 1
+            mod_dict_reg = dict((term, _terms[ind]) for ind, term in enumerate(tuple(it for it in models_reg_cfg[name_reg])))
+            processes_args.append((x_train_reg, y_train_reg, x_test_reg, y_test_reg, model_reg, mod_dict_reg, cfg_dict_reg, pipeline_cfg_reg, res_dict_class, results))
 
-    Parallel(n_jobs=9, verbose=1)(delayed(run_model_search_instance)(*p_args) for p_args in processes_args)           
-    #for p in processes: p.start()
-    #for p in processes: p.join()
+    Parallel(n_jobs=-1, verbose=1)(delayed(run_model_search_instance)(*p_args) for p_args in processes_args)           
 
-def run_model_search(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x_test_cl, x_test_reg, y_test_cl, y_test_reg, models_class, models_reg,  cfg_dict_class,  pipeline_cfg_class, cfg_dict_reg, pipeline_cfg_reg, results, new_file):
-    for model_class in models_class:
+
+def run_model_search(x_train_reg, y_train_reg, x_test_reg, y_test_reg, models_reg, cfg_dict_reg, pipeline_cfg_reg, res_dict_class, results):
         for model_reg in models_reg:
-            pre_run_model_search(x_train_cl, x_train_reg, y_train_cl,y_train_reg, x_test_cl, x_test_reg, y_test_cl, y_test_reg, model_class, model_reg,  cfg_dict_class,  pipeline_cfg_class, cfg_dict_reg, pipeline_cfg_reg, results, new_file)
+            pre_run_model_search(x_train_reg, y_train_reg, x_test_reg, y_test_reg, model_reg, cfg_dict_reg, pipeline_cfg_reg, res_dict_class, results)
             
 def precompute(x,y, preprocessors, transfomers,reducers, errors_ind, model_dir):
         
@@ -610,6 +612,13 @@ def run_solver(data_train,data_test, preprocessors, transfomers, reducers, model
         #rm temp dir and make new one
         shutil.rmtree("./tmp_class")
         os.mkdir("./tmp_class")
+        
+    try:
+        os.mkdir("./tmp_class_res")
+    except FileExistsError:
+        #rm temp dir and make new one
+        shutil.rmtree("./tmp_class_res")
+        os.mkdir("./tmp_class_res")
     
     x_train = data_train.drop('worldwide_gross', axis=1)
     y_train_cl = data_train.worldwide_gross.apply (lambda gross: label_fn (gross))
@@ -619,34 +628,34 @@ def run_solver(data_train,data_test, preprocessors, transfomers, reducers, model
     y_test_cl = data_test.worldwide_gross.apply (lambda gross: label_fn (gross))
     y_test_reg = data_test['worldwide_gross']
 
-        
+    
+    #precomp pipeline for calssification
     precompute((x_train, x_test),(y_train_cl, y_test_cl), preprocessors, transfomers,reducers, errors_ind, 'tmp_class')
+    
+    ##precomp pipeline for regression
     precompute((x_train, x_test),(y_train_reg, y_test_reg), preprocessors, transfomers,reducers, errors_ind, 'tmp_reg')
   
-    print("i have finshed precomputing")
+    print("i have finshed precomputing pipeline")
 
-    #for each physically saved pickle run grid search for each model
+    #precomp results for calssification
     for filename_class in os.listdir("./tmp_class"):
         pipe_dict_class = pickle.loads(open("./tmp_class/" + filename_class, 'rb').read())
+        run_class_precomp(        pipe_dict_class['x_train'],
+                                  pipe_dict_class['y_train'],
+                                  pipe_dict_class['x_test'],
+                                  pipe_dict_class['y_test'],
+                                               models_class,
+                                  pipe_dict_class['cfg_dict'],
+                                  pipe_dict_class['pipeline_cfg']
+                            )
+    print("i have finshed precomputing classification")
+
+    #for each physically saved pickle run grid search for each model
+    for filename_class in os.listdir("./tmp_class_res"):
+        res_dict_class = pickle.loads(open("./tmp_class_res/" + filename_class, 'rb').read())
         for filename_reg in os.listdir("./tmp_reg"):
             pipe_dict_reg = pickle.loads(open("./tmp_reg/" + filename_reg, 'rb').read())
-            run_model_search(    pipe_dict_class['x_train'], 
-                                   pipe_dict_reg['x_train'], 
-                                 pipe_dict_class['y_train'],
-                                   pipe_dict_reg['y_train'],
-                                 pipe_dict_class['x_test'],
-                                   pipe_dict_reg['x_test'],
-                                 pipe_dict_class['y_test'],
-                                   pipe_dict_reg['y_test'],
-                                                 models_class,
-                                                 models_reg,
-                                 pipe_dict_class['cfg_dict'],
-                                 pipe_dict_class['pipeline_cfg'],
-                                   pipe_dict_reg['cfg_dict'],
-                                   pipe_dict_reg['pipeline_cfg'],
-                                                 results, new_file
-                            )
-                                         
+            run_model_search(pipe_dict_reg['x_train'],  pipe_dict_reg['y_train'], pipe_dict_reg['x_test'], pipe_dict_reg['y_test'], models_reg,  pipe_dict_reg['cfg_dict'], pipe_dict_reg['pipeline_cfg'], res_dict_class, results)                                     
 
 def run_for_many(cl_n,label_fn, new_file):
     results = {}
@@ -676,8 +685,22 @@ def run_for_many(cl_n,label_fn, new_file):
 desc = "no_imdb_gradient_boost_class_with_regression_final"
 
 
-labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
+#labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
 #labels = [label_gross_3]
+
+
+##Ronald
+#labels = [label_gross_3, label_gross_2]
+
+##Kelvin
+#labels = [label_gross_5, label_gross_4]
+
+##Su
+#labels = [label_gross_7, label_gross_6]
+
+##Ahmet
+#labels = [label_gross_9, label_gross_8]
+
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout
 time = datetime.now().strftime("%Y_%m_%d_%H%M%S")
