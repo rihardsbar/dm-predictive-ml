@@ -7,6 +7,7 @@ from sklearn.decomposition import TruncatedSVD, PCA, NMF, SparsePCA
 def create_2d_plot(data_2d, labels):
     plt.figure()
     plt.scatter(data_2d[:, 0], data_2d[:, 1], c=labels)
+    plt.show()
 
 
 def create_3d_plot(data_2d, target, labels):
@@ -93,6 +94,15 @@ def plot_3d_2():
     print(grouped.count())
 
 
+def plot_2d():
+    df = read_data()
+
+    # 3D-plot
+    data_2d = PCA(n_components=2).fit_transform(df)
+    create_2d_plot(data_2d, df['gross_class'])
+
+
 if __name__ == "__main__":
-    plot_3d()
-    plot_3d_2()
+    #plot_3d()
+    #plot_3d_2()
+    plot_2d()
