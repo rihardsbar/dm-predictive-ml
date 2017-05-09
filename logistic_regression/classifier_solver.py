@@ -26,7 +26,7 @@ from itertools import  product
 import pprint
 from sklearn.ensemble import ExtraTreesRegressor
 from multiprocessing import Process, Value, Array
-from asyncio import Queue
+#from asyncio import Queue
 from threading import Thread
 import pickle
 import shutil
@@ -67,7 +67,7 @@ from sklearn.tree import           DecisionTreeClassifier
 from sklearn.tree import           ExtraTreeClassifier
 
 
-file_path =  "../dataset/no_imdb_names-count_cat-tf_184f.csv"
+file_path =  "../dataset/no_imdb_names-count_cat-tf_184f_train.csv"
 
 
 dta = pd.read_csv(file_path)
@@ -79,14 +79,15 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
-    return [{"pw":1}]
+    return [{"pw":4}]
 
 def get_components_list(n_features, lst, log_poly = False):
     max_pw = max(lst, key=lambda x: x["pw"])["pw"]
     current_feat = 10*max_pw + n_features - 10
     if log_poly: current_feat = 10*max_pw + n_features
     #lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
-    lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
+    #lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
+    lst = [{"pw": 0.33}]
     lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)), reverse=True)
     return lst
 
@@ -191,7 +192,7 @@ reducers_cfg[RFE.__name__] = dict(
 #########################
 #models = [LinearSVC(),MLPClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),LogisticRegression()]
 #models = [AdaBoostClassifier(),BaggingClassifier(),ExtraTreesClassifier(),GradientBoostingClassifier(),RandomForestClassifier(),PassiveAggressiveClassifier(),LogisticRegression(),RidgeClassifier(),SGDClassifier(),GaussianNB(),MultinomialNB(),KNeighborsClassifier(),RadiusNeighborsClassifier(),NearestCentroid(),MLPClassifier(),SVC(),LinearSVC(),NuSVC(),DecisionTreeClassifier(),ExtraTreeClassifier()]
-models = [GradientBoostingClassifier()]
+models = [MLPClassifier()]
 models_cfg = {}
 
 #full params - dont work
@@ -278,7 +279,7 @@ models_cfg[LogisticRegression.__name__] = dict(
     model__C = np.logspace(-4, 4, 3),
     model__max_iter = [50, 100, 300]
 )
-'''
+
 
 ##gradient tuning
 models_cfg[GradientBoostingClassifier.__name__] = dict(
@@ -288,6 +289,16 @@ models_cfg[GradientBoostingClassifier.__name__] = dict(
               model__min_samples_leaf = [2 ,3, 5],
               model__max_features = [0.1, 0.01],
               model__max_leaf_nodes =  [None, 10, 20]
+)
+
+'''
+
+models_cfg[MLPClassifier.__name__] = dict(
+    model__hidden_layer_sizes = [1, 3, 5, 8, 10, 20, 30, 40],
+    model__activation = ['identity', 'logistic', 'tanh', 'relu'],
+    model__solver = ['lbfgs', 'sgd', 'adam'],
+    model__max_iter = [200, 400, 1000],
+    model__learning_rate_init = [ 0.3, 0.1,  0.01, 0.001]
 )
 
 
@@ -590,6 +601,56 @@ def label_gross_5 (gross):
     elif ((gross >= 25000000) & (gross < 100000000)) : return 3
     elif ((gross >= 100000000) & (gross < 400000000)) : return 4
     elif (gross >= 400000000) : return 5
+    
+def label_gross_6 (gross):
+    if (gross < 1000000) : return 1
+    elif ((gross >= 1000000) & (gross < 25000000)) : return 2
+    elif ((gross >= 25000000) & (gross < 50000000)) : return 3
+    elif ((gross >= 50000000) & (gross < 150000000)) : return 4
+    elif ((gross >= 150000000) & (gross < 450000000)) : return 5
+    elif (gross >= 450000000) : return 6
+
+def label_gross_7 (gross):
+    if (gross < 500000) : return 1
+    elif ((gross >= 500000) & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000) & (gross < 50000000)) : return 3
+    elif ((gross >= 50000000) & (gross < 150000000)) : return 4
+    elif ((gross >= 150000000) & (gross < 200000000)) : return 5
+    elif ((gross >= 200000000) & (gross < 500000000)) : return 6
+    elif (gross >= 500000000) : return 7
+    
+def label_gross_8 (gross):
+    if (gross < 500000) : return 1
+    elif ((gross >= 500000) & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000) & (gross < 20000000)) : return 3
+    elif ((gross >= 20000000) & (gross < 50000000)) : return 4
+    elif ((gross >= 50000000) & (gross < 100000000)) : return 5
+    elif ((gross >= 100000000) & (gross < 250000000)) : return 6
+    elif ((gross >= 250000000) & (gross < 550000000)) : return 7
+    elif (gross >= 550000000) : return 8
+
+def label_gross_9 (gross):
+    if (gross < 500000) : return 1
+    elif ((gross >= 500000) & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000) & (gross < 20000000)) : return 3
+    elif ((gross >= 20000000) & (gross < 50000000)) : return 4
+    elif ((gross >= 50000000) & (gross < 70000000)) : return 5
+    elif ((gross >= 70000000) & (gross < 125000000)) : return 6
+    elif ((gross >= 125000000) & (gross < 250000000)) : return 7
+    elif ((gross >= 250000000) & (gross < 550000000)) : return 8
+    elif (gross >= 550000000) : return 9
+    
+def label_gross_10 (gross):
+    if    (gross  < 500000) : return 1
+    elif ((gross >= 500000)    & (gross < 5000000)) : return 2
+    elif ((gross >= 5000000)   & (gross < 20000000)) : return 3
+    elif ((gross >= 20000000)  & (gross < 50000000)) : return 4
+    elif ((gross >= 50000000)  & (gross < 70000000)) : return 5
+    elif ((gross >= 70000000)  & (gross < 125000000)) : return 6
+    elif ((gross >= 125000000) & (gross < 250000000)) : return 7
+    elif ((gross >= 250000000) & (gross < 400000000)) : return 8
+    elif ((gross >= 400000000) & (gross < 600000000)) : return 9
+    elif  (gross >= 600000000) : return 10
 
 def run_for_many(cl_n,label_fn):
     results = {}
@@ -617,8 +678,8 @@ def run_for_many(cl_n,label_fn):
 
 #ignore warnigs
 
-desc = "no_imdb_gradient_boost_narrowed"
-labels = [label_gross_3, label_gross_2, label_gross_4, label_gross_5]
+desc = "no_imdb_neural_only"
+labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
 #labels = [label_gross_3]
 #save orig datetime and save orign stdout
 orig_stdout = sys.stdout

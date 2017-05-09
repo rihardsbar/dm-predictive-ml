@@ -687,7 +687,7 @@ desc = "no_imdb_gradient_boost_class_with_regression_final"
 
 
 #labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
-#labels = [label_gross_3]
+labels = [label_gross_2, label_gross_4, label_gross_6]
 
 
 ##Ronald
