@@ -79,7 +79,7 @@ dta_clean = dta_clean.drop('Unnamed: 0', axis=1)
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
-    return [{"pw":4}]
+    return [{"pw":2},{"pw":4}]
 
 def get_components_list(n_features, lst, log_poly = False):
     max_pw = max(lst, key=lambda x: x["pw"])["pw"]
@@ -294,12 +294,14 @@ models_cfg[GradientBoostingClassifier.__name__] = dict(
 '''
 
 models_cfg[MLPClassifier.__name__] = dict(
-    model__hidden_layer_sizes = [1, 3, 5, 8, 10, 20, 30, 40],
+    model__hidden_layer_sizes = [(73,),(180,),(73,73,),(180,180,),(73,73,73,),(180,180,180,),(73,73,73,73,),(180,180,180,180,)],
     model__activation = ['identity', 'logistic', 'tanh', 'relu'],
     model__solver = ['lbfgs', 'sgd', 'adam'],
     model__max_iter = [200, 400, 1000],
+    #model__learning_rate_init = [0.1]
     model__learning_rate_init = [ 0.3, 0.1,  0.01, 0.001]
 )
+
 
 
 #params for running with no pipeline
