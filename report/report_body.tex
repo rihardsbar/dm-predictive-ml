@@ -153,11 +153,11 @@ Other optimised features included 'min\_samples\_per\_leaf', that regulate the a
 \caption{Final model 2}
 \label{fig:model2}
 \end{figure}
-Two architectures were tested for the final model, which perform unification of classification and regression models, in order to improve regression accuracy. To optimize the model, a custom GridsearchCV function was written in order to support two models in a pipeline, unlike sklearn's default of one. The first model trains a pipeline for the classification stage, which then concatenates its results with features for each data sample. Then a separate regression pipeline is trained from the concatenated samples, which then output final result.
+Two architectures were tested for the final model, which perform unification of classification and regression models, in order to improve regression accuracy. To optimize the model, a custom GridsearchCV function was written in order to support two models in a pipeline, unlike sklearn's default of one. The first model trains a pipeline for the classification stage, which then concatenates its results with features for each data sample. Then a separate regression pipeline is trained from the concatenated samples, which then output the final result.
 
 The second model firstly is trained to classify all the samples and then for each set of classes produces an independent regression model. As a result, each gross class of samples uses a different optimized regression pipeline to find the final results.
 
-The second model was found to perform worse, due to much smaller training data available and as it was seen before, a gradient boost regression requires over 3000 samples to achieve validation saturation, but the average set size of classified samples available for training each regression step  ranges from 1920 down to 427.
+The second model was found to perform worse, due to much smaller training data available and as it was seen before; a gradient boost regression requires over 3000 samples to achieve validation saturation, but the average set size of classified samples available for training each regression step  ranges from 1920 down to 427.
 
 \section{Results}
 The followings results have been obtained from feeding the data through the first architecture of the final model. The \tablename{} \ref{tab:top_ten_methods} contains results for 9 different classification cases. It has to be noted that the sole regression results are indicated for comparison purposes and the sole regression without class data fed in was not involved in generating the final result, whereas the classification results indicate the performance of the classification step of model, results of which are fed into the regression step.
@@ -166,7 +166,7 @@ The followings results have been obtained from feeding the data through the firs
 \caption{Class - score of the classification stage. Reg - reference score of the best standalone regression model. Combo - the regression results of the combined final model. Train - training accuracy, Valid - Cross validation accuracy, Test - Testing Accuracy. The classification results are measures as a fraction of classes predicted right. Regression results are measured as a $R^2$ metric.}
 \label{tab:top_ten_methods}
 \centering
-\begin{tabular}{|p{1cm}|p{1cm}|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|p{1cm}|c|c|c|p{1cm}|p{1cm}|p{1cm}|c|c|c|}
 \hline
 Classes&Class Train&Class Valid&Class Test&Reg Train&Reg Valid&Reg Test&Combo Train&Combo Valid&Combo Test \\
 \hline
