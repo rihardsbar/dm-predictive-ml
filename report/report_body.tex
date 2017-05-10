@@ -162,7 +162,7 @@ The second model was found to perform worse, due to much smaller training data a
 The followings results have been obtained from feeding the data through the first architecture of the final model. The \tablename{} \ref{tab:top_ten_methods} contains results for 9 different classification cases. It has to be noted that the sole regression results are indicated for comparison purposes and the sole regression without class data fed in was not involved in generating the final result, whereas the classification results indicate the performance of the classification step of model, results of which are fed into the regression step.
 
 \begin{table*}[!h]
-\caption{Class - score of the classification stage. Reg - reference score of the best standalone regression model. Combo - the regression results of the combined final model. Train - training accuracy, Valid - Cross validation accuracy, Test - Testing Accuracy. The classification results are measured as a fraction of classes predicted right. Regression results are measured as a $R^2$ metric.}
+\caption{Summary of the results.}
 \label{tab:top_ten_methods}
 \centering
 \begin{tabular}{|p{1cm}|c|c|c|p{1cm}|p{1cm}|p{1cm}|c|c|c|}
@@ -179,8 +179,8 @@ Classes&Class Train&Class Valid&Class Test&Reg Train&Reg Valid&Reg Test&Combo Tr
 9 & 0.642 & 0.356 & 0.377 & 0.809 & 0.583 & 0.625 & 0.844 & 0.700 & 0.681 \\
 10 & 0.619 & 0.334 & 0.382 & 0.809 & 0.583 & 0.625 & 0.716 & 0.682 & 0.682 \\
 \hline
-
 \end{tabular}
+Class - score of the classification stage. Reg - reference score of the best standalone regression model. Combo - the regression results of the combined final model. Train - training accuracy, Valid - Cross validation accuracy, Test - Testing Accuracy. The classification results are measured as a fraction of classes predicted right. Regression results are measured as a $R^2$ metric.
 \end{table*}
 
 \section{Discussion}
