@@ -26,8 +26,8 @@ with open(args.file) as f:
                 class_cfg = next(f)
                 _ = next(f)
                 class_train_sc = next(f)
-                #_ = next(f)
-                #class_valid_sc = next(f)
+                _ = next(f)
+                class_valid_sc = next(f)
                 _ = next(f)
                 class_test_sc = next(f)
                 class_model = re.search(r'(?:\[)(.*)(?:\])', class_pipeline).group(1)
@@ -45,12 +45,12 @@ with open(args.file) as f:
                 reg_pipeline_cfg = next(f)
                 _ = next(f)
                 reg_cfg = next(f)
-                #_ = next(f)
-                #reg_train_sc = next(f)
-                #_ = next(f)
-                #reg_valid_sc = next(f)
-                #_ = next(f)
-                #reg_test_sc = next(f)
+                _ = next(f)
+                reg_train_sc = next(f)
+                _ = next(f)
+                reg_valid_sc = next(f)
+                _ = next(f)
+                reg_test_sc = next(f)
                 reg_model = re.search(r'(?:\[)(.*)(?:\])', reg_pipeline).group(1)
                 reg_preprocessor = re.search(r'(?:preprocessor\:)(.*? |)', reg_pipeline).group(1)
                 reg_transfomer = re.search(r'(?:transfomer\: )(.*? |)', reg_pipeline).group(1)
@@ -71,8 +71,8 @@ with open(args.file) as f:
                 
                 results_all.append({
                         "class_train_sc":	float(class_train_sc),
-                        #"class_valid_sc":	float(class_valid_sc),
-                        "class_valid_sc":	'n.nnnnnnnnnnn',
+                        "class_valid_sc":	float(class_valid_sc),
+                        #"class_valid_sc":	'n.nnnnnnnnnnn',
                         "class_test_sc":	float(class_test_sc),
                         "class_model":	class_model,
                         "class_preprocessor":	class_preprocessor,
@@ -83,12 +83,12 @@ with open(args.file) as f:
                         "class_transfomer_cfg":	class_transfomer_cfg,
                         "class_reducer_cfg":	class_reducer_cfg,
                     
-                        #"reg_train_sc":	float(reg_train_sc),
-                        #"reg_valid_sc":	float(reg_valid_sc),
-                        #"reg_test_sc":	float(reg_test_sc),
-                        "reg_train_sc":	'n.nnnnnnnnnnn',
-                        "reg_valid_sc":	'n.nnnnnnnnnnn',
-                        "reg_test_sc": 'n.nnnnnnnnnnn',
+                        "reg_train_sc":	float(reg_train_sc),
+                        "reg_valid_sc":	float(reg_valid_sc),
+                        "reg_test_sc":	float(reg_test_sc),
+                        #"reg_train_sc":	'n.nnnnnnnnnnn',
+                        #"reg_valid_sc":	'n.nnnnnnnnnnn',
+                        #"reg_test_sc": 'n.nnnnnnnnnnn',
                         "reg_model":	reg_model,
                         "reg_preprocessor":	reg_preprocessor,
                         "reg_transfomer":	reg_transfomer,
@@ -172,3 +172,6 @@ if args.mode != "all":
 else:
     print_results(_sorted_all)
     print("Total results found: " + str(len(_sorted_all)))
+    #filtered1 = filter(lambda x: x['reg_cl_test_sc'] - x['reg_cl_valid_sc'] < 0.03 , _sorted_all)
+    #print_results(filtered1)
+    #print("Filter results found: " + str(len(filtered1)))

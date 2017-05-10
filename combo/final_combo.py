@@ -207,7 +207,7 @@ def get_components_list(n_features, lst, log_poly = False):
     #lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
     #lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
     #lst = [{"pw": 0.3}, {"pw": 0.6}, {"pw": 1}]
-    lst = [{"pw": 0.3}, {"pw": 0.6}]
+    lst = [{"pw": 0.1},{"pw": 0.2},{"pw": 0.3}]
     lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)), reverse=True)
     return lst
 
@@ -325,21 +325,21 @@ models_reg_cfg = {}
 ##gradient tuning
 
 models_class_cfg[GradientBoostingClassifier.__name__] = dict(
-              model__n_estimators = [200, 500, 1000],
-              model__learning_rate = [0.01, 0.1],
-              model__max_depth =  [5, 10],
-              model__min_samples_leaf = [5, 50],
-              model__max_features = [0.01, 0.1],
-              model__max_leaf_nodes =  [None, 5]
+              model__n_estimators = [200],
+              model__learning_rate = [0.01],
+              model__max_depth =  [10],
+              model__min_samples_leaf = [5],
+              model__max_features = [0.01],
+              model__max_leaf_nodes =  [None]
 )
 
 models_reg_cfg[GradientBoostingRegressor.__name__] = dict(
-              model__n_estimators = [200, 500, 1000],
-              model__learning_rate = [0.01, 0.1],
-              model__max_depth =  [5, 10],
-              model__min_samples_leaf = [5, 50],
-              model__max_features = [0.01, 0.1],
-              model__max_leaf_nodes =  [None, 5]
+              model__n_estimators = [500],
+              model__learning_rate = [0.01],
+              model__max_depth =  [10],
+              model__min_samples_leaf = [50],
+              model__max_features = [0.1],
+              model__max_leaf_nodes =  [5]
 )
 '''
 
@@ -363,7 +363,7 @@ def launch_pipe_instance(x,y, pipe, cfg_dict, pipeline_cfg, errors_ind, model_di
             y_train, y_test = y
             pipe.set_params(**cfg_dict).fit(x_train,y_train)            
             dump_dict = {"pipeline_cfg": pipeline_cfg, "cfg_dict": cfg_dict, "x_train": pipe.transform(x_train), "y_train":y_train, "x_test": pipe.transform(x_test), "y_test": y_test}
-            tmp_trg = "./" + model_dir + "/" + str(itter_current) + "_" + str(ind)
+            tmp_trg = "./" + model_dir + "/" + str(itter_current) + "_" + str(local_ind)
             with open(tmp_trg, 'wb') as handle:
                   pickle.dump(dump_dict, handle)
             print ("Finished precomp pipline for "+ str(cfg_dict))
@@ -427,13 +427,15 @@ def run_class_precomp_instanace(x_train_cl, y_train_cl, x_test_cl, y_test_cl, mo
         print(mod_dict_class)
         pipe_class = Pipeline(steps=[('model', model_class)])
         pipe_class.set_params(**mod_dict_class).fit(x_train_cl, y_train_cl)
+        pipe_class_cv = Pipeline(steps=[('model', model_class)]).set_params(**mod_dict_class)
         train_score = pipe_class.score(x_train_cl,y_train_cl)
+        valid_score = cross_val_score(pipe_class_cv, x_train_cl,y_train_cl).mean()
         test_score = pipe_class.score(x_test_cl,y_test_cl)
         print("Classify train score is: ")
         print(train_score)
         print("Classify test  score is: ")
         print(test_score)
-        dump_dict = {"name_class":name_class, "mod_dict_class": mod_dict_class,"pipeline_cfg_class": pipeline_cfg_class, "cfg_dict_class": cfg_dict_class, "x_train_cl_res": pipe_class.predict(x_train_cl), "x_test_cl_res": pipe_class.predict(x_test_cl), "class_train_score": train_score, "class_test_score": test_score}
+        dump_dict = {"name_class":name_class, "mod_dict_class": mod_dict_class,"pipeline_cfg_class": pipeline_cfg_class, "cfg_dict_class": cfg_dict_class, "x_train_cl_res": pipe_class.predict(x_train_cl), "x_test_cl_res": pipe_class.predict(x_test_cl), "class_train_score": train_score, "class_valid_score": valid_score, "class_test_score": test_score}
         tmp_trg = "./tmp_class_res/" + str(itter_current) + "_" + str(ind)
         with open(tmp_trg, 'wb') as handle:
             pickle.dump(dump_dict, handle)
@@ -490,6 +492,8 @@ def run_model_search_instance(x_train_reg, y_train_reg, x_test_reg, y_test_reg, 
         print(res_dict_class['mod_dict_class'])
         print("Classify train score is: ")
         print(res_dict_class['class_train_score'])
+        print("Classify valid score is: ")
+        print(res_dict_class['class_valid_score'])
         print("Classify test  score is: ")
         print(res_dict_class['class_test_score'])
 
@@ -503,7 +507,7 @@ def run_model_search_instance(x_train_reg, y_train_reg, x_test_reg, y_test_reg, 
         print(cfg_dict_reg)
         print ("Regressor no cl ["  + name_reg + "] estimator, model params:")
         print(mod_dict_reg)
-        '''
+
         pipe_reg = Pipeline(steps=[('model', model_reg)])
         pipe_reg.set_params(**mod_dict_reg).fit(x_train_reg, y_train_reg)
         pipe_reg_cv = Pipeline(steps=[('model', model_reg)]).set_params(**mod_dict_reg)
@@ -513,7 +517,7 @@ def run_model_search_instance(x_train_reg, y_train_reg, x_test_reg, y_test_reg, 
         print(cross_val_score(pipe_reg_cv, x_train_reg,y_train_reg).mean())
         print("Regressor no cl test  score is: ")
         print(pipe_reg.score(x_test_reg,y_test_reg))
-        '''
+
 
         #train the regressor with classes
         print ("Regressor with cl ["  + name_reg + "] estimator,pipeline given before")
@@ -683,11 +687,11 @@ def run_for_many(cl_n,label_fn, new_file):
 
 #ignore warnigs
 
-desc = "no_imdb_gradient_boost_class_with_regression_final"
+desc = "no_imdb_gradient_boost_class_with_regression_final_model"
 
 
-#labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
-#labels = [label_gross_3]
+labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]
+#labels = [label_gross_2, label_gross_4, label_gross_6]
 
 
 ##Ronald
