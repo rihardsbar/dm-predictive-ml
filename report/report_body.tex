@@ -138,18 +138,17 @@ The learning rate/shrinkage represents the weight that is applied to the error m
 
 Other optimised features included 'min\_samples\_per\_leaf', that regulate the amount of samples necessary to fall within a node so that it becomes a leaf. Experimentation shows that having less than 3 samples per a leaf decreases the validation accuracy and leads to gain in variance.  Maximum features dictate the number of features to consider when classification tree looks for the best split in the samples provided in order to minimise the classification error \cite{tan2006classification}. The score of 0.1 of all features to be considered when split is produced was found to produce a better generalising model. Max\_leaf\_nodes determines how many leafs tree can have when it is constructed, hence controlling the amount of eventual decisions that are taken in the tree. No limit for the configuration indicates unlimited amount of leafs and it did display the optimal performance.  The analytical results coincide with findings of the parameters search over the pipeline, which is (max\_leaf\_nodes = None, learning\_rate = 0.1, max\_depth =  10, min\_samples\_leaf = 5, max\_features = 0.01,n\_estimators = 500).­ This model has a balance bias/variance ratio, which produces a good generalising model. It requires less estimators than the regression model as well, as its learning curve is faster and requires less complex model to generalise. Both models select the budget as most important feature, as seen in \figurename{} \ref{fig:gradient_boost_dependency}, followed by rest of the numerical features.
 
-
 \subsection{Final Model}
-\begin{figure}[h]gi
+\begin{figure}[h]
 \label{fig:final_model}
 \centering
-\includegraphics[width=3.2in]{figures/finalmodel1}
+\includegraphics[width=3.2in]{figures/fm1}
 \caption{Final model 1}
 \label{fig:model1}
 \end{figure}
 \begin{figure}[h]
 \centering
-\includegraphics[width=3.2in]{figures/finalmodel2}
+\includegraphics[width=3.2in]{figures/fm2}
 \caption{Final model 2}
 \label{fig:model2}
 \end{figure}
@@ -187,7 +186,7 @@ Classes&Class Train&Class Valid&Class Test&Reg Train&Reg Valid&Reg Test&Combo Tr
 Class - score of the classification stage. Reg - reference score of the best standalone regression model. Combo - the regression results of the combined final model. Train - training accuracy, Valid - Cross validation accuracy, Test - Testing Accuracy. The classification results are measures as a fraction of classes predicted right. Regression results are measured as a $R^2$ metric. 
 
 \section{Discussion}
-Our test results show that we can forecast a final gross of a movie with 69.1\% accuracy when the final combinatory model is used. There are multiple class cases that equal this or get close to it, but only the case with 6 classification categories achieves a good general model. This case achieves 75.8\% training accuracy and 72\% cross validation score. Since these three scores are close in value, it indicates that model is neither under fitted or overfitted, and sits on an optimal point of the bias/variance tradeoff curve. Our combined model increases the sole regression validation and test performance by 13.8\%  and 6.6\% respectively. 
+Our test results show that we can forecast a final gross of a movie with 69.1\% accuracy when the final combinatory model is used. There are multiple class cases that achieve this or get close to it, but only the case with 6 classification categories achieves a good general model. This case achieves 75.8\% training accuracy and 72\% cross validation score. Since these three scores are close in value, it indicates that model is neither under or overfitted, and sits on an optimal point of the bias/variance trade-off curve. Our combined model increases the sole regression validation and test performance by 13.8\%  and 6.6\% respectively. 
 
 The gradient boosting has been found to be the best performing method for both classification and regression under same experimentation conditions (compared to Linear and Logistic regression, Support Vector Machines, Neural Networks). 
 
@@ -197,7 +196,7 @@ In the data transformation parts of the pipeline we have experimented with multi
 
 As shown earlier, the gradient boosted trees can be easily trained to have near 100\% train accuracy by adding more tree ensembles. Using small amount of data with big amount of ensembles leads to overfitting. In our case using more than 500-1000 ensembles leads to increase in variance and decreases cross-validation and  test scores. As a result, our model could be improved by simply using more training data with a bigger amount of estimators. The gradient boosted model architecture could be empowered by using more regularized model formalization, also know as 'xgboost'. This allows for a better control over overfitting, by penalizing complex models, hence makes the model to learn a better objective function faster \cite{chen2015}.  
 
-It is important to note that the performance was significantly improved during the feature engineering phase. Initial model runs had scored more than 10\% lower than the final results. Some patterns were noticed, for example the length of movies is strongly correlated with the box office performance. Popular movies, like Lord of the Rings Trilogy, Avatar, Titanic, all have high grosses and long running times. The dataset had outliers that had running times more than 300 minutes. The longest movie ran for 511 minutes,  and eliminating occurrences like this helped these models. Data cleaning had a similar effect as well, especially the removal of empty values and fixing of the currency issue.
+It is important to note that the performance was significantly improved during the feature engineering phase. Initial model runs had scored more than 10\% lower than the final results. Some patterns were noticed, for example the length of movies is strongly correlated with the box office performance. Popular movies, like Lord of the Rings Trilogy, Avatar, Titanic, all have high grosses and long running times. The dataset had outliers that had running times more than 300 minutes. The longest movie ran for 511 minutes,  and eliminating occurrences like this helped these models. Data cleaning had a similar effect as well, especiallym the removal of empty values and fixing of the currency issue.
 
 Other studies have also faced the problem of box-office prediction with features available only before the launching of a movie. The accuracy obtained here is better than that obtained in \cite{zhang2009forecasting}, where Zhang et. al. obtained 68.1\% accuracy predicting box office income in a 6-class classification problem using multi-layer BP neural network (MLBP) through 6-fold cross validation. The first paper facing the problem of predicting box-office success before theatrical release \cite{sharda2006predicting}, accomplished a modest absolute prediction accuracy of only 36.9\% on a 9-class classification problem using 10-fold cross validation. Therefore we conclude that we have produced a real life pre-production movie gross predictions model, that performs up to a high standard, when compared to other results known to us across the domain.
 
