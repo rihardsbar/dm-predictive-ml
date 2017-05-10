@@ -1,7 +1,7 @@
 \section{Introduction}
 The movie industry continues to grow year on year, with increasing competition between movie producers and film companies to boost revenue and increase ratings. The performance of a movie at the box office is influenced by a host of factors, some of which include the cast, budget, time of release and director involved. This makes predicting the box office of movies very challenging. Quite a number of studies, however, have been done by many researchers attempting to identify the influential factors and predict the box office of movies \cite{sharda2006predicting}. Most of the studies failed to build models with high predicting accuracy that can serve as guidelines for decision making process. Most of the literature on this problem can be classified into two categories i) predicting the gross prior to movie release; ii) predicting the gross after the movie release. Models built in the second category generally have higher precision as more predictive variables including first week box office and word-of-mouth effects are provided. Besides, all the studies turned this problem into classification problem as the value of movie gross is very sparse.  And many traditional statistical methods and artificial neural network (ANN) were applied. Among those methods, ANN performed the best with highest accuracy under the same experimental conditions \cite{sharda2006predicting}.
  
-The aim of our study is to apply different kinds of predictive data mining techniques including classification and regression and try to find the best model. What differentiates our study from the others is that we first built a classification model and then used the predicting results of the classification model as new features for regression models. Results show there is a 10% increase in regression model accuracy. Besides, for each category from the classification model, we once again performed all the techniques and find the best model for each category.
+The aim of our study is to apply different kinds of predictive data mining techniques including classification and regression and try to find the best model. What differentiates our study from the others is that we first built a classification model and then used the predicting results of the classification model as new features for regression models. Results show there is a 10\% increase in regression model accuracy. Besides, for each category from the classification model, we once again performed all the techniques and find the best model for each category.
 
 
 \section{Materials and methods}
@@ -21,7 +21,7 @@ Finally, data from all steps, the-numbers.com, IMDB and Facebook, was joined in 
 \subsection{Feature engineering}
 In order to properly understand the data and see the performance of models in later stages, feature engineering is an important step that must be performed initially to ensure that irregularities are not negatively affecting the performance.
 
-Since our goal is to predict box-office revenue before the movie premiere, the first step was to remove the features that are not available before the release of the movie. Those include \textit{imdb\_score, movie\_facebook\_likes, num\_critic\_for\_reviews, num\_user\_for\_reviews, num\_voted\_users}, as they, although present in the dataset, should not be included in models that deal with prediction.
+Since our goal is to predict box-office revenue before the movie premiere, the first step was to remove the features that are not available before the release of the movie. Those include \textit{imdb\_score, movie\_facebook\_likes, num\_critic\_for\_reviews, \\num\_user\_for\_reviews, num\_voted\_users}, as they, although present in the dataset, should not be included in models that deal with prediction.
 
 After obtaining the updated and improved dataset, additional work was performed manually to clean and enhance the data. Duplicates were removed, and additional columns were added, like ‘blockbuster’, which designated is the movie released during Christmas or Summer season (June/July/August/December), as well as manual fixing of duration, countries, and similar values that show outliers. Some movies, for example, have lengths of close to 10 hours, and all these tasks were performed by OpenRefine.
 
@@ -124,19 +124,12 @@ Besides, before our data fed into the models, we performed numerous pretreatment
  
 The workflows applied in this project is shown in figure1. In order to integrate and automate this workflows (excluding data collecting), we used a function called Pipeline in Scikit-learn, which allows us to set parameters for algorithms in each step while chaining them together without keeping track of the data.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.2in]{figures/pipeline}
-\caption{Pipeline diagram}
-\label{fig:pipeline}
-\end{figure}
- 
 However, each parameter in each model have different potential values and there are many different combinations of the parameters in between the workflows. All the values and combinations should be tested in order to find the most optimal one.
  
 These processes of setting values and trying combinations can be tedious. GridSearchCV in Scikit-learn allows us to construct a grid of the combinations and search for the best one. Besides, it also automatically performs cross-validation on each model for each combination. In the end, it returns us with the best model and best parameters.
 
 \textbf{Linear and Logistic Regressions:}
-An ordinary linear regression model is a common starting point for analysis since its results can serve as a baseline for any further data analysis. The dependent variable, which is the movie gross, can be predicted using the multivariate linear regression. The highly correlatable predictors, such as number of facebook likes, IMBD score and number of reviews will be used to build a robust regression model. Later on, we can aggregate those factors by giving each of them a weight and then use below mentioned neural network technique to fine-tune the weights. Some other regression models, like k-nearest neighbour algorithm and multinomial logistic regression will be explored as well.
+An ordinary linear regression model is a common starting point for analysis since its results can serve as a baseline for any further data analysis. The dependent variable, which is the movie gross, can be predicted using the multivariate linear regression. The highly correlatable predictors, such as number of Facebook likes, IMBD score and number of reviews will be used to build a robust regression model. Later on, we can aggregate those factors by giving each of them a weight and then use below mentioned neural network technique to fine-tune the weights. Some other regression models, like k-nearest neighbour algorithm and multinomial logistic regression will be explored as well.
 
 \textbf{Decision trees:}
 Classification and Regression Trees (CART) trees could be another technique that apply in this case. Seeing as decision trees are able to handle both categorical and numerical data, there is the flexibility is drawing comparisons between both classification and regression.  Random Forests will also be considered in this case in order to add diversity to the decision tree models. 
@@ -146,16 +139,12 @@ Neural networks approach is useful in these types of problems where there is a l
 
 By applying those techniques, we aim to build a successful model that accepts certain movie related factors and predicts the box-office and its rating. Additionally, we will compare the performance of the aforementioned machine learning techniques when predicting the box-office. We are also interested in assessing the performance of Ensemble Learning, which combines multiple models to cancel the systematic bias of individual forecast models. Gradient Boosting, an example of this approach, has proved to be effective in some of the last Kaggle competitions..
 \section{Regression}
-\subsection{Support Vector Machines}
-\subsection{Neural networks}
 \subsection{Gradient Boosting Regression}
 Gradient Boosting was applied on the data, with least squares as the error function. The best result was produced with a Gradient Boosting Regressor with 1000 base learners and a corresponding low learning rate of 0.1. Base learners in this case are decision trees which are used as weak learners in the gradient boosting process \cite{natekin2013gradient}. These are constructed in a greedy fashion, choosing the best split to minimize the loss. 
 
 Given the high number of regression trees combined to form the Gradient Boosting model, a visual inspection of individual trees is hard to interpret. We look into feature importance to highlight features that would ordinarily be used frequently in split points in our model. It is found that the most important features for this model are the production budget,  movie duration, and the total number of Facebook likes for the cast. The production budget however immensely outweighs the other features in terms of importance. 
 
 To extend this further, we take a look at partial dependence plots to show the dependence between the target response and the most important set of features (i.e. the expected response as a function of the features). Figure shows dependency plots for total number of Facebook likes, movie duration and production budget. The lower left plot shows the effect the production budget has on the movie gross, and it can be seen that there is a linear relationship between them. The lower right plot shows the interactions among the production budget and movie duration, which are the two most important features as per the model. For a movie of a certain duration d (both high and low durations), its gross is strongly dependent on production budget.  The remaining two plots, point to the fact that there is not a strong linear relationship between the target variable and the Facebook likes of cast and movie duration.
-
-IMAGES
 
 \begin{figure}[h]
 \centering
@@ -237,7 +226,7 @@ The gradient boosting has been found to be the best performing method for both c
 In the data transformation parts of the pipeline we have experimented with multiple logarithmic and polynomial, as well as standardisation and  normalization transforms. We have found that the most meaningful transform  is the logarithmical budget transform, which decreases the heteroscedasticity and improves the result, due to the budget explaining the most variance in the gross. Standardisation has been proven to improve results by near negligible  amount, as when data samples are split by the decision trees, feature scaling does not affect split area selection \cite{chen2014introduction}. Moreover, it was found that prior features selection in the model improves result only by  2-3\%, due to the fact gradient boosted trees perform the features selection implicitly during the ensemble process. 
 
 Why it works better
-As shown earlier, the gradient boosted trees can be easily trained to have near 100\% train accuracy by adding more tree ensembles. Using small amount of data with big amount of ensembles leads to overfitting. In our case using more than 500 ensembles leads to increase in variance and decreases cross-validation and  test scores. As a result, our model could be improved by simply using more training data. The gradient boosted model architecture could be empowered by using more regularized model formalization, also know as ‘xgboost’. This allows for a better control over overfitting, by penalizing complex models, hence makes the model to learn a better objective function faster \cite{chen2015}.  
+As shown earlier, the gradient boosted trees can be easily trained to have near 100\% train accuracy by adding more tree ensembles. Using small amount of data with big amount of ensembles leads to overfitting. In our case using more than 500 ensembles leads to increase in variance and decreases cross-validation and  test scores. As a result, our model could be improved by simply using more training data. The gradient boosted model architecture could be empowered by using more regularized model formalization, also know as 'xgboost'. This allows for a better control over overfitting, by penalizing complex models, hence makes the model to learn a better objective function faster \cite{chen2015}.  
 
 It is important to note that the performance was significantly improved during the feature engineering phase. Initial model runs had scored more than 10\% lower than the final results. Some patterns were noticed, for example the length of movies is strongly correlated with the box office performance. Popular movies, like Lord of the Rings Trilogy, Avatar, Titanic, all have high grosses and long running times. The dataset had outliers that had running times more than 300 minutes. The longest movie run for 511 minutes,  and eliminating occurrences like this helped models. Data cleaning had a similar effect as well, especially the removal of empty values and fixing of the currency issue.
 
@@ -246,4 +235,3 @@ Other studies have also faced the problem of box-office prediction with features
 
 
 \section{Conclusion}
-\blindtext[1]
