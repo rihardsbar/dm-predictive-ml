@@ -1,0 +1,124 @@
+###2 labels
+class 1
+3665
+class 2
+119
+
+###3 labels
+class 1
+845
+class 2
+2898
+class 3
+41
+
+###4 labels
+class 1
+744
+class 2
+1593
+class 3
+1407
+class 4
+40
+
+###5 labels
+class 1
+447
+class 2
+1293
+class 3
+1336
+class 4
+658
+class 5
+50
+
+###6 labels
+class 1
+479
+class 2
+1818
+class 3
+23
+class 4
+995
+class 5
+416
+class 6
+53
+
+###7 labels
+class 1
+436
+class 2
+10
+class 3
+2455
+class 4
+611
+class 6
+216
+class 7
+56
+
+###8 labels
+class 1
+676
+class 2
+93
+class 3
+746
+class 4
+952
+class 5
+307
+class 6
+834
+class 7
+117
+class 8
+59
+
+###9 labels
+class 1
+663
+class 2
+112
+class 3
+777
+class 4
+1353
+class 5
+15
+class 6
+176
+class 7
+423
+class 8
+197
+class 9
+68
+
+##10 labels
+
+class 1
+676
+class 2
+111
+class 3
+789
+class 4
+1325
+class 5
+16
+class 6
+179
+class 7
+506
+class 8
+96
+class 9
+14
+class 10
+72
