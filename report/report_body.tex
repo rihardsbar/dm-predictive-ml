@@ -78,7 +78,8 @@ Gradient Boosting was applied on the data, with least squares as the error funct
 
 Given the high number of regression trees combined to form the Gradient Boosting model, a visual inspection of individual trees is hard to interpret. We look into feature importance to highlight features that would ordinarily be used frequently in split points in our model. It is found that the most important features for this model are the production budget, movie duration, and the total number of Facebook likes for the cast. The production budget however immensely outweighs the other features in terms of importance. 
 
-To extend this further, we take a look at partial dependence plots to show the dependence between the target response and the most important set of features (i.e. the expected response as a function of the features). Figure \figurename{} \ref{fig:gradient_boost_dependency} shows dependency plots for production budget and a two-way partial dependency plot of the former and the movie duration. The effect of the production budget on the gross can be seen in the first plot, with a clear linear relationship between them. The two-way plot shows the interactions between the production budget and movie duration, which are the two most important features as per the model. For a movie of a certain duration d, irrespective of whether high or low, its gross is strongly dependent on production budget.
+To extend this further, we take a look at partial dependence plots to show the dependence between the target response and the most important set of features (i.e. the expected response as a function of the features). \figurename{} \ref{fig:gradient_boost_dependency} shows dependency plots for production budget and a two-way partial dependency plot of the former and the movie duration. The effect of the production budget on the gross can be seen in the first plot, with a clear linear relationship between them. The two-way plot shows the interactions between the production budget and movie duration, which are the two most important features as per the model. For a movie of a certain duration d, irrespective of whether high or low, its gross is strongly dependent on production budget.
+\iffalse
 \begin{figure}[h]
 \centering
 \includegraphics[width=3.2in]{figures/gb_dependency_1}
@@ -89,6 +90,7 @@ To extend this further, we take a look at partial dependence plots to show the d
 \includegraphics[width=3.2in]{figures/gb_dependency_2} 
 \label{fig:gradient_boost_dependency}
 \end{figure}
+\fi
 \begin{figure}[h]
 \centering
 \includegraphics[width=3.2in]{figures/gb_dependency_3}
