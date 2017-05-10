@@ -71,7 +71,7 @@ To solve the model selection and optimization, a  workflow has been applied whic
  The price of these benefits, however, is in the form of computation time. A pipeline trying different pre-processing, transformation, reducers, and parameter grids,  can take  from several hours up to days to complete. 
 
 \subsection{REGRESSION}
-A number of regression techniques were applied to the problem via the pipeline, with varying results. Based on insights from our experimentation, focus was placed on one regression technique: Gradient Boosting Regression. This section describes in detail the application of this method ensemble method in predicting gross values of movies. 
+A number of regression techniques were applied to the problem via the pipeline, with varying results. Based on insights from our experimentation, focus was placed on one regression technique: Gradient Boosting Regression. This section describes in detail the application of this ensemble method in predicting gross values of movies. 
 
 \subsubsection{Gradient Boosting Regression}
 Gradient Boosting was applied on the data, with least squares as the error function. The best result was produced with a Gradient Boosting Regressor with 1000 base learners and a corresponding low learning rate of 0.1. Base learners in this case are decision trees which are used as weak learners in the gradient boosting process \cite{natekin2013gradient}. These are constructed in a greedy fashion, choosing the best split to minimize the loss. 
