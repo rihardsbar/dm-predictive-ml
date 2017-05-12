@@ -198,7 +198,7 @@ def label_gross_10 (gross):
 
 ##define helpers
 def get_powers_list(n_samples, n_features, n):
-    return [{"pw":1},{"pw":2},{"pw":3},{"pw":4}]
+    return [{"pw":3},{"pw":4}]
 
 def get_components_list(n_features, lst, log_poly = False):
     max_pw = max(lst, key=lambda x: x["pw"])["pw"]
@@ -207,7 +207,7 @@ def get_components_list(n_features, lst, log_poly = False):
     #lst = [{"pw": 0.1},{"pw": 0.45},{"pw": 0.5},{"pw": 0.8}, {"pw": 0.2},{"pw": 0.65},{"pw": 0.99}]
     #lst = [{"pw": 0.2}, {"pw": 0.28}, {"pw": 0.36}, {"pw": 0.44},{"pw": 0.52}, {"pw": 0.6}]
     #lst = [{"pw": 0.3}, {"pw": 0.6}, {"pw": 1}]
-    lst = [{"pw": 0.1},{"pw": 0.2},{"pw": 0.3}]
+    lst = [{"pw": 0.3}]
     lst = sorted(list(map(lambda x: math.floor(x["pw"]*current_feat), lst)), reverse=True)
     return lst
 
@@ -316,22 +316,71 @@ reducers_cfg[RFE.__name__] = dict(
 #models_reg = [AdaBoostRegressor(),BaggingRegressor(),ExtraTreesRegressor(),GradientBoostingRegressor(),RandomForestRegressor(),ElasticNet(),HuberRegressor(),Lasso(),LassoLars(),LinearRegression(),PassiveAggressiveRegressor(),Ridge(),SGDRegressor(),OrthogonalMatchingPursuit(),RANSACRegressor(),KNeighborsRegressor(),RadiusNeighborsRegressor(),MLPRegressor(),SVR(),LinearSVR(),NuSVR(),DecisionTreeRegressor(),ExtraTreeRegressor()]
 #models_reg = [BaggingRegressor(),ExtraTreesRegressor(),GradientBoostingRegressor()]
 
-models_class     = [GradientBoostingClassifier()]
-models_reg       = [GradientBoostingRegressor()]
+models_class     = [GradientBoostingClassifier(), MLPClassifier(), LinearSVC(), LogisticRegression()]
+#models_reg       = [GradientBoostingRegressor()]
+models_reg       = []
 models_class_cfg = {}
 models_reg_cfg = {}
 
 
 ##gradient tuning
 
+'''
 models_class_cfg[GradientBoostingClassifier.__name__] = dict(
-              model__n_estimators = [200],
-              model__learning_rate = [0.01],
-              model__max_depth =  [10],
-              model__min_samples_leaf = [5],
-              model__max_features = [0.01],
-              model__max_leaf_nodes =  [None]
+              model__n_estimators = [200, 500, 1000],
+              model__learning_rate = [0.01, 0.1],
+              model__max_depth =  [5, 10, 15],
+              model__min_samples_leaf = [3, 5, 10],
+              model__max_features = [0.1, 0.01],
+              model__max_leaf_nodes =  [None, 3 ,5]
 )
+
+models_class_cfg[MLPClassifier.__name__] = dict(
+    model__hidden_layer_sizes = [50, 100],
+    model__activation = ['identity', 'logistic', 'tanh', 'relu'],
+    model__solver = ['lbfgs', 'sgd', 'adam'],
+    model__max_iter = [400],
+    model__learning_rate_init = [0.01,  0.1]
+)
+
+models_class_cfg[LinearSVC.__name__] = dict(
+    model__C = np.logspace(-4, 4, 3),
+    model__loss = ['hinge', 'squared_hinge']
+)
+
+models_class_cfg[LogisticRegression.__name__] = dict(
+    model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
+    model__C = np.logspace(-4, 4, 3),
+    model__max_iter = [50, 100, 300]
+)
+'''
+
+models_class_cfg[MLPClassifier.__name__] = dict(
+    model__hidden_layer_sizes = [100],
+    model__activation = ['identity', 'logistic', 'tanh', 'relu'],
+    model__solver = ['lbfgs'],
+    model__max_iter = [400],
+    model__learning_rate_init = [0.01,  0.1]
+)
+
+models_class_cfg[LinearSVC.__name__] = dict(
+    model__C = np.logspace(-4, 4, 3),
+    model__loss = ['hinge', 'squared_hinge']
+)
+
+models_class_cfg[GradientBoostingClassifier.__name__] = dict(
+    model__n_estimators = [500, 1000],
+    model__max_depth = [3, 5, 10],
+    model__max_leaf_nodes =  [None, 50]
+)
+
+models_class_cfg[LogisticRegression.__name__] = dict(
+    model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
+    model__C = np.logspace(-4, 4, 3),
+    model__max_iter = [50, 100]
+)
+
+
 
 models_reg_cfg[GradientBoostingRegressor.__name__] = dict(
               model__n_estimators = [500],
@@ -431,9 +480,11 @@ def run_class_precomp_instanace(x_train_cl, y_train_cl, x_test_cl, y_test_cl, mo
         train_score = pipe_class.score(x_train_cl,y_train_cl)
         valid_score = cross_val_score(pipe_class_cv, x_train_cl,y_train_cl).mean()
         test_score = pipe_class.score(x_test_cl,y_test_cl)
-        print("Classify train score is: ")
+        print("Precomp Classify train score is: ")
         print(train_score)
-        print("Classify test  score is: ")
+        print("Precomp Classify valid score is: ")
+        print(valid_score)
+        print("Precomp Classify test  score is: ")
         print(test_score)
         dump_dict = {"name_class":name_class, "mod_dict_class": mod_dict_class,"pipeline_cfg_class": pipeline_cfg_class, "cfg_dict_class": cfg_dict_class, "x_train_cl_res": pipe_class.predict(x_train_cl), "x_test_cl_res": pipe_class.predict(x_test_cl), "class_train_score": train_score, "class_valid_score": valid_score, "class_test_score": test_score}
         tmp_trg = "./tmp_class_res/" + str(itter_current) + "_" + str(ind)
@@ -687,7 +738,7 @@ def run_for_many(cl_n,label_fn, new_file):
 
 #ignore warnigs
 
-desc = "no_imdb_gradient_boost_class_with_regression_final_model"
+desc = "no_imdb_gradient_boost_class_only"
 
 
 labels = [label_gross_10, label_gross_9, label_gross_8, label_gross_7, label_gross_6, label_gross_5, label_gross_4, label_gross_3, label_gross_2]

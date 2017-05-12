@@ -250,35 +250,6 @@ models_cfg[LogisticRegression.__name__] = dict(
 
 #feasible params for running 5 models with pipeline 
 '''
-models_cfg[MLPClassifier.__name__] = dict(
-    model__hidden_layer_sizes = [100],
-    model__activation = ['identity', 'logistic', 'tanh', 'relu'],
-    model__solver = ['lbfgs', 'sgd', 'adam'],
-    model__max_iter = [400],
-    model__learning_rate_init = [ 0.8, 0.01,  0.1]
-
-)
-models_cfg[LinearSVC.__name__] = dict(
-    model__C = np.logspace(-4, 4, 3),
-    model__loss = ['hinge', 'squared_hinge']
-)
-models_cfg[GradientBoostingClassifier.__name__] = dict(
-    model__n_estimators = [10, 50, 100, 130],
-    model__max_features  = ["auto", None, "sqrt"],
-    model__max_depth = [3, 5, 10],
-    model__max_leaf_nodes =  [None, 10, 50]
-)
-models_cfg[RandomForestClassifier.__name__] = dict(
-    model__n_estimators = [10, 50, 100, 130],
-    model__criterion = ['gini', 'entropy'],
-    model__max_features  = ["auto", None, "sqrt"],
-    model__max_depth = [None ,3, 5, 10]
-)
-models_cfg[LogisticRegression.__name__] = dict(
-    model__solver =  ['newton-cg', 'lbfgs', 'liblinear', 'sag'],
-    model__C = np.logspace(-4, 4, 3),
-    model__max_iter = [50, 100, 300]
-)
 
 
 ##gradient tuning
