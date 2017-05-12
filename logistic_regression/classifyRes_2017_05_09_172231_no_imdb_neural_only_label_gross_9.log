@@ -1,0 +1,105 @@
+#########################################
+###Starting all estimators for cl: label_gross_9
+#########################################
+####################################################################################
+################# Runing the itteration 1  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: dummy | reducer: dummy
+{}
+Starting precomp pipline for {}
+Finished precomp pipline for {}
+####################################################################################
+################# Runing the itteration 2  of the GridSearchCV ####################
+####################################################################################
+***Starting [MLPClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{'model__learning_rate_init': [0.1], 'model__hidden_layer_sizes': [(73,), (180,), (73, 73), (180, 180), (73, 73, 73), (180, 180, 180), (73, 73, 73, 73), (180, 180, 180, 180)]}
+Fitting 4 folds for each of 8 candidates, totalling 32 fits
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180,) .
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180,), total=  11.1s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73), total=  30.3s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73,) ..
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73,), total=   8.8s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73), total=  34.2s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180,) .
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180,), total=  14.7s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180), total=  28.6s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180), total=  42.8s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180), total=  47.7s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180,) .
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180,), total=  19.9s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180), total=  30.7s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73), total=  24.6s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73, 73), total=  21.7s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73,) ..
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73,), total=   4.6s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73), total=  19.8s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73, 73), total=  21.5s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73), total=  25.2s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73, 73, 73), total=  25.7s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73), total=  32.1s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180, 180), total=  23.6s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73,) ..
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73,), total=  12.3s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180), total=  40.5s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(73, 73), total=  14.8s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180), total=  35.9s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180), total=  31.9s
+[CV] model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180, 180) 
+[CV]  model__learning_rate_init=0.1, model__hidden_layer_sizes=(180, 180, 180, 180), total=  23.3s
+GREP_ME***Results of [MLPClassifier] estimatorrun are
+{'split2_train_score': array([ 0.18281085,  0.18245861,  0.18175414,  0.18210638,  0.18175414,
+        0.18175414,  0.18175414,  0.18175414]), 'std_score_time': array([ 0.07298037,  0.3293578 ,  0.78102277,  0.0720525 ,  0.04782042,
+        0.04293443,  0.12315691,  0.01976287]), 'split1_test_score': array([ 0.18162619,  0.18162619,  0.18162619,  0.18162619,  0.16684266,
+        0.16684266,  0.18162619,  0.18162619]), 'param_model__learning_rate_init': masked_array(data = [0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1],
+             mask = [False False False False False False False False],
+       fill_value = ?)
+, 'param_model__hidden_layer_sizes': masked_array(data = [(73,) (180,) (73, 73) (180, 180) (73, 73, 73) (180, 180, 180)
+ (73, 73, 73, 73) (180, 180, 180, 180)],
+             mask = [False False False False False False False False],
+       fill_value = ?)
+, 'split3_test_score': array([ 0.18345705,  0.1845175 ,  0.18239661,  0.18239661,  0.18239661,
+        0.18239661,  0.18239661,  0.18239661]), 'std_train_score': array([ 0.00049646,  0.00095989,  0.00014326,  0.00018024,  0.00652764,
+        0.00664137,  0.00027886,  0.00645736]), 'split2_test_score': array([ 0.18412698,  0.18412698,  0.18201058,  0.18201058,  0.18201058,
+        0.18201058,  0.18201058,  0.18201058]), 'std_test_score': array([ 0.00121   ,  0.0014566 ,  0.00042977,  0.00042977,  0.00652785,
+        0.00652785,  0.00042977,  0.00673275]), 'mean_fit_time': array([  7.20006639,  18.21308476,  23.64726138,  38.03241688,
+        28.48448086,  33.86810476,  22.79241586,  24.08605671]), 'split0_test_score': array([ 0.18124341,  0.18124341,  0.18124341,  0.18124341,  0.18124341,
+        0.18124341,  0.18124341,  0.16649104]), 'params': ({'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (73,)}, {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (180,)}, {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (73, 73)}, {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (180, 180)}, {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (73, 73, 73)}, {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (180, 180, 180)}, {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (73, 73, 73, 73)}, {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (180, 180, 180, 180)}), 'split0_train_score': array([ 0.18201058,  0.18271605,  0.18201058,  0.18201058,  0.18201058,
+        0.18271605,  0.18236332,  0.16684303]), 'mean_test_score': array([ 0.18261099,  0.18287526,  0.18181818,  0.18181818,  0.17811839,
+        0.17811839,  0.18181818,  0.17811839]), 'split3_train_score': array([ 0.18303414,  0.18479409,  0.18162619,  0.18162619,  0.18162619,
+        0.18162619,  0.18162619,  0.18162619]), 'std_fit_time': array([ 3.49486423,  6.19329029,  6.14953723,  7.33837453,  5.33261433,
+        4.6695267 ,  1.72703353,  1.30160113]), 'rank_test_score': array([2, 1, 3, 3, 6, 6, 3, 6], dtype=int32), 'mean_train_score': array([ 0.18243446,  0.183139  ,  0.18181829,  0.18190635,  0.17802908,
+        0.17820545,  0.18190648,  0.17802641]), 'split1_train_score': array([ 0.18188227,  0.18258724,  0.18188227,  0.18188227,  0.16672541,
+        0.16672541,  0.18188227,  0.18188227]), 'mean_score_time': array([ 0.06466073,  0.3140732 ,  0.52412653,  0.15733784,  0.11924261,
+        0.08053112,  0.13132644,  0.03174651])}
+GREP_ME***Best params of [MLPClassifier] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (180,)}
+GREP_ME***Best score of [MLPClassifier] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.182875264271
+#########################################
+###Finished all estimators for cl: label_gross_9
+#########################################
+#########################################
+#######Printing results for cl: label_gross_9
+#########################################
+{'MLPClassifier': {'score': 0.1828752642706131, 'best_cfg': {'model__learning_rate_init': 0.1, 'model__hidden_layer_sizes': (180,)}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy'}}
+priting simply sorted numbers, grep them to find the best cfg or cl: label_gross_9
+[0.1828752642706131]

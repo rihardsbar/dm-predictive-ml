@@ -1,0 +1,888 @@
+#########################################
+###Starting all estimators for cl: label_gross_5
+#########################################
+
+LogPol True
+n_components
+[193, 115, 57]
+pw_lst
+[{'pw': 1}]
+####################################################################################
+################# Runing the itteration 1  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 1}], 'reducer__n_features_to_select': [193, 115, 57]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 193}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 193}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 115}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 115}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 57}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 57}
+
+LogPol True
+n_components
+[203, 121, 60]
+pw_lst
+[{'pw': 1}, {'pw': 2}]
+####################################################################################
+################# Runing the itteration 2  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 2}], 'reducer__n_features_to_select': [203, 121, 60]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 203}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 203}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 121}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 121}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 60}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 60}
+
+LogPol True
+n_components
+[213, 127, 63]
+pw_lst
+[{'pw': 1}, {'pw': 2}, {'pw': 3}]
+####################################################################################
+################# Runing the itteration 3  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 3}], 'reducer__n_features_to_select': [213, 127, 63]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 213}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 213}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 127}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 127}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+
+LogPol True
+n_components
+[223, 133, 66]
+pw_lst
+[{'pw': 1}, {'pw': 2}, {'pw': 3}, {'pw': 4}]
+####################################################################################
+################# Runing the itteration 4  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 4}], 'reducer__n_features_to_select': [223, 133, 66]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 223}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 223}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 133}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 133}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Preclassifying results
+Classify score is :0.711945031712
+####################################################################################
+################# Runing the itteration 5  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.93864197]), 'std_fit_time': array([ 0.04569007]), 'std_test_score': array([ 0.05162354]), 'std_score_time': array([ 0.00235976]), 'split3_test_score': array([ 0.53753571]), 'params': ({},), 'mean_test_score': array([ 0.63685064]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.93051087]), 'std_train_score': array([ 0.00687311]), 'mean_fit_time': array([ 1.14152446]), 'mean_score_time': array([ 0.01457939]), 'split4_test_score': array([ 0.67841048]), 'split0_test_score': array([ 0.67211495]), 'split2_test_score': array([ 0.65897036]), 'split2_train_score': array([ 0.93214363]), 'split1_test_score': array([ 0.63727663]), 'split4_train_score': array([ 0.9424573]), 'split3_train_score': array([ 0.94928475]), 'split0_train_score': array([ 0.9388133])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 213}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.636850644118
+####################################################################################
+################# Runing the itteration 6  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.02050862]), 'std_test_score': array([ 0.05285476]), 'std_score_time': array([ 0.00067306]), 'split3_test_score': array([ 0.52688558]), 'params': ({},), 'mean_test_score': array([ 0.62019978]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.73231549]), 'mean_score_time': array([ 0.0077673]), 'split4_test_score': array([ 0.68273065]), 'split0_test_score': array([ 0.60475043]), 'split2_test_score': array([ 0.64786949]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.63884535]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 213}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.620199777731
+####################################################################################
+################# Runing the itteration 7  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.5s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.82161962]), 'std_fit_time': array([ 0.04585355]), 'std_test_score': array([ 0.05355307]), 'std_score_time': array([ 0.0010011]), 'split3_test_score': array([ 0.55921469]), 'params': ({},), 'mean_test_score': array([ 0.66170644]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.80682862]), 'std_train_score': array([ 0.01060899]), 'mean_fit_time': array([ 1.41061449]), 'mean_score_time': array([ 0.00622358]), 'split4_test_score': array([ 0.70580167]), 'split0_test_score': array([ 0.67728329]), 'split2_test_score': array([ 0.70221884]), 'split2_train_score': array([ 0.82747225]), 'split1_test_score': array([ 0.66407194]), 'split4_train_score': array([ 0.81134657]), 'split3_train_score': array([ 0.83435996]), 'split0_train_score': array([ 0.82809068])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 213}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.661706438481
+Preclassifying results
+Classify score is :0.912526427061
+####################################################################################
+################# Runing the itteration 8  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.95292315]), 'std_fit_time': array([ 0.01998445]), 'std_test_score': array([ 0.01795022]), 'std_score_time': array([ 0.00020891]), 'split3_test_score': array([ 0.73732122]), 'params': ({},), 'mean_test_score': array([ 0.74337818]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.94645046]), 'std_train_score': array([ 0.0038828]), 'mean_fit_time': array([ 0.89502745]), 'mean_score_time': array([ 0.00554171]), 'split4_test_score': array([ 0.73849663]), 'split0_test_score': array([ 0.73959169]), 'split2_test_score': array([ 0.7240215]), 'split2_train_score': array([ 0.95688308]), 'split1_test_score': array([ 0.77745343]), 'split4_train_score': array([ 0.95209891]), 'split3_train_score': array([ 0.95218779]), 'split0_train_score': array([ 0.95699549])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.74337818393
+####################################################################################
+################# Runing the itteration 9  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.04995031]), 'std_test_score': array([ 0.03500918]), 'std_score_time': array([ 0.00027142]), 'split3_test_score': array([ 0.7184925]), 'params': ({},), 'mean_test_score': array([ 0.73111523]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.42064385]), 'mean_score_time': array([ 0.00522213]), 'split4_test_score': array([ 0.71733788]), 'split0_test_score': array([ 0.70987081]), 'split2_test_score': array([ 0.70914498]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.80071179]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.731115233592
+####################################################################################
+################# Runing the itteration 10  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.89898022]), 'std_fit_time': array([ 0.04921747]), 'std_test_score': array([ 0.03024078]), 'std_score_time': array([ 0.00018627]), 'split3_test_score': array([ 0.74577119]), 'params': ({},), 'mean_test_score': array([ 0.77777582]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.89684805]), 'std_train_score': array([ 0.00511929]), 'mean_fit_time': array([ 0.79056573]), 'mean_score_time': array([ 0.00317326]), 'split4_test_score': array([ 0.81679825]), 'split0_test_score': array([ 0.74065553]), 'split2_test_score': array([ 0.78301074]), 'split2_train_score': array([ 0.89824883]), 'split1_test_score': array([ 0.80269493]), 'split4_train_score': array([ 0.90119587]), 'split3_train_score': array([ 0.90707705]), 'split0_train_score': array([ 0.89153128])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.777775818606
+Preclassifying results
+Classify score is :0.728858350951
+####################################################################################
+################# Runing the itteration 11  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.5s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.93779342]), 'std_fit_time': array([ 0.05625855]), 'std_test_score': array([ 0.09720625]), 'std_score_time': array([ 0.00143145]), 'split3_test_score': array([ 0.63498639]), 'params': ({},), 'mean_test_score': array([ 0.61232993]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.93299537]), 'std_train_score': array([ 0.0038292]), 'mean_fit_time': array([ 1.3373332]), 'mean_score_time': array([ 0.01161141]), 'split4_test_score': array([ 0.590467]), 'split0_test_score': array([ 0.44632269]), 'split2_test_score': array([ 0.64471929]), 'split2_train_score': array([ 0.93955003]), 'split1_test_score': array([ 0.74512542]), 'split4_train_score': array([ 0.93723744]), 'split3_train_score': array([ 0.93509619]), 'split0_train_score': array([ 0.94408807])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 223}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.612329933807
+####################################################################################
+################# Runing the itteration 12  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.01949567]), 'std_test_score': array([ 0.1464745]), 'std_score_time': array([ 0.00110599]), 'split3_test_score': array([ 0.64819745]), 'params': ({},), 'mean_test_score': array([ 0.56366691]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.81600814]), 'mean_score_time': array([ 0.00780463]), 'split4_test_score': array([ 0.53536779]), 'split0_test_score': array([ 0.29120107]), 'split2_test_score': array([ 0.64267802]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.70085281]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 223}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.563666906016
+####################################################################################
+################# Runing the itteration 13  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.4s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.82100807]), 'std_fit_time': array([ 0.10664089]), 'std_test_score': array([ 0.09692949]), 'std_score_time': array([ 0.00139662]), 'split3_test_score': array([ 0.68131832]), 'params': ({},), 'mean_test_score': array([ 0.64236508]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.80945473]), 'std_train_score': array([ 0.0096035]), 'mean_fit_time': array([ 1.59456129]), 'mean_score_time': array([ 0.00625186]), 'split4_test_score': array([ 0.60782946]), 'split0_test_score': array([ 0.48269447]), 'split2_test_score': array([ 0.66201895]), 'split2_train_score': array([ 0.82919922]), 'split1_test_score': array([ 0.77791859]), 'split4_train_score': array([ 0.81146922]), 'split3_train_score': array([ 0.82088766]), 'split0_train_score': array([ 0.8340295])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 223}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.64236508078
+Preclassifying results
+Classify score is :0.859143763214
+####################################################################################
+################# Runing the itteration 14  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.95582715]), 'std_fit_time': array([ 0.01633826]), 'std_test_score': array([ 0.03794123]), 'std_score_time': array([ 0.0001013]), 'split3_test_score': array([ 0.7675018]), 'params': ({},), 'mean_test_score': array([ 0.72521017]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.95616354]), 'std_train_score': array([ 0.00100787]), 'mean_fit_time': array([ 0.61388192]), 'mean_score_time': array([ 0.00574369]), 'split4_test_score': array([ 0.74742166]), 'split0_test_score': array([ 0.71110228]), 'split2_test_score': array([ 0.74154293]), 'split2_train_score': array([ 0.95386218]), 'split1_test_score': array([ 0.65851152]), 'split4_train_score': array([ 0.95672607]), 'split3_train_score': array([ 0.95606851]), 'split0_train_score': array([ 0.95631547])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 60}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.725210167467
+####################################################################################
+################# Runing the itteration 15  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.02610658]), 'std_test_score': array([ 0.02302777]), 'std_score_time': array([  8.94697732e-05]), 'split3_test_score': array([ 0.73779153]), 'params': ({},), 'mean_test_score': array([ 0.72444814]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.32514763]), 'mean_score_time': array([ 0.00519214]), 'split4_test_score': array([ 0.74190916]), 'split0_test_score': array([ 0.73319456]), 'split2_test_score': array([ 0.73028151]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.679087]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 60}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.724448136932
+####################################################################################
+################# Runing the itteration 16  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.88547479]), 'std_fit_time': array([ 0.00999244]), 'std_test_score': array([ 0.02494214]), 'std_score_time': array([ 0.00018466]), 'split3_test_score': array([ 0.78178715]), 'params': ({},), 'mean_test_score': array([ 0.75639169]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.88442521]), 'std_train_score': array([ 0.00393961]), 'mean_fit_time': array([ 0.58971138]), 'mean_score_time': array([ 0.00298662]), 'split4_test_score': array([ 0.78475297]), 'split0_test_score': array([ 0.74920529]), 'split2_test_score': array([ 0.74936105]), 'split2_train_score': array([ 0.88062536]), 'split1_test_score': array([ 0.71688945]), 'split4_train_score': array([ 0.88237088]), 'split3_train_score': array([ 0.89116441]), 'split0_train_score': array([ 0.88878811])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 60}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.756391689577
+Preclassifying results
+Classify score is :0.655391120507
+####################################################################################
+################# Runing the itteration 17  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.92865275]), 'std_fit_time': array([ 0.01596402]), 'std_test_score': array([ 0.03501306]), 'std_score_time': array([ 0.00056568]), 'split3_test_score': array([ 0.59934185]), 'params': ({},), 'mean_test_score': array([ 0.59561368]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.93246869]), 'std_train_score': array([ 0.00518638]), 'mean_fit_time': array([ 0.58872838]), 'mean_score_time': array([ 0.00754433]), 'split4_test_score': array([ 0.62433452]), 'split0_test_score': array([ 0.55314624]), 'split2_test_score': array([ 0.55919185]), 'split2_train_score': array([ 0.93018023]), 'split1_test_score': array([ 0.64209189]), 'split4_train_score': array([ 0.91906857]), 'split3_train_score': array([ 0.93366705]), 'split0_train_score': array([ 0.92787921])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 115}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.595613682999
+####################################################################################
+################# Runing the itteration 18  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.01181824]), 'std_test_score': array([ 0.04000962]), 'std_score_time': array([ 0.0007179]), 'split3_test_score': array([ 0.59088361]), 'params': ({},), 'mean_test_score': array([ 0.55836841]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.3952858]), 'mean_score_time': array([ 0.0065711]), 'split4_test_score': array([ 0.54266659]), 'split0_test_score': array([ 0.48807121]), 'split2_test_score': array([ 0.59789504]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.57230485]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 115}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.558368409274
+####################################################################################
+################# Runing the itteration 19  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.80028194]), 'std_fit_time': array([ 0.02002922]), 'std_test_score': array([ 0.05989836]), 'std_score_time': array([ 0.00032841]), 'split3_test_score': array([ 0.58838395]), 'params': ({},), 'mean_test_score': array([ 0.61928755]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.79116961]), 'std_train_score': array([ 0.00728655]), 'mean_fit_time': array([ 0.77822819]), 'mean_score_time': array([ 0.00334287]), 'split4_test_score': array([ 0.68139881]), 'split0_test_score': array([ 0.5239279]), 'split2_test_score': array([ 0.62001897]), 'split2_train_score': array([ 0.80315488]), 'split1_test_score': array([ 0.68279019]), 'split4_train_score': array([ 0.79595845]), 'split3_train_score': array([ 0.81262387]), 'split0_train_score': array([ 0.79850288])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 115}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.619287553727
+Preclassifying results
+Classify score is :0.756606765328
+####################################################################################
+################# Runing the itteration 20  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.94225382]), 'std_fit_time': array([ 0.02694457]), 'std_test_score': array([ 0.01938684]), 'std_score_time': array([ 0.00301493]), 'split3_test_score': array([ 0.62122083]), 'params': ({},), 'mean_test_score': array([ 0.65517548]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.94353823]), 'std_train_score': array([ 0.00605936]), 'mean_fit_time': array([ 1.13224297]), 'mean_score_time': array([ 0.01111488]), 'split4_test_score': array([ 0.64816853]), 'split0_test_score': array([ 0.67342109]), 'split2_test_score': array([ 0.65996755]), 'split2_train_score': array([ 0.9459579]), 'split1_test_score': array([ 0.67309012]), 'split4_train_score': array([ 0.93085967]), 'split3_train_score': array([ 0.94246779]), 'split0_train_score': array([ 0.94844552])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 133}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.655175476043
+####################################################################################
+################# Runing the itteration 21  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.01126126]), 'std_test_score': array([ 0.03274416]), 'std_score_time': array([ 0.00085942]), 'split3_test_score': array([ 0.58876512]), 'params': ({},), 'mean_test_score': array([ 0.64233746]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.57023244]), 'mean_score_time': array([ 0.006809]), 'split4_test_score': array([ 0.66338108]), 'split0_test_score': array([ 0.63688578]), 'split2_test_score': array([ 0.63589353]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.6867896]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 133}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.642337460881
+####################################################################################
+################# Runing the itteration 22  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.83518248]), 'std_fit_time': array([ 0.0264223]), 'std_test_score': array([ 0.04467324]), 'std_score_time': array([ 0.00204204]), 'split3_test_score': array([ 0.63021428]), 'params': ({},), 'mean_test_score': array([ 0.67792802]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.83726024]), 'std_train_score': array([ 0.00268028]), 'mean_fit_time': array([ 1.06693091]), 'mean_score_time': array([ 0.0062068]), 'split4_test_score': array([ 0.71311631]), 'split0_test_score': array([ 0.71148322]), 'split2_test_score': array([ 0.61685687]), 'split2_train_score': array([ 0.83763472]), 'split1_test_score': array([ 0.71801593]), 'split4_train_score': array([ 0.83365543]), 'split3_train_score': array([ 0.8306193]), 'split0_train_score': array([ 0.8367427])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 133}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.677928023529
+Preclassifying results
+Classify score is :0.725422832981
+####################################################################################
+################# Runing the itteration 23  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.0s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.0s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.0s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.92554224]), 'std_fit_time': array([ 0.05226565]), 'std_test_score': array([ 0.02396947]), 'std_score_time': array([ 0.00089279]), 'split3_test_score': array([ 0.6494068]), 'params': ({},), 'mean_test_score': array([ 0.63048436]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.9272026]), 'std_train_score': array([ 0.00718768]), 'mean_fit_time': array([ 0.98827572]), 'mean_score_time': array([ 0.00900741]), 'split4_test_score': array([ 0.63586049]), 'split0_test_score': array([ 0.58639465]), 'split2_test_score': array([ 0.62724755]), 'split2_train_score': array([ 0.92000598]), 'split1_test_score': array([ 0.65351944]), 'split4_train_score': array([ 0.92627473]), 'split3_train_score': array([ 0.91663945]), 'split0_train_score': array([ 0.93758844])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 127}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.630484363361
+####################################################################################
+################# Runing the itteration 24  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.07993925]), 'std_test_score': array([ 0.03766713]), 'std_score_time': array([ 0.00023453]), 'split3_test_score': array([ 0.62016243]), 'params': ({},), 'mean_test_score': array([ 0.62132589]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.5589479]), 'mean_score_time': array([ 0.00666618]), 'split4_test_score': array([ 0.6257169]), 'split0_test_score': array([ 0.58005729]), 'split2_test_score': array([ 0.59215856]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.68854009]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 127}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.62132589183
+####################################################################################
+################# Runing the itteration 25  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.0s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.81993198]), 'std_fit_time': array([ 0.06539599]), 'std_test_score': array([ 0.04327128]), 'std_score_time': array([ 0.00095687]), 'split3_test_score': array([ 0.71343665]), 'params': ({},), 'mean_test_score': array([ 0.6615429]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.81222719]), 'std_train_score': array([ 0.00700543]), 'mean_fit_time': array([ 1.00466504]), 'mean_score_time': array([ 0.00435348]), 'split4_test_score': array([ 0.65953219]), 'split0_test_score': array([ 0.62802827]), 'split2_test_score': array([ 0.6013703]), 'split2_train_score': array([ 0.81872524]), 'split1_test_score': array([ 0.70534442]), 'split4_train_score': array([ 0.8331288]), 'split3_train_score': array([ 0.81857116]), 'split0_train_score': array([ 0.8170075])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 127}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.661542895992
+Preclassifying results
+Classify score is :0.599630021142
+####################################################################################
+################# Runing the itteration 26  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.91796083]), 'std_fit_time': array([ 0.02913292]), 'std_test_score': array([ 0.02822161]), 'std_score_time': array([ 0.00089522]), 'split3_test_score': array([ 0.58977565]), 'params': ({},), 'mean_test_score': array([ 0.53391223]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.91050142]), 'std_train_score': array([ 0.00552538]), 'mean_fit_time': array([ 0.69383998]), 'mean_score_time': array([ 0.01015944]), 'split4_test_score': array([ 0.52178854]), 'split0_test_score': array([ 0.51825968]), 'split2_test_score': array([ 0.52593669]), 'split2_train_score': array([ 0.92367274]), 'split1_test_score': array([ 0.51378459]), 'split4_train_score': array([ 0.91562045]), 'split3_train_score': array([ 0.91497746]), 'split0_train_score': array([ 0.92503206])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 193}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.533912233904
+####################################################################################
+################# Runing the itteration 27  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.02085905]), 'std_test_score': array([ 0.05200229]), 'std_score_time': array([ 0.00105013]), 'split3_test_score': array([ 0.60829183]), 'params': ({},), 'mean_test_score': array([ 0.53469867]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.56816258]), 'mean_score_time': array([ 0.00688701]), 'split4_test_score': array([ 0.52582438]), 'split0_test_score': array([ 0.50461586]), 'split2_test_score': array([ 0.46028797]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.57446158]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 193}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.534698666937
+####################################################################################
+################# Runing the itteration 28  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.1s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.76969583]), 'std_fit_time': array([ 0.05973264]), 'std_test_score': array([ 0.02255869]), 'std_score_time': array([ 0.00050755]), 'split3_test_score': array([ 0.60377342]), 'params': ({},), 'mean_test_score': array([ 0.57906896]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.77231361]), 'std_train_score': array([ 0.00786178]), 'mean_fit_time': array([ 1.17642179]), 'mean_score_time': array([ 0.00553541]), 'split4_test_score': array([ 0.54406634]), 'split0_test_score': array([ 0.58338461]), 'split2_test_score': array([ 0.56368391]), 'split2_train_score': array([ 0.75720621]), 'split1_test_score': array([ 0.60039029]), 'split4_train_score': array([ 0.77924421]), 'split3_train_score': array([ 0.76461491]), 'split0_train_score': array([ 0.77510023])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 193}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.579068961828
+Preclassifying results
+Classify score is :0.776427061311
+####################################################################################
+################# Runing the itteration 29  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.94224691]), 'std_fit_time': array([ 0.02557964]), 'std_test_score': array([ 0.03741904]), 'std_score_time': array([ 0.00033667]), 'split3_test_score': array([ 0.63661802]), 'params': ({},), 'mean_test_score': array([ 0.67517262]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.9399752]), 'std_train_score': array([ 0.00133394]), 'mean_fit_time': array([ 0.47830548]), 'mean_score_time': array([ 0.00530844]), 'split4_test_score': array([ 0.69666281]), 'split0_test_score': array([ 0.68832173]), 'split2_test_score': array([ 0.72649384]), 'split2_train_score': array([ 0.94295166]), 'split1_test_score': array([ 0.62779509]), 'split4_train_score': array([ 0.94186653]), 'split3_train_score': array([ 0.94244633]), 'split0_train_score': array([ 0.94399481])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 57}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.675172620278
+####################################################################################
+################# Runing the itteration 30  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.01576103]), 'std_test_score': array([ 0.03536664]), 'std_score_time': array([ 0.00030693]), 'split3_test_score': array([ 0.66707497]), 'params': ({},), 'mean_test_score': array([ 0.69757292]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.26141276]), 'mean_score_time': array([ 0.00519824]), 'split4_test_score': array([ 0.72835305]), 'split0_test_score': array([ 0.69002262]), 'split2_test_score': array([ 0.74755408]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.65490055]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 57}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.697572920413
+####################################################################################
+################# Runing the itteration 31  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.84531533]), 'std_fit_time': array([ 0.01556445]), 'std_test_score': array([ 0.0348245]), 'std_score_time': array([  6.13970385e-05]), 'split3_test_score': array([ 0.69235113]), 'params': ({},), 'mean_test_score': array([ 0.71702367]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.86148945]), 'std_train_score': array([ 0.01451668]), 'mean_fit_time': array([ 0.49952011]), 'mean_score_time': array([ 0.00257912]), 'split4_test_score': array([ 0.74757433]), 'split0_test_score': array([ 0.69826867]), 'split2_test_score': array([ 0.76868242]), 'split2_train_score': array([ 0.84211855]), 'split1_test_score': array([ 0.67828214]), 'split4_train_score': array([ 0.82082945]), 'split3_train_score': array([ 0.85868758]), 'split0_train_score': array([ 0.84345165])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 1}, 'reducer__n_features_to_select': 57}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.717023665871
+Preclassifying results
+Classify score is :0.698202959831
+####################################################################################
+################# Runing the itteration 32  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.93189761]), 'std_fit_time': array([ 0.03412524]), 'std_test_score': array([ 0.03184077]), 'std_score_time': array([ 0.00108927]), 'split3_test_score': array([ 0.64048802]), 'params': ({},), 'mean_test_score': array([ 0.61514011]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.93266006]), 'std_train_score': array([ 0.00177262]), 'mean_fit_time': array([ 0.79010606]), 'mean_score_time': array([ 0.00844655]), 'split4_test_score': array([ 0.61654887]), 'split0_test_score': array([ 0.55500661]), 'split2_test_score': array([ 0.6430149]), 'split2_train_score': array([ 0.93076034]), 'split1_test_score': array([ 0.62064401]), 'split4_train_score': array([ 0.93208258]), 'split3_train_score': array([ 0.93461779]), 'split0_train_score': array([ 0.92936727])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 121}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.615140107654
+####################################################################################
+################# Runing the itteration 33  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.01613041]), 'std_test_score': array([ 0.03416356]), 'std_score_time': array([ 0.00110189]), 'split3_test_score': array([ 0.63874874]), 'params': ({},), 'mean_test_score': array([ 0.59653939]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.47891054]), 'mean_score_time': array([ 0.00685825]), 'split4_test_score': array([ 0.60230963]), 'split0_test_score': array([ 0.57258673]), 'split2_test_score': array([ 0.62426087]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.54479859]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 121}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.596539389044
+####################################################################################
+################# Runing the itteration 34  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.80896292]), 'std_fit_time': array([ 0.02546125]), 'std_test_score': array([ 0.0442531]), 'std_score_time': array([  7.85884057e-05]), 'split3_test_score': array([ 0.67598577]), 'params': ({},), 'mean_test_score': array([ 0.64731171]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.81506316]), 'std_train_score': array([ 0.00754282]), 'mean_fit_time': array([ 0.86232486]), 'mean_score_time': array([ 0.00346332]), 'split4_test_score': array([ 0.6555223]), 'split0_test_score': array([ 0.58948901]), 'split2_test_score': array([ 0.70944212]), 'split2_train_score': array([ 0.80547935]), 'split1_test_score': array([ 0.60613018]), 'split4_train_score': array([ 0.79774666]), 'split3_train_score': array([ 0.80724847]), 'split0_train_score': array([ 0.81927693])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 121}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.647311706137
+Preclassifying results
+Classify score is :0.68789640592
+####################################################################################
+################# Runing the itteration 35  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.93329347]), 'std_fit_time': array([ 0.02701107]), 'std_test_score': array([ 0.04073204]), 'std_score_time': array([ 0.00142114]), 'split3_test_score': array([ 0.65741088]), 'params': ({},), 'mean_test_score': array([ 0.62049496]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.93495645]), 'std_train_score': array([ 0.00170972]), 'mean_fit_time': array([ 0.90929303]), 'mean_score_time': array([ 0.0110877]), 'split4_test_score': array([ 0.63440888]), 'split0_test_score': array([ 0.5950132]), 'split2_test_score': array([ 0.55413161]), 'split2_train_score': array([ 0.93238173]), 'split1_test_score': array([ 0.66152863]), 'split4_train_score': array([ 0.93040434]), 'split3_train_score': array([ 0.93480207]), 'split0_train_score': array([ 0.93392275])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 203}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.620494964036
+####################################################################################
+################# Runing the itteration 36  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.03094224]), 'std_test_score': array([ 0.04403699]), 'std_score_time': array([ 0.00093149]), 'split3_test_score': array([ 0.63333998]), 'params': ({},), 'mean_test_score': array([ 0.61109866]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.63853145]), 'mean_score_time': array([ 0.00770631]), 'split4_test_score': array([ 0.65084115]), 'split0_test_score': array([ 0.58095998]), 'split2_test_score': array([ 0.53948907]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.65091563]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 203}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.611098661471
+####################################################################################
+################# Runing the itteration 37  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.81201715]), 'std_fit_time': array([ 0.05298088]), 'std_test_score': array([ 0.02846136]), 'std_score_time': array([ 0.00068518]), 'split3_test_score': array([ 0.64674726]), 'params': ({},), 'mean_test_score': array([ 0.64978386]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.8177292]), 'std_train_score': array([ 0.01339837]), 'mean_fit_time': array([ 1.30618491]), 'mean_score_time': array([ 0.00501995]), 'split4_test_score': array([ 0.6372164]), 'split0_test_score': array([ 0.62573092]), 'split2_test_score': array([ 0.63412169]), 'split2_train_score': array([ 0.81147688]), 'split1_test_score': array([ 0.70508643]), 'split4_train_score': array([ 0.82055262]), 'split3_train_score': array([ 0.82384323]), 'split0_train_score': array([ 0.78648382])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 2}, 'reducer__n_features_to_select': 203}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.649783859838
+Preclassifying results
+Classify score is :0.89878435518
+####################################################################################
+################# Runing the itteration 38  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.9s
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.9494289]), 'std_fit_time': array([ 0.06224116]), 'std_test_score': array([ 0.02874923]), 'std_score_time': array([  7.38830826e-05]), 'split3_test_score': array([ 0.77527766]), 'params': ({},), 'mean_test_score': array([ 0.74777786]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.942326]), 'std_train_score': array([ 0.00550306]), 'mean_fit_time': array([ 0.81332951]), 'mean_score_time': array([ 0.00568519]), 'split4_test_score': array([ 0.70430449]), 'split0_test_score': array([ 0.77910629]), 'split2_test_score': array([ 0.72615078]), 'split2_train_score': array([ 0.95475352]), 'split1_test_score': array([ 0.75399264]), 'split4_train_score': array([ 0.95630072]), 'split3_train_score': array([ 0.94937425]), 'split0_train_score': array([ 0.94439])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.747777856879
+####################################################################################
+################# Runing the itteration 39  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'mean_train_score': array([ 1.]), 'std_fit_time': array([ 0.0605778]), 'std_test_score': array([ 0.03878152]), 'std_score_time': array([ 0.00054928]), 'split3_test_score': array([ 0.77632995]), 'params': ({},), 'mean_test_score': array([ 0.72969365]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'mean_fit_time': array([ 0.39653354]), 'mean_score_time': array([ 0.00561695]), 'split4_test_score': array([ 0.67226365]), 'split0_test_score': array([ 0.73107442]), 'split2_test_score': array([ 0.70270973]), 'split2_train_score': array([ 1.]), 'split1_test_score': array([ 0.76601463]), 'split4_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'split0_train_score': array([ 1.])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.729693651624
+####################################################################################
+################# Runing the itteration 40  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE 
+##param_grid##
+{}
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.6s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'mean_train_score': array([ 0.88813758]), 'std_fit_time': array([ 0.02394034]), 'std_test_score': array([ 0.03589222]), 'std_score_time': array([ 0.00010473]), 'split3_test_score': array([ 0.81685064]), 'params': ({},), 'mean_test_score': array([ 0.77680448]), 'rank_test_score': array([1], dtype=int32), 'split1_train_score': array([ 0.88841642]), 'std_train_score': array([ 0.00348324]), 'mean_fit_time': array([ 0.68806314]), 'mean_score_time': array([ 0.00270801]), 'split4_test_score': array([ 0.71817491]), 'split0_test_score': array([ 0.80797174]), 'split2_test_score': array([ 0.75721825]), 'split2_train_score': array([ 0.88757543]), 'split1_test_score': array([ 0.78372942]), 'split4_train_score': array([ 0.885661]), 'split3_train_score': array([ 0.89453395]), 'split0_train_score': array([ 0.88450112])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  run are
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE run are
+0.776804480075
+#########################################
+###Finished all estimators for cl: label_gross_5
+#########################################
+#########################################
+#######Printing results for cl: label_gross_5
+#########################################
+{'GradientBoostingRegressor': {'pipe': '| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE', 'score': 0.77777581860624634, 'best_cfg': {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}}, 'BaggingRegressor': {'pipe': '| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE', 'score': 0.7477778568791964, 'best_cfg': {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}}, 'ExtraTreesRegressor': {'pipe': '| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE', 'score': 0.73111523359225661, 'best_cfg': {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}}}
+priting simply sorted numbers, grep them to find the best cfg or cl: label_gross_5
+[0.73111523359225661, 0.7477778568791964, 0.77777581860624634]

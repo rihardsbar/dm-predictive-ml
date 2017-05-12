@@ -1,0 +1,123 @@
+#########################################
+###Starting all estimators for cl: quickClassmovie_metadata_cleaned_cat_min3_tfidf_no_imbd_label_gross_3
+#########################################
+####################################################################################
+################# Runing the itteration 1  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: dummy | reducer: dummy
+{}
+Starting precomp pipline for {}
+Finished precomp pipline for {}
+Pre-computation of pre-processing models completed in 0:00:00.413174
+####################################################################################
+################# Running the iteration 2  of the GridSearchCV ####################
+####################################################################################
+***Starting [AdaBoostClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [AdaBoostClassifier] estimatorrun are
+{'mean_test_score': array([ 0.71550291]), 'split1_test_score': array([ 0.69518272]), 'mean_train_score': array([ 0.7290119]), 'params': ({},), 'std_fit_time': array([ 0.06078851]), 'split3_test_score': array([ 0.70715474]), 'split1_train_score': array([ 0.71923503]), 'split2_test_score': array([ 0.7296173]), 'std_test_score': array([ 0.01495168]), 'split3_train_score': array([ 0.73047091]), 'split2_train_score': array([ 0.71966759]), 'mean_fit_time': array([ 14.91032499]), 'mean_score_time': array([ 0.20717621]), 'split0_test_score': array([ 0.73006645]), 'std_score_time': array([ 0.00733394]), 'split0_train_score': array([ 0.74667406]), 'rank_test_score': array([1], dtype=int32), 'std_train_score': array([ 0.01114657])}
+GREP_ME***Best params of [AdaBoostClassifier] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [AdaBoostClassifier] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.715502909393
+####################################################################################
+################# Running the iteration 3  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=  16.7s
+[CV]  ................................................................
+[CV] ................................................. , total=  16.8s
+GREP_ME***Results of [BaggingClassifier] estimatorrun are
+{'mean_test_score': array([ 0.76828761]), 'split1_test_score': array([ 0.76993355]), 'mean_train_score': array([ 0.97998062]), 'params': ({},), 'std_fit_time': array([ 0.51279375]), 'split3_test_score': array([ 0.77371048]), 'split1_train_score': array([ 0.97976718]), 'split2_test_score': array([ 0.77121464]), 'std_test_score': array([ 0.00592405]), 'split3_train_score': array([ 0.97867036]), 'split2_train_score': array([ 0.98116343]), 'mean_fit_time': array([ 16.73932141]), 'mean_score_time': array([ 0.35608131]), 'split0_test_score': array([ 0.75830565]), 'std_score_time': array([ 0.02551994]), 'split0_train_score': array([ 0.98032151]), 'rank_test_score': array([1], dtype=int32), 'std_train_score': array([ 0.00090521])}
+GREP_ME***Best params of [BaggingClassifier] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [BaggingClassifier] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.768287614298
+####################################################################################
+################# Running the iteration 4  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [ExtraTreesClassifier] estimatorrun are
+{'mean_test_score': array([ 0.71924356]), 'split1_test_score': array([ 0.71096346]), 'mean_train_score': array([ 1.]), 'params': ({},), 'std_fit_time': array([ 0.12826702]), 'split3_test_score': array([ 0.72212978]), 'split1_train_score': array([ 1.]), 'split2_test_score': array([ 0.7171381]), 'std_test_score': array([ 0.00586677]), 'split3_train_score': array([ 1.]), 'split2_train_score': array([ 1.]), 'mean_fit_time': array([ 3.18853807]), 'mean_score_time': array([ 0.03799832]), 'split0_test_score': array([ 0.72674419]), 'std_score_time': array([ 0.00307313]), 'split0_train_score': array([ 1.]), 'rank_test_score': array([1], dtype=int32), 'std_train_score': array([ 0.])}
+GREP_ME***Best params of [ExtraTreesClassifier] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [ExtraTreesClassifier] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.719243557772
+####################################################################################
+################# Running the iteration 5  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [GradientBoostingClassifier] estimatorrun are
+{'mean_test_score': array([ 0.77535328]), 'split1_test_score': array([ 0.78488372]), 'mean_train_score': array([ 0.84129931]), 'params': ({},), 'std_fit_time': array([ 4.83782485]), 'split3_test_score': array([ 0.76372712]), 'split1_train_score': array([ 0.84007761]), 'split2_test_score': array([ 0.77454243]), 'std_test_score': array([ 0.00766408]), 'split3_train_score': array([ 0.84432133]), 'split2_train_score': array([ 0.8398892]), 'mean_fit_time': array([ 253.00945234]), 'mean_score_time': array([ 0.05773354]), 'split0_test_score': array([ 0.7782392]), 'std_score_time': array([ 0.01738649]), 'split0_train_score': array([ 0.84090909]), 'rank_test_score': array([1], dtype=int32), 'std_train_score': array([ 0.00178647])}
+GREP_ME***Best params of [GradientBoostingClassifier] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [GradientBoostingClassifier] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.775353283458
+####################################################################################
+################# Running the iteration 6  of the GridSearchCV ####################
+####################################################################################
+***Starting [RandomForestClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [RandomForestClassifier] estimatorrun are
+{'mean_test_score': array([ 0.74418121]), 'split1_test_score': array([ 0.74418605]), 'mean_train_score': array([ 0.98462155]), 'params': ({},), 'std_fit_time': array([ 0.04039356]), 'split3_test_score': array([ 0.74209651]), 'split1_train_score': array([ 0.98309313]), 'split2_test_score': array([ 0.75207987]), 'std_test_score': array([ 0.00501132]), 'split3_train_score': array([ 0.98365651]), 'split2_train_score': array([ 0.98725762]), 'mean_fit_time': array([ 1.96964604]), 'mean_score_time': array([ 0.03124493]), 'split0_test_score': array([ 0.73837209]), 'std_score_time': array([ 0.00138472]), 'split0_train_score': array([ 0.98447894]), 'rank_test_score': array([1], dtype=int32), 'std_train_score': array([ 0.00159973])}
+GREP_ME***Best params of [RandomForestClassifier] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [RandomForestClassifier] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.744181213633
+####################################################################################
+################# Running the iteration 7  of the GridSearchCV ####################
+####################################################################################
+***Starting [PassiveAggressiveClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [PassiveAggressiveClassifier] estimatorrun are
+{'mean_test_score': array([ 0.56483791]), 'split1_test_score': array([ 0.72508306]), 'mean_train_score': array([ 0.56411618]), 'params': ({},), 'std_fit_time': array([ 0.00777558]), 'split3_test_score': array([ 0.2171381]), 'split1_train_score': array([ 0.71480044]), 'split2_test_score': array([ 0.61397671]), 'std_test_score': array([ 0.20488853]), 'split3_train_score': array([ 0.22216066]), 'split2_train_score': array([ 0.61551247]), 'mean_fit_time': array([ 1.98037356]), 'mean_score_time': array([ 0.01396245]), 'split0_test_score': array([ 0.70265781]), 'std_score_time': array([ 0.00021301]), 'split0_train_score': array([ 0.70399113]), 'rank_test_score': array([1], dtype=int32), 'std_train_score': array([ 0.20115038])}
+GREP_ME***Best params of [PassiveAggressiveClassifier] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [PassiveAggressiveClassifier] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.564837905237
+####################################################################################
+################# Running the iteration 8  of the GridSearchCV ####################
+####################################################################################
+***Starting [LogisticRegression] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+GREP_ME***Results of [LogisticRegression] estimatorrun are
+{'mean_test_score': array([ 0.60349127]), 'split1_test_score': array([ 0.6038206]), 'mean_train_score': array([ 0.60272935]), 'params': ({},), 'std_fit_time': array([ 0.00718764]), 'split3_test_score': array([ 0.6014975]), 'split1_train_score': array([ 0.59756098]), 'split2_test_score': array([ 0.61064892]), 'std_test_score': array([ 0.00461995]), 'split3_train_score': array([ 0.59944598]), 'split2_train_score': array([ 0.60554017]), 'mean_fit_time': array([ 1.29135793]), 'mean_score_time': array([ 0.0145148]), 'split0_test_score': array([ 0.59800664]), 'std_score_time': array([ 0.00058552]), 'split0_train_score': array([ 0.60837029]), 'rank_test_score': array([1], dtype=int32), 'std_train_score': array([ 0.00439356])}
+GREP_ME***Best params of [LogisticRegression] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [LogisticRegression] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.60349127182
+####################################################################################
+################# Running the iteration 9  of the GridSearchCV ####################
+####################################################################################
+***Starting [RidgeClassifier] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=  11.8s
+[CV]  ................................................................
+[CV] ................................................. , total=  10.9s
+[CV]  ................................................................
+[CV] ................................................. , total=  20.7s

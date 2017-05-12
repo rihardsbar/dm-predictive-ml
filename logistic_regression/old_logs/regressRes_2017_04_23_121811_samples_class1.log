@@ -1,0 +1,956 @@
+#########################################
+###Starting all estimators for cl: samples_class1
+#########################################
+####################################################################################
+################# Runing the itteration 1  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: dummy | reducer: dummy
+{}
+Starting precomp pipline for {}
+Finished precomp pipline for {}
+####################################################################################
+################# Runing the itteration 2  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: dummy | reducer: PCA
+{'reducer__n_components': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__svd_solver': ['auto']}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto'}
+####################################################################################
+################# Runing the itteration 3  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: dummy | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'reducer__param': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+####################################################################################
+################# Runing the itteration 4  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: dummy | reducer: RFE
+{'reducer__step': [0.1], 'reducer__n_features_to_select': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1]}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+####################################################################################
+################# Runing the itteration 5  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: StandardScaler | reducer: dummy
+{}
+Starting precomp pipline for {}
+Finished precomp pipline for {}
+####################################################################################
+################# Runing the itteration 6  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: StandardScaler | reducer: PCA
+{'reducer__n_components': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__svd_solver': ['auto']}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto'}
+####################################################################################
+################# Runing the itteration 7  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: StandardScaler | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'reducer__param': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+####################################################################################
+################# Runing the itteration 8  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'reducer__n_features_to_select': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1]}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+####################################################################################
+################# Runing the itteration 9  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: dummy | reducer: dummy
+{}
+Starting precomp pipline for {}
+Finished precomp pipline for {}
+####################################################################################
+################# Runing the itteration 10  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: dummy | reducer: PCA
+{'reducer__n_components': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__svd_solver': ['auto']}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto'}
+####################################################################################
+################# Runing the itteration 11  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: dummy | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'reducer__param': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+####################################################################################
+################# Runing the itteration 12  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: dummy | reducer: RFE
+{'reducer__step': [0.1], 'reducer__n_features_to_select': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1]}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+####################################################################################
+################# Runing the itteration 13  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: StandardScaler | reducer: dummy
+{}
+Starting precomp pipline for {}
+Finished precomp pipline for {}
+####################################################################################
+################# Runing the itteration 14  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: StandardScaler | reducer: PCA
+{'reducer__n_components': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__svd_solver': ['auto']}
+Starting precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto'}
+Starting precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto'}
+Finished precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto'}
+####################################################################################
+################# Runing the itteration 15  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: StandardScaler | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'reducer__param': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86, 'reducer__mode': 'k_best'}
+####################################################################################
+################# Runing the itteration 16  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'reducer__n_features_to_select': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1]}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+####################################################################################
+################# Runing the itteration 17  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 1}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}}
+####################################################################################
+################# Runing the itteration 18  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 2}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}}
+####################################################################################
+################# Runing the itteration 19  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 3}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}}
+####################################################################################
+################# Runing the itteration 20  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 4}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}}
+####################################################################################
+################# Runing the itteration 21  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: PCA
+{'reducer__n_components': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 1}]}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+####################################################################################
+################# Runing the itteration 22  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: PCA
+{'reducer__n_components': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 2}]}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+####################################################################################
+################# Runing the itteration 23  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: PCA
+{'reducer__n_components': [200, 162, 131, 101, 91, 40, 20, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 3}]}
+Starting precomp pipline for {'reducer__n_components': 200, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 200, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 40, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 40, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 20, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 20, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 101, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 101, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 131, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 131, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 162, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 162, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+####################################################################################
+################# Runing the itteration 24  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: PCA
+{'reducer__n_components': [210, 170, 138, 106, 95, 42, 21, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 4}]}
+Starting precomp pipline for {'reducer__n_components': 210, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 210, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 21, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 21, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 42, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 42, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 95, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 95, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 106, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 106, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 138, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 138, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 170, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 170, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+####################################################################################
+################# Runing the itteration 25  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 1}], 'reducer__param': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 1}, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 1}, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+####################################################################################
+################# Runing the itteration 26  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 2}], 'reducer__param': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 2}, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 2}, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+####################################################################################
+################# Runing the itteration 27  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 3}], 'reducer__param': [200, 162, 131, 101, 91, 40, 20, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 131}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 131}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 3}, 'reducer__param': 200, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 3}, 'reducer__param': 200, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 162}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 162}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 101}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 101}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 40}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 40}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 20}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 20}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+####################################################################################
+################# Runing the itteration 28  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 4}], 'reducer__param': [210, 170, 138, 106, 95, 42, 21, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 170}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 170}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 138}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 138}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 4}, 'reducer__param': 210, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 4}, 'reducer__param': 210, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 42}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 42}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 95}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 95}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 106}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 106}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 21}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 21}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+####################################################################################
+################# Runing the itteration 29  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: RFE
+{'preprocessor__kw_args': [{'pw': 1}], 'reducer__step': [0.1], 'reducer__n_features_to_select': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+####################################################################################
+################# Runing the itteration 30  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: RFE
+{'preprocessor__kw_args': [{'pw': 2}], 'reducer__step': [0.1], 'reducer__n_features_to_select': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+####################################################################################
+################# Runing the itteration 31  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: RFE
+{'preprocessor__kw_args': [{'pw': 3}], 'reducer__step': [0.1], 'reducer__n_features_to_select': [200, 162, 131, 101, 91, 40, 20, 5, 3, 1]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 200}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 200}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 162}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 162}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 131}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 131}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 101}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 101}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 40}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 40}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 20}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 20}
+####################################################################################
+################# Runing the itteration 32  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: dummy | reducer: RFE
+{'preprocessor__kw_args': [{'pw': 4}], 'reducer__step': [0.1], 'reducer__n_features_to_select': [210, 170, 138, 106, 95, 42, 21, 5, 3, 1]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 210}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 210}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 170}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 170}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 138}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 138}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 95}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 95}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 106}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 106}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 21}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 21}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 42}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 42}
+####################################################################################
+################# Runing the itteration 33  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 1}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}}
+####################################################################################
+################# Runing the itteration 34  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 2}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}}
+####################################################################################
+################# Runing the itteration 35  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 3}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}}
+####################################################################################
+################# Runing the itteration 36  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: dummy
+{'preprocessor__kw_args': [{'pw': 4}]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}}
+####################################################################################
+################# Runing the itteration 37  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: PCA
+{'reducer__n_components': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 1}]}
+Starting precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 181, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 18, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 36, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 82, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 146, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Starting precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+Finished precomp pipline for {'reducer__n_components': 118, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 1}}
+####################################################################################
+################# Runing the itteration 38  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: PCA
+{'reducer__n_components': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 2}]}
+Starting precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 191, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 38, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 19, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 96, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 125, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 86, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Starting precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+Finished precomp pipline for {'reducer__n_components': 154, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 2}}
+####################################################################################
+################# Runing the itteration 39  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: PCA
+{'reducer__n_components': [200, 162, 131, 101, 91, 40, 20, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 3}]}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 200, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 200, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 20, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 20, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 40, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 40, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 91, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 101, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 101, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 131, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 131, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Starting precomp pipline for {'reducer__n_components': 162, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+Finished precomp pipline for {'reducer__n_components': 162, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 3}}
+####################################################################################
+################# Runing the itteration 40  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: PCA
+{'reducer__n_components': [210, 170, 138, 106, 95, 42, 21, 5, 3, 1], 'reducer__svd_solver': ['auto'], 'preprocessor__kw_args': [{'pw': 4}]}
+Starting precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 1, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 210, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 210, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 3, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 5, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 42, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 42, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 21, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 21, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 95, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 95, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 138, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 138, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 170, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 170, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Starting precomp pipline for {'reducer__n_components': 106, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+Finished precomp pipline for {'reducer__n_components': 106, 'reducer__svd_solver': 'auto', 'preprocessor__kw_args': {'pw': 4}}
+####################################################################################
+################# Runing the itteration 41  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 1}], 'reducer__param': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 1}, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 1}, 'reducer__param': 181, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 146}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 118}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 36}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 82}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 18}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+####################################################################################
+################# Runing the itteration 42  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 2}], 'reducer__param': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 154}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 2}, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 2}, 'reducer__param': 191, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 96}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 38}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 125}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 19}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 86}
+####################################################################################
+################# Runing the itteration 43  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 3}], 'reducer__param': [200, 162, 131, 101, 91, 40, 20, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 3}, 'reducer__param': 200, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 3}, 'reducer__param': 200, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 162}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 162}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 101}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 101}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 20}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 20}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 131}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 131}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 40}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 40}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+####################################################################################
+################# Runing the itteration 44  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: GenericUnivariateSelect
+{'reducer__score_func': [<function f_regression at 0x7f7b5eabf6a8>], 'preprocessor__kw_args': [{'pw': 4}], 'reducer__param': [210, 170, 138, 106, 95, 42, 21, 5, 3, 1], 'reducer__mode': ['k_best']}
+Starting precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 4}, 'reducer__param': 210, 'reducer__mode': 'k_best'}
+Finished precomp pipline for {'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'preprocessor__kw_args': {'pw': 4}, 'reducer__param': 210, 'reducer__mode': 'k_best'}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 170}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 170}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 21}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 21}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 106}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 106}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 42}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 42}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 95}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 95}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 138}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 138}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 4}, 'reducer__mode': 'k_best', 'reducer__score_func': <function f_regression at 0x7f7b5eabf6a8>, 'reducer__param': 1}
+####################################################################################
+################# Runing the itteration 45  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: RFE
+{'preprocessor__kw_args': [{'pw': 1}], 'reducer__step': [0.1], 'reducer__n_features_to_select': [181, 146, 118, 91, 82, 36, 18, 5, 3, 1]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 181}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 146}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 118}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 82}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 18}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 36}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 1}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+####################################################################################
+################# Runing the itteration 46  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: RFE
+{'preprocessor__kw_args': [{'pw': 2}], 'reducer__step': [0.1], 'reducer__n_features_to_select': [191, 154, 125, 96, 86, 38, 19, 5, 3, 1]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 191}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 154}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 125}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 86}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 96}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 19}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 38}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 2}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+####################################################################################
+################# Runing the itteration 47  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:poly | transfomer: StandardScaler | reducer: RFE
+{'preprocessor__kw_args': [{'pw': 3}], 'reducer__step': [0.1], 'reducer__n_features_to_select': [200, 162, 131, 101, 91, 40, 20, 5, 3, 1]}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 200}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 200}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 162}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 162}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 131}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 131}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 101}
+Finished precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 101}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 40}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 91}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 5}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 20}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 3}
+Starting precomp pipline for {'preprocessor__kw_args': {'pw': 3}, 'reducer__step': 0.1, 'reducer__n_features_to_select': 1}

@@ -1,0 +1,1374 @@
+#########################################
+###Starting all estimators for cl: label_gross_3
+#########################################
+####################################################################################
+################# Runing the itteration 1  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 3}], 'reducer__n_features_to_select': [63]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63} for tmp_class
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+####################################################################################
+################# Runing the itteration 2  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 4}], 'reducer__n_features_to_select': [66]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66} for tmp_class
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+####################################################################################
+################# Runing the itteration 3  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 3}], 'reducer__n_features_to_select': [63]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63} for tmp_reg
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+####################################################################################
+################# Runing the itteration 4  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE
+{'reducer__step': [0.1], 'preprocessor__kw_args': [{'pw': 4}], 'reducer__n_features_to_select': [66]}
+Starting precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66} for tmp_reg
+Finished precomp pipline for {'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+i have finshed precomputing pipeline
+####################################################################################
+################# Runing the itteration 5  of class precomp     ###############
+####################################################################################
+{'model__max_leaf_nodes': [None, 50], 'model__n_estimators': [500, 1000], 'model__max_depth': [3, 5, 10]}
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 500, 'model__max_depth': 3}
+Precomp Classify train score is: 
+0.946617336152
+Precomp Classify valid score is: 
+0.764012359654
+Precomp Classify test  score is: 
+0.789862724393
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 500, 'model__max_depth': 3}
+Precomp Classify train score is: 
+0.996035940803
+Precomp Classify valid score is: 
+0.758196027134
+Precomp Classify test  score is: 
+0.794086589229
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 1000, 'model__max_depth': 3}
+Precomp Classify train score is: 
+0.991807610994
+Precomp Classify valid score is: 
+0.754766097318
+Precomp Classify test  score is: 
+0.788806758184
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 500, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.755818848053
+Precomp Classify test  score is: 
+0.806758183738
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 500, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.764801398637
+Precomp Classify test  score is: 
+0.802534318902
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 1000, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.76585624565
+Precomp Classify test  score is: 
+0.802534318902
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 500, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.756081721296
+Precomp Classify test  score is: 
+0.802534318902
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 1000, 'model__max_depth': 3}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.750270839098
+Precomp Classify test  score is: 
+0.791974656811
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 500, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.760044944197
+Precomp Classify test  score is: 
+0.796198521647
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 1000, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.762425058067
+Precomp Classify test  score is: 
+0.790918690602
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 1000, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.754234481255
+Precomp Classify test  score is: 
+0.797254487856
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 1000, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.75951752069
+Precomp Classify test  score is: 
+0.800422386484
+Finished precomp class for GradientBoostingClassifier
+####################################################################################
+################# Runing the itteration 6  of class precomp     ###############
+####################################################################################
+{'model__max_iter': [400], 'model__hidden_layer_sizes': [100], 'model__learning_rate_init': [0.01, 0.1], 'model__activation': ['identity', 'logistic', 'tanh', 'relu'], 'model__solver': ['lbfgs']}
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'identity', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+0.779069767442
+Precomp Classify valid score is: 
+0.765063852623
+Precomp Classify test  score is: 
+0.765575501584
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'identity', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+0.779069767442
+Precomp Classify valid score is: 
+0.765063852623
+Precomp Classify test  score is: 
+0.765575501584
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'tanh', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.68684082543
+Precomp Classify test  score is: 
+0.707497360084
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'tanh', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.68684082543
+Precomp Classify test  score is: 
+0.707497360084
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'logistic', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.696348283987
+Precomp Classify test  score is: 
+0.684266103485
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'relu', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.693447454699
+Precomp Classify test  score is: 
+0.697993664203
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'relu', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.693447454699
+Precomp Classify test  score is: 
+0.697993664203
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'logistic', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.696348283987
+Precomp Classify test  score is: 
+0.684266103485
+Finished precomp class for MLPClassifier
+####################################################################################
+################# Runing the itteration 7  of class precomp     ###############
+####################################################################################
+{'model__loss': ['hinge', 'squared_hinge'], 'model__C': array([  1.00000000e-04,   1.00000000e+00,   1.00000000e+04])}
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'hinge', 'model__C': 0.0001}
+Precomp Classify train score is: 
+0.718287526427
+Precomp Classify valid score is: 
+0.70006246908
+Precomp Classify test  score is: 
+0.692713833157
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'squared_hinge', 'model__C': 0.0001}
+Precomp Classify train score is: 
+0.753699788584
+Precomp Classify valid score is: 
+0.740754156919
+Precomp Classify test  score is: 
+0.753959873284
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'hinge', 'model__C': 1.0}
+Precomp Classify train score is: 
+0.772463002114
+Precomp Classify valid score is: 
+0.758983389094
+Precomp Classify test  score is: 
+0.775079197466
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'squared_hinge', 'model__C': 1.0}
+Precomp Classify train score is: 
+0.770348837209
+Precomp Classify valid score is: 
+0.766120795915
+Precomp Classify test  score is: 
+0.770855332629
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'squared_hinge', 'model__C': 10000.0}
+Precomp Classify train score is: 
+0.676797040169
+Precomp Classify valid score is: 
+0.66489573114
+Precomp Classify test  score is: 
+0.653643083421
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'hinge', 'model__C': 10000.0}
+Precomp Classify train score is: 
+0.732558139535
+Precomp Classify valid score is: 
+0.660931250472
+Precomp Classify test  score is: 
+0.726504751848
+Finished precomp class for LinearSVC
+####################################################################################
+################# Runing the itteration 8  of class precomp     ###############
+####################################################################################
+{'model__max_iter': [50, 100], 'model__C': array([  1.00000000e-04,   1.00000000e+00,   1.00000000e+04]), 'model__solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag']}
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.715380549683
+Precomp Classify valid score is: 
+0.701381866358
+Precomp Classify test  score is: 
+0.688489968321
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.617600422833
+Precomp Classify valid score is: 
+0.603858828265
+Precomp Classify test  score is: 
+0.624076029567
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.715380549683
+Precomp Classify valid score is: 
+0.701381866358
+Precomp Classify test  score is: 
+0.688489968321
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.617600422833
+Precomp Classify valid score is: 
+0.603858828265
+Precomp Classify test  score is: 
+0.624076029567
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.617600422833
+Precomp Classify valid score is: 
+0.603858828265
+Precomp Classify test  score is: 
+0.624076029567
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.617600422833
+Precomp Classify valid score is: 
+0.603858828265
+Precomp Classify test  score is: 
+0.624076029567
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.772727272727
+Precomp Classify valid score is: 
+0.762155895991
+Precomp Classify test  score is: 
+0.770855332629
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.774312896406
+Precomp Classify valid score is: 
+0.761891345727
+Precomp Classify test  score is: 
+0.76979936642
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.617600422833
+Precomp Classify valid score is: 
+0.603858828265
+Precomp Classify test  score is: 
+0.624076029567
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.617600422833
+Precomp Classify valid score is: 
+0.603858828265
+Precomp Classify test  score is: 
+0.624076029567
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.774312896406
+Precomp Classify valid score is: 
+0.761892184238
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.774577167019
+Precomp Classify valid score is: 
+0.761891764982
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.769027484144
+Precomp Classify valid score is: 
+0.762949546785
+Precomp Classify test  score is: 
+0.766631467793
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.774577167019
+Precomp Classify valid score is: 
+0.761891764982
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.768763213531
+Precomp Classify valid score is: 
+0.763214097049
+Precomp Classify test  score is: 
+0.766631467793
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.774312896406
+Precomp Classify valid score is: 
+0.761892184238
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.774312896406
+Precomp Classify valid score is: 
+0.761892184238
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.771141649049
+Precomp Classify valid score is: 
+0.76004368643
+Precomp Classify test  score is: 
+0.766631467793
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.771405919662
+Precomp Classify valid score is: 
+0.759778297655
+Precomp Classify test  score is: 
+0.767687434002
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.774577167019
+Precomp Classify valid score is: 
+0.766120376659
+Precomp Classify test  score is: 
+0.767687434002
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.776427061311
+Precomp Classify valid score is: 
+0.764800979381
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.776427061311
+Precomp Classify valid score is: 
+0.764800979381
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.776427061311
+Precomp Classify valid score is: 
+0.764800979381
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 3}, 'reducer__n_features_to_select': 63}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.776427061311
+Precomp Classify valid score is: 
+0.764800979381
+Precomp Classify test  score is: 
+0.768743400211
+Finished precomp class for LogisticRegression
+####################################################################################
+################# Runing the itteration 9  of class precomp     ###############
+####################################################################################
+{'model__max_leaf_nodes': [None, 50], 'model__n_estimators': [500, 1000], 'model__max_depth': [3, 5, 10]}
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 500, 'model__max_depth': 3}
+Precomp Classify train score is: 
+0.948202959831
+Precomp Classify valid score is: 
+0.75846141591
+Precomp Classify test  score is: 
+0.797254487856
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 500, 'model__max_depth': 3}
+Precomp Classify train score is: 
+0.995507399577
+Precomp Classify valid score is: 
+0.753970769502
+Precomp Classify test  score is: 
+0.794086589229
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 1000, 'model__max_depth': 3}
+Precomp Classify train score is: 
+0.991279069767
+Precomp Classify valid score is: 
+0.757672376928
+Precomp Classify test  score is: 
+0.785638859556
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 500, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.753703703704
+Precomp Classify test  score is: 
+0.807814149947
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 500, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.759252131915
+Precomp Classify test  score is: 
+0.799366420275
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 500, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.755554717044
+Precomp Classify test  score is: 
+0.801478352693
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 1000, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.763482001358
+Precomp Classify test  score is: 
+0.799366420275
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 1000, 'model__max_depth': 3}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.753703703704
+Precomp Classify test  score is: 
+0.799366420275
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 500, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.759777878399
+Precomp Classify test  score is: 
+0.80464625132
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 1000, 'model__max_depth': 10}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.759518359201
+Precomp Classify test  score is: 
+0.80464625132
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': None, 'model__n_estimators': 1000, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.750797424094
+Precomp Classify test  score is: 
+0.800422386484
+Finished precomp class for GradientBoostingClassifier
+
+Starting precomp class for GradientBoostingClassifier
+Precomp class [GradientBoostingClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [GradientBoostingClassifier] estimator, model params:
+{'model__max_leaf_nodes': 50, 'model__n_estimators': 1000, 'model__max_depth': 5}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.75582010582
+Precomp Classify test  score is: 
+0.791974656811
+Finished precomp class for GradientBoostingClassifier
+####################################################################################
+################# Runing the itteration 10  of class precomp     ###############
+####################################################################################
+{'model__max_iter': [400], 'model__hidden_layer_sizes': [100], 'model__learning_rate_init': [0.01, 0.1], 'model__activation': ['identity', 'logistic', 'tanh', 'relu'], 'model__solver': ['lbfgs']}
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'identity', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+0.778541226216
+Precomp Classify valid score is: 
+0.769025817758
+Precomp Classify test  score is: 
+0.772967265048
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'identity', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+0.778541226216
+Precomp Classify valid score is: 
+0.769025817758
+Precomp Classify test  score is: 
+0.772967265048
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'tanh', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.694498947669
+Precomp Classify test  score is: 
+0.706441393875
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'tanh', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.694498947669
+Precomp Classify test  score is: 
+0.706441393875
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'logistic', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.701631742678
+Precomp Classify test  score is: 
+0.697993664203
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'logistic', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+1.0
+Precomp Classify valid score is: 
+0.701631742678
+Precomp Classify test  score is: 
+0.697993664203
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.01, 'model__activation': 'relu', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+0.999471458774
+Precomp Classify valid score is: 
+0.693708650919
+Precomp Classify test  score is: 
+0.699049630412
+Finished precomp class for MLPClassifier
+
+Starting precomp class for MLPClassifier
+Precomp class [MLPClassifier] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [MLPClassifier] estimator, model params:
+{'model__max_iter': 400, 'model__solver': 'lbfgs', 'model__learning_rate_init': 0.1, 'model__activation': 'relu', 'model__hidden_layer_sizes': 100}
+Precomp Classify train score is: 
+0.999471458774
+Precomp Classify valid score is: 
+0.693708650919
+Precomp Classify test  score is: 
+0.699049630412
+Finished precomp class for MLPClassifier
+####################################################################################
+################# Runing the itteration 11  of class precomp     ###############
+####################################################################################
+{'model__loss': ['hinge', 'squared_hinge'], 'model__C': array([  1.00000000e-04,   1.00000000e+00,   1.00000000e+04])}
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'hinge', 'model__C': 0.0001}
+Precomp Classify train score is: 
+0.715644820296
+Precomp Classify valid score is: 
+0.695568049372
+Precomp Classify test  score is: 
+0.692713833157
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'squared_hinge', 'model__C': 0.0001}
+Precomp Classify train score is: 
+0.752114164905
+Precomp Classify valid score is: 
+0.741810680955
+Precomp Classify test  score is: 
+0.74762407603
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'hinge', 'model__C': 1.0}
+Precomp Classify train score is: 
+0.774312896406
+Precomp Classify valid score is: 
+0.761891764982
+Precomp Classify test  score is: 
+0.776135163675
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'squared_hinge', 'model__C': 1.0}
+Precomp Classify train score is: 
+0.77378435518
+Precomp Classify valid score is: 
+0.766118280381
+Precomp Classify test  score is: 
+0.76979936642
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'squared_hinge', 'model__C': 10000.0}
+Precomp Classify train score is: 
+0.691860465116
+Precomp Classify valid score is: 
+0.640875741034
+Precomp Classify test  score is: 
+0.671594508976
+Finished precomp class for LinearSVC
+
+Starting precomp class for LinearSVC
+Precomp class [LinearSVC] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LinearSVC] estimator, model params:
+{'model__loss': 'hinge', 'model__C': 10000.0}
+Precomp Classify train score is: 
+0.711945031712
+Precomp Classify valid score is: 
+0.632687679756
+Precomp Classify test  score is: 
+0.70116156283
+Finished precomp class for LinearSVC
+####################################################################################
+################# Runing the itteration 12  of class precomp     ###############
+####################################################################################
+{'model__max_iter': [50, 100], 'model__C': array([  1.00000000e-04,   1.00000000e+00,   1.00000000e+04]), 'model__solver': ['newton-cg', 'lbfgs', 'liblinear', 'sag']}
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.712473572939
+Precomp Classify valid score is: 
+0.697681516699
+Precomp Classify test  score is: 
+0.690601900739
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.615486257928
+Precomp Classify valid score is: 
+0.603330985502
+Precomp Classify test  score is: 
+0.623020063358
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.712473572939
+Precomp Classify valid score is: 
+0.697681516699
+Precomp Classify test  score is: 
+0.690601900739
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.615486257928
+Precomp Classify valid score is: 
+0.603330985502
+Precomp Classify test  score is: 
+0.623020063358
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.775105708245
+Precomp Classify valid score is: 
+0.764268944063
+Precomp Classify test  score is: 
+0.771911298838
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.615486257928
+Precomp Classify valid score is: 
+0.603330985502
+Precomp Classify test  score is: 
+0.623020063358
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.615486257928
+Precomp Classify valid score is: 
+0.603330985502
+Precomp Classify test  score is: 
+0.623020063358
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.775634249471
+Precomp Classify valid score is: 
+0.764534752094
+Precomp Classify test  score is: 
+0.770855332629
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 0.0001, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.615486257928
+Precomp Classify valid score is: 
+0.603595116511
+Precomp Classify test  score is: 
+0.621964097149
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.774841437632
+Precomp Classify valid score is: 
+0.764797206081
+Precomp Classify test  score is: 
+0.76979936642
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 0.0001, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.615486257928
+Precomp Classify valid score is: 
+0.603595116511
+Precomp Classify test  score is: 
+0.621964097149
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.774577167019
+Precomp Classify valid score is: 
+0.764797206081
+Precomp Classify test  score is: 
+0.770855332629
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.766913319239
+Precomp Classify valid score is: 
+0.764006490076
+Precomp Classify test  score is: 
+0.766631467793
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.767177589852
+Precomp Classify valid score is: 
+0.764535590605
+Precomp Classify test  score is: 
+0.766631467793
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.774841437632
+Precomp Classify valid score is: 
+0.764797206081
+Precomp Classify test  score is: 
+0.76979936642
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 1.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.774577167019
+Precomp Classify valid score is: 
+0.764797206081
+Precomp Classify test  score is: 
+0.770855332629
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.770348837209
+Precomp Classify valid score is: 
+0.761629310995
+Precomp Classify test  score is: 
+0.766631467793
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 1.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.774577167019
+Precomp Classify valid score is: 
+0.764797206081
+Precomp Classify test  score is: 
+0.770855332629
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'sag'}
+Precomp Classify train score is: 
+0.770613107822
+Precomp Classify valid score is: 
+0.761100629722
+Precomp Classify test  score is: 
+0.767687434002
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'lbfgs'}
+Precomp Classify train score is: 
+0.771934460888
+Precomp Classify valid score is: 
+0.765590856875
+Precomp Classify test  score is: 
+0.776135163675
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.775105708245
+Precomp Classify valid score is: 
+0.765589179852
+Precomp Classify test  score is: 
+0.774023231257
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 50, 'model__C': 10000.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.775105708245
+Precomp Classify valid score is: 
+0.765853310861
+Precomp Classify test  score is: 
+0.772967265048
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'liblinear'}
+Precomp Classify train score is: 
+0.774841437632
+Precomp Classify valid score is: 
+0.765853310861
+Precomp Classify test  score is: 
+0.774023231257
+Finished precomp class for LogisticRegression
+
+Starting precomp class for LogisticRegression
+Precomp class [LogisticRegression] estimator,pipeline:| preprocessor:log_poly | transfomer: StandardScaler | reducer: RFE  params:
+{'reducer__step': 0.1, 'preprocessor__kw_args': {'pw': 4}, 'reducer__n_features_to_select': 66}
+Precomp class [LogisticRegression] estimator, model params:
+{'model__max_iter': 100, 'model__C': 10000.0, 'model__solver': 'newton-cg'}
+Precomp Classify train score is: 
+0.775105708245
+Precomp Classify valid score is: 
+0.765853310861
+Precomp Classify test  score is: 
+0.772967265048
+Finished precomp class for LogisticRegression
+i have finshed precomputing classification
+#########################################
+###Finished all estimators for cl: label_gross_3
+#########################################
+#########################################
+#######Printing results for cl: label_gross_3
+#########################################
+{}
+priting simply sorted numbers, grep them to find the best cfg or cl: label_gross_3
+[]

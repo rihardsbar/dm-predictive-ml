@@ -1,0 +1,852 @@
+#########################################
+###Starting all estimators for cl: quickRegtest_names-tdidf_cat-count
+#########################################
+####################################################################################
+################# Runing the itteration 1  of pipeline precomp      ###############
+####################################################################################
+| preprocessor:dummy | transfomer: dummy | reducer: dummy
+{}
+Starting precomp pipline for {}
+Finished precomp pipline for {}
+Pre-computation of pre-processing models completed in 0:00:00.048680
+####################################################################################
+################# Running the iteration 2  of the GridSearchCV ####################
+####################################################################################
+***Starting [AdaBoostRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   2.0s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+GREP_ME***Results of [AdaBoostRegressor] estimatorrun are
+{'std_fit_time': array([ 0.37228584]), 'split2_train_score': array([-1.6188929]), 'params': ({},), 'std_test_score': array([ 0.56570628]), 'mean_train_score': array([-0.31979435]), 'std_train_score': array([ 0.77856984]), 'split1_test_score': array([-0.39529297]), 'split1_train_score': array([-0.15997004]), 'mean_fit_time': array([ 1.7808404]), 'split2_test_score': array([-1.22439192]), 'mean_score_time': array([ 0.02122515]), 'split0_test_score': array([-0.09496842]), 'split0_train_score': array([ 0.07305159]), 'split3_train_score': array([ 0.42663395]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([-0.34874789]), 'split3_test_score': array([ 0.31966174]), 'std_score_time': array([ 0.00461967])}
+GREP_ME***Best params of [AdaBoostRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [AdaBoostRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-0.34874789437
+####################################################################################
+################# Running the iteration 3  of the GridSearchCV ####################
+####################################################################################
+***Starting [BaggingRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [BaggingRegressor] estimatorrun are
+{'std_fit_time': array([ 0.07455383]), 'split2_train_score': array([ 0.93071327]), 'params': ({},), 'std_test_score': array([ 0.04369755]), 'mean_train_score': array([ 0.93336386]), 'std_train_score': array([ 0.00808369]), 'split1_test_score': array([ 0.49173823]), 'split1_train_score': array([ 0.94091313]), 'mean_fit_time': array([ 1.47898418]), 'split2_test_score': array([ 0.59120718]), 'mean_score_time': array([ 0.03456891]), 'split0_test_score': array([ 0.55410345]), 'split0_train_score': array([ 0.94054178]), 'split3_train_score': array([ 0.92128726]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.56035864]), 'split3_test_score': array([ 0.60438569]), 'std_score_time': array([ 0.00427324])}
+GREP_ME***Best params of [BaggingRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [BaggingRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.560358637884
+####################################################################################
+################# Running the iteration 4  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreesRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   2.0s
+[CV]  ................................................................
+[CV] ................................................. , total=   2.1s
+GREP_ME***Results of [ExtraTreesRegressor] estimatorrun are
+{'std_fit_time': array([ 0.06264778]), 'split2_train_score': array([ 1.]), 'params': ({},), 'std_test_score': array([ 0.03905405]), 'mean_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'split1_test_score': array([ 0.52022361]), 'split1_train_score': array([ 1.]), 'mean_fit_time': array([ 2.12195045]), 'split2_test_score': array([ 0.53214177]), 'mean_score_time': array([ 0.00739413]), 'split0_test_score': array([ 0.52807852]), 'split0_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.54922642]), 'split3_test_score': array([ 0.61646178]), 'std_score_time': array([ 0.00011123])}
+GREP_ME***Best params of [ExtraTreesRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [ExtraTreesRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.549226419066
+####################################################################################
+################# Running the iteration 5  of the GridSearchCV ####################
+####################################################################################
+***Starting [GradientBoostingRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   5.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   6.1s
+GREP_ME***Results of [GradientBoostingRegressor] estimatorrun are
+{'std_fit_time': array([ 0.11653582]), 'split2_train_score': array([ 0.77243883]), 'params': ({},), 'std_test_score': array([ 0.03961903]), 'mean_train_score': array([ 0.78612139]), 'std_train_score': array([ 0.01109291]), 'split1_test_score': array([ 0.52886355]), 'split1_train_score': array([ 0.80277189]), 'mean_fit_time': array([ 6.05841762]), 'split2_test_score': array([ 0.60920339]), 'mean_score_time': array([ 0.00610071]), 'split0_test_score': array([ 0.551825]), 'split0_train_score': array([ 0.78805464]), 'split3_train_score': array([ 0.78122022]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.57871918]), 'split3_test_score': array([ 0.62498476]), 'std_score_time': array([ 0.00046701])}
+GREP_ME***Best params of [GradientBoostingRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [GradientBoostingRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.578719176635
+####################################################################################
+################# Running the iteration 6  of the GridSearchCV ####################
+####################################################################################
+***Starting [RandomForestRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+GREP_ME***Results of [RandomForestRegressor] estimatorrun are
+{'std_fit_time': array([ 0.08012986]), 'split2_train_score': array([ 0.91694639]), 'params': ({},), 'std_test_score': array([ 0.04837414]), 'mean_train_score': array([ 0.92457345]), 'std_train_score': array([ 0.00640759]), 'split1_test_score': array([ 0.48831728]), 'split1_train_score': array([ 0.93247132]), 'mean_fit_time': array([ 1.27401704]), 'split2_test_score': array([ 0.6032505]), 'mean_score_time': array([ 0.00740719]), 'split0_test_score': array([ 0.55128825]), 'split0_train_score': array([ 0.92910944]), 'split3_train_score': array([ 0.91976666]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.56271616]), 'split3_test_score': array([ 0.60800861]), 'std_score_time': array([  9.29366203e-05])}
+GREP_ME***Best params of [RandomForestRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [RandomForestRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.562716160759
+####################################################################################
+################# Running the iteration 7  of the GridSearchCV ####################
+####################################################################################
+***Starting [ElasticNet] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   6.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   6.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   6.2s
+GREP_ME***Results of [ElasticNet] estimatorrun are
+{'std_fit_time': array([ 0.06838988]), 'split2_train_score': array([ 0.54253617]), 'params': ({},), 'std_test_score': array([ 0.0499916]), 'mean_train_score': array([ 0.56841681]), 'std_train_score': array([ 0.01752313]), 'split1_test_score': array([ 0.50158823]), 'split1_train_score': array([ 0.58632291]), 'mean_fit_time': array([ 6.12648493]), 'split2_test_score': array([ 0.6257141]), 'mean_score_time': array([ 0.00887728]), 'split0_test_score': array([ 0.51856831]), 'split0_train_score': array([ 0.58255316]), 'split3_train_score': array([ 0.562255]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.55746497]), 'split3_test_score': array([ 0.58398926]), 'std_score_time': array([ 0.00498381])}
+GREP_ME***Best params of [ElasticNet] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [ElasticNet] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.557464971998
+####################################################################################
+################# Running the iteration 8  of the GridSearchCV ####################
+####################################################################################
+***Starting [HuberRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+GREP_ME***Results of [HuberRegressor] estimatorrun are
+{'std_fit_time': array([ 0.07130144]), 'split2_train_score': array([ 0.46157744]), 'params': ({},), 'std_test_score': array([ 0.04118907]), 'mean_train_score': array([ 0.48602584]), 'std_train_score': array([ 0.01604602]), 'split1_test_score': array([ 0.43405406]), 'split1_train_score': array([ 0.49738701]), 'mean_fit_time': array([ 0.55929524]), 'split2_test_score': array([ 0.53224785]), 'mean_score_time': array([ 0.00383419]), 'split0_test_score': array([ 0.45037644]), 'split0_train_score': array([ 0.50299683]), 'split3_train_score': array([ 0.48214207]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.48242839]), 'split3_test_score': array([ 0.51303521]), 'std_score_time': array([ 0.00146788])}
+GREP_ME***Best params of [HuberRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [HuberRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.482428388292
+####################################################################################
+################# Running the iteration 9  of the GridSearchCV ####################
+####################################################################################
+***Starting [Lasso] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   6.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   6.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   6.9s
+[CV]  ................................................................
+[CV] ................................................. , total=   6.9s
+GREP_ME***Results of [Lasso] estimatorrun are
+{'std_fit_time': array([ 0.32244931]), 'split2_train_score': array([ 0.65593817]), 'params': ({},), 'std_test_score': array([ 0.04408629]), 'mean_train_score': array([ 0.66833152]), 'std_train_score': array([ 0.00973254]), 'split1_test_score': array([ 0.46146618]), 'split1_train_score': array([ 0.67952324]), 'mean_fit_time': array([ 6.58391148]), 'split2_test_score': array([ 0.57237054]), 'mean_score_time': array([ 0.01084465]), 'split0_test_score': array([ 0.48063521]), 'split0_train_score': array([ 0.67597924]), 'split3_train_score': array([ 0.66188545]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.51271315]), 'split3_test_score': array([ 0.53638068]), 'std_score_time': array([ 0.00550485])}
+GREP_ME***Best params of [Lasso] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [Lasso] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.512713153818
+####################################################################################
+################# Running the iteration 10  of the GridSearchCV ####################
+####################################################################################
+***Starting [LassoLars] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.4s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.4s
+GREP_ME***Results of [LassoLars] estimatorrun are
+{'std_fit_time': array([ 0.05696874]), 'split2_train_score': array([ 0.655022]), 'params': ({},), 'std_test_score': array([ 0.03774078]), 'mean_train_score': array([ 0.66534355]), 'std_train_score': array([ 0.00853938]), 'split1_test_score': array([ 0.47582011]), 'split1_train_score': array([ 0.67653849]), 'mean_fit_time': array([ 1.39317656]), 'split2_test_score': array([ 0.5752739]), 'mean_score_time': array([ 0.00276548]), 'split0_test_score': array([ 0.50545748]), 'split0_train_score': array([ 0.67035853]), 'split3_train_score': array([ 0.65945517]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.52519398]), 'split3_test_score': array([ 0.54422443]), 'std_score_time': array([ 0.001499])}
+GREP_ME***Best params of [LassoLars] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [LassoLars] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.525193980707
+####################################################################################
+################# Running the iteration 11  of the GridSearchCV ####################
+####################################################################################
+***Starting [LinearRegression] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.7s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.8s
+GREP_ME***Results of [LinearRegression] estimatorrun are
+{'std_fit_time': array([ 0.05229896]), 'split2_train_score': array([ 0.65595992]), 'params': ({},), 'std_test_score': array([ 1040102.02898557]), 'mean_train_score': array([ 0.66725434]), 'std_train_score': array([ 0.00943294]), 'split1_test_score': array([-2402012.21695128]), 'split1_train_score': array([ 0.67714843]), 'mean_fit_time': array([ 0.75321126]), 'split2_test_score': array([ 0.57247785]), 'mean_score_time': array([ 0.00403899]), 'split0_test_score': array([ 0.48029781]), 'split0_train_score': array([ 0.67600073]), 'split3_train_score': array([ 0.65990825]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([-600502.65769279]), 'split3_test_score': array([ 0.53340446]), 'std_score_time': array([ 0.0016607])}
+GREP_ME***Best params of [LinearRegression] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [LinearRegression] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-600502.657693
+####################################################################################
+################# Running the iteration 12  of the GridSearchCV ####################
+####################################################################################
+***Starting [PassiveAggressiveRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.1s
+GREP_ME***Results of [PassiveAggressiveRegressor] estimatorrun are
+{'std_fit_time': array([ 0.03193271]), 'split2_train_score': array([-966.96863157]), 'params': ({},), 'std_test_score': array([ 357.38221929]), 'mean_train_score': array([-618.88139936]), 'std_train_score': array([ 368.80880084]), 'split1_test_score': array([-752.67692105]), 'split1_train_score': array([-789.17034487]), 'mean_fit_time': array([ 0.1316939]), 'split2_test_score': array([-871.93044759]), 'mean_score_time': array([ 0.01591128]), 'split0_test_score': array([ 0.48119884]), 'split0_train_score': array([ 0.55642879]), 'split3_train_score': array([-719.94304978]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([-614.0416686]), 'split3_test_score': array([-832.04050459]), 'std_score_time': array([ 0.00794037])}
+GREP_ME***Best params of [PassiveAggressiveRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [PassiveAggressiveRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-614.041668597
+####################################################################################
+################# Running the iteration 13  of the GridSearchCV ####################
+####################################################################################
+***Starting [Ridge] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   1.0s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+[CV]  ................................................................
+[CV] ................................................. , total=   1.2s
+GREP_ME***Results of [Ridge] estimatorrun are
+{'std_fit_time': array([ 0.07190447]), 'split2_train_score': array([ 0.65193525]), 'params': ({},), 'std_test_score': array([ 0.04314531]), 'mean_train_score': array([ 0.66480539]), 'std_train_score': array([ 0.0099745]), 'split1_test_score': array([ 0.4912969]), 'split1_train_score': array([ 0.67635896]), 'mean_fit_time': array([ 1.13392782]), 'split2_test_score': array([ 0.59968755]), 'mean_score_time': array([ 0.0066635]), 'split0_test_score': array([ 0.51389973]), 'split0_train_score': array([ 0.67246263]), 'split3_train_score': array([ 0.65846473]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.54365245]), 'split3_test_score': array([ 0.5697256]), 'std_score_time': array([ 0.00405976])}
+GREP_ME***Best params of [Ridge] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [Ridge] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.543652445339
+####################################################################################
+################# Running the iteration 14  of the GridSearchCV ####################
+####################################################################################
+***Starting [SGDRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.1s
+GREP_ME***Results of [SGDRegressor] estimatorrun are
+{'std_fit_time': array([ 0.02246303]), 'split2_train_score': array([ -8.48502322e+30]), 'params': ({},), 'std_test_score': array([  2.44408603e+30]), 'mean_train_score': array([ -5.44356894e+30]), 'std_train_score': array([  2.69662306e+30]), 'split1_test_score': array([ -2.64669316e+30]), 'split1_train_score': array([ -2.77597732e+30]), 'mean_fit_time': array([ 0.12013608]), 'split2_test_score': array([ -7.68945414e+30]), 'mean_score_time': array([ 0.01764959]), 'split0_test_score': array([ -7.86190317e+30]), 'split0_train_score': array([ -7.77166524e+30]), 'split3_train_score': array([ -2.74160998e+30]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ -5.33905424e+30]), 'split3_test_score': array([ -3.15816648e+30]), 'std_score_time': array([ 0.0077025])}
+GREP_ME***Best params of [SGDRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [SGDRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-5.33905423686e+30
+####################################################################################
+################# Running the iteration 15  of the GridSearchCV ####################
+####################################################################################
+***Starting [OrthogonalMatchingPursuit] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.2s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.2s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.2s
+GREP_ME***Results of [OrthogonalMatchingPursuit] estimatorrun are
+{'std_fit_time': array([ 0.05406959]), 'split2_train_score': array([ 0.61982595]), 'params': ({},), 'std_test_score': array([ 0.04288763]), 'mean_train_score': array([ 0.63234075]), 'std_train_score': array([ 0.00977668]), 'split1_test_score': array([ 0.47104125]), 'split1_train_score': array([ 0.64504682]), 'mean_fit_time': array([ 0.21035486]), 'split2_test_score': array([ 0.58316795]), 'mean_score_time': array([ 0.00240386]), 'split0_test_score': array([ 0.53075717]), 'split0_train_score': array([ 0.63791306]), 'split3_train_score': array([ 0.62657715]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.5377309]), 'split3_test_score': array([ 0.56595725]), 'std_score_time': array([ 0.00063991])}
+GREP_ME***Best params of [OrthogonalMatchingPursuit] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [OrthogonalMatchingPursuit] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.53773090475
+####################################################################################
+################# Running the iteration 16  of the GridSearchCV ####################
+####################################################################################
+***Starting [RANSACRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=  20.6s
+[CV]  ................................................................
+[CV] ................................................. , total=  23.3s
+[CV]  ................................................................
+[CV] ................................................. , total=  23.5s
+GREP_ME***Results of [RANSACRegressor] estimatorrun are
+{'std_fit_time': array([ 1.32250165]), 'split2_train_score': array([ 0.23930553]), 'params': ({},), 'std_test_score': array([ 5562469.84698927]), 'mean_train_score': array([-2062393.7104211]), 'std_train_score': array([ 3572171.00297364]), 'split1_test_score': array([ 0.05920343]), 'split1_train_score': array([ 0.22935998]), 'mean_fit_time': array([ 22.87580281]), 'split2_test_score': array([ 0.2777585]), 'mean_score_time': array([ 0.00449145]), 'split0_test_score': array([-0.06445838]), 'split0_train_score': array([ 0.07054579]), 'split3_train_score': array([-8249575.38089572]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([-3211493.37268392]), 'split3_test_score': array([-12845973.76323922]), 'std_score_time': array([ 0.00267427])}
+GREP_ME***Best params of [RANSACRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [RANSACRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-3211493.37268
+####################################################################################
+################# Running the iteration 17  of the GridSearchCV ####################
+####################################################################################
+***Starting [KNeighborsRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [KNeighborsRegressor] estimatorrun are
+{'std_fit_time': array([ 0.00429367]), 'split2_train_score': array([ 0.66057224]), 'params': ({},), 'std_test_score': array([ 0.04243777]), 'mean_train_score': array([ 0.66332779]), 'std_train_score': array([ 0.01213278]), 'split1_test_score': array([ 0.40805494]), 'split1_train_score': array([ 0.67779017]), 'mean_fit_time': array([ 0.13602018]), 'split2_test_score': array([ 0.48459631]), 'mean_score_time': array([ 0.23018992]), 'split0_test_score': array([ 0.45817731]), 'split0_train_score': array([ 0.66979386]), 'split3_train_score': array([ 0.64515491]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.46894194]), 'split3_test_score': array([ 0.5249392]), 'std_score_time': array([ 0.00488216])}
+GREP_ME***Best params of [KNeighborsRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [KNeighborsRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.468941939831
+####################################################################################
+################# Running the iteration 18  of the GridSearchCV ####################
+####################################################################################
+***Starting [RadiusNeighborsRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV]  ................................................................
+[CV]  ................................................................
+[CV]  ................................................................
+GREP_ME***Error caught for  [RadiusNeighborsRegressor] , pipeline: [| preprocessor:dummy | transfomer: dummy | reducer: dummy] 
+JoblibValueError
+___________________________________________________________________________
+Multiprocessing exception:
+...........................................................................
+/home/user/data_mining/quick_solver.py in <module>()
+    548         './dataset/test_names-td_cat-tdidf.csv',
+    549         './dataset/test_names-tdidf_cat-count.csv',
+    550         './dataset/test_names-tdidf_cat-td.csv',
+    551         './dataset/test_names-tdidf_cat-tdidf.csv'
+    552     ]
+--> 553     for file in files: simple_experiment(file)
+    554 
+    555 
+    556 
+    557 
+
+...........................................................................
+/home/user/data_mining/quick_solver.py in simple_experiment(file_path='./dataset/test_names-tdidf_cat-count.csv')
+    505             new_file = open(trg, "w")
+    506             sys.stdout = new_file
+    507             # set the itterator run to start from
+    508             global itter_start
+    509             itter_start = 0
+--> 510             run_for_many(x_crr, y_crr, dsc, models_reg, models_cfg)
+        x_crr =       actor_1_facebook_likes  actor_2_facebook_l...        0          0  
+
+[4812 rows x 489 columns]
+        y_crr = 0       2783918982
+1       2207615668
+2       16...            0
+Name: worldwide_gross, dtype: int64
+        dsc = 'quickRegtest_names-tdidf_cat-count'
+        models_reg = [AdaBoostRegressor(base_estimator=None, learning_...ar',
+         n_estimators=50, random_state=None), BaggingRegressor(base_estimator=None, bootstrap=...state=None,
+         verbose=0, warm_start=False), ExtraTreesRegressor(bootstrap=False, criterion='...tate=None,
+          verbose=0, warm_start=False), GradientBoostingRegressor(alpha=0.9, criterion='...le=1.0, verbose=0,
+             warm_start=False), RandomForestRegressor(bootstrap=True, criterion=...ate=None,
+           verbose=0, warm_start=False), ElasticNet(alpha=1.0, copy_X=True, fit_intercept...selection='cyclic', tol=0.0001, warm_start=False), HuberRegressor(alpha=0.0001, epsilon=1.35, fit_i...ax_iter=100,
+        tol=1e-05, warm_start=False), Lasso(alpha=1.0, copy_X=True, fit_intercept=True...selection='cyclic', tol=0.0001, warm_start=False), LassoLars(alpha=1.0, copy_X=True, eps=2.22044604...positive=False, precompute='auto', verbose=False), LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False), PassiveAggressiveRegressor(C=1.0, epsilon=0.1, f...       shuffle=True, verbose=0, warm_start=False), Ridge(alpha=1.0, copy_X=True, fit_intercept=True...lse, random_state=None, solver='auto', tol=0.001), SGDRegressor(alpha=0.0001, average=False, epsilo...=None, shuffle=True, verbose=0, warm_start=False), OrthogonalMatchingPursuit(fit_intercept=True, n_...     normalize=True, precompute='auto', tol=None), RANSACRegressor(base_estimator=None, is_data_val...liers=inf, stop_probability=0.99, stop_score=inf), KNeighborsRegressor(algorithm='auto', leaf_size=... n_neighbors=5, p=2,
+          weights='uniform'), RadiusNeighborsRegressor(algorithm='auto', leaf_..._params=None, p=2, radius=1.0, weights='uniform'), MLPRegressor(activation='relu', alpha=0.0001, ba...tion=0.1,
+       verbose=False, warm_start=False), SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, ...ter=-1, shrinking=True, tol=0.001, verbose=False), LinearSVR(C=1.0, dual=True, epsilon=0.0, fit_int...0,
+     random_state=None, tol=0.0001, verbose=0), ...]
+        models_cfg = {'AdaBoostClassifier': {}, 'AdaBoostRegressor': {}, 'BaggingClassifier': {}, 'BaggingRegressor': {}, 'BayesianRidge': {}, 'DecisionTreeClassifier': {}, 'DecisionTreeRegressor': {}, 'ElasticNet': {}, 'ExtraTreeClassifier': {}, 'ExtraTreeRegressor': {}, ...}
+    511             new_file.close()
+    512             
+    513     
+    514     desc = "quickClass" + file_path.replace('.','').replace('/','').replace('dataset','').replace('csv','')
+
+...........................................................................
+/home/user/data_mining/quick_solver.py in run_for_many(x=      actor_1_facebook_likes  actor_2_facebook_l...        0          0  
+
+[4812 rows x 489 columns], y=0       2783918982
+1       2207615668
+2       16...            0
+Name: worldwide_gross, dtype: int64, cl_n='quickRegtest_names-tdidf_cat-count', models=[AdaBoostRegressor(base_estimator=None, learning_...ar',
+         n_estimators=50, random_state=None), BaggingRegressor(base_estimator=None, bootstrap=...state=None,
+         verbose=0, warm_start=False), ExtraTreesRegressor(bootstrap=False, criterion='...tate=None,
+          verbose=0, warm_start=False), GradientBoostingRegressor(alpha=0.9, criterion='...le=1.0, verbose=0,
+             warm_start=False), RandomForestRegressor(bootstrap=True, criterion=...ate=None,
+           verbose=0, warm_start=False), ElasticNet(alpha=1.0, copy_X=True, fit_intercept...selection='cyclic', tol=0.0001, warm_start=False), HuberRegressor(alpha=0.0001, epsilon=1.35, fit_i...ax_iter=100,
+        tol=1e-05, warm_start=False), Lasso(alpha=1.0, copy_X=True, fit_intercept=True...selection='cyclic', tol=0.0001, warm_start=False), LassoLars(alpha=1.0, copy_X=True, eps=2.22044604...positive=False, precompute='auto', verbose=False), LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False), PassiveAggressiveRegressor(C=1.0, epsilon=0.1, f...       shuffle=True, verbose=0, warm_start=False), Ridge(alpha=1.0, copy_X=True, fit_intercept=True...lse, random_state=None, solver='auto', tol=0.001), SGDRegressor(alpha=0.0001, average=False, epsilo...=None, shuffle=True, verbose=0, warm_start=False), OrthogonalMatchingPursuit(fit_intercept=True, n_...     normalize=True, precompute='auto', tol=None), RANSACRegressor(base_estimator=None, is_data_val...liers=inf, stop_probability=0.99, stop_score=inf), KNeighborsRegressor(algorithm='auto', leaf_size=... n_neighbors=5, p=2,
+          weights='uniform'), RadiusNeighborsRegressor(algorithm='auto', leaf_..._params=None, p=2, radius=1.0, weights='uniform'), MLPRegressor(activation='relu', alpha=0.0001, ba...tion=0.1,
+       verbose=False, warm_start=False), SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, ...ter=-1, shrinking=True, tol=0.001, verbose=False), LinearSVR(C=1.0, dual=True, epsilon=0.0, fit_int...0,
+     random_state=None, tol=0.0001, verbose=0), ...], models_cfg={'AdaBoostClassifier': {}, 'AdaBoostRegressor': {}, 'BaggingClassifier': {}, 'BaggingRegressor': {}, 'BayesianRidge': {}, 'DecisionTreeClassifier': {}, 'DecisionTreeRegressor': {}, 'ElasticNet': {}, 'ExtraTreeClassifier': {}, 'ExtraTreeRegressor': {}, ...})
+    397     errors = []
+    398     errors_ind = []
+    399     print("#########################################")
+    400     print("###Starting all estimators for cl: " + str(cl_n))
+    401     print("#########################################")
+--> 402     run_solver(x, y, models, models_cfg, results, errors, errors_ind, precomp_pipe)
+        x =       actor_1_facebook_likes  actor_2_facebook_l...        0          0  
+
+[4812 rows x 489 columns]
+        y = 0       2783918982
+1       2207615668
+2       16...            0
+Name: worldwide_gross, dtype: int64
+        models = [AdaBoostRegressor(base_estimator=None, learning_...ar',
+         n_estimators=50, random_state=None), BaggingRegressor(base_estimator=None, bootstrap=...state=None,
+         verbose=0, warm_start=False), ExtraTreesRegressor(bootstrap=False, criterion='...tate=None,
+          verbose=0, warm_start=False), GradientBoostingRegressor(alpha=0.9, criterion='...le=1.0, verbose=0,
+             warm_start=False), RandomForestRegressor(bootstrap=True, criterion=...ate=None,
+           verbose=0, warm_start=False), ElasticNet(alpha=1.0, copy_X=True, fit_intercept...selection='cyclic', tol=0.0001, warm_start=False), HuberRegressor(alpha=0.0001, epsilon=1.35, fit_i...ax_iter=100,
+        tol=1e-05, warm_start=False), Lasso(alpha=1.0, copy_X=True, fit_intercept=True...selection='cyclic', tol=0.0001, warm_start=False), LassoLars(alpha=1.0, copy_X=True, eps=2.22044604...positive=False, precompute='auto', verbose=False), LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False), PassiveAggressiveRegressor(C=1.0, epsilon=0.1, f...       shuffle=True, verbose=0, warm_start=False), Ridge(alpha=1.0, copy_X=True, fit_intercept=True...lse, random_state=None, solver='auto', tol=0.001), SGDRegressor(alpha=0.0001, average=False, epsilo...=None, shuffle=True, verbose=0, warm_start=False), OrthogonalMatchingPursuit(fit_intercept=True, n_...     normalize=True, precompute='auto', tol=None), RANSACRegressor(base_estimator=None, is_data_val...liers=inf, stop_probability=0.99, stop_score=inf), KNeighborsRegressor(algorithm='auto', leaf_size=... n_neighbors=5, p=2,
+          weights='uniform'), RadiusNeighborsRegressor(algorithm='auto', leaf_..._params=None, p=2, radius=1.0, weights='uniform'), MLPRegressor(activation='relu', alpha=0.0001, ba...tion=0.1,
+       verbose=False, warm_start=False), SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, ...ter=-1, shrinking=True, tol=0.001, verbose=False), LinearSVR(C=1.0, dual=True, epsilon=0.0, fit_int...0,
+     random_state=None, tol=0.0001, verbose=0), ...]
+        models_cfg = {'AdaBoostClassifier': {}, 'AdaBoostRegressor': {}, 'BaggingClassifier': {}, 'BaggingRegressor': {}, 'BayesianRidge': {}, 'DecisionTreeClassifier': {}, 'DecisionTreeRegressor': {}, 'ElasticNet': {}, 'ExtraTreeClassifier': {}, 'ExtraTreeRegressor': {}, ...}
+        errors = []
+        errors_ind = []
+        precomp_pipe = []
+    403     print("#########################################")
+    404     print("###Finished all estimators for cl: " + str(cl_n))
+    405     print("#########################################")
+    406 
+
+...........................................................................
+/home/user/data_mining/quick_solver.py in run_solver(x=      actor_1_facebook_likes  actor_2_facebook_l...        0          0  
+
+[4812 rows x 489 columns], y=3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64, models=[AdaBoostRegressor(base_estimator=None, learning_...ar',
+         n_estimators=50, random_state=None), BaggingRegressor(base_estimator=None, bootstrap=...state=None,
+         verbose=0, warm_start=False), ExtraTreesRegressor(bootstrap=False, criterion='...tate=None,
+          verbose=0, warm_start=False), GradientBoostingRegressor(alpha=0.9, criterion='...le=1.0, verbose=0,
+             warm_start=False), RandomForestRegressor(bootstrap=True, criterion=...ate=None,
+           verbose=0, warm_start=False), ElasticNet(alpha=1.0, copy_X=True, fit_intercept...selection='cyclic', tol=0.0001, warm_start=False), HuberRegressor(alpha=0.0001, epsilon=1.35, fit_i...ax_iter=100,
+        tol=1e-05, warm_start=False), Lasso(alpha=1.0, copy_X=True, fit_intercept=True...selection='cyclic', tol=0.0001, warm_start=False), LassoLars(alpha=1.0, copy_X=True, eps=2.22044604...positive=False, precompute='auto', verbose=False), LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False), PassiveAggressiveRegressor(C=1.0, epsilon=0.1, f...       shuffle=True, verbose=0, warm_start=False), Ridge(alpha=1.0, copy_X=True, fit_intercept=True...lse, random_state=None, solver='auto', tol=0.001), SGDRegressor(alpha=0.0001, average=False, epsilo...=None, shuffle=True, verbose=0, warm_start=False), OrthogonalMatchingPursuit(fit_intercept=True, n_...     normalize=True, precompute='auto', tol=None), RANSACRegressor(base_estimator=None, is_data_val...liers=inf, stop_probability=0.99, stop_score=inf), KNeighborsRegressor(algorithm='auto', leaf_size=... n_neighbors=5, p=2,
+          weights='uniform'), RadiusNeighborsRegressor(algorithm='auto', leaf_..._params=None, p=2, radius=1.0, weights='uniform'), MLPRegressor(activation='relu', alpha=0.0001, ba...tion=0.1,
+       verbose=False, warm_start=False), SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, ...ter=-1, shrinking=True, tol=0.001, verbose=False), LinearSVR(C=1.0, dual=True, epsilon=0.0, fit_int...0,
+     random_state=None, tol=0.0001, verbose=0), ...], models_cfg={'AdaBoostClassifier': {}, 'AdaBoostRegressor': {}, 'BaggingClassifier': {}, 'BaggingRegressor': {}, 'BayesianRidge': {}, 'DecisionTreeClassifier': {}, 'DecisionTreeRegressor': {}, 'ElasticNet': {}, 'ExtraTreeClassifier': {}, 'ExtraTreeRegressor': {}, ...}, results={'AdaBoostRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': -0.34874789437013298}, 'BaggingRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.56035863788427287}, 'ElasticNet': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.55746497199840717}, 'ExtraTreesRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.54922641906566916}, 'GradientBoostingRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.57871917663469763}, 'HuberRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.48242838829166224}, 'KNeighborsRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.46894193983139965}, 'Lasso': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.5127131538181533}, 'LassoLars': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.52519398070693291}, 'LinearRegression': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': -600502.65769279236}, ...}, errors=[], errors_ind=[], precomp_pipe=[])
+    386     for filename in os.listdir("./tmp"):
+    387         pipe_dict = pickle.loads(open("./tmp/" + filename, 'rb').read())
+    388         # for model in models:
+    389         for model in models:
+    390             run_grid_search(pipe_dict['precomp_transform'], y, model, models_cfg, pipe_dict['cfg_dict'], pipe_dict['pipeline_cfg'],
+--> 391                             results, errors, errors_ind)
+        results = {'AdaBoostRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': -0.34874789437013298}, 'BaggingRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.56035863788427287}, 'ElasticNet': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.55746497199840717}, 'ExtraTreesRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.54922641906566916}, 'GradientBoostingRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.57871917663469763}, 'HuberRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.48242838829166224}, 'KNeighborsRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.46894193983139965}, 'Lasso': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.5127131538181533}, 'LassoLars': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.52519398070693291}, 'LinearRegression': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': -600502.65769279236}, ...}
+        errors = []
+        errors_ind = []
+    392 
+    393 ## Function for trigrering gridserach and priting results
+    394 def run_for_many(x, y, cl_n, models, models_cfg):
+    395     results = {}
+
+...........................................................................
+/home/user/data_mining/quick_solver.py in run_grid_search(x=array([[  1.60000000e+04,   1.00000000e+04,   9....000000e+00,   0.00000000e+00,   0.00000000e+00]]), y=3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64, model=RadiusNeighborsRegressor(algorithm='auto', leaf_..._params=None, p=2, radius=1.0, weights='uniform'), model_cfg={'AdaBoostClassifier': {}, 'AdaBoostRegressor': {}, 'BaggingClassifier': {}, 'BaggingRegressor': {}, 'BayesianRidge': {}, 'DecisionTreeClassifier': {}, 'DecisionTreeRegressor': {}, 'ElasticNet': {}, 'ExtraTreeClassifier': {}, 'ExtraTreeRegressor': {}, ...}, cfg_dict={}, pipeline_cfg='| preprocessor:dummy | transfomer: dummy | reducer: dummy', results={'AdaBoostRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': -0.34874789437013298}, 'BaggingRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.56035863788427287}, 'ElasticNet': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.55746497199840717}, 'ExtraTreesRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.54922641906566916}, 'GradientBoostingRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.57871917663469763}, 'HuberRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.48242838829166224}, 'KNeighborsRegressor': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.46894193983139965}, 'Lasso': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.5127131538181533}, 'LassoLars': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': 0.52519398070693291}, 'LinearRegression': {'best_cfg': {}, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'score': -600502.65769279236}, ...}, errors=[], errors_ind=[])
+    299     print("##param_grid##")
+    300     print(param_grid)
+    301     estimator = GridSearchCV(pipe, param_grid, verbose=2, cv=cv, n_jobs=-1)
+    302     # run the estimator, except exceptions, sape errors
+    303     try:
+--> 304         estimator.fit(x, y)
+        estimator.fit = <bound method GridSearchCV.fit of GridSearchCV(c...rain_score=True,
+       scoring=None, verbose=2)>
+        x = array([[  1.60000000e+04,   1.00000000e+04,   9....000000e+00,   0.00000000e+00,   0.00000000e+00]])
+        y = 3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64
+    305         print("GREP_ME***Results of [" + name + "] estimatorrun are")
+    306         print(estimator.cv_results_)
+    307         print("GREP_ME***Best params of [" + name + "] estimator,pipeline:" + pipeline_cfg + "  run are")
+    308         best_param = dict(estimator.best_params_, **cfg_dict)
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/model_selection/_search.py in fit(self=GridSearchCV(cv=4, error_score='raise',
+       e...train_score=True,
+       scoring=None, verbose=2), X=array([[  1.60000000e+04,   1.00000000e+04,   9....000000e+00,   0.00000000e+00,   0.00000000e+00]]), y=3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64, groups=None)
+    940 
+    941         groups : array-like, with shape (n_samples,), optional
+    942             Group labels for the samples used while splitting the dataset into
+    943             train/test set.
+    944         """
+--> 945         return self._fit(X, y, groups, ParameterGrid(self.param_grid))
+        self._fit = <bound method GridSearchCV._fit of GridSearchCV(...rain_score=True,
+       scoring=None, verbose=2)>
+        X = array([[  1.60000000e+04,   1.00000000e+04,   9....000000e+00,   0.00000000e+00,   0.00000000e+00]])
+        y = 3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64
+        groups = None
+        self.param_grid = {}
+    946 
+    947 
+    948 class RandomizedSearchCV(BaseSearchCV):
+    949     """Randomized search on hyper parameters.
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/model_selection/_search.py in _fit(self=GridSearchCV(cv=4, error_score='raise',
+       e...train_score=True,
+       scoring=None, verbose=2), X=array([[  1.60000000e+04,   1.00000000e+04,   9....000000e+00,   0.00000000e+00,   0.00000000e+00]]), y=3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64, groups=None, parameter_iterable=<sklearn.model_selection._search.ParameterGrid object>)
+    559                                   fit_params=self.fit_params,
+    560                                   return_train_score=self.return_train_score,
+    561                                   return_n_test_samples=True,
+    562                                   return_times=True, return_parameters=True,
+    563                                   error_score=self.error_score)
+--> 564           for parameters in parameter_iterable
+        parameters = undefined
+        parameter_iterable = <sklearn.model_selection._search.ParameterGrid object>
+    565           for train, test in cv_iter)
+    566 
+    567         # if one choose to see train score, "out" will contain train score info
+    568         if self.return_train_score:
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/externals/joblib/parallel.py in __call__(self=Parallel(n_jobs=-1), iterable=<generator object <genexpr>>)
+    763             if pre_dispatch == "all" or n_jobs == 1:
+    764                 # The iterable was consumed all at once by the above for loop.
+    765                 # No need to wait for async callbacks to trigger to
+    766                 # consumption.
+    767                 self._iterating = False
+--> 768             self.retrieve()
+        self.retrieve = <bound method Parallel.retrieve of Parallel(n_jobs=-1)>
+    769             # Make sure that we get a last message telling us we are done
+    770             elapsed_time = time.time() - self._start_time
+    771             self._print('Done %3i out of %3i | elapsed: %s finished',
+    772                         (len(self._output), len(self._output),
+
+---------------------------------------------------------------------------
+Sub-process traceback:
+---------------------------------------------------------------------------
+ValueError                                         Sat Apr 22 19:27:06 2017
+PID: 22861                                   Python 3.4.3: /usr/bin/python3
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/externals/joblib/parallel.py in __call__(self=<sklearn.externals.joblib.parallel.BatchedCalls object>)
+    126     def __init__(self, iterator_slice):
+    127         self.items = list(iterator_slice)
+    128         self._size = len(self.items)
+    129 
+    130     def __call__(self):
+--> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        self.items = [(<function _fit_and_score>, (Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))]), memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), 3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64, <function _passthrough_scorer>, array([1203, 1204, 1205, ..., 4809, 4810, 4811]), array([   0,    1,    2, ..., 1200, 1201, 1202]), 2, {}), {'error_score': 'raise', 'fit_params': {}, 'return_n_test_samples': True, 'return_parameters': True, 'return_times': True, 'return_train_score': True})]
+    132 
+    133     def __len__(self):
+    134         return self._size
+    135 
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/externals/joblib/parallel.py in <listcomp>(.0=<list_iterator object>)
+    126     def __init__(self, iterator_slice):
+    127         self.items = list(iterator_slice)
+    128         self._size = len(self.items)
+    129 
+    130     def __call__(self):
+--> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        func = <function _fit_and_score>
+        args = (Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))]), memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), 3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64, <function _passthrough_scorer>, array([1203, 1204, 1205, ..., 4809, 4810, 4811]), array([   0,    1,    2, ..., 1200, 1201, 1202]), 2, {})
+        kwargs = {'error_score': 'raise', 'fit_params': {}, 'return_n_test_samples': True, 'return_parameters': True, 'return_times': True, 'return_train_score': True}
+    132 
+    133     def __len__(self):
+    134         return self._size
+    135 
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/model_selection/_validation.py in _fit_and_score(estimator=Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))]), X=memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), y=3874       1673635
+4807             0
+2777      ...      9669521
+Name: worldwide_gross, dtype: int64, scorer=<function _passthrough_scorer>, train=array([1203, 1204, 1205, ..., 4809, 4810, 4811]), test=array([   0,    1,    2, ..., 1200, 1201, 1202]), verbose=2, parameters={}, fit_params={}, return_train_score=True, return_parameters=True, return_n_test_samples=True, return_times=True, error_score='raise')
+    255                              " numeric value. (Hint: if using 'raise', please"
+    256                              " make sure that it has been spelled correctly.)")
+    257 
+    258     else:
+    259         fit_time = time.time() - start_time
+--> 260         test_score = _score(estimator, X_test, y_test, scorer)
+        test_score = undefined
+        estimator = Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))])
+        X_test = memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]])
+        y_test = 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64
+        scorer = <function _passthrough_scorer>
+    261         score_time = time.time() - start_time - fit_time
+    262         if return_train_score:
+    263             train_score = _score(estimator, X_train, y_train, scorer)
+    264 
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/model_selection/_validation.py in _score(estimator=Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))]), X_test=memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), y_test=3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64, scorer=<function _passthrough_scorer>)
+    283 def _score(estimator, X_test, y_test, scorer):
+    284     """Compute the score of an estimator on a given test set."""
+    285     if y_test is None:
+    286         score = scorer(estimator, X_test)
+    287     else:
+--> 288         score = scorer(estimator, X_test, y_test)
+        score = undefined
+        scorer = <function _passthrough_scorer>
+        estimator = Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))])
+        X_test = memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]])
+        y_test = 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64
+    289     if hasattr(score, 'item'):
+    290         try:
+    291             # e.g. unwrap memmapped scalars
+    292             score = score.item()
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/metrics/scorer.py in _passthrough_scorer(estimator=Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))]), *args=(memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64), **kwargs={})
+    214     return scorer
+    215 
+    216 
+    217 def _passthrough_scorer(estimator, *args, **kwargs):
+    218     """Function that wraps estimator.score"""
+--> 219     return estimator.score(*args, **kwargs)
+        estimator.score = <function Pipeline.score>
+        args = (memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64)
+        kwargs = {}
+    220 
+    221 
+    222 def check_scoring(estimator, scoring=None, allow_none=False):
+    223     """Determine scorer from user options.
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/utils/metaestimators.py in <lambda>(*args=(memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64), **kwargs={})
+     49                     break
+     50             else:
+     51                 attrgetter(self.delegate_names[-1])(obj)
+     52 
+     53         # lambda, but not partial, allows help() to work with update_wrapper
+---> 54         out = lambda *args, **kwargs: self.fn(obj, *args, **kwargs)
+        args = (memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64)
+        kwargs = {}
+     55         # update the docstring of the returned function
+     56         update_wrapper(out, self.fn)
+     57         return out
+     58 
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/pipeline.py in score(self=Pipeline(steps=[('model', RadiusNeighborsRegress...rams=None, p=2, radius=1.0, weights='uniform'))]), X=memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), y=3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64)
+    500         """
+    501         Xt = X
+    502         for name, transform in self.steps[:-1]:
+    503             if transform is not None:
+    504                 Xt = transform.transform(Xt)
+--> 505         return self.steps[-1][-1].score(Xt, y)
+        self.steps.score = undefined
+        Xt = memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]])
+        y = 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64
+    506 
+    507     @property
+    508     def classes_(self):
+    509         return self.steps[-1][-1].classes_
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/base.py in score(self=RadiusNeighborsRegressor(algorithm='auto', leaf_..._params=None, p=2, radius=1.0, weights='uniform'), X=memmap([[  1.60000000e+04,   1.00000000e+04,   9...000000e+00,   0.00000000e+00,   0.00000000e+00]]), y=3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64, sample_weight=None)
+    382             R^2 of self.predict(X) wrt. y.
+    383         """
+    384 
+    385         from .metrics import r2_score
+    386         return r2_score(y, self.predict(X), sample_weight=sample_weight,
+--> 387                         multioutput='variance_weighted')
+    388 
+    389 
+    390 ###############################################################################
+    391 class ClusterMixin(object):
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/metrics/regression.py in r2_score(y_true=3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64, y_pred=array([ nan,  nan,  nan, ...,  nan,  nan,  nan]), sample_weight=None, multioutput='variance_weighted')
+    450     >>> y_pred = [3,2,1]
+    451     >>> r2_score(y_true, y_pred)
+    452     -3.0
+    453     """
+    454     y_type, y_true, y_pred, multioutput = _check_reg_targets(
+--> 455         y_true, y_pred, multioutput)
+        y_true = 3874       1673635
+4807             0
+2777      ...     49628177
+Name: worldwide_gross, dtype: int64
+        y_pred = array([ nan,  nan,  nan, ...,  nan,  nan,  nan])
+        multioutput = 'variance_weighted'
+    456 
+    457     if sample_weight is not None:
+    458         sample_weight = column_or_1d(sample_weight)
+    459         weight = sample_weight[:, np.newaxis]
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/metrics/regression.py in _check_reg_targets(y_true=array([ 1673635,        0, 18642318, ...,  7313697,  7974607, 49628177]), y_pred=array([ nan,  nan,  nan, ...,  nan,  nan,  nan]), multioutput='variance_weighted')
+     71         correct keyword.
+     72 
+     73     """
+     74     check_consistent_length(y_true, y_pred)
+     75     y_true = check_array(y_true, ensure_2d=False)
+---> 76     y_pred = check_array(y_pred, ensure_2d=False)
+        y_pred = array([ nan,  nan,  nan, ...,  nan,  nan,  nan])
+     77 
+     78     if y_true.ndim == 1:
+     79         y_true = y_true.reshape((-1, 1))
+     80 
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/utils/validation.py in check_array(array=array([ nan,  nan,  nan, ...,  nan,  nan,  nan]), accept_sparse=None, dtype=None, order=None, copy=False, force_all_finite=True, ensure_2d=False, allow_nd=False, ensure_min_samples=1, ensure_min_features=1, warn_on_dtype=False, estimator=None)
+    402             array = array.astype(np.float64)
+    403         if not allow_nd and array.ndim >= 3:
+    404             raise ValueError("Found array with dim %d. %s expected <= 2."
+    405                              % (array.ndim, estimator_name))
+    406         if force_all_finite:
+--> 407             _assert_all_finite(array)
+        array = array([ nan,  nan,  nan, ...,  nan,  nan,  nan])
+    408 
+    409     shape_repr = _shape_repr(array.shape)
+    410     if ensure_min_samples > 0:
+    411         n_samples = _num_samples(array)
+
+...........................................................................
+/usr/local/lib/python3.4/dist-packages/sklearn/utils/validation.py in _assert_all_finite(X=array([ nan,  nan,  nan, ...,  nan,  nan,  nan]))
+     53     # everything is finite; fall back to O(n) space np.isfinite to prevent
+     54     # false positives from overflow in sum method.
+     55     if (X.dtype.char in np.typecodes['AllFloat'] and not np.isfinite(X.sum())
+     56             and not np.isfinite(X).all()):
+     57         raise ValueError("Input contains NaN, infinity"
+---> 58                          " or a value too large for %r." % X.dtype)
+        X.dtype = dtype('float64')
+     59 
+     60 
+     61 def assert_all_finite(X):
+     62     """Throw a ValueError if X contains NaN or infinity.
+
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+___________________________________________________________________________
+####################################################################################
+################# Running the iteration 19  of the GridSearchCV ####################
+####################################################################################
+***Starting [MLPRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   4.1s
+[CV]  ................................................................
+[CV] ................................................. , total=   4.0s
+GREP_ME***Results of [MLPRegressor] estimatorrun are
+{'std_fit_time': array([ 0.34659555]), 'split2_train_score': array([ 0.5202301]), 'params': ({},), 'std_test_score': array([ 0.05033768]), 'mean_train_score': array([ 0.5493709]), 'std_train_score': array([ 0.01863055]), 'split1_test_score': array([ 0.4982131]), 'split1_train_score': array([ 0.56547276]), 'mean_fit_time': array([ 4.3446129]), 'split2_test_score': array([ 0.618543]), 'mean_score_time': array([ 0.01122421]), 'split0_test_score': array([ 0.49722995]), 'split0_train_score': array([ 0.5657627]), 'split3_train_score': array([ 0.54601803]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.54379159]), 'split3_test_score': array([ 0.56118033]), 'std_score_time': array([ 0.00543314])}
+GREP_ME***Best params of [MLPRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [MLPRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.543791594858
+####################################################################################
+################# Running the iteration 20  of the GridSearchCV ####################
+####################################################################################
+***Starting [SVR] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=  11.9s
+[CV]  ................................................................
+[CV] ................................................. , total=  11.9s
+GREP_ME***Results of [SVR] estimatorrun are
+{'std_fit_time': array([ 0.02554215]), 'split2_train_score': array([-0.13879265]), 'params': ({},), 'std_test_score': array([ 0.00863647]), 'mean_train_score': array([-0.13204077]), 'std_train_score': array([ 0.00436575]), 'split1_test_score': array([-0.13792982]), 'split1_train_score': array([-0.12771774]), 'mean_fit_time': array([ 9.03842384]), 'split2_test_score': array([-0.11796228]), 'mean_score_time': array([ 2.87273484]), 'split0_test_score': array([-0.13761631]), 'split0_train_score': array([-0.13294919]), 'split3_train_score': array([-0.12870351]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([-0.13291734]), 'split3_test_score': array([-0.13816096]), 'std_score_time': array([ 0.00208695])}
+GREP_ME***Best params of [SVR] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [SVR] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-0.1329173445
+####################################################################################
+################# Running the iteration 21  of the GridSearchCV ####################
+####################################################################################
+***Starting [LinearSVR] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.5s
+GREP_ME***Results of [LinearSVR] estimatorrun are
+{'std_fit_time': array([ 0.03493121]), 'split2_train_score': array([ 0.40328244]), 'params': ({},), 'std_test_score': array([ 6.22340305]), 'mean_train_score': array([-5.93850041]), 'std_train_score': array([ 6.34556476]), 'split1_test_score': array([-11.51484737]), 'split1_train_score': array([-12.10567433]), 'mean_fit_time': array([ 0.48154128]), 'split2_test_score': array([ 0.4590194]), 'mean_score_time': array([ 0.01121694]), 'split0_test_score': array([-12.44295608]), 'split0_train_score': array([-12.45998239]), 'split3_train_score': array([ 0.40837264]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([-5.76415823]), 'split3_test_score': array([ 0.44215113]), 'std_score_time': array([ 0.00520726])}
+GREP_ME***Best params of [LinearSVR] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [LinearSVR] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-5.76415822983
+####################################################################################
+################# Running the iteration 22  of the GridSearchCV ####################
+####################################################################################
+***Starting [NuSVR] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [NuSVR] estimatorrun are
+{'std_fit_time': array([ 0.04346626]), 'split2_train_score': array([-0.05218608]), 'params': ({},), 'std_test_score': array([ 0.00438976]), 'mean_train_score': array([-0.05233661]), 'std_train_score': array([ 0.00182859]), 'split1_test_score': array([-0.05295778]), 'split1_train_score': array([-0.04973968]), 'mean_fit_time': array([ 5.88927883]), 'split2_test_score': array([-0.0466578]), 'mean_score_time': array([ 1.42298079]), 'split0_test_score': array([-0.05227515]), 'split0_train_score': array([-0.05251998]), 'split3_train_score': array([-0.05490071]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([-0.05273533]), 'split3_test_score': array([-0.05905058]), 'std_score_time': array([ 0.00336973])}
+GREP_ME***Best params of [NuSVR] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [NuSVR] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+-0.0527353293301
+####################################################################################
+################# Running the iteration 23  of the GridSearchCV ####################
+####################################################################################
+***Starting [DecisionTreeRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+GREP_ME***Results of [DecisionTreeRegressor] estimatorrun are
+{'std_fit_time': array([ 0.0310993]), 'split2_train_score': array([ 1.]), 'params': ({},), 'std_test_score': array([ 0.0589953]), 'mean_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'split1_test_score': array([ 0.34969673]), 'split1_train_score': array([ 1.]), 'mean_fit_time': array([ 0.32937264]), 'split2_test_score': array([ 0.40381485]), 'mean_score_time': array([ 0.00449091]), 'split0_test_score': array([ 0.30042893]), 'split0_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.37804292]), 'split3_test_score': array([ 0.45823116]), 'std_score_time': array([ 0.00041114])}
+GREP_ME***Best params of [DecisionTreeRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [DecisionTreeRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.378042918049
+####################################################################################
+################# Running the iteration 24  of the GridSearchCV ####################
+####################################################################################
+***Starting [ExtraTreeRegressor] estimator run, pipeline: | preprocessor:dummy | transfomer: dummy | reducer: dummy 
+##param_grid##
+{}
+Fitting 4 folds for each of 1 candidates, totalling 4 fits
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+[CV]  ................................................................
+[CV] ................................................. , total=   0.3s
+GREP_ME***Results of [ExtraTreeRegressor] estimatorrun are
+{'std_fit_time': array([ 0.0242151]), 'split2_train_score': array([ 1.]), 'params': ({},), 'std_test_score': array([ 0.09513682]), 'mean_train_score': array([ 1.]), 'std_train_score': array([ 0.]), 'split1_test_score': array([ 0.18640496]), 'split1_train_score': array([ 1.]), 'mean_fit_time': array([ 0.28033221]), 'split2_test_score': array([ 0.41051485]), 'mean_score_time': array([ 0.00381589]), 'split0_test_score': array([ 0.22451845]), 'split0_train_score': array([ 1.]), 'split3_train_score': array([ 1.]), 'rank_test_score': array([1], dtype=int32), 'mean_test_score': array([ 0.29872351]), 'split3_test_score': array([ 0.37345576]), 'std_score_time': array([  3.89553633e-05])}
+GREP_ME***Best params of [ExtraTreeRegressor] estimator,pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy  run are
+{}
+GREP_ME***Best score of [ExtraTreeRegressor] estimator, pipeline:| preprocessor:dummy | transfomer: dummy | reducer: dummy run are
+0.298723506537
+#########################################
+###Finished all estimators for cl: quickRegtest_names-tdidf_cat-count
+#########################################
+#########################################
+#######Printing results for cl: quickRegtest_names-tdidf_cat-count
+#########################################
+{'ElasticNet': {'score': 0.55746497199840717, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'RandomForestRegressor': {'score': 0.56271616075852582, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'RANSACRegressor': {'score': -3211493.3726839167, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'OrthogonalMatchingPursuit': {'score': 0.53773090475020902, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'DecisionTreeRegressor': {'score': 0.37804291804910817, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'Lasso': {'score': 0.5127131538181533, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'KNeighborsRegressor': {'score': 0.46894193983139965, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'LinearSVR': {'score': -5.7641582298273297, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'SGDRegressor': {'score': -5.3390542368583878e+30, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'GradientBoostingRegressor': {'score': 0.57871917663469763, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'BaggingRegressor': {'score': 0.56035863788427287, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'ExtraTreesRegressor': {'score': 0.54922641906566916, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'ExtraTreeRegressor': {'score': 0.29872350653702751, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'PassiveAggressiveRegressor': {'score': -614.04166859715178, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'SVR': {'score': -0.13291734450002413, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'Ridge': {'score': 0.54365244533925028, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'MLPRegressor': {'score': 0.54379159485768558, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'AdaBoostRegressor': {'score': -0.34874789437013298, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'LassoLars': {'score': 0.52519398070693291, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'LinearRegression': {'score': -600502.65769279236, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'HuberRegressor': {'score': 0.48242838829166224, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}, 'NuSVR': {'score': -0.052735329330064307, 'pipe': '| preprocessor:dummy | transfomer: dummy | reducer: dummy', 'best_cfg': {}}}
+priting simply sorted numbers, grep them to find the best cfg or cl: quickRegtest_names-tdidf_cat-count
+[-5.3390542368583878e+30, -3211493.3726839167, -600502.65769279236, -614.04166859715178, -5.7641582298273297, -0.34874789437013298, -0.13291734450002413, -0.052735329330064307, 0.29872350653702751, 0.37804291804910817, 0.46894193983139965, 0.48242838829166224, 0.5127131538181533, 0.52519398070693291, 0.53773090475020902, 0.54365244533925028, 0.54379159485768558, 0.54922641906566916, 0.55746497199840717, 0.56035863788427287, 0.56271616075852582, 0.57871917663469763]

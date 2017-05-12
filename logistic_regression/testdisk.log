@@ -1,0 +1,396 @@
+
+
+Wed Apr 26 18:22:20 2017
+Command line: TestDisk
+
+TestDisk 6.14, Data Recovery Utility, July 2013
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 3.13.0-116-generic (#163-Ubuntu SMP Fri Mar 31 14:13:22 UTC 2017) x86_64
+Compiler: GCC 4.8
+Compilation date: 2013-10-29T01:29:29
+ext2fs lib: 1.42.9, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 1 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 21 GB / 20 GiB - CHS 2610 255 63, sector size=512 - VMware Virtual disk, FW:1.0
+
+Partition table type (auto): Intel
+Disk /dev/sda - 21 GB / 20 GiB - VMware Virtual disk
+Partition table type: Intel
+
+Interface Advanced
+Geometry from i386 MBR: head=255 sector=63
+ 1 P Linux Swap               0  32 33   121 157 36    1951744
+     SWAP2 version 1, pagesize=4096, 999 MB / 953 MiB
+ 2 * Linux                  121 157 37  2610 180  2   39987200
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 20 GB / 19 GiB
+
+
+dir_partition inode=2
+ 2 * Linux                  121 157 37  2610 180  2   39987200
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 20 GB / 19 GiB
+Directory /
+       2 drwxr-xr-x     0      0      4096 26-Apr-2017 17:13 .
+       2 drwxr-xr-x     0      0      4096 26-Apr-2017 17:13 ..
+      11 drwx------     0      0     16384 15-Oct-2014 10:59 lost+found
+  130817 drwxr-xr-x     0      0      4096 26-Apr-2017 17:14 etc
+  654081 drwxr-xr-x     0      0      4096 15-Oct-2014 10:59 media
+  261633 drwxr-xr-x     0      0      4096 23-Feb-2017 05:02 bin
+  392449 drwxr-xr-x     0      0      4096 26-Apr-2017 17:14 boot
+  784897 drwxr-xr-x     0      0      4096 15-Oct-2014 10:59 dev
+  915713 drwxr-xr-x     0      0      4096 15-Oct-2014 11:11 home
+ 1046529 drwxr-xr-x     0      0      4096 25-Feb-2017 08:45 lib
+  261749 drwxr-xr-x     0      0      4096 12-Apr-2017 17:13 lib64
+  915714 drwxr-xr-x     0      0      4096 10-Apr-2014 23:12 mnt
+  392450 drwxr-xr-x     0      0      4096  6-Apr-2017 18:34 opt
+      12 drwxr-xr-x     0      0      4096 10-Apr-2014 23:12 proc
+  784986 drwx------     0      0      4096  6-Apr-2017 14:02 root
+  915715 drwxr-xr-x     0      0      4096 15-Oct-2014 11:03 run
+  654084 drwxr-xr-x     0      0     12288 12-Apr-2017 17:13 sbin
+  261751 drwxr-xr-x     0      0      4096 16-Apr-2014 22:02 srv
+  392451 drwxr-xr-x     0      0      4096 13-Mar-2014 01:41 sys
+      13 drwxrwxrwt     0      0      4096 26-Apr-2017 18:17 tmp
+  784989 drwxr-xr-x     0      0      4096 15-Oct-2014 10:59 usr
+  261752 drwxr-xr-x     0      0      4096 15-Oct-2014 11:49 var
+   13967 lrwxrwxrwx     0      0        34 26-Apr-2017 17:13 initrd.img
+    6204 lrwxrwxrwx     0      0        31 26-Apr-2017 17:13 vmlinuz
+X   6903 lrwxrwxrwx     0      0        31 12-Apr-2017 17:13 vmlinuz.3035
+    6902 lrwxrwxrwx     0      0        34 12-Apr-2017 17:13 initrd.img.old
+    6903 lrwxrwxrwx     0      0        31 12-Apr-2017 17:13 vmlinuz.old
+
+dir_partition inode=915713
+ 2 * Linux                  121 157 37  2610 180  2   39987200
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 20 GB / 19 GiB
+Directory /home
+  915713 drwxr-xr-x     0      0      4096 15-Oct-2014 11:11 .
+       2 drwxr-xr-x     0      0      4096 26-Apr-2017 17:13 ..
+ 1054544 drwxr-xr-x  1000   1000      4096 24-Apr-2017 17:20 user
+  915716 drwxr-xr-x  1001   1001      4096 15-Oct-2014 11:25 stacs
+
+dir_partition inode=1054544
+ 2 * Linux                  121 157 37  2610 180  2   39987200
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 20 GB / 19 GiB
+Directory /home/user
+ 1054544 drwxr-xr-x  1000   1000      4096 24-Apr-2017 17:20 .
+  915713 drwxr-xr-x     0      0      4096 15-Oct-2014 11:11 ..
+ 1054545 -rw-r--r--  1000   1000       675 15-Oct-2014 11:02 .profile
+ 1054546 -rw-r--r--  1000   1000      3637 15-Oct-2014 11:02 .bashrc
+ 1054547 -rw-r--r--  1000   1000       220 15-Oct-2014 11:02 .bash_logout
+ 1054550 drwx------  1000   1000      4096  8-Apr-2017 19:23 .cache
+ 1054552 -rw-------  1000   1000     47220 26-Apr-2017 17:07 .bash_history
+ 1053490 -rw-------  1000   1000       754 18-May-2015 13:58 .viminfo
+ 1046536 drwxrwxr-x  1000   1000     12288 26-Apr-2017 10:45 data_mining
+  130890 drwxrwxr-x  1000   1000      4096 25-Feb-2017 08:45 .pip
+ 1047618 drwxrwxr-x  1000   1000      4096 26-Feb-2017 14:59 .config
+    3359 drwx------  1000   1000      4096 26-Feb-2017 18:47 .ssh
+ 1061983 -rw-r-----  1000   1000   2197672 24-Apr-2017 17:20 syslog
+ 1047138 -rw-------  1000   1000        35 14-Apr-2017 08:13 .nano_history
+ 1054166 -rw-rw-r--  1000   1000       192 31-Mar-2017 23:50 .gitconfig
+  261841 drwxr-xr-x  1000   1000      4096 30-Mar-2017 15:25 .local
+  264477 drwx------  1000   1000      4096 30-Mar-2017 16:08 .w3m
+  264642 drwxr-xr-x  1000   1000      4096 30-Mar-2017 16:26 .ipython
+  264836 drwxr-xr-x  1000   1000      4096  6-Apr-2017 22:05 .jupyter
+ 1058630 -rw-rw-r--  1000   1000    296415  1-Apr-2017 14:12 dataPrep.ipynb
+ 1058629 -rw-r--r--  1000   1000       347  1-Apr-2017 14:14 config
+ 1054161 drwxrwxr-x  1000   1000      4096  1-Apr-2017 17:19 test
+ 1046676 -rw-------  1000   1000      1736 13-Apr-2017 21:55 .python_history
+    8020 drwxr-xr-x  1000   1000      4096 23-Apr-2017 13:25 .ipynb_checkpoints
+
+dir_partition inode=1046536
+ 2 * Linux                  121 157 37  2610 180  2   39987200
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 20 GB / 19 GiB
+Directory /home/user/data_mining
+ 1046536 drwxrwxr-x  1000   1000     12288 26-Apr-2017 10:45 .
+ 1054544 drwxr-xr-x  1000   1000      4096 24-Apr-2017 17:20 ..
+X1046636 -rw-rw-r--  1000   1000      7163 14-Apr-2017 06:17 README.md
+X1046637 drwxrwxr-x  1000   1000      4096 22-Apr-2017 22:34 dataset
+X1046835 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 extras
+X1046840 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 generic_plots
+X1046845 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 imdb_data
+X1046862 drwxrwxr-x  1000   1000      4096 26-Apr-2017 10:45 linear_regression_reg
+X1047078 drwxrwxr-x  1000   1000     12288 26-Apr-2017 18:15 logistic_regression
+X1047096 drwxrwxr-x  1000   1000      4096 22-Apr-2017 09:51 neural_networks
+X1047098 -rw-rw-r--  1000   1000       332  1-Apr-2017 14:16 notes
+X1047100 -rwxrwxr-x  1000   1000      2799  1-Apr-2017 14:16 pearson_correlation.py
+X1047103 drwxrwxr-x  1000   1000      4096 22-Apr-2017 09:51 random_forests
+X1047120 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 report
+X1047129 -rw-rw-r--  1000   1000      1138  8-Apr-2017 19:24 requirements.txt
+X1047131 -rw-rw----  1000   1000        42  1-Apr-2017 14:20 .gitattributes
+X1054168 drwxrwxr-x  1000   1000      4096  2-Apr-2017 13:43 linear_regression_su
+X1047102 -rw-rw-r--  1000   1000      2010  3-Apr-2017 16:53 reg_work_dist.txt
+X1058637 drwxrwxr-x  1000   1000      4096 26-Apr-2017 10:58 regression_su
+X1058700 -rw-rw-r--  1000   1000     18202 23-Apr-2017 12:24 regressor_solver.py
+X1058682 drwxrwxr-x  1000   1000     12288 23-Apr-2017 11:55 quick_classify_results
+X1061604 drwxrwxr-x  1000   1000      4096 14-Apr-2017 06:17 decision_trees_knn
+X1061381 drwxr-xr-x     0      0      4096 26-Apr-2017 17:13 results_sort.py
+X1061227 drwxrwxr-x  1000   1000      4096 23-Apr-2017 12:29 tmp
+X   8018 drwxr-xr-x  1000   1000      4096 15-Apr-2017 10:03 .ipynb_checkpoints
+X1061233 -rw-rw-r--  1000   1000    108830 22-Apr-2017 12:22 regressRes_2017_04_22_120204_quickRegmovie_metadata_cleaned_tfidf_num_only_min.log
+X1061232 -rw-rw-r--  1000   1000     24756 22-Apr-2017 23:30 quick_solver.py
+X1061235 -rw-rw-r--  1000   1000    104116 22-Apr-2017 12:34 classifyRes_2017_04_22_122210_quickClassmovie_metadata_cleaned_tfidf_num_only_min_label_gross_3.log
+X1061236 -rw-rw-r--  1000   1000    105977 22-Apr-2017 12:41 classifyRes_2017_04_22_122210_quickClassmovie_metadata_cleaned_tfidf_num_only_min_label_gross_2.log
+X1061237 -rw-rw-r--  1000   1000    104674 22-Apr-2017 12:55 classifyRes_2017_04_22_122210_quickClassmovie_metadata_cleaned_tfidf_num_only_min_label_gross_4.log
+X1061238 -rw-rw-r--  1000   1000    104475 22-Apr-2017 13:11 classifyRes_2017_04_22_122210_quickClassmovie_metadata_cleaned_tfidf_num_only_min_label_gross_5.log
+X1061239 -rw-rw-r--  1000   1000     82931 22-Apr-2017 13:12 regressRes_2017_04_22_131158_quickRegmovie_metadata_cleaned_categ_num_only.log
+X1061240 -rw-rw-r--  1000   1000    106480 22-Apr-2017 13:13 classifyRes_2017_04_22_131244_quickClassmovie_metadata_cleaned_categ_num_only_label_gross_3.log
+X1061241 -rw-rw-r--  1000   1000    106870 22-Apr-2017 13:13 classifyRes_2017_04_22_131244_quickClassmovie_metadata_cleaned_categ_num_only_label_gross_2.log
+X1061242 -rw-rw-r--  1000   1000    106052 22-Apr-2017 13:14 classifyRes_2017_04_22_131244_quickClassmovie_metadata_cleaned_categ_num_only_label_gross_4.log
+X1061243 -rw-rw-r--  1000   1000    105765 22-Apr-2017 13:15 classifyRes_2017_04_22_131244_quickClassmovie_metadata_cleaned_categ_num_only_label_gross_5.log
+X1061244 -rw-rw-r--  1000   1000     86015 22-Apr-2017 13:15 regressRes_2017_04_22_131502_quickRegmovie_metadata_cleaned_no_vector_num_only.log
+X1061245 -rw-rw-r--  1000   1000    110694 22-Apr-2017 13:15 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_3.log
+X1061246 -rw-rw-r--  1000   1000    111761 22-Apr-2017 13:15 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_2.log
+X1061247 -rw-rw-r--  1000   1000    111218 22-Apr-2017 13:16 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_4.log
+X1061248 -rw-rw-r--  1000   1000    110648 22-Apr-2017 13:16 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_5.log
+X1061249 -rw-rw-r--  1000   1000     82803 22-Apr-2017 13:31 regressRes_2017_04_22_131625_quickRegmovie_metadata_cleaned_cat-name_vector_no_imbd.log
+X1061250 -rw-rw-r--  1000   1000    105470 22-Apr-2017 13:36 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_3.log
+X1061251 -rw-rw-r--  1000   1000    105822 22-Apr-2017 13:40 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_2.log
+X1061252 -rw-rw-r--  1000   1000    105435 22-Apr-2017 13:46 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_4.log
+X1061253 -rw-rw-r--  1000   1000    106559 22-Apr-2017 13:53 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_5.log
+X1061254 -rw-rw-r--  1000   1000     83971 22-Apr-2017 13:53 regressRes_2017_04_22_135317_quickRegmovie_metadata_cleaned_cat_vector_no_imbd.log
+X1061255 -rw-rw-r--  1000   1000    107342 22-Apr-2017 13:54 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_3.log
+X1061256 -rw-rw-r--  1000   1000    108027 22-Apr-2017 13:54 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_2.log
+X1061257 -rw-rw-r--  1000   1000    106829 22-Apr-2017 13:55 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_4.log
+X1061258 -rw-rw-r--  1000   1000    105674 22-Apr-2017 13:56 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_5.log
+X1061259 -rw-rw-r--  1000   1000     12484 22-Apr-2017 15:09 regressRes_2017_04_22_135614_quickRegmovie_metadata_cleaned_cat_min3_tfidf_no_imbd.log
+X1061260 -rw-rw-r--  1000   1000    106860 22-Apr-2017 15:35 regressRes_2017_04_22_150945_quickRegmovie_metadata_cleaned_cat_min3_tfidf_no_imbd.log
+X1061261 -rw-rw-r--  1000   1000     12750 22-Apr-2017 16:04 classifyRes_2017_04_22_153502_quickClassmovie_metadata_cleaned_cat_min3_tfidf_no_imbd_label_gross_3.log
+X1061271 -rw-rw-r--  1000   1000     81118 22-Apr-2017 18:54 regressRes_quickRegtest_names-count_cat-count_2017_04_22_185115.log
+X1061272 -rw-rw-r--  1000   1000    106075 22-Apr-2017 18:56 classifyRes_quickClasstest_names-count_cat-count_label_gross_3_2017_04_22_185433.log
+X1061273 -rw-rw-r--  1000   1000    106346 22-Apr-2017 18:57 classifyRes_quickClasstest_names-count_cat-count_label_gross_2_2017_04_22_185433.log
+X1061274 -rw-rw-r--  1000   1000     79538 22-Apr-2017 19:00 regressRes_quickRegtest_names-count_cat-td_2017_04_22_185759.log
+X1061275 -rw-rw-r--  1000   1000    105739 22-Apr-2017 19:02 classifyRes_quickClasstest_names-count_cat-td_label_gross_3_2017_04_22_190041.log
+X1061276 -rw-rw-r--  1000   1000    108240 22-Apr-2017 19:03 classifyRes_quickClasstest_names-count_cat-td_label_gross_2_2017_04_22_190041.log
+ 1046632 -rw-rw-r--  1000   1000       162 26-Apr-2017 10:45 .gitignore
+ 1046835 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 extras
+ 1047098 -rw-rw-r--  1000   1000       332  1-Apr-2017 14:16 notes
+ 1047100 -rwxrwxr-x  1000   1000      2799  1-Apr-2017 14:16 pearson_correlation.py
+ 1047120 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 report
+ 1054168 drwxrwxr-x  1000   1000      4096  2-Apr-2017 13:43 linear_regression_su
+ 1047102 -rw-rw-r--  1000   1000      2010  3-Apr-2017 16:53 reg_work_dist.txt
+ 1061604 drwxrwxr-x  1000   1000      4096 14-Apr-2017 06:17 decision_trees_knn
+ 1061227 drwxrwxr-x  1000   1000      4096 23-Apr-2017 12:29 tmp
+ 1061778 -rw-rw-r--  1000   1000    756650 23-Apr-2017 12:11 regressRes_2017_04_23_120446_samples_class1.log
+ 1061779 -rw-rw-r--  1000   1000    792041 23-Apr-2017 12:16 regressRes_2017_04_23_121149_all_samples.log
+ 1061781 -rw-rw-r--  1000   1000    957796 23-Apr-2017 12:23 regressRes_2017_04_23_121811_all_samples.log
+ 1047070 drwxrwxr-x  1000   1000      4096 26-Apr-2017 10:45 eda
+X1061244 -rw-rw-r--  1000   1000     86015 22-Apr-2017 13:15 regressRes_2017_04_22_131502_quickRegmovie_metadata_cleaned_no_vector_num_only.log
+X1061245 -rw-rw-r--  1000   1000    110694 22-Apr-2017 13:15 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_3.log
+X1061247 -rw-rw-r--  1000   1000    111218 22-Apr-2017 13:16 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_4.log
+X1061249 -rw-rw-r--  1000   1000     82803 22-Apr-2017 13:31 regressRes_2017_04_22_131625_quickRegmovie_metadata_cleaned_cat-name_vector_no_imbd.log
+X1061250 -rw-rw-r--  1000   1000    105470 22-Apr-2017 13:36 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_3.log
+X1061251 -rw-rw-r--  1000   1000    105822 22-Apr-2017 13:40 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_2.log
+X1061252 -rw-rw-r--  1000   1000    105435 22-Apr-2017 13:46 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_4.log
+X1061253 -rw-rw-r--  1000   1000    106559 22-Apr-2017 13:53 classifyRes_2017_04_22_133133_quickClassmovie_metadata_cleaned_cat-name_vector_no_imbd_label_gross_5.log
+X1061256 -rw-rw-r--  1000   1000    108027 22-Apr-2017 13:54 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_2.log
+X1061258 -rw-rw-r--  1000   1000    105674 22-Apr-2017 13:56 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_5.log
+X1061260 -rw-rw-r--  1000   1000    106860 22-Apr-2017 15:35 regressRes_2017_04_22_150945_quickRegmovie_metadata_cleaned_cat_min3_tfidf_no_imbd.log
+X1061261 -rw-rw-r--  1000   1000     12750 22-Apr-2017 16:04 classifyRes_2017_04_22_153502_quickClassmovie_metadata_cleaned_cat_min3_tfidf_no_imbd_label_gross_3.log
+X1061272 -rw-rw-r--  1000   1000    106075 22-Apr-2017 18:56 classifyRes_quickClasstest_names-count_cat-count_label_gross_3_2017_04_22_185433.log
+X1061275 -rw-rw-r--  1000   1000    105739 22-Apr-2017 19:02 classifyRes_quickClasstest_names-count_cat-td_label_gross_3_2017_04_22_190041.log
+X1061276 -rw-rw-r--  1000   1000    108240 22-Apr-2017 19:03 classifyRes_quickClasstest_names-count_cat-td_label_gross_2_2017_04_22_190041.log
+X1061277 -rw-rw-r--  1000   1000     80047 22-Apr-2017 19:06 regressRes_quickRegtest_names-count_cat-tdidf_2017_04_22_190323.log
+X1061282 -rw-rw-r--  1000   1000    107998 22-Apr-2017 19:14 classifyRes_quickClasstest_names-td_cat-count_label_gross_2_2017_04_22_191144.log
+X1061284 -rw-rw-r--  1000   1000    105338 22-Apr-2017 19:18 classifyRes_quickClasstest_names-td_cat-td_label_gross_3_2017_04_22_191708.log
+X1061285 -rw-rw-r--  1000   1000    106718 22-Apr-2017 19:19 classifyRes_quickClasstest_names-td_cat-td_label_gross_2_2017_04_22_191708.log
+X1061287 -rw-rw-r--  1000   1000    107408 22-Apr-2017 19:24 classifyRes_quickClasstest_names-td_cat-tdidf_label_gross_3_2017_04_22_192241.log
+X1061290 -rw-rw-r--  1000   1000    104728 22-Apr-2017 19:29 classifyRes_quickClasstest_names-tdidf_cat-count_label_gross_3_2017_04_22_192812.log
+X1061292 -rw-rw-r--  1000   1000     81171 22-Apr-2017 19:33 regressRes_quickRegtest_names-tdidf_cat-td_2017_04_22_193056.log
+X1061293 -rw-rw-r--  1000   1000    106633 22-Apr-2017 19:35 classifyRes_quickClasstest_names-tdidf_cat-td_label_gross_3_2017_04_22_193342.log
+X1061296 -rw-rw-r--  1000   1000    105634 22-Apr-2017 19:40 classifyRes_quickClasstest_names-tdidf_cat-tdidf_label_gross_3_2017_04_22_193918.log
+ 1061418 -rw-rw-r--  1000   1000    959547 23-Apr-2017 12:00 regressRes_2017_04_23_115450_all_samples.log
+X1061256 -rw-rw-r--  1000   1000    108027 22-Apr-2017 13:54 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_2.log
+X1061258 -rw-rw-r--  1000   1000    105674 22-Apr-2017 13:56 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_5.log
+X1061260 -rw-rw-r--  1000   1000    106860 22-Apr-2017 15:35 regressRes_2017_04_22_150945_quickRegmovie_metadata_cleaned_cat_min3_tfidf_no_imbd.log
+X1061261 -rw-rw-r--  1000   1000     12750 22-Apr-2017 16:04 classifyRes_2017_04_22_153502_quickClassmovie_metadata_cleaned_cat_min3_tfidf_no_imbd_label_gross_3.log
+X1061272 -rw-rw-r--  1000   1000    106075 22-Apr-2017 18:56 classifyRes_quickClasstest_names-count_cat-count_label_gross_3_2017_04_22_185433.log
+X1061275 -rw-rw-r--  1000   1000    105739 22-Apr-2017 19:02 classifyRes_quickClasstest_names-count_cat-td_label_gross_3_2017_04_22_190041.log
+X1061276 -rw-rw-r--  1000   1000    108240 22-Apr-2017 19:03 classifyRes_quickClasstest_names-count_cat-td_label_gross_2_2017_04_22_190041.log
+ 1061840 -rw-rw-r--  1000   1000    802122 23-Apr-2017 12:09 regressRes_2017_04_23_120446_all_samples.log
+ 1061780 -rw-rw-r--  1000   1000    393721 23-Apr-2017 12:17 regressRes_2017_04_23_121149_samples_class1.log
+ 1061845 -rw-rw-r--  1000   1000    113710 23-Apr-2017 12:24 regressRes_2017_04_23_121811_samples_class1.log
+ 1061828 -rw-rw-r--  1000   1000    801420 23-Apr-2017 12:29 regressRes_2017_04_23_122449_all_samples.log
+ 1047129 -rw-rw-r--  1000   1000      1138  8-Apr-2017 19:24 requirements.txt
+ 1046637 drwxrwxr-x  1000   1000      4096 22-Apr-2017 22:34 dataset
+ 1047131 -rw-rw----  1000   1000        42  1-Apr-2017 14:20 .gitattributes
+ 1061782 -rw-rw-r--  1000   1000     15870 23-Apr-2017 12:29 regressRes_2017_04_23_122449_samples_class1.log
+  392906 drwxrwxr-x  1000   1000      4096 26-Apr-2017 10:45 .git
+    8018 drwxr-xr-x  1000   1000      4096 15-Apr-2017 10:03 .ipynb_checkpoints
+X1061274 -rw-rw-r--  1000   1000     79538 22-Apr-2017 19:00 regressRes_quickRegtest_names-count_cat-td_2017_04_22_185759.log
+X1061273 -rw-rw-r--  1000   1000    106346 22-Apr-2017 18:57 classifyRes_quickClasstest_names-count_cat-count_label_gross_2_2017_04_22_185433.log
+X1061259 -rw-rw-r--  1000   1000     12484 22-Apr-2017 15:09 regressRes_2017_04_22_135614_quickRegmovie_metadata_cleaned_cat_min3_tfidf_no_imbd.log
+ 1046636 -rw-rw-r--  1000   1000      7163 14-Apr-2017 06:17 README.md
+X1061243 -rw-rw-r--  1000   1000    105765 22-Apr-2017 13:15 classifyRes_2017_04_22_131244_quickClassmovie_metadata_cleaned_categ_num_only_label_gross_5.log
+ 1047096 drwxrwxr-x  1000   1000      4096 22-Apr-2017 09:51 neural_networks
+X1061240 -rw-rw-r--  1000   1000    106480 22-Apr-2017 13:13 classifyRes_2017_04_22_131244_quickClassmovie_metadata_cleaned_categ_num_only_label_gross_3.log
+X1061248 -rw-rw-r--  1000   1000    110648 22-Apr-2017 13:16 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_5.log
+ 1046845 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 imdb_data
+X1061235 -rw-rw-r--  1000   1000    104116 22-Apr-2017 12:34 classifyRes_2017_04_22_122210_quickClassmovie_metadata_cleaned_tfidf_num_only_min_label_gross_3.log
+ 1058700 -rw-rw-r--  1000   1000     18202 23-Apr-2017 12:24 regressor_solver.py
+X1061233 -rw-rw-r--  1000   1000    108830 22-Apr-2017 12:22 regressRes_2017_04_22_120204_quickRegmovie_metadata_cleaned_tfidf_num_only_min.log
+ 1047078 drwxrwxr-x  1000   1000     12288 26-Apr-2017 18:15 logistic_regression
+X1061255 -rw-rw-r--  1000   1000    107342 22-Apr-2017 13:54 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_3.log
+ 1061232 -rw-rw-r--  1000   1000     24756 22-Apr-2017 23:30 quick_solver.py
+X1061254 -rw-rw-r--  1000   1000     83971 22-Apr-2017 13:53 regressRes_2017_04_22_135317_quickRegmovie_metadata_cleaned_cat_vector_no_imbd.log
+X1061271 -rw-rw-r--  1000   1000     81118 22-Apr-2017 18:54 regressRes_quickRegtest_names-count_cat-count_2017_04_22_185115.log
+X1061242 -rw-rw-r--  1000   1000    106052 22-Apr-2017 13:14 classifyRes_2017_04_22_131244_quickClassmovie_metadata_cleaned_categ_num_only_label_gross_4.log
+ 1046862 drwxrwxr-x  1000   1000      4096 26-Apr-2017 10:45 linear_regression_reg
+ 1061300 -rw-rw-r--  1000   1000      4468 22-Apr-2017 23:30 results_sort.py
+ 1058682 drwxrwxr-x  1000   1000     12288 23-Apr-2017 11:55 quick_classify_results
+ 1046840 drwxrwxr-x  1000   1000      4096  1-Apr-2017 14:16 generic_plots
+ 1058637 drwxrwxr-x  1000   1000      4096 26-Apr-2017 10:58 regression_su
+X1061246 -rw-rw-r--  1000   1000    111761 22-Apr-2017 13:15 classifyRes_2017_04_22_131519_quickClassmovie_metadata_cleaned_no_vector_num_only_label_gross_2.log
+ 1047103 drwxrwxr-x  1000   1000      4096 22-Apr-2017 09:51 random_forests
+X1061257 -rw-rw-r--  1000   1000    106829 22-Apr-2017 13:55 classifyRes_2017_04_22_135358_quickClassmovie_metadata_cleaned_cat_vector_no_imbd_label_gross_4.log
+X1061278 -rw-rw-r--  1000   1000    105961 22-Apr-2017 19:07 classifyRes_quickClasstest_names-count_cat-tdidf_label_gross_3_2017_04_22_190609.log
+X1061279 -rw-rw-r--  1000   1000    106177 22-Apr-2017 19:09 classifyRes_quickClasstest_names-count_cat-tdidf_label_gross_2_2017_04_22_190609.log
+X1061280 -rw-rw-r--  1000   1000     81734 22-Apr-2017 19:11 regressRes_quickRegtest_names-td_cat-count_2017_04_22_190903.log
+X1061281 -rw-rw-r--  1000   1000    105284 22-Apr-2017 19:13 classifyRes_quickClasstest_names-td_cat-count_label_gross_3_2017_04_22_191144.log
+X1061283 -rw-rw-r--  1000   1000     80117 22-Apr-2017 19:17 regressRes_quickRegtest_names-td_cat-td_2017_04_22_191426.log
+X1061286 -rw-rw-r--  1000   1000     81137 22-Apr-2017 19:22 regressRes_quickRegtest_names-td_cat-tdidf_2017_04_22_191958.log
+X1061288 -rw-rw-r--  1000   1000    106570 22-Apr-2017 19:25 classifyRes_quickClasstest_names-td_cat-tdidf_label_gross_2_2017_04_22_192241.log
+X1061289 -rw-rw-r--  1000   1000     80916 22-Apr-2017 19:28 regressRes_quickRegtest_names-tdidf_cat-count_2017_04_22_192531.log
+X1061291 -rw-rw-r--  1000   1000    106615 22-Apr-2017 19:30 classifyRes_quickClasstest_names-tdidf_cat-count_label_gross_2_2017_04_22_192812.log
+X1061294 -rw-rw-r--  1000   1000    106252 22-Apr-2017 19:36 classifyRes_quickClasstest_names-tdidf_cat-td_label_gross_2_2017_04_22_193342.log
+X1061295 -rw-rw-r--  1000   1000     80419 22-Apr-2017 19:39 regressRes_quickRegtest_names-tdidf_cat-tdidf_2017_04_22_193633.log
+X1061297 -rw-rw-r--  1000   1000    105207 22-Apr-2017 19:42 classifyRes_quickClasstest_names-tdidf_cat-tdidf_label_gross_2_2017_04_22_193918.log
+X1061418 -rw-rw-r--  1000   1000    959547 23-Apr-2017 12:00 .~regressor_solver.py
+
+dir_partition inode=1047078
+ 2 * Linux                  121 157 37  2610 180  2   39987200
+     ext4 blocksize=4096 Large file Sparse superblock Recover, 20 GB / 19 GiB
+Directory /home/user/data_mining/logistic_regression
+ 1047078 drwxrwxr-x  1000   1000     12288 26-Apr-2017 18:15 .
+ 1046536 drwxrwxr-x  1000   1000     12288 26-Apr-2017 10:45 ..
+X1047081 -rw-rw-r--  1000   1000     29133  8-Apr-2017 09:37 LogisticRegressionNotebookDraft.ipynb
+X1047082 -rw-rw-r--  1000   1000    250884  1-Apr-2017 14:16 PipelineTesting.ipynb
+X1046665 drwxrwxr-x  1000   1000      4096 26-Apr-2017 17:36 tmp
+X1047084 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifier_solver.py
+X1047085 -rwxrwxr-x  1000   1000      7146  1-Apr-2017 14:16 logistic_iteration.py
+X1047087 -rwxrwxr-x  1000   1000      7057  1-Apr-2017 14:47 logistic_pipeline.py
+X1058650 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 dataPrep.ipynb
+X1046701 -rw-rw-r--  1000   1000     27784 26-Apr-2017 17:50 classifyRes_2017_04_16_085712_narrowed_down_label_gross_3.log
+X1047095 -rw-rw-r--  1000   1000   1494688  1-Apr-2017 14:20 working_dataset.csv
+X1047130 drwxr-xr-x  1000   1000      4096  3-Apr-2017 20:08 .ipynb_checkpoints
+X1047135 -rw-r--r--     0      0    331610  1-Apr-2017 14:44 dataPrep.ipynb.save
+X1047083 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifier_solver.ipynb
+X1058699 -rw-rw-r--  1000   1000    602806 26-Apr-2017 10:45 svr_tensorflow.ipynb
+X1058671 -rw-rw-r--  1000   1000    157797  8-Apr-2017 09:37 regressor_solver.ipynb
+X1061647 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_3.log
+X1046706 -rw-rw-r--  1000   1000     20531 26-Apr-2017 18:22 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_2.log
+X1046708 drwxr-xr-x     0      0      4096 26-Apr-2017 18:15 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_4.log
+X1046712 drwxr-xr-x     0      0      4096 26-Apr-2017 18:15 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_5.log
+X1046717 drwxr-xr-x     0      0      4096 26-Apr-2017 18:15 classifyRes_2017_04_14_132333_pipe_empty_models_label_gross_3.log
+X1058699 -rw-rw-r--  1000   1000    602806 26-Apr-2017 10:45 svr_tensorflow.ipynb
+X1061658 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_115238_pipe_empty_models_label_gross_4.log
+X1061653 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_073002_pipe_empty_models_label_gross_2.log
+X1064538 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 .~classifier_solver.py
+X1062045 drwxrwxr-x  1000   1000      4096 15-Apr-2017 12:13 old_logs
+X1061464 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_115238_pipe_empty_models_label_gross_2.log
+X1061659 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_115238_pipe_empty_models_label_gross_5.log
+X1046720 drwxr-xr-x     0      0      4096 26-Apr-2017 18:17 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_3.log
+X1046734 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_2.log
+X1046751 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_4.log
+X1046755 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_5.log
+X1046786 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_171026_narrowed_down_label_gross_3.log
+X1061383 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_223340_narrowed_down_label_gross_3.log
+X1061319 -rw-rw-r--     0      0     45107 26-Apr-2017 18:13 classifyRes_2017_04_16_223340_narrowed_down_label_gross_2.log
+X1061320 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_223340_narrowed_down_label_gross_4.log
+X1061321 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_223340_narrowed_down_label_gross_5.log
+X1061325 -rw-rw-r--     0      0     27784 26-Apr-2017 17:50 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_3.log
+X1046792 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_2.log
+X1046794 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_4.log
+X1061202 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_5.log
+X1061222 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_3.log
+X1061223 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_2.log
+X1061224 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_4.log
+X1061225 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_5.log
+X1046771 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_3.log
+X1061979 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_2.log
+X1061980 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_4.log
+X1061981 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_5.log
+X1061302 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_3.log
+X1061303 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_2.log
+X1061304 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_4.log
+X1061305 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_5.log
+X1061306 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_3.log
+X1061342 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_2.log
+X1061343 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_4.log
+X1061344 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_5.log
+X1061307 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_3.log
+X1061308 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_2.log
+X1061309 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_4.log
+X1061310 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_5.log
+ 1047082 -rw-rw-r--  1000   1000    250884  1-Apr-2017 14:16 PipelineTesting.ipynb
+ 1046665 drwxrwxr-x  1000   1000      4096 26-Apr-2017 17:36 tmp
+ 1046708 drwxr-xr-x     0      0      4096 26-Apr-2017 18:15 home
+ 1047095 -rw-rw-r--  1000   1000   1494688  1-Apr-2017 14:20 working_dataset.csv
+ 1047135 -rw-r--r--     0      0    331610  1-Apr-2017 14:44 dataPrep.ipynb.save
+X1046706 -rw-rw-r--  1000   1000     20531 26-Apr-2017 18:22 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_2.log
+X1046712 drwxr-xr-x     0      0      4096 26-Apr-2017 18:15 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_5.log
+X1046717 drwxr-xr-x     0      0      4096 26-Apr-2017 18:15 classifyRes_2017_04_14_132333_pipe_empty_models_label_gross_3.log
+X1061658 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_115238_pipe_empty_models_label_gross_4.log
+X1061653 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_073002_pipe_empty_models_label_gross_2.log
+ 1062045 drwxrwxr-x  1000   1000      4096 15-Apr-2017 12:13 old_logs
+X1046720 drwxr-xr-x     0      0      4096 26-Apr-2017 18:17 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_3.log
+X1046751 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_4.log
+X1061383 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_223340_narrowed_down_label_gross_3.log
+X1061320 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_223340_narrowed_down_label_gross_4.log
+X1046794 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_4.log
+X1061202 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_5.log
+X1061222 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_3.log
+X1061223 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_2.log
+X1061224 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_4.log
+X1046771 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_3.log
+X1061980 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_4.log
+X1061304 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_4.log
+X1061306 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_3.log
+X1061342 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_2.log
+X1061309 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_4.log
+X1061310 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_5.log
+X1064540 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 .~classifier_solver.py
+X1046794 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_4.log
+X1061202 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_5.log
+X1061222 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_3.log
+X1061223 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_2.log
+X1061224 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_4.log
+X1046771 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_3.log
+X1061980 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_4.log
+X1061304 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_4.log
+X1061306 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_3.log
+X1061342 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_2.log
+X1061309 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_4.log
+X1061310 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_5.log
+ 1046701 -rw-rw-r--  1000   1000     27784 26-Apr-2017 17:50 classifier_solver.py
+ 1046706 -rw-rw-r--  1000   1000     20531 26-Apr-2017 18:22 testdisk.log
+X1061305 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_5.log
+ 1047087 -rwxrwxr-x  1000   1000      7057  1-Apr-2017 14:47 logistic_pipeline.py
+ 1047080 -rw-rw-r--  1000   1000     87497  1-Apr-2017 14:16 LogisticRegression.ipynb
+X1061647 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_3.log
+X1061325 -rw-rw-r--     0      0     27784 26-Apr-2017 17:50 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_3.log
+ 1047130 drwxr-xr-x  1000   1000      4096  3-Apr-2017 20:08 .ipynb_checkpoints
+X1061321 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_223340_narrowed_down_label_gross_5.log
+X1061464 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_115238_pipe_empty_models_label_gross_2.log
+X1061319 -rw-rw-r--     0      0     45107 26-Apr-2017 18:13 classifyRes_2017_04_16_223340_narrowed_down_label_gross_2.log
+X1061225 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_073029_names_no_imbd_no_pipe_no_params_label_gross_5.log
+X1046792 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_22_070306_no_imbd_no_pipe_no_params_label_gross_2.log
+X1061659 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_115238_pipe_empty_models_label_gross_5.log
+X1046786 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_16_171026_narrowed_down_label_gross_3.log
+X1061303 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_2.log
+ 1047081 -rw-rw-r--  1000   1000     29133  8-Apr-2017 09:37 LogisticRegressionNotebookDraft.ipynb
+ 1058699 -rw-rw-r--  1000   1000    602806 26-Apr-2017 10:45 svr_tensorflow.ipynb
+X1061979 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_2.log
+X1061307 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_3.log
+X1061344 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_25_174023_no_imdb_narrowed_down_label_gross_5.log
+ 1058671 -rw-rw-r--  1000   1000    157797  8-Apr-2017 09:37 regressor_solver.ipynb
+X1046734 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_2.log
+X1058650 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 dataPrep.ipynb
+X1046755 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_15_193715_pipe_empty_models_label_gross_5.log
+X1046708 drwxr-xr-x     0      0      4096 26-Apr-2017 18:15 classifyRes_2017_04_14_093111_full_models_no_pipe_label_gross_4.log
+ 1047085 -rwxrwxr-x  1000   1000      7146  1-Apr-2017 14:16 logistic_iteration.py
+X1061981 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_23_171847_no_imdb_full_pipe_no_model_params_label_gross_5.log
+X1047083 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifier_solver.ipynb
+X1061308 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_144601_no_imdb_gradient_boost_only_label_gross_2.log
+X1061302 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_24_222228_no_imdb_mp_pipe_model_params_label_gross_3.log
+X1047084 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifier_solver.py
+X1064538 -rw-rw-r--     0      0         0 26-Apr-2017 17:48 classifyRes_2017_04_26_173625_no_imdb_gradient_boost_only_label_gross_3.log
+SIGINT detected! TestDisk has been killed.
