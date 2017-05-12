@@ -1,5 +1,5 @@
 # This is a masters course project for producing a predictive data mining model. 
-Based on https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset
+Based on https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset </br>
 Transformed data(too big for github) avail here https://www.dropbox.com/sh/3s8x3sfh6byv8lo/AACZ6_2ZekNYB-4MO8DtzKkPa?dl=0
 
 ## Running the regressor_solver.py script with [GridSearchCV](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
