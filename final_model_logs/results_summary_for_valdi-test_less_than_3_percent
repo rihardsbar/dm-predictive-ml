@@ -1,0 +1,61 @@
+	Pre last run results
+
+####################################2 labels 
+
+0.981765327696 n.nnnnnnnnnnn 0.915522703273 (GradientBoostingClassifier):["max_depth': 10", "max_features': 0.01", "max_leaf_nodes': None", "learning_rate': 0.1", "n_estimators': 200", "min_samples_leaf': 5"] | log_poly : ["kw_args': {'pw': 1"] StandardScaler : [] RFE : ["n_features_to_select': 57", "step': 0.1"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["max_depth': 10", "max_features': 0.1", "max_leaf_nodes': None", "learning_rate': 0.01", "n_estimators': 500", "min_samples_leaf': 5"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["n_features_to_select': 66", "step': 0.1"]
+0.95656740384 0.664066810825 0.675873065859
+
+
+
+####################################3 labels
+
+0.872093023256 n.nnnnnnnnnnn 0.770855332629 (GradientBoostingClassifier):["max_leaf_nodes': None", "learning_rate': 0.01", "max_features': 0.01", "n_estimators': 200", "min_samples_leaf': 5", "max_depth': 10"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 66"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["max_leaf_nodes': None", "learning_rate': 0.01", "max_features': 0.1", "n_estimators': 500", "min_samples_leaf': 5", "max_depth': 10"] | log_poly : ["kw_args': {'pw': 1"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 57"]
+0.905552568141 0.668622212815 0.690520631807
+
+
+###################################4 labels
+
+0.850158562368 n.nnnnnnnnnnn 0.627243928194 (GradientBoostingClassifier):["max_depth': 10", "max_features': 0.01", "max_leaf_nodes': None", "learning_rate': 0.01", "n_estimators': 200", "min_samples_leaf': 5"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["n_features_to_select': 66", "step': 0.1"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["max_depth': 10", "max_features': 0.1", "max_leaf_nodes': None", "learning_rate': 0.01", "n_estimators': 500", "min_samples_leaf': 5"] | log_poly : ["kw_args': {'pw': 1"] StandardScaler : [] RFE : ["n_features_to_select': 57", "step': 0.1"]
+0.912986089612 0.686939539543 0.680282107797
+
+
+##################################5 labels
+
+0.867864693446 n.nnnnnnnnnnn 0.549102428722 (GradientBoostingClassifier):["min_samples_leaf': 5", "n_estimators': 200", "max_features': 0.01", "max_depth': 10", "max_leaf_nodes': None", "learning_rate': 0.01"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 66"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["min_samples_leaf': 50", "n_estimators': 500", "max_features': 0.1", "max_depth': 5", "max_leaf_nodes': 5", "learning_rate': 0.01"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 66"]
+0.722682872499 0.690479028748 0.669586756681
+
+
+##################################6 labels
+
+0.834038054968 n.nnnnnnnnnnn 0.493136219641 (GradientBoostingClassifier):["max_features': 0.01", "max_leaf_nodes': None", "learning_rate': 0.01", "min_samples_leaf': 5", "max_depth': 10", "n_estimators': 200"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 66"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["max_features': 0.1", "max_leaf_nodes': 5", "learning_rate': 0.01", "min_samples_leaf': 50", "max_depth': 10", "n_estimators': 500"] | log_poly : ["kw_args': {'pw': 3"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 63"]
+0.757704409937 0.720258601436 0.691383599933
+
+
+#################################7 labels
+
+0.838530655391 n.nnnnnnnnnnn 0.479408658923 (GradientBoostingClassifier):["max_features': 0.01", "max_leaf_nodes': None", "learning_rate': 0.1", "min_samples_leaf': 5", "max_depth': 5", "n_estimators': 500"] | log_poly : ["kw_args': {'pw': 1"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 57"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["max_features': 0.1", "max_leaf_nodes': 5", "learning_rate': 0.01", "min_samples_leaf': 50", "max_depth': 5", "n_estimators': 500"] | log_poly : ["kw_args': {'pw': 3"] StandardScaler : [] RFE : ["step': 0.1", "n_features_to_select': 63"]
+0.772229921323 0.745518153401 0.679202734906
+
+#################################8 labels
+
+0.611786469345 n.nnnnnnnnnnn 0.385427666315 (GradientBoostingClassifier):["max_leaf_nodes': None", "learning_rate': 0.01", "n_estimators': 200", "min_samples_leaf': 5", "max_features': 0.1", "max_depth': 5"] | log_poly : ["kw_args': {'pw': 2"] StandardScaler : [] RFE : ["n_features_to_select': 60", "step': 0.1"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["max_leaf_nodes': None", "learning_rate': 0.01", "n_estimators': 500", "min_samples_leaf': 5", "max_features': 0.1", "max_depth': 10"] | log_poly : ["kw_args': {'pw': 1"] StandardScaler : [] RFE : ["n_features_to_select': 57", "step': 0.1"]
+0.913572188154 0.689961449107 0.685076583732
+
+
+###################################9 labels
+0.642177589852 n.nnnnnnnnnnn 0.376979936642 (GradientBoostingClassifier):["max_leaf_nodes': None", "learning_rate': 0.01", "n_estimators': 1000", "min_samples_leaf': 5", "max_features': 0.01", "max_depth': 5"] | log_poly : ["kw_args': {'pw': 2"] StandardScaler : [] RFE : ["n_features_to_select': 60", "step': 0.1"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["max_leaf_nodes': None", "learning_rate': 0.01", "n_estimators': 500", "min_samples_leaf': 5", "max_features': 0.1", "max_depth': 5"] | log_poly : ["kw_args': {'pw': 3"] StandardScaler : [] RFE : ["n_features_to_select': 63", "step': 0.1"]
+0.844040556557 0.699538483391 0.681274342028
+
+10 lalbels
+
+0.619186046512 n.nnnnnnnnnnn 0.382259767687 (GradientBoostingClassifier):["min_samples_leaf': 5", "learning_rate': 0.01", "max_leaf_nodes': None", "max_depth': 5", "n_estimators': 200", "max_features': 0.1"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["n_features_to_select': 66", "step': 0.1"]
+n.nnnnnnnnnnn n.nnnnnnnnnnn n.nnnnnnnnnnn (GradientBoostingRegressor):["min_samples_leaf': 50", "learning_rate': 0.01", "max_leaf_nodes': 5", "max_depth': 5", "n_estimators': 500", "max_features': 0.1"] | log_poly : ["kw_args': {'pw': 4"] StandardScaler : [] RFE : ["n_features_to_select': 66", "step': 0.1"]
+0.716391094992 0.682245845513 0.681930751212
